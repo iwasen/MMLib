@@ -1,0 +1,3724 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// ニュートラル resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(932)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\MMLib.ico"
+
+IDR_MMLIBTYPE           ICON                    "res\\MMLibDoc.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+IDB_IMAGE_LIST_SMALL    BITMAP                  "res\\image_li.bmp"
+
+IDB_IMAGE_LIST_LARGE    BITMAP                  "res\\bitmap1.bmp"
+
+IDR_PICT                BITMAP                  "res\\toolbar1.bmp"
+
+IDR_VIEW                BITMAP                  "res\\bmp00001.bmp"
+
+IDR_KEYWORD             BITMAP                  "res\\bmp00002.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_NEW_DATA
+    SEPARATOR
+    BUTTON      IDM_IMPORT_PDF
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    SEPARATOR
+    BUTTON      ID_FILE_SEND_MAIL
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      IDM_FIND
+    BUTTON      IDM_KEYWORD
+    BUTTON      IDM_FIND_PICT
+    BUTTON      IDM_TEXT_SEARCH
+    SEPARATOR
+    BUTTON      IDM_ACCESS_HISTORY
+    SEPARATOR
+    BUTTON      IDM_VIEW_UPFOLDER
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_PICT TOOLBAR 16, 15
+BEGIN
+    BUTTON      IDW_COMBO
+    BUTTON      IDM_PICT_AUTOSIZE
+    BUTTON      IDM_PICT_AUTOSIZE2
+    BUTTON      IDM_PICT_ENLARGE
+    BUTTON      IDM_PICT_REDUCE
+    SEPARATOR
+    BUTTON      IDM_PICT_LEFT_ROTATE
+    BUTTON      IDM_PICT_RIGHT_ROTATE
+    BUTTON      IDM_PICT_ALL_ROTATE
+    SEPARATOR
+    BUTTON      IDM_PICT_WINDOW
+END
+
+IDR_VIEW TOOLBAR 16, 15
+BEGIN
+    BUTTON      IDM_VIEW_PREV
+    BUTTON      IDM_VIEW_NEXT
+    SEPARATOR
+    BUTTON      IDM_VIEW_MAX
+    BUTTON      IDM_VIEW_TEXT_WORDWRAP
+    SEPARATOR
+    BUTTON      IDM_VIEW_PICT
+    BUTTON      IDM_VIEW_LIST
+    BUTTON      IDM_VIEW_DETAIL
+END
+
+IDR_KEYWORD TOOLBAR 16, 15
+BEGIN
+    BUTTON      IDM_VIEW_PREV
+    BUTTON      IDM_VIEW_NEXT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_DELETE,      IDM_FILE_DELETE,        VIRTKEY, NOINVERT
+    "F",            IDM_TEXT_SEARCH,        VIRTKEY, CONTROL, NOINVERT
+END
+
+IDR_FINDFRAME ACCELERATORS
+BEGIN
+    VK_RETURN,      IDC_FIND,               VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,2,2,12
+ PRODUCTVERSION 1,2,2,12
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "Written by Shinichi Aizawa"
+            VALUE "CompanyName", "Yoshimasa Electronic Inc."
+            VALUE "FileDescription", "MMLib executable file"
+            VALUE "FileVersion", "1.2.2.12"
+            VALUE "InternalName", "MMLib"
+            VALUE "LegalCopyright", "Copyright (C) 2001-2026 Yoshimasa Electronic Inc."
+            VALUE "LegalTrademarks", "YMEC"
+            VALUE "OriginalFilename", "MMLib.EXE"
+            VALUE "ProductName", "Multimedia Library Manager"
+            VALUE "ProductVersion", "1.2.2.12"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HANDCLOSE           CURSOR                  "res\\cur00001.cur"
+
+IDC_HANDOPEN            CURSOR                  "res\\cursor1.cur"
+
+IDC_SELECT_WINDOW       CURSOR                  "res\\select_w.cur"
+
+FINGER                  CURSOR                  "res\\finger.cur"
+
+#endif    // ニュートラル resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 (日本) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 17, 1\r\n"
+    "#pragma code_page(932)\r\n"
+    "#endif\r\n"
+    "#include ""l.jpn\\afxres.rc""          // 標準のコンポーネント\r\n"
+    "#include ""l.jpn\\afxprint.rc""        // 印刷/印刷プレビュー リソース\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""afxres.rc"" // 標準のコンポーネント\r\n"
+    "#include ""afxprint.rc"" // 印刷/印刷プレビュー リソース\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "#include ""res\\MMLib.rc2""  // Microsoft Visual C++ 以外のツールで編集されたリソース\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "ファイル(&F)"
+    BEGIN
+        MENUITEM "新規作成(&N)...\tCtrl+N",         ID_FILE_NEW
+        MENUITEM "開く(&O)...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "閉じる(&C)",                     ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "情報変更(&U)...",                 ID_FILE_UPDATE
+        MENUITEM "削除(&D)\tDel",                 IDM_FILE_DELETE
+        MENUITEM "ファイルパック(&F)",                 IDM_FILE_PACK
+        MENUITEM SEPARATOR
+        MENUITEM "画像ファイル一括出力(&L)...",           IDM_IMAGE_FILES_OUTPUT
+        MENUITEM "エクスポート(&E)...",               ID_FILE_EXPORT
+        POPUP "インポート(&I)"
+        BEGIN
+            MENUITEM "画像ファイル(&G)...",               IDM_IMPORT_BMP
+            MENUITEM "MMLファイル(&M)...",              IDM_IMPORT_MML
+            MENUITEM "MMDBファイル(&D)...",             IDM_IMPORT_MMDB
+            MENUITEM "ﾌﾟﾚｽﾄﾍﾟｰｼﾞﾏﾈｰｼﾞｬｰ(&P)...",    IDM_IMPORT_PPM
+            MENUITEM "PDFファイル(&F)...",              IDM_IMPORT_PDF
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "パスワード設定(&W)...",              IDM_FILE_PASSWORD
+        MENUITEM "アクセス制限(&A)...",               IDM_FILE_PERMISSION
+        MENUITEM SEPARATOR
+        MENUITEM "ページ設定(&G)...",                ID_FILE_PAGE_SETUP
+        MENUITEM "印刷(&P)...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "印刷プレビュー(&V)...",              ID_FILE_PRINT_PREVIEW
+        MENUITEM SEPARATOR
+        MENUITEM "メール送信(&M)...",                ID_FILE_SEND_MAIL
+        MENUITEM "環境設定(&T)...",                 IDM_OPTION
+        MENUITEM SEPARATOR
+        MENUITEM "バックアップ(&B)...",               IDM_BACKUP
+        MENUITEM "リストア(&S)...",                 IDM_RESTORE
+        MENUITEM SEPARATOR
+        MENUITEM "アプリケーションの終了(&X)",             ID_APP_EXIT
+    END
+    POPUP "編集(&E)"
+    BEGIN
+        MENUITEM "元に戻す(&U)\tCtrl+Z",            ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "切り取り(&T)\tCtrl+X",            ID_EDIT_CUT, INACTIVE
+        MENUITEM "コピー(&C)\tCtrl+C",             ID_EDIT_COPY
+        MENUITEM "貼り付け(&P)\tCtrl+V",            ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "すべて選択(&L)\tCtrl+A",           ID_EDIT_SELECT_ALL
+    END
+    POPUP "検索(&S)"
+    BEGIN
+        MENUITEM "検索フォルダ(&F)...",               IDM_FIND
+        MENUITEM "再検索(&R)",                     IDM_REFIND
+        MENUITEM SEPARATOR
+        MENUITEM "キーワード検索(&K)...",              IDM_KEYWORD
+        MENUITEM "画像検索(&M)...",                 IDM_FIND_PICT
+        MENUITEM "テキスト検索(&T)...",               IDM_TEXT_SEARCH
+        MENUITEM SEPARATOR
+        MENUITEM "アクセス履歴(&H)...",               IDM_ACCESS_HISTORY
+    END
+    POPUP "表示(&V)"
+    BEGIN
+        POPUP "ツールバー(&T)"
+        BEGIN
+            MENUITEM "標準のボタン(&S)",                  IDM_TOOLBAR_STANDARD
+            MENUITEM "表示のボタン(&D)",                  IDM_TOOLBAR_VIEW
+            MENUITEM "画像のボタン(&I)",                  IDM_TOOLBAR_PICT
+            MENUITEM SEPARATOR
+            MENUITEM "ボタンの文字列(&T)",                 IDM_TOOLBAR_STRING
+        END
+        MENUITEM "ステータスバー(&S)",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "前データ表示(&B)",                  IDM_VIEW_PREV
+        MENUITEM "次データ表示(&N)",                  IDM_VIEW_NEXT
+        MENUITEM SEPARATOR
+        MENUITEM "画像全体表示(&M)",                  IDM_VIEW_MAX
+        MENUITEM "テキスト折り返し表示(&W)",              IDM_VIEW_TEXT_WORDWRAP
+        MENUITEM SEPARATOR
+        MENUITEM "縮小画像(&P)",                    IDM_VIEW_PICT
+        MENUITEM "一覧(&L)",                      IDM_VIEW_LIST
+        MENUITEM "詳細(&D)",                      IDM_VIEW_DETAIL
+        MENUITEM SEPARATOR
+        POPUP "ライブラリ表示項目(&I)"
+        BEGIN
+            MENUITEM "名称",                          IDM_DETAIL_NAME
+            MENUITEM "作成日時",                        IDM_DETAIL_CDATE
+            MENUITEM "更新日時",                        IDM_DETAIL_UDATE
+            MENUITEM "作成者",                         IDM_DETAIL_CREATOR
+            MENUITEM "備考",                          IDM_DETAIL_REMARK
+            MENUITEM "キーワード",                       IDM_DETAIL_KEYWORD
+            MENUITEM "サーバ名",                        IDM_DETAIL_SERVER
+            MENUITEM "ディレクトリ",                      IDM_DETAIL_DIRECTORY
+        END
+        POPUP "フォルダ表示項目(&F)"
+        BEGIN
+            MENUITEM "名称",                          IDM_DETAIL_NAME
+            MENUITEM "最初のデータ名称",                    IDM_DETAIL_FIRSTDATA
+            MENUITEM "作成日時",                        IDM_DETAIL_CDATE
+            MENUITEM "更新日時",                        IDM_DETAIL_UDATE
+            MENUITEM "作成者",                         IDM_DETAIL_CREATOR
+            MENUITEM "備考",                          IDM_DETAIL_REMARK
+            MENUITEM "キーワード",                       IDM_DETAIL_KEYWORD
+        END
+        POPUP "データ表示項目(&A)"
+        BEGIN
+            MENUITEM "名称",                          IDM_DETAIL_NAME
+            MENUITEM "コード",                         IDM_DETAIL_CODE
+            MENUITEM "作成日時",                        IDM_DETAIL_CDATE
+            MENUITEM "更新日時",                        IDM_DETAIL_UDATE
+            MENUITEM "作成者",                         IDM_DETAIL_CREATOR
+            MENUITEM "備考",                          IDM_DETAIL_REMARK
+            MENUITEM "キーワード",                       IDM_DETAIL_KEYWORD
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "最新の情報に更新(&R)",                IDM_VIEW_RELOAD
+    END
+    POPUP "画像(&P)"
+    BEGIN
+        MENUITEM "別ウィンドウ表示(&X)",                IDM_PICT_WINDOW
+        MENUITEM SEPARATOR
+        MENUITEM "自動サイズ調整(&A)",                 IDM_PICT_AUTOSIZE
+        MENUITEM "自動幅調整(&W)",                   IDM_PICT_AUTOSIZE2
+        MENUITEM "拡大(&E)",                      IDM_PICT_ENLARGE
+        MENUITEM "縮小(&H)",                      IDM_PICT_REDUCE
+        MENUITEM SEPARATOR
+        MENUITEM "左回転(&L)",                     IDM_PICT_LEFT_ROTATE
+        MENUITEM "右回転(&R)",                     IDM_PICT_RIGHT_ROTATE
+        MENUITEM "一括回転(&M)",                    IDM_PICT_ALL_ROTATE
+        MENUITEM SEPARATOR
+        MENUITEM "画像編集(&I)",                    IDM_EDIT_IMAGE
+    END
+    POPUP "キャッシュ(&C)"
+    BEGIN
+        MENUITEM "一括読み込み(&R)",                  ID_CACHE_READ
+        MENUITEM "削除(&D)",                      ID_CACHE_CLEAR
+    END
+    POPUP "転送(&T)"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "アプリケーション登録(&R)　　",            IDM_TRANS_REG
+    END
+    POPUP "ヘルプ(&H)"
+    BEGIN
+        MENUITEM "バージョン情報(MMLib) (&A)...",      ID_APP_ABOUT
+        MENUITEM SEPARATOR
+        MENUITEM "オンラインマニュアル(&M)...",           IDM_ONLINE_MANUAL
+        MENUITEM "オンラインアップデート(&U)...",          IDM_ONLINE_UPDATE
+    END
+END
+
+IDR_GFOLDER MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "新規フォルダ(&N)...",               ID_FILE_NEW
+        MENUITEM "開く(&O)...",                   ID_FILE_OPEN
+        MENUITEM "閉じる(&C)",                     ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "情報変更(&U)...",                 ID_FILE_UPDATE
+        MENUITEM "削除(&D)",                      IDM_FILE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "画像ファイル一括出力(&L)...",           IDM_IMAGE_FILES_OUTPUT
+        MENUITEM "エクスポート(&E)...",               ID_FILE_EXPORT
+        POPUP "インポート(&I)"
+        BEGIN
+            MENUITEM "画像ファイル(&G)...",               IDM_IMPORT_BMP
+            MENUITEM "MMLファイル(&M)...",              IDM_IMPORT_MML
+            MENUITEM "MMDBファイル(&D)...",             IDM_IMPORT_MMDB
+            MENUITEM "ﾌﾟﾚｽﾄﾍﾟｰｼﾞﾏﾈｰｼﾞｬｰ(&P)...",    IDM_IMPORT_PPM
+            MENUITEM "PDFファイル(&F)...",              IDM_IMPORT_PDF
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "プロパティ(&R)...",                IDM_PROPERTY
+    END
+END
+
+IDR_ROOT MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "新規ライブラリ(&N)...",              ID_FILE_NEW
+        MENUITEM "ライブラリを開く(&O)...",             ID_FILE_OPEN
+    END
+END
+
+IDR_DATA MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "別ウィンドウ表示(&X)",                IDM_PICT_WINDOW
+        MENUITEM SEPARATOR
+        MENUITEM "情報変更(&U)...",                 ID_FILE_UPDATE
+        MENUITEM "削除(&D)",                      IDM_FILE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "印刷(&P)...",                   ID_FILE_PRINT
+        MENUITEM "エクスポート(&E)...",               ID_FILE_EXPORT
+        MENUITEM "メール送信(&S)",                   ID_FILE_SEND_MAIL
+        MENUITEM SEPARATOR
+        MENUITEM "画像編集(&I)",                    IDM_EDIT_IMAGE
+        MENUITEM "画像検索(&M)...",                 IDM_FIND_PICT
+        MENUITEM SEPARATOR
+        MENUITEM "プロパティ(&R)...",                IDM_PROPERTY
+    END
+END
+
+IDR_DFOLDER MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "新規データ(&N)...",                ID_FILE_NEW
+        MENUITEM "開く(&O)...",                   ID_FILE_OPEN
+        MENUITEM "閉じる(&C)",                     ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "情報変更(&U)...",                 ID_FILE_UPDATE
+        MENUITEM "削除(&D)",                      IDM_FILE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "印刷(&P)...",                   ID_FILE_PRINT
+        MENUITEM "メール送信(&S)",                   ID_FILE_SEND_MAIL
+        MENUITEM SEPARATOR
+        MENUITEM "画像ファイル一括出力(&L)...",           IDM_IMAGE_FILES_OUTPUT
+        MENUITEM "エクスポート(&E)...",               ID_FILE_EXPORT
+        POPUP "インポート(&I)"
+        BEGIN
+            MENUITEM "画像ファイル(&G)...",               IDM_IMPORT_BMP
+            MENUITEM "MMLファイル(&M)...",              IDM_IMPORT_MML
+            MENUITEM "MMDBファイル(&D)...",             IDM_IMPORT_MMDB
+            MENUITEM "ﾌﾟﾚｽﾄﾍﾟｰｼﾞﾏﾈｰｼﾞｬｰ(&P)...",    IDM_IMPORT_PPM
+            MENUITEM "PDFファイル(&F)...",              IDM_IMPORT_PDF
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "プロパティ(&R)...",                IDM_PROPERTY
+    END
+END
+
+IDR_FIND MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "開く(&O)...",                   ID_FILE_OPEN
+        MENUITEM "閉じる(&C)",                     ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "情報変更(&U)...",                 ID_FILE_UPDATE
+        MENUITEM SEPARATOR
+        MENUITEM "再検索(&R)",                     IDM_REFIND
+        MENUITEM SEPARATOR
+        MENUITEM "印刷(&P)...",                   ID_FILE_PRINT
+        MENUITEM "エクスポート(&E)...",               ID_FILE_EXPORT
+        MENUITEM "メール送信(&S)",                   ID_FILE_SEND_MAIL
+    END
+END
+
+IDR_PICTFRAME MENU
+BEGIN
+    POPUP "ファイル(&F)"
+    BEGIN
+        MENUITEM "閉じる(&C)",                     IDM_CLOSE_PICT
+        MENUITEM SEPARATOR
+        MENUITEM "ページ設定(&G)...",                ID_FILE_PAGE_SETUP
+        MENUITEM "印刷(&P)...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "印刷プレビュー(&V)...",              ID_FILE_PRINT_PREVIEW
+    END
+    POPUP "画像(&P)"
+    BEGIN
+        MENUITEM "自動サイズ調整(&A)",                 IDM_PICT_AUTOSIZE
+        MENUITEM "自動幅調整(&W)",                   IDM_PICT_AUTOSIZE2
+        MENUITEM "拡大(&E)",                      IDM_PICT_ENLARGE
+        MENUITEM "縮小(&H)",                      IDM_PICT_REDUCE
+        MENUITEM SEPARATOR
+        MENUITEM "左回転(&L)",                     IDM_PICT_LEFT_ROTATE
+        MENUITEM "右回転(&R)",                     IDM_PICT_RIGHT_ROTATE
+    END
+END
+
+IDR_TEXT MENU
+BEGIN
+    MENUITEM "閉じる",                         IDM_CLOSE_TEXT
+    MENUITEM "フォント",                        IDM_FONT
+END
+
+IDR_INBOX MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "新規フォルダ(&N)...",               ID_FILE_NEW
+        MENUITEM "開く(&O)...",                   ID_FILE_OPEN
+        MENUITEM "閉じる(&C)",                     ID_FILE_CLOSE
+    END
+END
+
+IDR_FINDFRAME MENU
+BEGIN
+    MENUITEM "閉じる(&C)",                     IDM_CLOSE_FIND
+    MENUITEM "キーワード索引作成(&K)...",            IDM_MAKE_INDEX
+END
+
+IDR_LIBRARY MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "新規フォルダ(&N)...",               ID_FILE_NEW
+        MENUITEM "開く(&O)...",                   ID_FILE_OPEN
+        MENUITEM "閉じる(&C)",                     ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "情報変更(&U)...",                 ID_FILE_UPDATE
+        MENUITEM "削除(&D)",                      IDM_FILE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "画像ファイル一括出力(&L)...",           IDM_IMAGE_FILES_OUTPUT
+        MENUITEM "エクスポート(&E)...",               ID_FILE_EXPORT
+        POPUP "インポート(&I)"
+        BEGIN
+            MENUITEM "画像ファイル(&G)...",               IDM_IMPORT_BMP
+            MENUITEM "MMLファイル(&M)...",              IDM_IMPORT_MML
+            MENUITEM "MMDBファイル(&D)...",             IDM_IMPORT_MMDB
+            MENUITEM "ﾌﾟﾚｽﾄﾍﾟｰｼﾞﾏﾈｰｼﾞｬｰ(&P)...",    IDM_IMPORT_PPM
+            MENUITEM "PDFファイル(&F)...",              IDM_IMPORT_PDF
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "検索フォルダ(&F)...",               IDM_FIND
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 259, 103
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "バージョン情報(MMLib)"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,15,20,20
+    LTEXT           "Product Name & Version",IDC_PRODUCT,41,10,165,8,SS_NOPREFIX
+    LTEXT           "Copyright",IDC_COPYRIGHT,41,25,165,8
+    DEFPUSHBUTTON   "OK",IDOK,212,7,40,14,WS_GROUP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,47,248,1
+    LTEXT           "製品説明",IDC_STATIC,11,57,60,8,0,WS_EX_RIGHT
+    LTEXT           "http://www.ymec.com/products/mmlib/",IDC_PRODUCT_URL,74,57,143,8,SS_NOTIFY
+    LTEXT           "吉正電子株式会社",IDC_STATIC,11,71,60,8,0,WS_EX_RIGHT
+    LTEXT           "http://www.ymec.com/jp.htm",IDC_COMPANY_URL,74,71,143,8,SS_NOTIFY
+    LTEXT           "お問い合わせ",IDC_STATIC,11,85,60,8,0,WS_EX_RIGHT
+    LTEXT           "shop@ymec.com",IDC_EMAIL_ADDR,74,85,143,8,SS_NOTIFY
+END
+
+IDD_LIBOPEN DIALOGEX 0, 0, 229, 201
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ライブラリを開く"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LISTBOX         IDC_LIBRARY_LIST,7,7,159,67,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,172,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,172,24,50,14
+    PUSHBUTTON      "外部(&E)",IDC_EXTERNAL,172,60,50,14
+    CONTROL         "",IDC_SEPARATOR,"Static",SS_ETCHEDHORZ,7,84,215,1
+    GROUPBOX        "接続方法",IDC_STATIC,13,93,152,38
+    CONTROL         "ローカル",IDC_LOCAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,23,110,41,10
+    CONTROL         "TCP/IP",IDC_TCPIP,"Button",BS_AUTORADIOBUTTON,67,110,38,10
+    CONTROL         "NETBIOS",IDC_NETBIOS,"Button",BS_AUTORADIOBUTTON,110,110,43,10
+    RTEXT           "サーバー名",IDC_STATIC,7,143,41,8
+    COMBOBOX        IDC_SERVER_NAME,52,141,98,99,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "ディレクトリ",IDC_STATIC,7,163,41,8
+    COMBOBOX        IDC_DIRECTORY,52,161,171,96,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "参照(&R)...",IDC_REFERENCE,172,140,50,14
+    CONTROL         "キャッシュ使用",IDC_CACHE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,52,182,59,10
+END
+
+IDD_LIBNEW DIALOGEX 0, 0, 229, 213
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ライブラリの新規作成"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    RTEXT           "名称",IDC_STATIC,7,14,34,8
+    EDITTEXT        IDC_LIBNAME,45,12,116,12,ES_AUTOHSCROLL
+    RTEXT           "作成者",IDC_STATIC,7,32,34,8
+    EDITTEXT        IDC_CREATOR,45,30,82,12,ES_AUTOHSCROLL
+    RTEXT           "備考",IDC_STATIC,7,50,34,8
+    EDITTEXT        IDC_REMARK,45,48,116,12,ES_AUTOHSCROLL
+    RTEXT           "キーワード",IDC_STATIC,7,68,34,8
+    EDITTEXT        IDC_KEYWORD,45,66,116,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,172,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,172,24,50,14
+    CONTROL         "",IDC_SEPARATOR,"Static",SS_ETCHEDHORZ,7,90,215,1
+    GROUPBOX        "接続方法",IDC_STATIC,13,101,152,38
+    CONTROL         "ローカル",IDC_LOCAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,23,118,41,10
+    CONTROL         "TCP/IP",IDC_TCPIP,"Button",BS_AUTORADIOBUTTON,67,118,38,10
+    CONTROL         "NETBIOS",IDC_NETBIOS,"Button",BS_AUTORADIOBUTTON,110,118,43,10
+    RTEXT           "サーバー名",IDC_STATIC,7,151,41,8
+    COMBOBOX        IDC_SERVER_NAME,52,149,98,99,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "ディレクトリ",IDC_STATIC,7,171,40,8
+    COMBOBOX        IDC_DIRECTORY,52,169,170,96,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "参照(&R)...",IDC_REFERENCE,172,148,50,14
+    CONTROL         "キャッシュ使用",IDC_CACHE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,52,190,59,10
+    PUSHBUTTON      "外部(&E)",IDC_EXTERNAL,172,66,50,14
+END
+
+IDD_FOLDER DIALOGEX 0, 0, 259, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "フォルダ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    RTEXT           "名称",IDC_STATIC,7,11,41,8
+    EDITTEXT        IDC_FOLDERNAME,53,9,121,12,ES_AUTOHSCROLL
+    RTEXT           "作成者",IDC_STATIC,7,29,41,8
+    EDITTEXT        IDC_CREATOR,53,27,82,12,ES_AUTOHSCROLL
+    RTEXT           "備考",IDC_STATIC,7,47,41,8
+    EDITTEXT        IDC_REMARK,53,45,121,12,ES_AUTOHSCROLL
+    RTEXT           "キーワード",IDC_STATIC,7,65,41,8
+    EDITTEXT        IDC_KEYWORD,53,63,121,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,198,7,54,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,198,24,54,14
+    PUSHBUTTON      "ﾃｷｽﾄﾃﾞｰﾀ(&T)...",IDC_TEXT_DATA,198,48,54,14
+    PUSHBUTTON      "前ﾃﾞｰﾀｺﾋﾟｰ(&P)",IDC_COPY_DATA,198,66,54,14
+END
+
+IDD_FOLDERNEW DIALOGEX 0, 0, 255, 103
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "新規フォルダ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    RTEXT           "種類",IDC_STATIC,7,8,41,8
+    CONTROL         "グループフォルダ",IDC_GROUP_FOLDER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,53,7,67,10
+    CONTROL         "データフォルダ",IDC_DATA_FOLDER,"Button",BS_AUTORADIOBUTTON,121,7,59,10
+    RTEXT           "名称",IDC_STATIC,7,27,41,8
+    EDITTEXT        IDC_FOLDERNAME,53,25,121,12,ES_AUTOHSCROLL
+    RTEXT           "作成者",IDC_STATIC,7,45,41,8
+    EDITTEXT        IDC_CREATOR,53,43,82,12,ES_AUTOHSCROLL
+    RTEXT           "備考",IDC_STATIC,7,63,41,8
+    EDITTEXT        IDC_REMARK,53,61,121,12,ES_AUTOHSCROLL
+    RTEXT           "キーワード",IDC_STATIC,7,81,41,8
+    EDITTEXT        IDC_KEYWORD,53,79,121,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,194,7,54,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,194,24,54,14
+    PUSHBUTTON      "ﾃｷｽﾄﾃﾞｰﾀ(&T)...",IDC_TEXT_DATA,194,59,54,14
+    PUSHBUTTON      "前ﾃﾞｰﾀｺﾋﾟｰ(&P)",IDC_COPY_DATA,194,79,54,14
+END
+
+IDD_DATA DIALOGEX 0, 0, 275, 283
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "データ登録"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    GROUPBOX        "共通情報",IDC_STATIC,7,7,200,104
+    RTEXT           "名 称",IDC_STATIC,8,23,37,8
+    EDITTEXT        IDC_TITLE,49,21,147,12,ES_AUTOHSCROLL
+    RTEXT           "コード",IDC_STATIC,8,40,37,8
+    EDITTEXT        IDC_CODE,49,38,98,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "自動採番(&N)",IDC_AUTO_NUMBERING,151,37,45,14
+    RTEXT           "作成者",IDC_STATIC,8,57,37,8
+    EDITTEXT        IDC_CREATOR,49,55,98,12,ES_AUTOHSCROLL
+    RTEXT           "備考",IDC_STATIC,8,74,37,8
+    EDITTEXT        IDC_REMARK,49,72,146,12,ES_AUTOHSCROLL
+    RTEXT           "キーワード",IDC_STATIC,8,91,37,8
+    EDITTEXT        IDC_KEYWORD,49,89,146,12,ES_AUTOHSCROLL
+    GROUPBOX        "画像情報",IDC_STATIC,7,120,262,155
+    PUSHBUTTON      "回転(&R)",IDC_PICT_ROTATION,28,144,40,18,WS_DISABLED
+    RTEXT           "幅",IDC_STATIC,8,213,25,8
+    EDITTEXT        IDC_PICT_WIDTH,38,211,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "高さ",IDC_STATIC,8,227,25,8
+    EDITTEXT        IDC_PICT_HEIGHT,38,225,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "ﾋﾞｯﾄ数",IDC_STATIC,8,243,25,8
+    EDITTEXT        IDC_PICT_COLOR,38,241,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "DPI",IDC_STATIC,8,257,25,8
+    EDITTEXT        IDC_PICT_DPI,38,255,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "",IDC_PICT_PICTURE,"Static",SS_GRAYRECT | SS_SUNKEN,74,136,131,131
+    PUSHBUTTON      "ﾋﾞﾃﾞｵｶﾒﾗ(&V)...",IDC_PICT_CAMERA,214,136,52,14
+    PUSHBUTTON      "ｽｷｬﾅ(&S)...",IDC_PICT_SCANNER,214,151,52,14
+    PUSHBUTTON      "ﾌｧｲﾙ読込(&F)...",IDC_PICT_FILE,214,166,52,14
+    CHECKBOX        "ｸﾘｯﾌﾟﾎﾞｰﾄﾞ(&L)",IDC_PICT_CLIPBOARD,214,181,52,14,BS_PUSHLIKE
+    CHECKBOX        "ｳｨﾝﾄﾞｳｺﾋﾟｰ(&W)",IDC_PICT_WINDOW,214,196,52,14,BS_PUSHLIKE
+    PUSHBUTTON      "消去(&D)",IDC_PICT_ERASE,214,219,52,14
+    CONTROL         "連続取込",IDC_AUTO_SAVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,240,43,10
+    COMBOBOX        IDC_AUTO_ROTATION,215,254,48,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "閉じる(&C)",IDCANCEL,216,10,52,14
+    PUSHBUTTON      "保存(&S)",IDC_SAVE,216,32,52,14,WS_DISABLED
+    PUSHBUTTON      "ﾃｷｽﾄﾃﾞｰﾀ(&T)...",IDC_TEXT_DATA,216,74,52,14
+    PUSHBUTTON      "前ﾃﾞｰﾀｺﾋﾟｰ(&P)",IDC_COPY_DATA,216,96,52,14
+END
+
+IDD_FIND DIALOGEX 0, 0, 271, 259
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "検索フォルダ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LTEXT           "ライブラリ",IDC_STATIC,7,9,32,8
+    COMBOBOX        IDC_LIBRARY,41,7,100,80,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "名 称",IDC_STATIC,9,49,35,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TITLE,48,47,147,12,ES_AUTOHSCROLL
+    RTEXT           "コード",IDC_STATIC,9,65,35,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CODE,48,63,98,12,ES_AUTOHSCROLL
+    RTEXT           "作成者",IDC_STATIC,9,81,35,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREATOR,48,79,98,12,ES_AUTOHSCROLL
+    RTEXT           "作成日付",IDC_STATIC,9,97,35,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREATE_DATE_FROM,48,95,38,12
+    LTEXT           "～",IDC_STATIC,90,97,8,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREATE_DATE_TO,99,95,38,12
+    LTEXT           "過去",IDC_STATIC,144,97,15,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREATE_DATE_BEFORE,160,95,20,12,ES_RIGHT | ES_NUMBER
+    LTEXT           "日間",IDC_STATIC,183,97,17,8,0,WS_EX_TRANSPARENT
+    RTEXT           "更新日付",IDC_STATIC,9,113,35,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_UPDATE_DATE_FROM,48,111,38,12
+    LTEXT           "～",IDC_STATIC,90,113,8,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_UPDATE_DATE_TO,99,111,38,12
+    LTEXT           "過去",IDC_STATIC,144,113,15,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_UPDATE_DATE_BEFORE,160,111,20,12,ES_RIGHT | ES_NUMBER
+    LTEXT           "日間",IDC_STATIC,183,113,17,8,0,WS_EX_TRANSPARENT
+    RTEXT           "備考",IDC_STATIC,9,129,35,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_REMARK,48,127,146,12,ES_AUTOHSCROLL
+    RTEXT           "キーワード",IDC_STATIC,9,145,35,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_KEYWORD,48,143,146,12,ES_AUTOHSCROLL
+    RTEXT           "テキスト",IDC_STATIC,9,161,35,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXT,48,159,146,12,ES_AUTOHSCROLL
+    GROUPBOX        "文字列マッチング方法",IDC_STATIC,48,176,146,46
+    CONTROL         "前方一致",IDC_FRONT_MATCHING,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,55,190,43,10
+    CONTROL         "完全一致",IDC_FULL_MATCHING,"Button",BS_AUTORADIOBUTTON,100,190,43,10
+    CONTROL         "部分一致",IDC_WILDCARD,"Button",BS_AUTORADIOBUTTON,145,190,43,10
+    CONTROL         "大文字と小文字を区別",IDC_NOCASE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,55,205,82,10
+    CONTROL         "Tab1",IDC_CONDITION_TAB,"SysTabControl32",WS_GROUP,7,26,198,205
+    CTEXT           "検索結果フォルダ名称",IDC_STATIC,7,242,73,8
+    EDITTEXT        IDC_FIND_FOLDER,82,240,99,12
+    CONTROL         "保存",IDC_SAVE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,187,241,30,10
+    DEFPUSHBUTTON   "OK",IDOK,214,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,214,24,50,14
+    PUSHBUTTON      "件数取得(&N)",IDC_GETFINDNUM,214,53,50,14
+    EDITTEXT        IDC_FINDNUM,215,74,35,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "件",IDC_STATIC,254,76,10,8
+    GROUPBOX        "種類",IDC_STATIC,213,103,50,46
+    CONTROL         "データ",IDC_DATA,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,219,118,35,10
+    CONTROL         "フォルダ",IDC_FOLDER,"Button",BS_AUTORADIOBUTTON,219,131,41,10
+END
+
+IDD_DATA_LARGE DIALOGEX 0, 0, 274, 283
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "データ登録"
+FONT 12, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    GROUPBOX        "共通情報",IDC_STATIC,7,7,200,104
+    RTEXT           "名 称",IDC_STATIC,8,23,37,8
+    EDITTEXT        IDC_TITLE,49,21,147,12,ES_AUTOHSCROLL
+    RTEXT           "コード",IDC_STATIC,8,39,37,8
+    EDITTEXT        IDC_CODE,49,37,98,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "自動採番(&N)",IDC_AUTO_NUMBERING,151,37,44,14
+    RTEXT           "作成者",IDC_STATIC,8,57,37,8
+    EDITTEXT        IDC_CREATOR,49,55,98,12,ES_AUTOHSCROLL
+    RTEXT           "備考",IDC_STATIC,8,75,37,8
+    EDITTEXT        IDC_REMARK,49,71,146,12,ES_AUTOHSCROLL
+    RTEXT           "キーワード",IDC_STATIC,8,91,37,8
+    EDITTEXT        IDC_KEYWORD,49,89,146,12,ES_AUTOHSCROLL
+    GROUPBOX        "画像情報",IDC_STATIC,7,120,260,156
+    PUSHBUTTON      "回転(&R)",IDC_PICT_ROTATION,28,146,40,18,WS_DISABLED
+    RTEXT           "幅",IDC_STATIC,7,213,26,8
+    EDITTEXT        IDC_PICT_WIDTH,38,211,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "高さ",IDC_STATIC,7,227,26,8
+    EDITTEXT        IDC_PICT_HEIGHT,38,225,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "ﾋﾞｯﾄ数",IDC_STATIC,7,243,26,8
+    EDITTEXT        IDC_PICT_COLOR,38,241,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "DPI",IDC_STATIC,7,257,26,8
+    EDITTEXT        IDC_PICT_DPI,38,255,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "",IDC_PICT_PICTURE,"Static",SS_GRAYRECT | SS_SUNKEN,74,138,131,131
+    PUSHBUTTON      "ﾋﾞﾃﾞｵｶﾒﾗ(&V)...",IDC_PICT_CAMERA,212,138,52,14
+    PUSHBUTTON      "ｽｷｬﾅ(&S)...",IDC_PICT_SCANNER,212,154,52,14
+    PUSHBUTTON      "ﾌｧｲﾙ読込(&F)...",IDC_PICT_FILE,212,170,52,14
+    CHECKBOX        "ｸﾘｯﾌﾟﾎﾞｰﾄﾞ(&L)",IDC_PICT_CLIPBOARD,212,186,52,14,BS_PUSHLIKE
+    CHECKBOX        "ｳｨﾝﾄﾞｳｺﾋﾟｰ(&W)",IDC_PICT_WINDOW,212,202,52,14,BS_PUSHLIKE
+    PUSHBUTTON      "消去(&D)",IDC_PICT_ERASE,212,224,52,14
+    CONTROL         "連続取込",IDC_AUTO_SAVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,216,243,44,10
+    COMBOBOX        IDC_AUTO_ROTATION,216,256,44,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "閉じる(&C)",IDCANCEL,215,10,52,14
+    PUSHBUTTON      "保存(&S)",IDC_SAVE,215,32,52,14,WS_DISABLED
+    PUSHBUTTON      "ﾃｷｽﾄﾃﾞｰﾀ(&T)...",IDC_TEXT_DATA,215,75,52,14
+    PUSHBUTTON      "前ﾃﾞｰﾀｺﾋﾟｰ(&P)",IDC_COPY_DATA,215,97,52,14
+END
+
+IDD_OPT_TWAIN DIALOGEX 0, 0, 223, 83
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Twainドライバ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    RTEXT           "Twainドライバ",IDC_STATIC,7,20,47,8
+    EDITTEXT        IDC_TWAIN_DRIVER,58,18,94,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    PUSHBUTTON      "ﾄﾞﾗｲﾊﾞ選択(&S)...",IDC_SELECT_DRIVER,159,17,58,15
+END
+
+IDD_OPT_FONT DIALOGEX 0, 0, 230, 113
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "フォント"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    GROUPBOX        "ビューフォント",IDC_STATIC,7,12,216,35
+    RTEXT           "フォント",IDC_STATIC,8,28,29,8
+    EDITTEXT        IDC_VIEW_FONT_NAME,39,26,75,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "サイズ",IDC_STATIC,117,28,24,8
+    EDITTEXT        IDC_VIEW_FONT_SIZE,143,26,24,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP,WS_EX_RIGHT
+    PUSHBUTTON      "変更(&C)",IDC_VIEW_FONT_CHANGE,174,24,39,15
+    GROUPBOX        "ダイアログフォント",IDC_STATIC,7,56,126,36
+    CONTROL         "標準フォント",IDC_NORMAL_FONT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,72,51,10
+    CONTROL         "大きいフォント",IDC_LARGE_FONT,"Button",BS_AUTORADIOBUTTON,71,72,57,10
+    PUSHBUTTON      "規定値(&D)",IDC_DEFAULT,150,69,50,15
+END
+
+IDD_AUTO_NUMBERING DIALOGEX 0, 0, 211, 73
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "コード自動採番"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "自動採番を行う",IDC_AUTO_NUMBERING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,47,12,61,10
+    RTEXT           "次のコード",IDC_STATIC,9,32,34,8
+    EDITTEXT        IDC_CODE,47,30,98,12,ES_AUTOHSCROLL
+    RTEXT           "増分",IDC_STATIC,9,49,34,8
+    EDITTEXT        IDC_STEP,47,47,44,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    DEFPUSHBUTTON   "OK",IDOK,154,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,154,24,50,14
+END
+
+IDD_OPT_ORDER DIALOGEX 0, 0, 239, 139
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "表示設定"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LISTBOX         IDC_ORDER_LIST,15,24,86,63,WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "表示テキスト",IDC_STATIC,15,89,135,32,WS_GROUP
+    CONTROL         "名称 (コード)",IDC_TITLE_CODE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,29,103,54,10
+    CONTROL         "名称のみ",IDC_TITLE_ONLY,"Button",BS_AUTORADIOBUTTON,88,103,43,10
+    PUSHBUTTON      "上へ(&U)",IDC_UP,107,24,43,15,WS_GROUP
+    PUSHBUTTON      "下へ(&D)",IDC_DOWN,107,45,43,15
+    GROUPBOX        "ツリービューの表示順序",IDC_STATIC,7,7,151,125
+    CONTROL         "通常",IDC_SMALL_NORMAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,169,22,30,10
+    CONTROL         "２倍（高速表示）",IDC_SMALL_HISPD,"Button",BS_AUTORADIOBUTTON,169,38,63,10
+    CONTROL         "２倍（精細表示）",IDC_SMALL_HIRES,"Button",BS_AUTORADIOBUTTON,169,54,63,10
+    GROUPBOX        "縮小画像サイズ",IDC_STATIC,163,7,70,66,WS_GROUP
+    PUSHBUTTON      "規定値(&D)",IDC_DEFAULT,175,100,43,15
+END
+
+IDD_BACKUP DIALOGEX 0, 0, 238, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "バックアップ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    RTEXT           "バックアップするライブラリ",IDC_STATIC,7,16,80,8
+    COMBOBOX        IDC_LIBRARY,89,13,85,80,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "バックアップ済みライブラリ",IDC_STATIC,7,39,89,8
+    CONTROL         "List1",IDC_BACKUP_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,52,224,103
+    DEFPUSHBUTTON   "実行",IDOK,181,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,181,24,50,14
+    PUSHBUTTON      "ﾊﾞｯｸｱｯﾌﾟ削除(&D)",IDC_DELETE,171,167,61,14
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,167,161,14
+END
+
+IDD_RESTORE DIALOGEX 0, 0, 279, 161
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "リストア"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LTEXT           "バックアップ済みライブラリ",IDC_STATIC,7,7,79,8
+    CONTROL         "List1",IDC_BACKUP_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,21,209,103
+    DEFPUSHBUTTON   "実行",IDOK,222,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,222,24,50,14
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,133,150,14
+    PUSHBUTTON      "ﾊﾞｯｸｱｯﾌﾟ削除(&D)",IDC_DELETE,161,133,58,14
+END
+
+IDD_OPT_FOLDER DIALOGEX 0, 0, 241, 151
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "フォルダ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    RTEXT           "ライブラリ",IDC_STATIC,7,10,49,8
+    EDITTEXT        IDC_LIBRARY_FOLDER,59,8,136,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照(&R)",IDC_LIBRARY_REFERENCE,198,7,37,15
+    RTEXT           "バックアップ",IDC_STATIC,7,28,49,8
+    EDITTEXT        IDC_BACKUP_FOLDER,59,26,136,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照(&R)",IDC_BACKUP_REFERENCE,198,25,37,15
+    RTEXT           "キャッシュ",IDC_STATIC,7,46,49,8
+    EDITTEXT        IDC_CACHE_FOLDER,59,44,136,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照(&R)",IDC_CACHE_REFERENCE,198,43,37,15
+    RTEXT           "インボックス",IDC_STATIC,7,64,49,8
+    EDITTEXT        IDC_INBOX_FOLDER,59,62,136,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照(&R)",IDC_INBOX_REFERENCE,198,61,37,15
+    RTEXT           "キーワード索引",IDC_STATIC,7,82,49,8
+    EDITTEXT        IDC_KEYWORD_FOLDER,59,80,136,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照(&R)",IDC_KEYWORD_REFERENCE,198,79,37,15
+    RTEXT           "アクセス履歴",IDC_STATIC,7,100,49,8
+    EDITTEXT        IDC_ACCESS_LOG_FOLDER,59,98,136,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照(&R)",IDC_ACCESS_LOG_REFERENCE,198,97,37,15
+    PUSHBUTTON      "規定値(&D)",IDC_DEFAULT,185,123,50,15
+END
+
+IDD_TRANS_REG DIALOGEX 0, 0, 315, 191
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "転送先登録"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "List1",IDC_APP_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,7,242,106
+    RTEXT           "ｱﾌﾟﾘｹｰｼｮﾝ名",IDC_STATIC,7,121,45,8
+    EDITTEXT        IDC_APP_NAME,56,119,69,12,ES_AUTOHSCROLL
+    RTEXT           "実行ファイル",IDC_STATIC,7,137,45,8
+    EDITTEXT        IDC_APP_FILE,56,135,193,12,ES_AUTOHSCROLL
+    GROUPBOX        "サポート画像ファイル形式",IDC_STATIC,52,154,120,29
+    CONTROL         "BMP",IDC_PICT_BMP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,166,28,10
+    CONTROL         "GIF",IDC_PICT_GIF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,89,166,24,10
+    CONTROL         "JPG",IDC_PICT_JPG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,114,166,27,10
+    CONTROL         "PNG",IDC_PICT_PNG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,142,166,27,10
+    GROUPBOX        "メニューアイコン表示",IDC_STATIC,176,154,132,29
+    CONTROL         "無し",IDC_ICON_NONE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,184,166,28,10
+    CONTROL         "小アイコン",IDC_ICON_SMALL,"Button",BS_AUTORADIOBUTTON,213,166,46,10
+    CONTROL         "大アイコン",IDC_ICON_LARGE,"Button",BS_AUTORADIOBUTTON,260,166,46,10
+    PUSHBUTTON      "参照(&R)...",IDC_REFERENCE,258,134,50,13
+    DEFPUSHBUTTON   "登録(&R)",IDOK,258,7,50,14
+    PUSHBUTTON      "削除(&D)",IDC_DELETE,258,26,50,14
+    PUSHBUTTON      "閉じる(&C)",IDC_CLOSE,258,45,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,258,64,50,14
+END
+
+IDD_PICT_ROTATE DIALOGEX 0, 0, 158, 107
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "画像一括回転"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    GROUPBOX        "回転方向",IDC_STATIC,7,7,85,68
+    CONTROL         "右90度",IDC_RIGHT_ROTATE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,26,24,37,10
+    CONTROL         "左90度",IDC_LEFT_ROTATE,"Button",BS_AUTORADIOBUTTON,26,40,37,10
+    CONTROL         "上下逆転",IDC_REVERSE,"Button",BS_AUTORADIOBUTTON,26,56,43,10
+    LTEXT           "選択したデータまたはフォルダﾞに含まれる画像を\n一括して回転させます。",IDC_STATIC,7,81,144,19
+    DEFPUSHBUTTON   "OK",IDOK,101,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,101,24,50,14
+END
+
+IDD_PASSWORD DIALOGEX 0, 0, 195, 69
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "パスワード設定"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LTEXT           "パスワード",IDC_STATIC,7,32,38,8
+    EDITTEXT        IDC_PASSWORD,66,30,64,12,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "パスワード再入力",IDC_STATIC,7,49,58,8
+    EDITTEXT        IDC_PASSWORD2,66,47,64,12,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,138,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,138,24,50,14
+    LTEXT           "ライブラリ",IDC_STATIC,7,9,32,8
+    COMBOBOX        IDC_LIBRARY,43,7,87,80,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PERMISSION DIALOGEX 0, 0, 218, 125
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "アクセス制限"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    GROUPBOX        "アクセス制限",IDC_STATIC,9,33,143,82
+    CONTROL         "表示のみ",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,15,48,43,10
+    CONTROL         "表示＋追加",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,15,64,50,10
+    CONTROL         "表示＋追加＋更新",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,15,80,71,10
+    CONTROL         "表示＋追加＋更新＋削除（フルアクセス）",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,15,96,135,10
+    DEFPUSHBUTTON   "OK",IDOK,159,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,159,24,50,14
+    LTEXT           "ライブラリ",IDC_STATIC,7,9,33,8
+    COMBOBOX        IDC_LIBRARY,43,7,85,80,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CHECK_PWD DIALOGEX 0, 0, 231, 82
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "パスワード入力"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LTEXT           "このライブラリにはパスワードが設定されています。\n開くためにはパスワードの入力が必要です。",IDC_STATIC,10,9,160,21
+    RTEXT           "ライブラリ",IDC_STATIC,8,41,37,8
+    EDITTEXT        IDC_LIBRARY,52,39,104,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "パスワード",IDC_STATIC,8,62,37,8
+    EDITTEXT        IDC_PASSWORD,52,60,64,12,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,174,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,174,24,50,14
+END
+
+IDD_REF_NET DIALOGEX 0, 0, 245, 137
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ライブラリ選択"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LISTBOX         IDC_LIBLIST,7,7,174,120,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,188,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,188,24,50,14
+END
+
+IDD_INFO_VIEW DIALOGEX 0, 0, 499, 57
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    RTEXT           "名称",IDC_STATIC,7,9,24,8
+    EDITTEXT        IDC_TITLE,34,7,116,12,ES_AUTOHSCROLL
+    RTEXT           "コード",IDC_STATIC,7,25,24,8
+    EDITTEXT        IDC_CODE,34,23,116,12,ES_AUTOHSCROLL
+    RTEXT           "作成者",IDC_STATIC,7,41,24,8
+    EDITTEXT        IDC_CREATOR,34,39,116,12,ES_AUTOHSCROLL
+    RTEXT           "備考",IDC_STATIC,154,9,35,8
+    EDITTEXT        IDC_REMARK,192,7,160,12,ES_AUTOHSCROLL
+    RTEXT           "キーワード",IDC_STATIC,154,25,35,8
+    EDITTEXT        IDC_KEYWORD,192,23,160,12,ES_AUTOHSCROLL
+    RTEXT           "作成日付",IDC_STATIC,154,41,35,8
+    EDITTEXT        IDC_CREATEDATE,192,39,44,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "更新日付",IDC_STATIC,237,41,34,8
+    EDITTEXT        IDC_UPDATEDATE,274,39,44,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    PUSHBUTTON      "更新(&U)",IDC_UPDATE_INFO,323,39,31,14
+    PUSHBUTTON      "OCR",IDC_BUTTON_OCR,360,39,31,14,NOT WS_VISIBLE
+    LTEXT           "データ数",IDC_STATIC_DATA_COUNT,362,9,27,8
+    EDITTEXT        IDC_EDIT_DATA_COUNT,360,19,32,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "音声",IDC_STATIC_SOUND,404,4,88,49
+    CHECKBOX        "再生",IDC_CHECK_SOUND_PLAYBACK,409,15,37,14,BS_PUSHLIKE
+    PUSHBUTTON      "テキスト化",IDC_BUTTON_SOUND_TEXT,409,34,37,14
+    CHECKBOX        "録音",IDC_CHECK_SOUND_RECORD,450,15,37,14,BS_PUSHLIKE
+    PUSHBUTTON      "読込",IDC_BUTTON_SOUND_FILE,450,33,37,14
+END
+
+IDD_TEXT DIALOGEX 0, 0, 289, 211
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "テキストデータ"
+MENU IDR_TEXT
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    EDITTEXT        IDC_TEXT,0,0,288,211,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_MAKE_INDEX DIALOGEX 0, 0, 225, 143
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "キーワード索引ファイル作成"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LTEXT           "キーワード索引作成対象ライブラリ",IDC_STATIC,8,5,102,8
+    LISTBOX         IDC_LIBRARY_LIST,8,18,150,116,LBS_SORT | LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,166,11,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,166,28,50,14
+    PUSHBUTTON      "全選択(&A)",IDC_ALL_SELECT,166,60,50,14
+END
+
+IDD_MAIL_ATT DIALOGEX 0, 0, 187, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "メール添付画像サイズ調整"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "原寸大",IDC_ATT_ACTUAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,9,9,37,10
+    CONTROL         "縮小",IDC_ATT_REDUCTION,"Button",BS_AUTORADIOBUTTON,9,29,30,10
+    EDITTEXT        IDC_ATT_SCALE,40,28,28,12,ES_AUTOHSCROLL | WS_GROUP
+    LTEXT           "%",IDC_STATIC,72,30,8,8
+    CONTROL         "横サイズ制限",IDC_ATT_HLIMIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,49,56,10
+    EDITTEXT        IDC_ATT_HPIXEL,74,48,28,12,ES_AUTOHSCROLL
+    LTEXT           "Pixel 以下に制限",IDC_STATIC,105,50,61,8
+    CONTROL         "縦サイズ制限",IDC_ATT_VLIMIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,67,56,10
+    EDITTEXT        IDC_ATT_VPIXEL,74,66,28,12,ES_AUTOHSCROLL
+    LTEXT           "Pixel 以下に制限",IDC_STATIC,105,68,61,8
+    DEFPUSHBUTTON   "OK",IDOK,126,7,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,126,24,50,14
+END
+
+IDD_OPT_IMAGE_EDITOR DIALOGEX 0, 0, 230, 113
+STYLE DS_SETFONT | WS_CHILD | WS_CAPTION
+CAPTION "画像編集"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    RTEXT           "実行ファイル",IDC_STATIC,7,22,41,8
+    EDITTEXT        IDC_IMAGE_EDITOR,51,20,173,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    ICON            "",IDC_IMAGE_EDITOR_ICON,49,43,20,20
+    CONTROL         "ダブルクリックで起動",IDC_EDIT_DBLCLICK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,41,77,10
+    PUSHBUTTON      "参照(&R)...",IDC_SELECT_FILE,172,39,52,15
+END
+
+IDD_FIND_SIMPLE DIALOGEX 0, 0, 271, 101
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "検索フォルダ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    LTEXT           "ライブラリ",IDC_STATIC,7,9,32,8
+    COMBOBOX        IDC_LIBRARY,41,7,100,80,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "検索する文字列",IDC_STATIC,7,45,50,8
+    EDITTEXT        IDC_SEARCH_TEXT,59,43,145,12,ES_AUTOHSCROLL
+    LTEXT           "検索結果フォルダ名称",IDC_STATIC,7,81,71,8
+    EDITTEXT        IDC_FIND_FOLDER,80,79,99,12
+    CONTROL         "保存",IDC_SAVE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,185,80,30,10
+    DEFPUSHBUTTON   "OK",IDOK,210,6,54,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,210,23,54,14
+    PUSHBUTTON      "高度な検索(&E)...",IDC_FIND_EXPERT,210,42,54,14
+    PUSHBUTTON      "件数取得(&N)",IDC_GETFINDNUM,210,59,54,14
+    EDITTEXT        IDC_FINDNUM,215,79,34,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "件",IDC_STATIC,255,81,8,8
+END
+
+IDD_FIND_PICT DIALOGEX 0, 0, 421, 254
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "画像検索"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "",IDC_LIST_FIND,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,407,218
+    PUSHBUTTON      "インデックス作成",IDC_BUTTON_MAKE_INDEX,303,233,54,14
+    PUSHBUTTON      "閉じる",IDCANCEL,364,233,50,14
+    PUSHBUTTON      "↑",IDC_BUTTON_PREV,7,233,19,14
+    PUSHBUTTON      "↓",IDC_BUTTON_NEXT,29,233,19,14
+END
+
+IDD_MAKE_PICT_INDEX DIALOGEX 0, 0, 187, 53
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "画像インデックス作成"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "",IDC_PROGRESS_BAR,"msctls_progress32",WS_BORDER,7,7,173,14
+    DEFPUSHBUTTON   "作成",IDOK,74,32,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,130,32,50,14
+END
+
+IDD_ACCESS_LOG DIALOGEX 0, 0, 380, 271
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "アクセス履歴"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "",IDC_LIST_ACCESS_LOG,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,366,237
+    PUSHBUTTON      "閉じる",IDCANCEL,323,250,50,14
+END
+
+IDD_PROPERTY DIALOGEX 0, 0, 263, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "プロパティ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    PUSHBUTTON      "閉じる",IDCANCEL,206,7,50,14
+    RTEXT           "名称",IDC_STATIC,7,10,41,8
+    EDITTEXT        IDC_EDIT_NAME,51,7,135,14,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "種別",IDC_STATIC,7,32,41,8
+    EDITTEXT        IDC_EDIT_TYPE,51,29,135,14,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "ライブラリ",IDC_STATIC,7,54,41,8
+    EDITTEXT        IDC_EDIT_LIBRARY,51,51,135,14,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "フォルダパス",IDC_STATIC,7,76,41,8
+    EDITTEXT        IDC_EDIT_FOLDER,51,73,204,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "検索",IDC_BUTTON_FIND,206,28,50,14,NOT WS_VISIBLE
+END
+
+IDD_OUTPUTIMAGESDLG DIALOGEX 0, 0, 159, 65
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "画像ファイル一括出力"
+FONT 9, "MS UI Gothic", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "キャンセル",IDCANCEL,55,44,50,14
+    CONTROL         "",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,10,146,14
+    RTEXT           "0 %",IDC_STATIC_PROGRESS,133,29,19,8
+END
+
+IDD_TEXT_SEARCH DIALOGEX 0, 0, 222, 36
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "テキスト検索"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "検索",IDC_STATIC,7,5,19,8
+    COMBOBOX        IDC_COMBO_SEARCH,30,2,185,152,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_SEARCH_RESULT,30,19,58,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "前へ",IDC_BUTTON_PREV,111,19,50,14
+    PUSHBUTTON      "次へ",IDC_BUTTON_NEXT,165,19,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_LIBOPEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_LIBNEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 206
+    END
+
+    IDD_FOLDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_FOLDERNEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_DATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 276
+    END
+
+    IDD_FIND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 252
+    END
+
+    IDD_DATA_LARGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 267
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 276
+    END
+
+    IDD_OPT_TWAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 216
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 76
+    END
+
+    IDD_OPT_FONT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_AUTO_NUMBERING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+
+    IDD_OPT_ORDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 132
+    END
+
+    IDD_BACKUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_RESTORE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 272
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 154
+    END
+
+    IDD_OPT_FOLDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_TRANS_REG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 308
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_PICT_ROTATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 151
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 188
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 62
+    END
+
+    IDD_PERMISSION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 211
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_CHECK_PWD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 224
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_REF_NET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 238
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_INFO_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 492
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 50
+    END
+
+    IDD_TEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 282
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 204
+    END
+
+    IDD_MAKE_INDEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_MAIL_ATT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_OPT_IMAGE_EDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_FIND_SIMPLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 94
+    END
+
+    IDD_FIND_PICT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 414
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
+    END
+
+    IDD_MAKE_PICT_INDEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 46
+    END
+
+    IDD_ACCESS_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 373
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 264
+    END
+
+    IDD_PROPERTY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_OUTPUTIMAGESDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 152
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_TEXT_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 215
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 33
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Multimedia Library Manager\n\nMMLib\n\n\nMMLib.Document\nMMLib Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "MMLib"
+    AFX_IDS_IDLEMESSAGE     "ﾚﾃﾞｨ"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "上書"
+    ID_INDICATOR_REC        "記録"
+    ID_INDICATOR_KANA       "ｶﾅ"
+    ID_INDICATOR_INFO       "dummy"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "新規にライブラリ/フォルダ/データを作成します\n新規ライブラリ/フォルダ/データ"
+    ID_FILE_OPEN            "既存のライブラリまたはフォルダを開きます\nライブラリまたはフォルダを開く"
+    ID_FILE_CLOSE           "作業中のライブラリまたはフォルダを閉じます\n閉じる"
+    ID_FILE_SAVE            "作業中のファイルを保存\n保存"
+    ID_FILE_SAVE_AS         "作業中のファイルに名前を付けて保存\n名前をつけて保存"
+    ID_FILE_PAGE_SETUP      "印刷設定の変更\n印刷設定"
+    ID_FILE_PRINT_SETUP     "プリンタ/印刷設定を変更します\nプリンタの設定"
+    ID_FILE_PRINT           "作業中のファイルを印刷します\n印刷"
+    ID_FILE_PRINT_PREVIEW   "フルスクリーンで表示します\n印刷プレビュー"
+    ID_FILE_UPDATE          "既存のライブラリまたはフォルダの情報を変更します\n情報の変更"
+    ID_FILE_SEND_MAIL       "メールを送信します\nメールの送信"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "プログラムの情報、バージョンそして著作権を表示します\nバージョン情報"
+    ID_APP_EXIT             "アプリケーションを終了します\n終了"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "指定のファイルを開く"
+    ID_FILE_MRU_FILE2       "指定のファイルを開く"
+    ID_FILE_MRU_FILE3       "指定のファイルを開く"
+    ID_FILE_MRU_FILE4       "指定のファイルを開く"
+    ID_FILE_MRU_FILE5       "指定のファイルを開く"
+    ID_FILE_MRU_FILE6       "指定のファイルを開く"
+    ID_FILE_MRU_FILE7       "指定のファイルを開く"
+    ID_FILE_MRU_FILE8       "指定のファイルを開く"
+    ID_FILE_MRU_FILE9       "指定のファイルを開く"
+    ID_FILE_MRU_FILE10      "指定のファイルを開く"
+    ID_FILE_MRU_FILE11      "指定のファイルを開く"
+    ID_FILE_MRU_FILE12      "指定のファイルを開く"
+    ID_FILE_MRU_FILE13      "指定のファイルを開く"
+    ID_FILE_MRU_FILE14      "指定のファイルを開く"
+    ID_FILE_MRU_FILE15      "指定のファイルを開く"
+    ID_FILE_MRU_FILE16      "指定のファイルを開く"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "次のウィンドウに切り替える\n次ページ"
+    ID_PREV_PANE            "前のウィンドウに切り替える\n前ページ"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "作業中のウィンドウを分割\n分割"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "選択範囲を消去\n消去"
+    ID_EDIT_CLEAR_ALL       "すべて消去\nすべて消去"
+    ID_EDIT_COPY            "選択範囲をコピーしてクリップボードに保存します\nコピー"
+    ID_EDIT_CUT             "選択範囲を切り取ってクリップボードに保存します\n切り取り"
+    ID_EDIT_FIND            "指定した文字列の検索\n検索"
+    ID_EDIT_PASTE           "クリップボードの内容を貼り付けます\n貼り付け"
+    ID_EDIT_REPEAT          "直前に行った動作を繰り返す\nリピート"
+    ID_EDIT_REPLACE         "指定した文字列を他の文字列で置換\n置換"
+    ID_EDIT_SELECT_ALL      "すべての項目を選択\nすべて選択"
+    ID_EDIT_UNDO            "直前に行った動作を元に戻します\n元に戻す"
+    ID_EDIT_REDO            "直前に行った動作を繰り返す\nやり直し"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "ツールバーの表示/非表示を切り替えます\nツールバーの表示/非表示"
+    ID_VIEW_STATUS_BAR      "ステータスバーの表示/非表示を切り替えます\nステータスバーの表示/非表示"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "ウィンドウのサイズを変更"
+    AFX_IDS_SCMOVE          "ウィンドウの位置を変更"
+    AFX_IDS_SCMINIMIZE      "ウィンドウをｱｲｺﾝ化する"
+    AFX_IDS_SCMAXIMIZE      "ウィンドウを最大表示にする"
+    AFX_IDS_SCNEXTWINDOW    "次のウィンドウに切り替える"
+    AFX_IDS_SCPREVWINDOW    "前のウィンドウに切り替える"
+    AFX_IDS_SCCLOSE         "作業中のウィンドウを閉じ、変更したファイルの保存を指示"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "ウィンドウを通常のサイズに戻す"
+    AFX_IDS_SCTASKLIST      "アプリケーションの切り替え"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "印刷プレビューモードを閉じる\nプレビューのキャンセル"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_FOLDER_NEW          "フォルダの新規作成\n新規作成"
+    IDM_FOLDER_OPEN         "フォルダを開く\n開く"
+    IDM_LIB_NEW             "ライブラリの新規作成\n新規作成"
+    IDM_LIB_OPEN            "ライブラリを開く\n開く"
+    IDM_LIB_CLOSE           "ライブラリを閉じる\n閉じる"
+    IDM_LIB_RENAME          "ライブラリの名前を変更\n名前変更"
+    IDM_FOLDER_RENAME       "フォルダの名前を変更\n名前変更"
+    IDM_VIEW_ICON           "縮小画像を表示\n縮小画像表示"
+    IDM_VIEW_LIST           "一覧形式で表示します\n一覧表示"
+    IDM_VIEW_DETAIL         "詳細形式で表示します\n詳細表示"
+    IDM_VIEW_PICT           "画像を表示します\n画像表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_CAMERA         "ビデオカメラで撮影する\nビデオカメラで撮影"
+    IDM_PICT_SCANNER        "スキャナから画像を取り込む\nスキャナから取り込み"
+    IDM_PICT_FILE           "画像ファイルを読み込む\n画像ファイルの読み込み"
+    IDM_FILE_DELETE         "既存のライブラリまたはフォルダを削除します\n削除"
+    IDM_RELOAD              "表示される情報を最新の状態に更新します\n最新表示"
+    IDM_PICT_OPEN           "画像を表示します\n画像を表示"
+    IDM_VIEW_RELOAD         "表示を最新の情報に更新します\n最新表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_RIGHT_ROTATE   "画像を90度右回転します\n画像の右回転"
+    IDM_PICT_LEFT_ROTATE    "画像を90度左回転します\n画像の左回転"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_AUTOSIZE       "画像のサイズをウィンドウサイズに自動的に合わせます\n画像サイズの自動調整"
+    IDM_PICT_ENLARGE        "画像を拡大します\n画像の拡大"
+    IDM_PICT_REDUCE         "画像を縮小します\n画像の縮小"
+    IDM_DETAIL_NAME         "詳細表示への""名称""の表示をON/OFFします\n""名称""の表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_DETAIL_CREATOR      "詳細表示への""作成者""の表示をON/OFFします\n""作成者""の表示"
+    IDM_DETAIL_CDATE        "詳細表示への""作成日時""の表示をON/OFFします\n""作成日時""の表示"
+    IDM_DETAIL_UDATE        "詳細表示への""更新日時""の表示をON/OFFします\n""更新日時""の表示"
+    IDM_DETAIL_CODE         "詳細表示への""コード""の表示をON/OFFします\n""コード""の表示"
+    IDM_DETAIL_REMARK       "詳細表示への""備考""の表示をON/OFFします\n""備考""の表示"
+    IDM_DETAIL_KEYWORD      "詳細表示への""キーワード""の表示をON/OFFします\n""キーワード""の表示"
+    IDM_DETAIL_SERVER       "詳細表示への""サーバ名""の表示をON/OFFします\n""サーバ名""の表示"
+    IDM_DETAIL_DIRECTORY    "詳細表示への""ディレクトリ""の表示をON/OFFします\n""ディレクトリ""の表示"
+    IDM_VIEW_UP             "一つ上のフォルダに移動します\n一つ上のフォルダに移動"
+    IDM_VIEW_UPFOLDER       "ひとつ上のフォルダに移動します\nひとつ上のフォルダへ移動"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_FIND                "検索フォルダを作成します\n検索フォルダ"
+    IDM_PROPERTY            "プロパティを表示します\nプロパティの表示"
+    ID_CACHE_READ           "キャッシュにデータを一括して読み込みます\nキャッシュの一括読み込み"
+    ID_CACHE_CLEAR          "キャッシュを削除します。\nキャッシュの削除"
+    IDM_OPTION              "オプションを設定します\nオプションの設定"
+    IDW_COMBO               "画像の拡大縮小率を設定します\n拡大縮小率"
+    IDM_PICT_AUTOSIZE2      "画像のサイズをウィンドウの幅に自動的に合わせます\n画像サイズの幅調整"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_REFIND              "再度検索をしなおします\n再検索"
+    IDM_PACK                "データの削除によりできた空きエリアをパックします\nファイルのパック"
+    IDM_FILE_PACK           "ファイルの未使用エリアを削除します。\nファイルのパック"
+    IDM_TOOLBAR_STANDARD    "標準ボタンの表示/非表示を切り替えます\n標準ボタンの表示/非表示"
+    IDM_TOOLBAR_PICT        "画像ボタンの表示/非表示を切り替えます\n画像ボタンの表示/非表示"
+    IDM_TOOLBAR_STRING      "各ツールバーの文字列の表示/非表示を切り替えます\n文字列の表示/非表示"
+    ID_FILE_EXPORT          "データを外部のファイルに出力します。\nエクスポート"
+    ID_FILE_IMPORT          "外部のファイルを読み込みます。\nインポート"
+    IDM_BACKUP              "ライブラリのバックアップを行います\nバックアップ"
+    IDM_RESTORE             "ライブラリを復元します\n復元"
+    IDM_ONLINE_UPDATE       "ネットワーク経由でアプリケーションをアップデートします。"
+    IDM_ONLINE_MANUAL       "本プログラムのマニュアルを表示します。"
+    IDM_TRANS_REG           "転送先のアプリケーションを登録します。\n転送先の登録"
+    IDM_IMPORT_MML          "外部のMMLファイルを読み込みます。\nMMLファイルインポート"
+    IDM_IMPORT_PPM          "ﾌﾟﾚｽﾄページﾏﾈｰｼﾞｬｰのファイルを読み込みます。\nﾌﾟﾚｽﾄページﾏﾈｰｼﾞｬｰのインポート"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_IMPORT_BMP          "外部の画像ファイルを読み込みます。\n画像ファイルインポート"
+    IDM_PICT_ALL_ROTATE     "データフォルダ内の画像を一括して回転します\n画像の一括回転"
+    IDM_PICT_WINDOW         "画像を別ウィンドウに表示します\n別ウィンドウ表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_PICTFRAME           "\n"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_FILE_PASSWORD       "ライブラリにパスワードを設定します。\nパスワード設定"
+    IDM_FILE_PERMISSION     "ライブラリのアクセスを制限します。\nアクセス制限"
+    IDM_FONT                "フォントを設定します\nフォントの設定"
+    IDM_CLOSE_PICT          "画像ウィンドウを閉じます\n画像ウィンドウを閉じる"
+    IDM_CLOSE_TEXT          "テキストデータウィンドウを閉じます\nウィンドウを閉じる"
+    IDM_VIEW_PREV           "ひとつ前のデータを表示する\n前データの表示"
+    IDM_VIEW_NEXT           "次のデータを表示する\n次データの表示"
+    ID_NEW_DATA             "新しいデータをインボックスに作成する。\n新規データ"
+    IDM_TOOLBAR_VIEW        "ビューボタンの表示/非表示を切り替えます\nビューボタンの表示/非表示"
+    IDM_VIEW_MAX            "画像をウィンドゥ全体に表示します\n画像の全体表示"
+    IDM_KEYWORD             "キーワードによる全検索\nキーワード検索"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_MAKE_INDEX          "キーワード検索のための索引ファイルを作成します\nキーワード索引作成"
+    IDM_EDIT_IMAGE          "画像を編集します\n画像の編集"
+    IDM_DETAIL_FIRSTDATA    "詳細表示への""最初のデータ名称""の表示をON/OFFします\n""最初のデータ名称""の表示"
+    IDM_FIND_PICT           "類似画像の検索\n画像検索"
+    IDM_ACCESS_HISTORY      "アクセス履歴の表示\nアクセス履歴"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_SELECT_LIBRARY      "ライブラリを選択してください。"
+    IDS_BACKUP_NORMAL       "バックアップは正常に終了しました。"
+    IDS_BACKUP_FAIL         "バックアップに失敗しました。"
+    IDS_SELECT_DELETE_LIBRARY "削除するバックアップライブラリを選択してください。"
+    IDS_DELETE_SELECTED_LIBRARY "選択されたバックアップライブラリを削除します。よろしいですか？"
+    IDS_READ_NOTIFY         "前回取り込んだデータを保存していませんが、取り込みを実行しますか？"
+    IDS_READ_PICT_FILE_FAIL "画像ファイルが読めません。"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CLOSE               "閉じる"
+    IDS_CANCEL              "ｷｬﾝｾﾙ"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LIBRARY_NAME        "ライブラリ名称"
+    IDS_BACKUP_TIME         "バックアップ日時"
+    IDS_NO_TITLE            "無題"
+    IDS_NO_ROTATION         "回転なし"
+    IDS_RIGHT_ROTATION      "右回転"
+    IDS_HALF_ROTATION       "上下逆転"
+    IDS_LEFT_ROTATION       "左回転"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UNKNOWN             "不明"
+    IDS_PICTURE_FILE        "画像ﾌｧｲﾙ"
+    IDS_SELECT_PICT_FILE_MULTI "画像ファイルの選択 （複数選択可能）"
+    IDS_SELECT_PICT_FILE    "画像ファイルの選択"
+    IDS_FIND_FOLDER         "検索ﾌｫﾙﾀﾞ"
+    IDS_CONDITION           "条件%d"
+    IDS_KEYWORD             "キーワード"
+    IDS_KEYWORD_FIND        "キーワード検索"
+    IDS_FIND                "検索"
+    IDS_NAME                "名称"
+    IDS_LIBRARY             "ライブラリ"
+    IDS_CREATOR             "作成者"
+    IDS_REMARK              "備考"
+    IDS_CREATE_DATE         "作成日時"
+    IDS_FIND_RESULT         "キーワード検索結果 %d件"
+    IDS_INBOX               "ｲﾝﾎﾞｯｸｽ"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ONLY_COMPRESS       "非圧縮形式以外は使用できません。"
+    IDS_VALID_COLOR         "色数は１６７７万色、２５６色、２値以外は使用できません。"
+    IDS_INPUT_DATA_SAVE     "データが入力されています。\r\n\r\n保存しますか？"
+    IDS_UPDATE_DATA_SAVE    "データが変更されています。\r\n\r\n保存しますか？"
+    IDS_INPUT_KEYWORD       "キーワードを入力してください。"
+    IDS_FIND_ERROR          "検索中にエラーが発生しました。"
+    IDS_NO_KEYWORD_INDEX    "キーワード索引ファイルがありません。作成してください。"
+    IDS_OLD_KEYWORD_INDEX   "キーワード索引ファイルのバージョンが古いため、作成しなおしてください。"
+    IDS_SELECT_FOLDER_TYPE  "フォルダの種類を選択してください。"
+    IDS_CREATE_INBOX_FAIL   "INBOX が作成できません。"
+    IDS_INPUT_SERVER_NAME   "サーバー名を入力してください。"
+    IDS_REDUCTION_RATIO     "縮小率は5%～100%の間で設定してください。"
+    IDS_CREAE_KEYWORD_INDEX_FAIL "キーワード索引ファイルを作成できません。"
+    IDS_CREATE_KEYWORD_INDEX_ERROR "キーワード索引ファイルの作成中にエラーが発生しました。"
+    IDS_CREATE_KEYWORD_INDEX_NORMAL "キーワード索引ファイルは正常に作成されました。"
+    IDS_NOT_FOUND_YMUPDATE_DLL "YMUPDATE.DLL が見つかりません。"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MMLIB_FOLDER        "MMLIBフォルダの選択"
+    IDS_NEW_DOCUMENT        "新規作成"
+    IDS_OPEN                "開く"
+    IDS_NEW_DATA            "新規ﾃﾞｰﾀ"
+    IDS_PRINT               "印刷"
+    IDS_PREVIEW             "ﾌﾟﾚﾋﾞｭｰ"
+    IDS_SEND                "送信"
+    IDS_CUT                 "切り取り"
+    IDS_COPY                "コピー"
+    IDS_PASTE               "貼り付け"
+    IDS_KEYWORD2            "ｷｰﾜｰﾄﾞ"
+    IDS_RETURN              "戻る"
+    IDS_HELP                "ヘルプ"
+    IDS_PREV_DATA           "前ﾃﾞｰﾀ"
+    IDS_NEXT_DATA           "次ﾃﾞｰﾀ"
+    IDS_FULL_VIEW           "全体表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_REDUCTION_PICT      "縮小画像"
+    IDS_LIST_VIEW           "一覧表示"
+    IDS_DETAIL_VIEW         "詳細表示"
+    IDS_SCALE               "倍率"
+    IDS_AUTO_SIZE           "自動ｻｲｽﾞ"
+    IDS_AUTO_WIDTH          "自動幅"
+    IDS_ENLARGE             "拡大"
+    IDS_REDUCTION           "縮小"
+    IDS_ALL_ROTATION        "一括回転"
+    IDS_OTHER_WINDOW        "別ｳｨﾝﾄﾞｳ"
+    IDS_DEFAULT_FONT        "ＭＳ Ｐゴシック"
+    IDS_NEW_DATA2           "新規データ"
+    IDS_LIBRARY_UPDATE      "ライブラリの情報変更"
+    IDS_FOLDER_UPDATE       "フォルダの情報変更"
+    IDS_DATA_UPDATE         "データの情報変更"
+    IDS_FOLDER              "フォルダ"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ONLINE_UPDATE_FAIL  "オンラインアップデートが実行できません。"
+    IDS_CREATE_CACHE_FOLDER_FAIL "キャッシュフォルダが作成できませんでした。"
+    IDS_OLD_DATABASE_VERSION "データベース(%s)のバージョンが古いため変換します。"
+    IDS_PROGRAM_ERROR       "プログラム内部エラー"
+    IDS_LIBRARY_ALREADY_OPEN "指定されたライブラリはすでに開かれています。"
+    IDS_ACCESS_DENY         "アクセス制限によりこの処理は実行できません。"
+    IDS_PASSWORD_INCORRECT  "パスワードが正しくありません。"
+    IDS_DELETE_SELECT       "選択した%sを削除しますか？"
+    IDS_DELETE_LIBRARY_FAIL "ライブラリは削除できませんでした。"
+    IDS_OFFLINE_FOLDER_UPDATE "オフラインではフォルダの更新はできません。"
+    IDS_OFFLINE_DATA_UPDATE "オフラインではデータの更新はできません。"
+    IDS_READ_CACHE          "選択したフォルダ以下のデータをキャッシュ読み込みます。実行しますか？\r\n（WAN上でこの処理を行うと非常に時間がかかる場合があります）"
+    IDS_DELETE_CACHE        "選択したライブラリのキャッシュを全て消去します。実行しますか？"
+    IDS_SEND_DATA_FOLDER    "データまたはデータフォルダ以外は送信できません。"
+    IDS_SELECT_DATA_FOLDER  "送信するデータまたはフォルダを選択してください。"
+    IDS_FILE_PACK           "ファイルのパックは処理に時間がかかる場合があります。よろしいですか？"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DATA                "データ"
+    IDS_EXPORT_FILE         "エクスポートファイル"
+    IDS_MML_FILE            "MMLファイル"
+    IDS_PRESTO_PAGEMANAGER_FOLDER "ﾌﾟﾚｽﾄﾍﾟｰｼﾞﾏﾈｰｼﾞｬｰﾌｫﾙﾀﾞ"
+    IDS_IMPORT_FOLDER       "インポートフォルダ"
+    IDS_IMPORT_FILE         "インポートファイル"
+    IDS_MULTIMEDIA_LIBRARY  "ﾏﾙﾁﾒﾃﾞｨｱ ﾗｲﾌﾞﾗﾘ"
+    IDS_CODE                "コード"
+    IDS_UPDATE_DATE         "更新日時"
+    IDS_SERVER_NAME         "サーバー名"
+    IDS_DIRECTORY           "ディレクトリ"
+    IDS_SELECT_LIBRARY_FOLDER "ライブラリフォルダの選択"
+    IDS_SELECT_CACHE_FOLDER "キャッシュフォルダの選択"
+    IDS_SELECT_BACKUP_FOLDER "バックアップフォルダの選択"
+    IDS_SELECT_INBOX_FOLDER "INBOXフォルダの選択"
+    IDS_SELECT_KEYWORD_FOLDER "キーワード索引フォルダの選択"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FILE_PACK_END       "ファイルのパックが終了しました。"
+    IDS_SELECT_EXPORT       "エクスポートするデータまたはフォルダを選択してください。"
+    IDS_EXPORT_DATA_FOLDER  "データまたはデータフォルダ以外はエクスポートできません。"
+    IDS_SELECT_IMPORT_FOLDER "インポート先のフォルダを選択してください。"
+    IDS_PICT_FILE_IMPORT    "画像ファイルはデータフォルダ以外にはインポートできません。"
+    IDS_SELECT_TRANSFER_DATA "転送するデータを選択してください。"
+    IDS_STANSFER_DATA       "データ以外は転送できません。"
+    IDS_PRINT_FOLDER        "フォルダは印刷できません。データを選択してください。"
+    IDS_SELECT_PRINT_DATA   "印刷するデータを選択してください。（複数選択可能）"
+    IDS_OFFLINE_MODE        "データベースの接続に失敗したのでオフラインで開きます。"
+    IDS_DATA_NOT_FOUND      "データが見つかりません。"
+    IDS_PASSWORD_UNMATCH    "入力したパスワードが異なります。"
+    IDS_SELECT_ROTATION     "回転方向を選択してください。"
+    IDS_NOT_FOUND_LIBRARY   "指定されたサーバーにはライブラリがみつかりません。"
+    IDS_CONNECT_SERVER_FAIL "サーバーに接続できません。"
+    IDS_SELECT_RECTORE_LIBRARY "リストアするバックアップライブラリを選択してください。"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RESTORE_LIBRARY     "選択されたバックアップライブラリをリストアします。よろしいですか？"
+    IDS_RESTORE_FAIL        "リストアに失敗しました。"
+    IDS_RESTORE_NORMAL      "リストアは正常に終了しました。"
+    IDS_INPUT_APPLICATION_NAME "アプリケーション名を入力してください。"
+    IDS_INPUT_EXECUTABLE_FILE "実行ファイルを入力してください。"
+    IDS_SELECT_DELETE_ITEM  "削除する項目を選択してください。"
+    IDS_DELETE_SELECT_ITEM  "選択した項目を削除しますか？"
+    IDS_NO_IMAGE_DATA       "選択したデータには画像がありません。"
+    IDS_MULTI_PROCESS       "複数起動した時はDBを更新する処理は実行できません。"
+    IDS_SOUND_RECORD        "音声を録音します。よろしいですか？"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_APPLICATION_NAME    "アプリケーション名"
+    IDS_EXECUTABLE_FILE     "実行ファイル"
+    IDS_PROGRAM             "プログラム"
+    IDS_ALL_FILES           "全てのファイル"
+    IDS_SELECT_TRANSFER_APPL "転送先アプリケーション選択"
+    IDS_SET_ENVIRONMENT     "環境設定"
+    IDS_NO_TITLE_1          "無題-1"
+    IDS_MMDB_FILE           "MMDBファイル"
+    IDS_LEFT_ROTATION2      "左回転"
+    IDS_RIGHT_ROTATION2     "右回転"
+    IDS_HELP_URL            "http://www.ymec.com/manual/mmlib/"
+    IDS_ONLINE_UPDATE       "MMLIBJ"
+    IDS_FIRST_DATA          "最初のデータ名称"
+    IDS_SELECT_ACCESS_LOG_FOLDER "アクセス履歴フォルダの選択"
+    IDS_ACCESS_TIME         "アクセス日時"
+    IDS_ALL_LIBRARIES       "全てのライブラリ"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MARGIN              "余白"
+    IDS_GFOLDER             "グループフォルダ"
+    IDS_DFOLDER             "データフォルダ"
+    IDS_WORD_WRAP           "折り返し"
+    IDS_IMAGE_SEARCH        "画像検索"
+    IDS_ACCESS_HISTORY      "履歴"
+    IDS_PDF_FILE            "PDFファイル"
+    IDS_PDF                 "PDF取込"
+    IDS_SELECT_AUDIO_FILE   "音声ファイルの選択"
+    IDS_AUDIO_FILE          "音声ファイル"
+    IDS_OUTPUT_IMAGES_FOLDER "画像一括出力フォルダ選択"
+    IDS_INPUT_SEARCH_TEXT   "検索する文字列を入力してください"
+    IDS_TEXT_SEARCH         "ﾃｷｽﾄ検索"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_VIEW_TEXT_WORDWRAP  "テキストを折り返して表示します\nテキスト折り返し表示"
+    IDM_IMPORT_MMDB         "外部のMMDBファイルを読み込みます。\nMMDBファイルインポート"
+    IDM_IMPORT_PDF          "外部のPDFファイルを読み込みます。\nPDFファイルインポート"
+    IDM_IMAGE_FILES_OUTPUT  "画像ファイルを一括して出力します。\n画像ファイル一括出力"
+    IDM_TEXT_SEARCH         "テキストデータの内容を検索\nテキスト検索"
+END
+
+#endif    // 日本語 (日本) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (米国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_DATA MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Display in &another window",  IDM_PICT_WINDOW
+        MENUITEM SEPARATOR
+        MENUITEM "Change &Information...",      ID_FILE_UPDATE
+        MENUITEM "&Delete",                     IDM_FILE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...",                   ID_FILE_PRINT
+        MENUITEM "&Export...",                  ID_FILE_EXPORT
+        MENUITEM "Send &Mail",                  ID_FILE_SEND_MAIL
+        MENUITEM SEPARATOR
+        MENUITEM "Edit &Image",                 IDM_EDIT_IMAGE
+        MENUITEM "&Image Search...",            IDM_FIND_PICT
+        MENUITEM SEPARATOR
+        MENUITEM "P&roperty...",                IDM_PROPERTY
+    END
+END
+
+IDR_DFOLDER MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&New Data...",                ID_FILE_NEW
+        MENUITEM "&Open...",                    ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "Change &Information...",      ID_FILE_UPDATE
+        MENUITEM "&Delete",                     IDM_FILE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...",                   ID_FILE_PRINT
+        MENUITEM "Send &Mail",                  ID_FILE_SEND_MAIL
+        MENUITEM SEPARATOR
+        MENUITEM "Image fi&les Output...",      IDM_IMAGE_FILES_OUTPUT
+        MENUITEM "&Export...",                  ID_FILE_EXPORT
+        POPUP "&Import"
+        BEGIN
+            MENUITEM "&Image file...",              IDM_IMPORT_BMP
+            MENUITEM "&MML file...",                IDM_IMPORT_MML
+            MENUITEM "MM&DB file...",               IDM_IMPORT_MMDB
+            MENUITEM "&Presto page manager...",     IDM_IMPORT_PPM
+            MENUITEM "PD&F file...",                IDM_IMPORT_PDF
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "P&roperty...",                IDM_PROPERTY
+    END
+END
+
+IDR_FIND MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&Open...",                    ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "Change &Information...",      ID_FILE_UPDATE
+        MENUITEM SEPARATOR
+        MENUITEM "&Search again",               IDM_REFIND
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...",                   ID_FILE_PRINT
+        MENUITEM "&Export...",                  ID_FILE_EXPORT
+        MENUITEM "Send &Mail...",               ID_FILE_SEND_MAIL
+    END
+END
+
+IDR_FINDFRAME MENU
+BEGIN
+    MENUITEM "&Close",                      IDM_CLOSE_FIND
+    MENUITEM "&Make Keyword Index...",      IDM_MAKE_INDEX
+END
+
+IDR_GFOLDER MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&New Folder...",              ID_FILE_NEW
+        MENUITEM "&Open...",                    ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "Change &Information...",      ID_FILE_UPDATE
+        MENUITEM "&Delete",                     IDM_FILE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Image fi&les Output...",      IDM_IMAGE_FILES_OUTPUT
+        MENUITEM "&Export...",                  ID_FILE_EXPORT
+        POPUP "&Import"
+        BEGIN
+            MENUITEM "&Image file...",              IDM_IMPORT_BMP
+            MENUITEM "&MML file...",                IDM_IMPORT_MML
+            MENUITEM "MM&DB file...",               IDM_IMPORT_MMDB
+            MENUITEM "&Presto page manager...",     IDM_IMPORT_PPM
+            MENUITEM "PD&F file...",                IDM_IMPORT_PDF
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "P&roperty...",                IDM_PROPERTY
+    END
+END
+
+IDR_INBOX MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&New Folder...",              ID_FILE_NEW
+        MENUITEM "&Open",                       ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+    END
+END
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New...",                     ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "Change &Information...",      ID_FILE_UPDATE
+        MENUITEM "&Delete\tDel",                IDM_FILE_DELETE
+        MENUITEM "&File Pack",                  IDM_FILE_PACK
+        MENUITEM SEPARATOR
+        MENUITEM "Image fi&les Output...",      IDM_IMAGE_FILES_OUTPUT
+        MENUITEM "&Export...",                  ID_FILE_EXPORT
+        POPUP "&Import"
+        BEGIN
+            MENUITEM "&Image file...",              IDM_IMPORT_BMP
+            MENUITEM "&MML file...",                IDM_IMPORT_MML
+            MENUITEM "MM&DB file...",               IDM_IMPORT_MMDB
+            MENUITEM "&Presto page manager...",     IDM_IMPORT_PPM
+            MENUITEM "PD&F file...",                IDM_IMPORT_PDF
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Set Pass&word...",            IDM_FILE_PASSWORD
+        MENUITEM "&Access Restrictions...",     IDM_FILE_PERMISSION
+        MENUITEM SEPARATOR
+        MENUITEM "Pa&ge Setup...",              ID_FILE_PAGE_SETUP
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view...",           ID_FILE_PRINT_PREVIEW
+        MENUITEM SEPARATOR
+        MENUITEM "Send &Mail...",               ID_FILE_SEND_MAIL
+        MENUITEM "&Options...",                 IDM_OPTION
+        MENUITEM SEPARATOR
+        MENUITEM "&Backup...",                  IDM_BACKUP
+        MENUITEM "Re&store...",                 IDM_RESTORE
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, INACTIVE
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Select A&ll\tCtrl+A",         ID_EDIT_SELECT_ALL
+    END
+    POPUP "&Search"
+    BEGIN
+        MENUITEM "&Search Folder...",           IDM_FIND
+        MENUITEM "Search &again",               IDM_REFIND
+        MENUITEM SEPARATOR
+        MENUITEM "&Keyword Search...",          IDM_KEYWORD
+        MENUITEM "&Image Search...",            IDM_FIND_PICT
+        MENUITEM "&Text Search...",             IDM_TEXT_SEARCH
+        MENUITEM SEPARATOR
+        MENUITEM "Access &History...",          IDM_ACCESS_HISTORY
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Toolbar"
+        BEGIN
+            MENUITEM "&Standard button",            IDM_TOOLBAR_STANDARD
+            MENUITEM "&Display button",             IDM_TOOLBAR_VIEW
+            MENUITEM "&Image button",               IDM_TOOLBAR_PICT
+            MENUITEM SEPARATOR
+            MENUITEM "Button &Text",                IDM_TOOLBAR_STRING
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Show &Previous Data",         IDM_VIEW_PREV
+        MENUITEM "Show &Next Data",             IDM_VIEW_NEXT
+        MENUITEM SEPARATOR
+        MENUITEM "Show &Entire Image",          IDM_VIEW_MAX
+        MENUITEM "Text Word wrap",              IDM_VIEW_TEXT_WORDWRAP
+        MENUITEM SEPARATOR
+        MENUITEM "&Reduce Image",               IDM_VIEW_PICT
+        MENUITEM "&List",                       IDM_VIEW_LIST
+        MENUITEM "&Detail",                     IDM_VIEW_DETAIL
+        MENUITEM SEPARATOR
+        POPUP "Li&brary Display Item"
+        BEGIN
+            MENUITEM "Name",                        IDM_DETAIL_NAME
+            MENUITEM "Creation Date",               IDM_DETAIL_CDATE
+            MENUITEM "Update Date",                 IDM_DETAIL_UDATE
+            MENUITEM "Creator",                     IDM_DETAIL_CREATOR
+            MENUITEM "Comments",                    IDM_DETAIL_REMARK
+            MENUITEM "Keyword",                     IDM_DETAIL_KEYWORD
+            MENUITEM "Server Name",                 IDM_DETAIL_SERVER
+            MENUITEM "Directory",                   IDM_DETAIL_DIRECTORY
+        END
+        POPUP "&Folder Display Item"
+        BEGIN
+            MENUITEM "Name",                        IDM_DETAIL_NAME
+            MENUITEM "First Data Name",             IDM_DETAIL_FIRSTDATA
+            MENUITEM "Creation Date",               IDM_DETAIL_CDATE
+            MENUITEM "Update Date",                 IDM_DETAIL_UDATE
+            MENUITEM "Creator",                     IDM_DETAIL_CREATOR
+            MENUITEM "Comments",                    IDM_DETAIL_REMARK
+            MENUITEM "Keyword",                     IDM_DETAIL_KEYWORD
+        END
+        POPUP "Da&ta Display Item"
+        BEGIN
+            MENUITEM "Name",                        IDM_DETAIL_NAME
+            MENUITEM "Code",                        IDM_DETAIL_CODE
+            MENUITEM "Creation Date",               IDM_DETAIL_CDATE
+            MENUITEM "Update Date",                 IDM_DETAIL_UDATE
+            MENUITEM "Creator",                     IDM_DETAIL_CREATOR
+            MENUITEM "Comments",                    IDM_DETAIL_REMARK
+            MENUITEM "Keyword",                     IDM_DETAIL_KEYWORD
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Refresh",                    IDM_VIEW_RELOAD
+    END
+    POPUP "&Image"
+    BEGIN
+        MENUITEM "Display in &another window",  IDM_PICT_WINDOW
+        MENUITEM SEPARATOR
+        MENUITEM "Automatic &Size Adjustment",  IDM_PICT_AUTOSIZE
+        MENUITEM "Automatic &Width Adjustment", IDM_PICT_AUTOSIZE2
+        MENUITEM "&Enlarge",                    IDM_PICT_ENLARGE
+        MENUITEM "Re&duce",                     IDM_PICT_REDUCE
+        MENUITEM SEPARATOR
+        MENUITEM "Rotate &Left",                IDM_PICT_LEFT_ROTATE
+        MENUITEM "Rotate &Right",               IDM_PICT_RIGHT_ROTATE
+        MENUITEM "&Batch Rotate",               IDM_PICT_ALL_ROTATE
+        MENUITEM SEPARATOR
+        MENUITEM "Edit &Image",                 IDM_EDIT_IMAGE
+    END
+    POPUP "&Cache"
+    BEGIN
+        MENUITEM "&Batch Read",                 ID_CACHE_READ
+        MENUITEM "&Delete",                     ID_CACHE_CLEAR
+    END
+    POPUP "&Transfer"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "&Register Application...",    IDM_TRANS_REG
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About MMLIB...",             ID_APP_ABOUT
+        MENUITEM SEPARATOR
+        MENUITEM "Online &Manual...",           IDM_ONLINE_MANUAL
+        MENUITEM "Online &Update...",           IDM_ONLINE_UPDATE
+    END
+END
+
+IDR_PICTFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Close",                      IDM_CLOSE_PICT
+        MENUITEM SEPARATOR
+        MENUITEM "Pa&ge Setup...",              ID_FILE_PAGE_SETUP
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view...",           ID_FILE_PRINT_PREVIEW
+    END
+    POPUP "&Image"
+    BEGIN
+        MENUITEM "Automatic &Size Adjustment",  IDM_PICT_AUTOSIZE
+        MENUITEM "Automatic &Width Adjustment", IDM_PICT_AUTOSIZE2
+        MENUITEM "&Enlarge",                    IDM_PICT_ENLARGE
+        MENUITEM "Re&duce",                     IDM_PICT_REDUCE
+        MENUITEM SEPARATOR
+        MENUITEM "Rotate &Left",                IDM_PICT_LEFT_ROTATE
+        MENUITEM "Rotate &Right",               IDM_PICT_RIGHT_ROTATE
+    END
+END
+
+IDR_ROOT MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&New Library...",             ID_FILE_NEW
+        MENUITEM "&Open library...",            ID_FILE_OPEN
+    END
+END
+
+IDR_TEXT MENU
+BEGIN
+    MENUITEM "&Close",                      IDM_CLOSE_TEXT
+    MENUITEM "&Font",                       IDM_FONT
+END
+
+IDR_LIBRARY MENU
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&New Folder...",              ID_FILE_NEW
+        MENUITEM "&Open...",                    ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "Change &Information...",      ID_FILE_UPDATE
+        MENUITEM "&Delete",                     IDM_FILE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Image fi&les Output...",      IDM_IMAGE_FILES_OUTPUT
+        MENUITEM "&Export...",                  ID_FILE_EXPORT
+        POPUP "&Import"
+        BEGIN
+            MENUITEM "&Image file...",              IDM_IMPORT_BMP
+            MENUITEM "&MML file...",                IDM_IMPORT_MML
+            MENUITEM "MM&DB file...",               IDM_IMPORT_MMDB
+            MENUITEM "&Presto page manager...",     IDM_IMPORT_PPM
+            MENUITEM "PD&F file...",                IDM_IMPORT_PDF
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Search Folder...",           IDM_FIND
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DATA DIALOGEX 0, 0, 283, 282
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Data"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Shared information",IDC_STATIC,7,7,200,104
+    RTEXT           "Name",IDC_STATIC,7,23,39,8
+    EDITTEXT        IDC_TITLE,49,21,147,12,ES_AUTOHSCROLL
+    RTEXT           "Code",IDC_STATIC,7,40,39,8
+    EDITTEXT        IDC_CODE,49,38,86,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Auto &Numbering",IDC_AUTO_NUMBERING,139,37,58,14
+    RTEXT           "Creator",IDC_STATIC,7,57,39,8
+    EDITTEXT        IDC_CREATOR,50,55,85,12,ES_AUTOHSCROLL
+    RTEXT           "Comments",IDC_STATIC,7,74,39,8
+    EDITTEXT        IDC_REMARK,49,72,146,12,ES_AUTOHSCROLL
+    RTEXT           "Keyword",IDC_STATIC,7,91,39,8
+    EDITTEXT        IDC_KEYWORD,49,89,146,12,ES_AUTOHSCROLL
+    GROUPBOX        "Image information",IDC_STATIC,7,120,268,154
+    PUSHBUTTON      "&Rotation",IDC_PICT_ROTATION,28,144,39,18,WS_DISABLED
+    RTEXT           "Width",IDC_STATIC,7,212,28,8
+    EDITTEXT        IDC_PICT_WIDTH,38,210,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Height",IDC_STATIC,7,226,28,8
+    EDITTEXT        IDC_PICT_HEIGHT,38,224,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Bits",IDC_STATIC,7,242,28,8
+    EDITTEXT        IDC_PICT_COLOR,38,240,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "DPI",IDC_STATIC,7,256,28,8
+    EDITTEXT        IDC_PICT_DPI,38,254,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "",IDC_PICT_PICTURE,"Static",SS_GRAYRECT | SS_SUNKEN,74,136,131,131
+    PUSHBUTTON      "&Video Camera...",IDC_PICT_CAMERA,215,136,59,14
+    PUSHBUTTON      "&Scanner...",IDC_PICT_SCANNER,215,151,59,14
+    PUSHBUTTON      "Read &File...",IDC_PICT_FILE,215,166,59,14
+    CHECKBOX        "C&lipboard",IDC_PICT_CLIPBOARD,215,181,59,14,BS_PUSHLIKE
+    CHECKBOX        "&Window Copy",IDC_PICT_WINDOW,215,196,59,14,BS_PUSHLIKE
+    PUSHBUTTON      "&Delete",IDC_PICT_ERASE,215,216,59,14
+    CONTROL         "Continuous",IDC_AUTO_SAVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,217,239,51,10
+    COMBOBOX        IDC_AUTO_ROTATION,215,253,57,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Close",IDCANCEL,216,10,59,14
+    PUSHBUTTON      "&Save",IDC_SAVE,216,32,59,14,WS_DISABLED
+    PUSHBUTTON      "&Text Data...",IDC_TEXT_DATA,216,74,59,14
+    PUSHBUTTON      "&Prev. Data Copy",IDC_COPY_DATA,216,96,59,14
+END
+
+IDD_DATA_LARGE DIALOGEX 0, 0, 280, 283
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Data"
+FONT 12, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Shared information",IDC_STATIC,7,7,200,104
+    RTEXT           "Name",IDC_STATIC,7,23,39,8
+    EDITTEXT        IDC_TITLE,49,21,147,12,ES_AUTOHSCROLL
+    RTEXT           "Code",IDC_STATIC,7,40,39,8
+    EDITTEXT        IDC_CODE,49,38,88,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Auto &Numbering",IDC_AUTO_NUMBERING,140,37,56,14
+    RTEXT           "Creator",IDC_STATIC,7,57,39,8
+    EDITTEXT        IDC_CREATOR,49,55,88,12,ES_AUTOHSCROLL
+    RTEXT           "Comments",IDC_STATIC,7,74,39,8
+    EDITTEXT        IDC_REMARK,49,72,146,12,ES_AUTOHSCROLL
+    RTEXT           "Keyword",IDC_STATIC,7,91,39,8
+    EDITTEXT        IDC_KEYWORD,49,89,146,12,ES_AUTOHSCROLL
+    GROUPBOX        "Image information",IDC_STATIC,7,120,266,156
+    PUSHBUTTON      "&Rotation",IDC_PICT_ROTATION,28,146,38,18,WS_DISABLED
+    RTEXT           "Width",IDC_STATIC,17,214,19,8
+    EDITTEXT        IDC_PICT_WIDTH,38,212,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Height",IDC_STATIC,14,228,22,8
+    EDITTEXT        IDC_PICT_HEIGHT,38,226,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Bits",IDC_STATIC,23,244,13,8
+    EDITTEXT        IDC_PICT_COLOR,38,242,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "DPI",IDC_STATIC,23,258,13,8
+    EDITTEXT        IDC_PICT_DPI,38,256,30,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "",IDC_PICT_PICTURE,"Static",SS_GRAYRECT | SS_SUNKEN,74,138,131,131
+    PUSHBUTTON      "&Video Camera...",IDC_PICT_CAMERA,213,138,58,14
+    PUSHBUTTON      "&Scanner...",IDC_PICT_SCANNER,213,154,58,14
+    PUSHBUTTON      "Read &File...",IDC_PICT_FILE,213,170,58,14
+    CHECKBOX        "C&lipboard",IDC_PICT_CLIPBOARD,213,186,58,14,BS_PUSHLIKE
+    CHECKBOX        "&Window Copy",IDC_PICT_WINDOW,213,202,58,14,BS_PUSHLIKE
+    PUSHBUTTON      "&Delete",IDC_PICT_ERASE,213,225,58,14
+    CONTROL         "Continuous",IDC_AUTO_SAVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,216,243,52,10
+    COMBOBOX        IDC_AUTO_ROTATION,214,256,55,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Close",IDCANCEL,215,10,58,14
+    PUSHBUTTON      "&Save",IDC_SAVE,215,32,58,14,WS_DISABLED
+    PUSHBUTTON      "&Text Data...",IDC_TEXT_DATA,215,75,58,14
+    PUSHBUTTON      "&Prev. Data Copy",IDC_COPY_DATA,215,97,58,14
+END
+
+IDD_FIND DIALOGEX 0, 0, 287, 259
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Search Folder"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Library",IDC_STATIC,7,10,22,8
+    COMBOBOX        IDC_LIBRARY,36,7,100,80,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Name",IDC_STATIC,38,49,18,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TITLE,59,47,147,12,ES_AUTOHSCROLL
+    LTEXT           "Code",IDC_STATIC,39,65,17,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CODE,59,63,98,12,ES_AUTOHSCROLL
+    LTEXT           "Creator",IDC_STATIC,31,81,25,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREATOR,59,79,98,12,ES_AUTOHSCROLL
+    LTEXT           "Creation date",IDC_STATIC,13,98,43,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREATE_DATE_FROM,59,95,38,12
+    LTEXT           "~",IDC_STATIC,101,97,8,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREATE_DATE_TO,110,95,38,12
+    LTEXT           "Last",IDC_STATIC,155,97,14,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREATE_DATE_BEFORE,171,95,20,12,ES_RIGHT | ES_NUMBER
+    LTEXT           "days",IDC_STATIC,194,97,14,8,0,WS_EX_TRANSPARENT
+    LTEXT           "Update date",IDC_STATIC,18,114,38,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_UPDATE_DATE_FROM,59,111,38,12
+    LTEXT           "~",IDC_STATIC,101,113,8,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_UPDATE_DATE_TO,110,111,38,12
+    LTEXT           "Last",IDC_STATIC,155,113,14,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_UPDATE_DATE_BEFORE,171,111,20,12,ES_RIGHT | ES_NUMBER
+    LTEXT           "days",IDC_STATIC,194,113,14,8,0,WS_EX_TRANSPARENT
+    LTEXT           "Comments",IDC_STATIC,22,130,34,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_REMARK,59,127,146,12,ES_AUTOHSCROLL
+    LTEXT           "Keyword",IDC_STATIC,28,145,28,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_KEYWORD,59,143,146,12,ES_AUTOHSCROLL
+    LTEXT           "Text data",IDC_STATIC,26,161,30,8,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXT,59,159,146,12,ES_AUTOHSCROLL
+    GROUPBOX        "String matching method",IDC_STATIC,58,176,148,46
+    CONTROL         "Beginning",IDC_FRONT_MATCHING,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,65,190,45,10
+    CONTROL         "Complete",IDC_FULL_MATCHING,"Button",BS_AUTORADIOBUTTON,114,190,45,10
+    CONTROL         "Partial",IDC_WILDCARD,"Button",BS_AUTORADIOBUTTON,162,190,35,10
+    CONTROL         "Distinguish upper and lower case letters",IDC_NOCASE,
+                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,65,205,139,10
+    CONTROL         "Tab1",IDC_CONDITION_TAB,"SysTabControl32",WS_GROUP,7,26,209,205
+    LTEXT           "Name of search results folder",IDC_STATIC,7,242,92,8
+    EDITTEXT        IDC_FIND_FOLDER,103,240,82,12
+    CONTROL         "Save",IDC_SAVE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,190,241,33,10
+    DEFPUSHBUTTON   "OK",IDOK,224,7,56,14
+    PUSHBUTTON      "Cancel",IDCANCEL,224,24,56,14
+    PUSHBUTTON      "&Number of items",IDC_GETFINDNUM,224,53,56,14
+    EDITTEXT        IDC_FINDNUM,225,74,34,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "items",IDC_STATIC,263,76,17,8
+    GROUPBOX        "Type",IDC_STATIC,223,103,50,42
+    CONTROL         "Data",IDC_DATA,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,229,115,31,10
+    CONTROL         "Folder",IDC_FOLDER,"Button",BS_AUTORADIOBUTTON,229,128,35,10
+END
+
+IDD_FOLDER DIALOGEX 0, 0, 259, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Folder"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Name",IDC_STATIC,15,11,20,8
+    EDITTEXT        IDC_FOLDERNAME,53,9,121,12,ES_AUTOHSCROLL
+    LTEXT           "Creator",IDC_STATIC,15,29,24,8
+    EDITTEXT        IDC_CREATOR,53,27,82,12,ES_AUTOHSCROLL
+    LTEXT           "Comments",IDC_STATIC,15,47,34,8
+    EDITTEXT        IDC_REMARK,53,45,121,12,ES_AUTOHSCROLL
+    LTEXT           "Keyword",IDC_STATIC,15,65,28,8
+    EDITTEXT        IDC_KEYWORD,53,63,121,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,194,7,57,14
+    PUSHBUTTON      "Cancel",IDCANCEL,194,24,57,14
+    PUSHBUTTON      "&Text Data...",IDC_TEXT_DATA,194,48,57,14
+    PUSHBUTTON      "&Prev. Data Copy",IDC_COPY_DATA,194,66,57,14
+END
+
+IDD_FOLDERNEW DIALOGEX 0, 0, 259, 103
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Folder"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Type",IDC_STATIC,16,8,17,8
+    CONTROL         "Group Folder",IDC_GROUP_FOLDER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,53,7,57,10
+    CONTROL         "Data Folder",IDC_DATA_FOLDER,"Button",BS_AUTORADIOBUTTON,112,7,53,10
+    LTEXT           "Name",IDC_STATIC,16,27,20,8
+    EDITTEXT        IDC_FOLDERNAME,53,25,121,12,ES_AUTOHSCROLL
+    LTEXT           "Creator",IDC_STATIC,16,45,24,8
+    EDITTEXT        IDC_CREATOR,53,43,82,12,ES_AUTOHSCROLL
+    LTEXT           "Comments",IDC_STATIC,16,63,34,8
+    EDITTEXT        IDC_REMARK,53,61,121,12,ES_AUTOHSCROLL
+    LTEXT           "Keyword",IDC_STATIC,16,81,28,8
+    EDITTEXT        IDC_KEYWORD,53,79,121,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,194,7,57,14
+    PUSHBUTTON      "Cancel",IDCANCEL,194,24,57,14
+    PUSHBUTTON      "&Text Data...",IDC_TEXT_DATA,194,59,57,14
+    PUSHBUTTON      "&Prev. Data Copy",IDC_COPY_DATA,194,79,57,14
+END
+
+IDD_INFO_VIEW DIALOGEX 0, 0, 556, 53
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Name",IDC_STATIC,11,8,20,8
+    EDITTEXT        IDC_TITLE,32,6,126,12,ES_AUTOHSCROLL
+    LTEXT           "Code",IDC_STATIC,13,23,18,8
+    EDITTEXT        IDC_CODE,32,21,126,12,ES_AUTOHSCROLL
+    LTEXT           "Creator",IDC_STATIC,7,38,24,8
+    EDITTEXT        IDC_CREATOR,32,36,126,12,ES_AUTOHSCROLL
+    LTEXT           "Comments",IDC_STATIC,176,8,34,8
+    EDITTEXT        IDC_REMARK,212,6,166,12,ES_AUTOHSCROLL
+    LTEXT           "Keyword",IDC_STATIC,182,23,28,8
+    EDITTEXT        IDC_KEYWORD,212,21,166,12,ES_AUTOHSCROLL
+    LTEXT           "Creation Date",IDC_STATIC,166,38,44,8
+    EDITTEXT        IDC_CREATEDATE,212,36,44,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Update Date",IDC_STATIC,260,38,42,8
+    EDITTEXT        IDC_UPDATEDATE,303,36,44,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    PUSHBUTTON      "&Update",IDC_UPDATE_INFO,352,36,28,14
+    PUSHBUTTON      "OCR",IDC_BUTTON_OCR,395,36,28,14,NOT WS_VISIBLE
+    LTEXT           "Data Count",IDC_STATIC_DATA_COUNT,394,8,38,8
+    EDITTEXT        IDC_EDIT_DATA_COUNT,389,17,47,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Audio",IDC_STATIC_SOUND,447,4,102,46
+    CHECKBOX        "Playback",IDC_CHECK_SOUND_PLAYBACK,455,15,40,13,BS_PUSHLIKE
+    PUSHBUTTON      "Text",IDC_BUTTON_SOUND_TEXT,455,32,40,13
+    CHECKBOX        "Recording",IDC_CHECK_SOUND_RECORD,502,15,40,13,BS_PUSHLIKE
+    PUSHBUTTON      "File read",IDC_BUTTON_SOUND_FILE,502,31,40,13
+END
+
+IDD_LIBNEW DIALOGEX 0, 0, 230, 208
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Library"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Name",IDC_STATIC,9,14,20,8
+    EDITTEXT        IDC_LIBNAME,46,12,116,12,ES_AUTOHSCROLL
+    LTEXT           "Creator",IDC_STATIC,9,32,24,8
+    EDITTEXT        IDC_CREATOR,46,30,82,12,ES_AUTOHSCROLL
+    LTEXT           "Comments",IDC_STATIC,9,50,34,8
+    EDITTEXT        IDC_REMARK,46,48,116,12,ES_AUTOHSCROLL
+    LTEXT           "Keyword",IDC_STATIC,9,68,28,8
+    EDITTEXT        IDC_KEYWORD,46,66,116,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,173,7,50,14
+    PUSHBUTTON      "Canel",IDCANCEL,173,24,50,14
+    CONTROL         "",IDC_SEPARATOR,"Static",SS_ETCHEDHORZ,7,90,216,1
+    GROUPBOX        "Connection method",IDC_STATIC,13,101,152,38
+    CONTROL         "Local",IDC_LOCAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,23,118,33,10
+    CONTROL         "TCP/IP",IDC_TCPIP,"Button",BS_AUTORADIOBUTTON,65,118,40,10
+    CONTROL         "NETBIOS",IDC_NETBIOS,"Button",BS_AUTORADIOBUTTON,110,118,47,10
+    LTEXT           "Server name",IDC_STATIC,9,151,41,8
+    COMBOBOX        IDC_SERVER_NAME,52,149,98,99,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Directory",IDC_STATIC,9,171,29,8
+    COMBOBOX        IDC_DIRECTORY,53,169,170,96,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Reference",IDC_REFERENCE,173,148,50,14
+    CONTROL         "Cache use",IDC_CACHE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,52,190,50,10
+    PUSHBUTTON      "&External",IDC_EXTERNAL,173,66,50,14
+END
+
+IDD_LIBOPEN DIALOGEX 0, 0, 230, 190
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Open Library"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LISTBOX         IDC_LIBRARY_LIST,7,7,159,67,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,173,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,173,24,50,14
+    PUSHBUTTON      "&External",IDC_EXTERNAL,173,60,50,14
+    CONTROL         "",IDC_SEPARATOR,"Static",SS_ETCHEDHORZ,7,84,216,1
+    GROUPBOX        "Connection method",IDC_STATIC,13,93,152,32
+    CONTROL         "Local",IDC_LOCAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,23,106,33,10
+    CONTROL         "TCP/IP",IDC_TCPIP,"Button",BS_AUTORADIOBUTTON,65,106,40,10
+    CONTROL         "NETBIOS",IDC_NETBIOS,"Button",BS_AUTORADIOBUTTON,110,106,47,10
+    LTEXT           "Server name",IDC_STATIC,9,135,41,8
+    COMBOBOX        IDC_SERVER_NAME,52,133,98,99,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Directory",IDC_STATIC,9,155,29,8
+    COMBOBOX        IDC_DIRECTORY,52,153,171,96,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Reference",IDC_REFERENCE,173,132,50,14
+    CONTROL         "Cache use",IDC_CACHE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,52,173,50,10
+END
+
+IDD_MAIL_ATT DIALOGEX 0, 0, 187, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Adjust size of attached images"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "Full size",IDC_ATT_ACTUAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,9,9,41,10
+    CONTROL         "Reduced",IDC_ATT_REDUCTION,"Button",BS_AUTORADIOBUTTON,9,29,45,10
+    EDITTEXT        IDC_ATT_SCALE,53,28,28,12,ES_AUTOHSCROLL | WS_GROUP
+    LTEXT           "%",IDC_STATIC,85,30,8,8
+    CONTROL         "Limit width to",IDC_ATT_HLIMIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,49,57,10
+    EDITTEXT        IDC_ATT_HPIXEL,80,48,28,12,ES_AUTOHSCROLL
+    LTEXT           "pixels or less",IDC_STATIC,111,50,40,8
+    CONTROL         "Limit height to",IDC_ATT_VLIMIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,67,59,10
+    EDITTEXT        IDC_ATT_VPIXEL,80,66,28,12,ES_AUTOHSCROLL
+    LTEXT           "pixels or less",IDC_STATIC,111,68,40,8
+    DEFPUSHBUTTON   "OK",IDOK,126,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,126,24,50,14
+END
+
+IDD_MAKE_INDEX DIALOGEX 0, 0, 225, 143
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Create Keyword Index"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Target file for keyword search",IDC_STATIC,8,5,94,8
+    LISTBOX         IDC_LIBRARY_LIST,8,18,150,116,LBS_SORT | LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,166,11,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,166,28,50,14
+    PUSHBUTTON      "Select &All",IDC_ALL_SELECT,166,60,50,14
+END
+
+IDD_OPT_FOLDER DIALOGEX 0, 0, 241, 151
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Folder"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Library",IDC_STATIC,11,10,22,8
+    EDITTEXT        IDC_LIBRARY_FOLDER,60,8,126,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Reference",IDC_LIBRARY_REFERENCE,190,7,38,15
+    LTEXT           "Backup",IDC_STATIC,11,29,26,8
+    EDITTEXT        IDC_BACKUP_FOLDER,60,27,126,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Reference",IDC_BACKUP_REFERENCE,190,26,38,15
+    LTEXT           "Cache",IDC_STATIC,11,48,22,8
+    EDITTEXT        IDC_CACHE_FOLDER,60,46,126,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Reference",IDC_CACHE_REFERENCE,190,45,38,15
+    LTEXT           "Inbox",IDC_STATIC,11,67,18,8
+    EDITTEXT        IDC_INBOX_FOLDER,60,65,126,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Reference",IDC_INBOX_REFERENCE,190,64,38,15
+    LTEXT           "Keyword index",IDC_STATIC,11,86,47,8
+    EDITTEXT        IDC_KEYWORD_FOLDER,60,84,126,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Reference",IDC_KEYWORD_REFERENCE,190,83,38,15
+    LTEXT           "Access log",IDC_STATIC,11,105,38,8
+    EDITTEXT        IDC_ACCESS_LOG_FOLDER,60,103,126,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Reference",IDC_ACCESS_LOG_REFERENCE,190,102,38,15
+    PUSHBUTTON      "&Standard value",IDC_DEFAULT,174,125,54,15
+END
+
+IDD_OPT_FONT DIALOGEX 0, 0, 230, 113
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Font"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "View font",IDC_STATIC,7,12,216,35
+    LTEXT           "Font",IDC_STATIC,14,28,15,8
+    EDITTEXT        IDC_VIEW_FONT_NAME,33,26,80,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Size",IDC_STATIC,125,28,14,8
+    EDITTEXT        IDC_VIEW_FONT_SIZE,143,26,24,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP,WS_EX_RIGHT
+    PUSHBUTTON      "&Change",IDC_VIEW_FONT_CHANGE,174,24,39,15
+    GROUPBOX        "Dialog font",IDC_STATIC,7,56,126,36
+    CONTROL         "Normal font",IDC_NORMAL_FONT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,72,52,10
+    CONTROL         "Large font",IDC_LARGE_FONT,"Button",BS_AUTORADIOBUTTON,75,72,48,10
+    PUSHBUTTON      "&Standard value",IDC_DEFAULT,150,69,54,15
+END
+
+IDD_OPT_ORDER DIALOGEX 0, 0, 239, 139
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "View Settings"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LISTBOX         IDC_ORDER_LIST,15,24,86,63,WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Display text",IDC_STATIC,15,89,135,32,WS_GROUP
+    CONTROL         "Name (Code)",IDC_TITLE_CODE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,28,103,57,10
+    CONTROL         "Name only",IDC_TITLE_ONLY,"Button",BS_AUTORADIOBUTTON,89,103,49,10
+    PUSHBUTTON      "&Up",IDC_UP,107,24,43,15,WS_GROUP
+    PUSHBUTTON      "&Down",IDC_DOWN,107,45,43,15
+    GROUPBOX        "Tree view display order",IDC_STATIC,7,7,151,125
+    CONTROL         "Normal",IDC_SMALL_NORMAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,171,22,38,10
+    CONTROL         "x2 (fast)",IDC_SMALL_HISPD,"Button",BS_AUTORADIOBUTTON,171,38,41,10
+    CONTROL         "x2 (fine)",IDC_SMALL_HIRES,"Button",BS_AUTORADIOBUTTON,171,54,41,10
+    GROUPBOX        "Reduced image size",IDC_STATIC,163,7,70,66,WS_GROUP
+    PUSHBUTTON      "&Standard value",IDC_DEFAULT,175,100,53,15
+END
+
+IDD_OPT_TWAIN DIALOGEX 0, 0, 223, 83
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Twain Driver"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Twain driver",IDC_STATIC,10,20,40,8
+    EDITTEXT        IDC_TWAIN_DRIVER,53,18,101,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    PUSHBUTTON      "&Select driver",IDC_SELECT_DRIVER,163,17,52,15
+END
+
+IDD_PASSWORD DIALOGEX 0, 0, 201, 69
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set Password"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Password",IDC_STATIC,7,32,32,8
+    EDITTEXT        IDC_PASSWORD,69,30,64,12,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Re-enter password",IDC_STATIC,7,49,60,8
+    EDITTEXT        IDC_PASSWORD2,69,47,64,12,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,144,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,144,24,50,14
+    LTEXT           "Library",IDC_STATIC,7,9,22,8
+    COMBOBOX        IDC_LIBRARY,43,7,90,80,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PERMISSION DIALOGEX 0, 0, 218, 125
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Access Restrictions"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Access restrictions",IDC_STATIC,9,33,143,82
+    CONTROL         "Display only",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,15,48,53,10
+    CONTROL         "Display + add",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,15,64,59,10
+    CONTROL         "Display + add + update",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,15,80,89,10
+    CONTROL         "Display + add + update + delete",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,15,96,116,10
+    DEFPUSHBUTTON   "OK",IDOK,159,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,159,24,50,14
+    LTEXT           "Library",IDC_STATIC,7,9,22,8
+    COMBOBOX        IDC_LIBRARY,43,7,85,80,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PICT_ROTATE DIALOGEX 0, 0, 158, 107
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Image Batch Rotation"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Direction of rotation",IDC_STATIC,7,7,85,68
+    CONTROL         "Right 90 degrees",IDC_RIGHT_ROTATE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,18,24,70,10
+    CONTROL         "Left 90 degrees",IDC_LEFT_ROTATE,"Button",BS_AUTORADIOBUTTON,18,40,65,10
+    CONTROL         "Invert",IDC_REVERSE,"Button",BS_AUTORADIOBUTTON,18,56,34,10
+    LTEXT           "The images that are contained in the selected data or folder are all rotated.",IDC_STATIC,7,81,144,19
+    DEFPUSHBUTTON   "OK",IDOK,101,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,101,24,50,14
+END
+
+IDD_REF_NET DIALOGEX 0, 0, 245, 134
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Library"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LISTBOX         IDC_LIBLIST,7,7,174,120,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,188,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,188,24,50,14
+END
+
+IDD_RESTORE DIALOGEX 0, 0, 279, 161
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Restore"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Libraries already backed up",IDC_STATIC,7,7,88,8
+    CONTROL         "List1",IDC_BACKUP_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,21,209,103
+    DEFPUSHBUTTON   "OK",IDOK,222,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,222,24,50,14
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,133,150,14
+    PUSHBUTTON      "&Delete backup",IDC_DELETE,164,133,51,14
+END
+
+IDD_TEXT DIALOGEX 0, 0, 289, 211
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Text Data"
+MENU IDR_TEXT
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_TEXT,0,0,288,211,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_TRANS_REG DIALOGEX 0, 0, 315, 191
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Register Application"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_APP_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,7,242,106
+    LTEXT           "Application",IDC_STATIC,7,121,36,8
+    EDITTEXT        IDC_APP_NAME,54,119,69,12,ES_AUTOHSCROLL
+    LTEXT           "Executable file",IDC_STATIC,7,137,47,8
+    EDITTEXT        IDC_APP_FILE,54,135,195,12,ES_AUTOHSCROLL
+    GROUPBOX        "Supported image file formats",IDC_STATIC,27,154,134,29
+    CONTROL         "BMP",IDC_PICT_BMP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,36,166,31,10
+    CONTROL         "GIF",IDC_PICT_GIF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,166,27,10
+    CONTROL         "JPG",IDC_PICT_JPG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,166,29,10
+    CONTROL         "PNG",IDC_PICT_PNG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,166,31,10
+    GROUPBOX        "Menu icon display",IDC_STATIC,167,154,141,29
+    CONTROL         "None",IDC_ICON_NONE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,175,166,33,10
+    CONTROL         "Small icon",IDC_ICON_SMALL,"Button",BS_AUTORADIOBUTTON,210,166,48,10
+    CONTROL         "Large icon",IDC_ICON_LARGE,"Button",BS_AUTORADIOBUTTON,259,166,48,10
+    PUSHBUTTON      "&Reference...",IDC_REFERENCE,258,134,50,13
+    DEFPUSHBUTTON   "&Registration",IDOK,258,7,50,14
+    PUSHBUTTON      "&Delete",IDC_DELETE,258,26,50,14
+    PUSHBUTTON      "&Close",IDC_CLOSE,258,45,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,258,64,50,14
+END
+
+IDD_OPT_IMAGE_EDITOR DIALOGEX 0, 0, 230, 113
+STYLE DS_SETFONT | WS_CHILD | WS_CAPTION
+CAPTION "Image Editor"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Executable file",IDC_STATIC,9,22,47,8
+    EDITTEXT        IDC_IMAGE_EDITOR,58,20,166,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    ICON            "",IDC_IMAGE_EDITOR_ICON,58,43,20,20
+    CONTROL         "Edits by double click",IDC_EDIT_DBLCLICK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,88,43,81,10
+    PUSHBUTTON      "&Reference...",IDC_SELECT_FILE,172,39,52,15
+END
+
+IDD_FIND_SIMPLE DIALOGEX 0, 0, 287, 101
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Search Folder"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Library",IDC_STATIC,7,10,22,8
+    COMBOBOX        IDC_LIBRARY,36,7,100,80,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Search text",IDC_STATIC,7,46,37,8
+    EDITTEXT        IDC_SEARCH_TEXT,50,43,162,12,ES_AUTOHSCROLL
+    LTEXT           "Name of search results folder",IDC_STATIC,7,82,92,8
+    EDITTEXT        IDC_FIND_FOLDER,102,79,82,12
+    CONTROL         "Save",IDC_SAVE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,189,80,33,10
+    DEFPUSHBUTTON   "OK",IDOK,224,6,56,14
+    PUSHBUTTON      "Cancel",IDCANCEL,224,23,56,14
+    PUSHBUTTON      "&Expert mode",IDC_FIND_EXPERT,224,42,56,14
+    PUSHBUTTON      "&Number of items",IDC_GETFINDNUM,224,59,56,14
+    EDITTEXT        IDC_FINDNUM,224,79,34,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "items",IDC_STATIC,260,82,17,8
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 259, 103
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Version Information (MMLib)"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,15,18,17
+    LTEXT           "Product Name & Version",IDC_PRODUCT,41,10,165,8,SS_NOPREFIX
+    LTEXT           "Copyright",IDC_COPYRIGHT,41,25,165,8
+    DEFPUSHBUTTON   "OK",IDOK,212,7,40,14,WS_GROUP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,47,248,1
+    LTEXT           "Product URL",IDC_STATIC,11,57,60,8,0,WS_EX_RIGHT
+    LTEXT           "http://www.ymec.com/products/mmlibe/",IDC_PRODUCT_URL,74,57,143,8,SS_NOTIFY
+    LTEXT           "Company URL",IDC_STATIC,11,71,60,8,0,WS_EX_RIGHT
+    LTEXT           "http://www.ymec.com/",IDC_COMPANY_URL,74,71,143,8,SS_NOTIFY
+    LTEXT           "Question",IDC_STATIC,11,85,60,8,0,WS_EX_RIGHT
+    LTEXT           "shop@ymec.com",IDC_EMAIL_ADDR,74,85,143,8,SS_NOTIFY
+END
+
+IDD_AUTO_NUMBERING DIALOGEX 0, 0, 211, 73
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Automatic Numbering"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "Automatic Numbering",IDC_AUTO_NUMBERING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,45,12,83,10
+    LTEXT           "Next code",IDC_STATIC,9,32,34,8
+    EDITTEXT        IDC_CODE,45,30,98,12,ES_AUTOHSCROLL
+    LTEXT           "Increment",IDC_STATIC,9,49,32,8
+    EDITTEXT        IDC_STEP,45,47,44,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    DEFPUSHBUTTON   "OK",IDOK,154,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,154,24,50,14
+END
+
+IDD_BACKUP DIALOGEX 0, 0, 238, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Backup"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "Library to be backed up",IDC_STATIC,7,16,76,8
+    COMBOBOX        IDC_LIBRARY,87,13,85,80,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Libraries already backed up",IDC_STATIC,7,39,88,8
+    CONTROL         "List1",IDC_BACKUP_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,52,224,103
+    DEFPUSHBUTTON   "OK",IDOK,181,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,181,24,50,14
+    PUSHBUTTON      "&Delete backup",IDC_DELETE,177,167,54,14
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,167,165,14
+END
+
+IDD_CHECK_PWD DIALOGEX 0, 0, 234, 73
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter Password"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "This library is protected by a password.\nThe password must be entered to open this library",IDC_STATIC,10,9,163,22
+    LTEXT           "Library",IDC_STATIC,14,35,22,8
+    EDITTEXT        IDC_LIBRARY,52,33,104,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Password",IDC_STATIC,14,56,32,8
+    EDITTEXT        IDC_PASSWORD,52,54,64,12,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,177,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,177,24,50,14
+END
+
+IDD_FIND_PICT DIALOGEX 0, 0, 489, 253
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Image Search"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST_FIND,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,475,218
+    PUSHBUTTON      "&Make Index",IDC_BUTTON_MAKE_INDEX,369,232,54,14
+    PUSHBUTTON      "&Close",IDCANCEL,432,232,50,14
+END
+
+IDD_MAKE_PICT_INDEX DIALOGEX 0, 0, 187, 53
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Make Image Index"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_PROGRESS_BAR,"msctls_progress32",WS_BORDER,7,7,173,14
+    DEFPUSHBUTTON   "OK",IDOK,74,32,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,32,50,14
+END
+
+IDD_ACCESS_LOG DIALOGEX 0, 0, 407, 255
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Access Log"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST_ACCESS_LOG,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,393,221
+    PUSHBUTTON      "Close",IDCANCEL,350,234,50,14
+END
+
+IDD_PROPERTY DIALOGEX 0, 0, 263, 92
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Property"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,206,7,50,14
+    LTEXT           "Name",IDC_STATIC,7,9,20,8
+    EDITTEXT        IDC_EDIT_NAME,49,7,135,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Kind",IDC_STATIC,7,31,15,8
+    EDITTEXT        IDC_EDIT_TYPE,49,29,135,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Library",IDC_STATIC,7,53,22,8
+    EDITTEXT        IDC_EDIT_LIBRARY,49,51,135,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Folder Path",IDC_STATIC,7,75,37,8
+    EDITTEXT        IDC_EDIT_FOLDER,49,73,207,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Find",IDC_BUTTON_FIND,206,28,50,14,NOT WS_VISIBLE
+END
+
+IDD_OUTPUTIMAGESDLG DIALOGEX 0, 0, 159, 66
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Image file Output"
+FONT 9, "MS UI Gothic", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,55,45,50,14
+    CONTROL         "",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,10,146,14
+    RTEXT           "0 %",IDC_STATIC_PROGRESS,133,29,19,8
+END
+
+IDD_TEXT_SEARCH DIALOGEX 0, 0, 222, 36
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Text Search"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Search",IDC_STATIC,6,5,23,8
+    COMBOBOX        IDC_COMBO_SEARCH,30,2,185,152,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_SEARCH_RESULT,30,19,58,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Prev",IDC_BUTTON_PREV,111,19,50,14
+    PUSHBUTTON      "Next",IDC_BUTTON_NEXT,165,19,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 276
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 275
+    END
+
+    IDD_DATA_LARGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 273
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 276
+    END
+
+    IDD_FIND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 252
+    END
+
+    IDD_FOLDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_FOLDERNEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_INFO_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 549
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 46
+    END
+
+    IDD_LIBNEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 201
+    END
+
+    IDD_LIBOPEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 183
+    END
+
+    IDD_MAIL_ATT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_MAKE_INDEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_OPT_FOLDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_OPT_FONT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_OPT_ORDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 132
+    END
+
+    IDD_OPT_TWAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 216
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 76
+    END
+
+    IDD_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 194
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 62
+    END
+
+    IDD_PERMISSION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 211
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_PICT_ROTATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 151
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_REF_NET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 238
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 127
+    END
+
+    IDD_RESTORE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 272
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 154
+    END
+
+    IDD_TEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 282
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 204
+    END
+
+    IDD_TRANS_REG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 308
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_OPT_IMAGE_EDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 223
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_FIND_SIMPLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 94
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_AUTO_NUMBERING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+
+    IDD_BACKUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_CHECK_PWD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 227
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+
+    IDD_FIND_PICT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 482
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 246
+    END
+
+    IDD_MAKE_PICT_INDEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 46
+    END
+
+    IDD_ACCESS_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 400
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 248
+    END
+
+    IDD_PROPERTY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 85
+    END
+
+    IDD_OUTPUTIMAGESDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 152
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_TEXT_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 215
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 33
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Multimedia Library Manager\n\nMMLib\n\n\nMMLib.Document\nMMLib Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "MMLib"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_KANA       "KANA"
+    ID_INDICATOR_INFO       "dummy"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+    ID_FILE_UPDATE          "Change library or folder information\nChange information"
+    ID_FILE_SEND_MAIL       "Send the mail\nSend mail"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_FOLDER_NEW          "New folder\nNew"
+    IDM_FOLDER_OPEN         "Open folder\nOpen"
+    IDM_LIB_NEW             "New library\nNew"
+    IDM_LIB_OPEN            "Open library\nOpen"
+    IDM_LIB_CLOSE           "Close library\nClose"
+    IDM_LIB_RENAME          "Change library name\nChange name"
+    IDM_FOLDER_RENAME       "Change folder name\nChange name"
+    IDM_VIEW_ICON           "Display thumbnails\nThumbnail view"
+    IDM_VIEW_LIST           "Display as list\nList view"
+    IDM_VIEW_DETAIL         "Display in detailed form\nDetailed view"
+    IDM_VIEW_PICT           "Display Image\nImage view"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_CAMERA         "Capture image from video camera\nVideo camera image capture"
+    IDM_PICT_SCANNER        "Capture image from scanner\nCapture from scanner"
+    IDM_PICT_FILE           "Read image file\nReading file read"
+    IDM_FILE_DELETE         "Deleting existing library or folder\nDelete"
+    IDM_RELOAD              "Updating displayed information\nRefresh"
+    IDM_PICT_OPEN           "Displaying image\nDisplay image"
+    IDM_VIEW_RELOAD         "Updating display\nRefresh"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_RIGHT_ROTATE   "Rotating image 90 degrees to the right\nRotate right"
+    IDM_PICT_LEFT_ROTATE    "Rotating image 90 degrees to the left\nRotate left"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_AUTOSIZE       "Automatically fitting image to window\nAutomatic image size adjustment"
+    IDM_PICT_ENLARGE        "Enlarging image\nEnlarge image"
+    IDM_PICT_REDUCE         "Reducing image\nReduce image"
+    IDM_DETAIL_NAME         "Toggle ""name"" display on/off in detailed display\nShow name"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_DETAIL_CREATOR      "Toggle ""creator"" display on/off in detailed display\nShow creator"
+    IDM_DETAIL_CDATE        "Toggle ""creation date and time"" display on/off in detailed display\nShow creation date and time"
+    IDM_DETAIL_UDATE        "Toggle ""update date and time"" display on/off in detailed display\nShow update date and time"
+    IDM_DETAIL_CODE         "Toggle ""code"" display on/off in detailed display\nShow code"
+    IDM_DETAIL_REMARK       "Toggle ""comments"" display on/off in detailed display\nShow comments"
+    IDM_DETAIL_KEYWORD      "Toggle ""keyword"" display on/off in detailed display\nShow keyword"
+    IDM_DETAIL_SERVER       "Toggle ""server name"" display on/off in detailed display\nShow server name"
+    IDM_DETAIL_DIRECTORY    "Toggle ""directory"" display on/off in detailed display\nShow directory"
+    IDM_VIEW_UP             "Moving up one folder\nMove up one folder"
+    IDM_VIEW_UPFOLDER       "Moving up one folder\nMove up one folder"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_FIND                "Creating search folder\nSearch folder"
+    IDM_PROPERTY            "Show properties\nShow properties"
+    ID_CACHE_READ           "Batch reading data into the cache\nBatch caching"
+    ID_CACHE_CLEAR          "Emptying cache.\nDelete cache"
+    IDM_OPTION              "Setting options\nOption"
+    IDW_COMBO               "Set image enlargement/reduction rate\nEnlargement/reduction rate"
+    IDM_PICT_AUTOSIZE2      "Automatically fitting image to window width\nAdjust image width"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_REFIND              "Search again\nSearch again"
+    IDM_PACK                "Defragmenting deleted data area\nFile pack"
+    IDM_FILE_PACK           "Deleting unused file area\nFile pack"
+    IDM_TOOLBAR_STANDARD    "Toggle standard button show/hide\nStandard button show/hide"
+    IDM_TOOLBAR_PICT        "Toggle image button show/hide\nImage button show/hide"
+    IDM_TOOLBAR_STRING      "Toggle toolbar text show/hide\nText show/hide"
+    ID_FILE_EXPORT          "Output data to external file\nExport"
+    ID_FILE_IMPORT          "Read external file\nImport"
+    IDM_BACKUP              "Back up library\nBackup"
+    IDM_RESTORE             "Restore library\nRestore"
+    IDM_ONLINE_UPDATE       "Update application via network"
+    IDM_ONLINE_MANUAL       "Display the manual for this program"
+    IDM_TRANS_REG           "Register destination application\nRegister destination"
+    IDM_IMPORT_MML          "Read external MML file\nImport MML file"
+    IDM_IMPORT_PPM          "Read Presto Page Manager file\nImport Presto Page Manager file"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_IMPORT_BMP          "Read external image file\nImport image file"
+    IDM_PICT_ALL_ROTATE     "Rotating all images in folder\nRotate all images"
+    IDM_PICT_WINDOW         "Displaying image in new window\nDisplay in new window"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_PICTFRAME           "\n"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_FILE_PASSWORD       "Setting password for library\nSet password"
+    IDM_FILE_PERMISSION     "Restricting library access\nRestrict access"
+    IDM_FONT                "Setting the font\nSet font"
+    IDM_CLOSE_PICT          "Close image window\nClose image window"
+    IDM_CLOSE_TEXT          "Close text window\nClose window"
+    IDM_VIEW_PREV           "Display the previous data\nDisplay previous data"
+    IDM_VIEW_NEXT           "Display the next data\nDisplay next data"
+    ID_NEW_DATA             "Create new data in inbox.\nNew data"
+    IDM_TOOLBAR_VIEW        "Toggle show/hide view button\nView button show/hide"
+    IDM_VIEW_MAX            "Fill window with image\nDisplay full image"
+    IDM_KEYWORD             "Search all by keyword\nKeyword search"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_MAKE_INDEX          "Create index file for keyword search\nCreate keyword index"
+    IDM_EDIT_IMAGE          "Edit Image\nEdit Image"
+    IDM_DETAIL_FIRSTDATA    "Toggle ""first data name"" display on/off in detailed display\nShow first data name"
+    IDM_FIND_PICT           "Search for similar images\nImage search"
+    IDM_ACCESS_HISTORY      "Show the access history\nAccess history"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_SELECT_LIBRARY      "Please select a library."
+    IDS_BACKUP_NORMAL       "The backup ended normally."
+    IDS_BACKUP_FAIL         "The backup failed."
+    IDS_SELECT_DELETE_LIBRARY "Please select the library to be backed up."
+    IDS_DELETE_SELECTED_LIBRARY "Deleting the selected backup library. OK?"
+    IDS_READ_NOTIFY         "The previously loaded data has not been saved. Load data?"
+    IDS_READ_PICT_FILE_FAIL "The image file cannot be read."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CLOSE               "Close"
+    IDS_CANCEL              "Cancel"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LIBRARY_NAME        "Library Name"
+    IDS_BACKUP_TIME         "Backup Time"
+    IDS_NO_TITLE            "Untitled"
+    IDS_NO_ROTATION         "No Rotation"
+    IDS_RIGHT_ROTATION      "Rotate Right"
+    IDS_HALF_ROTATION       "Invert"
+    IDS_LEFT_ROTATION       "Rotate Left"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UNKNOWN             "Unknown"
+    IDS_PICTURE_FILE        "Image File"
+    IDS_SELECT_PICT_FILE_MULTI 
+                            "Image file selection (multiple selections possible)"
+    IDS_SELECT_PICT_FILE    "Image file selection"
+    IDS_FIND_FOLDER         "Search Folder"
+    IDS_CONDITION           "Condition %d"
+    IDS_KEYWORD             "Keyword"
+    IDS_KEYWORD_FIND        "Keyword Search"
+    IDS_FIND                "Search"
+    IDS_NAME                "Name"
+    IDS_LIBRARY             "Library"
+    IDS_CREATOR             "Creator"
+    IDS_REMARK              "Comments"
+    IDS_CREATE_DATE         "Creation Date"
+    IDS_FIND_RESULT         "The keyword search produced %d items.\n"
+    IDS_INBOX               "Inbox"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ONLY_COMPRESS       "Can use only non-compressed format."
+    IDS_VALID_COLOR         "Color settings other than 16.77 million colors, 256 colors, or black and white cannot be used."
+    IDS_INPUT_DATA_SAVE     "Data is being input. Save the data?"
+    IDS_UPDATE_DATA_SAVE    "Data is being changed. Save the data?"
+    IDS_INPUT_KEYWORD       "Please enter a keyword."
+    IDS_FIND_ERROR          "An error occurred during the search."
+    IDS_NO_KEYWORD_INDEX    "There is no keyword search file. Please create one."
+    IDS_OLD_KEYWORD_INDEX   "The keyword search file cannot be re-created because the version is too old."
+    IDS_SELECT_FOLDER_TYPE  "Please select the folder type."
+    IDS_CREATE_INBOX_FAIL   "No INBOX has been created."
+    IDS_INPUT_SERVER_NAME   "Please enter the server name."
+    IDS_REDUCTION_RATIO     "Please set the reduction rate to between 5% and 100%."
+    IDS_CREAE_KEYWORD_INDEX_FAIL 
+                            "The keyword search file could not be created."
+    IDS_CREATE_KEYWORD_INDEX_ERROR 
+                            "An error has occurred while creating the keyword search file."
+    IDS_CREATE_KEYWORD_INDEX_NORMAL 
+                            "The keyword search file has been created normally."
+    IDS_NOT_FOUND_YMUPDATE_DLL "Cannot find YMUPDATE.DLL."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MMLIB_FOLDER        "Select the MMLIB folder."
+    IDS_NEW_DOCUMENT        "New"
+    IDS_OPEN                "Open"
+    IDS_NEW_DATA            "New data"
+    IDS_PRINT               "Print"
+    IDS_PREVIEW             "Read external MMDB file\nImport MMDB file"
+    IDS_SEND                "Mail"
+    IDS_CUT                 "Cut"
+    IDS_COPY                "Copy"
+    IDS_PASTE               "Paste"
+    IDS_KEYWORD2            "Keyword"
+    IDS_RETURN              "Return"
+    IDS_HELP                "Help"
+    IDS_PREV_DATA           "Prev"
+    IDS_NEXT_DATA           "Next"
+    IDS_FULL_VIEW           "Full"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_REDUCTION_PICT      "Image"
+    IDS_LIST_VIEW           "List"
+    IDS_DETAIL_VIEW         "Detailed"
+    IDS_SCALE               "Magnification"
+    IDS_AUTO_SIZE           "Auto sizing"
+    IDS_AUTO_WIDTH          "Auto width"
+    IDS_ENLARGE             "Zoom"
+    IDS_REDUCTION           "Reduce"
+    IDS_ALL_ROTATION        "All rot."
+    IDS_OTHER_WINDOW        "New window"
+    IDS_DEFAULT_FONT        "MS Sans Serif"
+    IDS_NEW_DATA2           "New Data"
+    IDS_LIBRARY_UPDATE      "Change Library Information"
+    IDS_FOLDER_UPDATE       "Change Folder Information"
+    IDS_DATA_UPDATE         "Change Data Information"
+    IDS_FOLDER              "Folder"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ONLINE_UPDATE_FAIL  "On-line updating cannot be executed."
+    IDS_CREATE_CACHE_FOLDER_FAIL "The cache folder could not be created."
+    IDS_OLD_DATABASE_VERSION 
+                            "Convert the database because the version is too old."
+    IDS_PROGRAM_ERROR       "Internal program error"
+    IDS_LIBRARY_ALREADY_OPEN "The specified libraries are already open."
+    IDS_ACCESS_DENY         "Processing cannot be executed because of access restrictions."
+    IDS_PASSWORD_INCORRECT  "The password is incorrect."
+    IDS_DELETE_SELECT       "Delete the selected %s ?"
+    IDS_DELETE_LIBRARY_FAIL "The library could not be deleted."
+    IDS_OFFLINE_FOLDER_UPDATE "The folder cannot be updated off-line."
+    IDS_OFFLINE_DATA_UPDATE "The data cannot be updated off-line."
+    IDS_READ_CACHE          "Reading data other than the selected into the cache. OK?\r\n(Executing the processing on the WAN may take a very long time.)"
+    IDS_DELETE_CACHE        "Deleting all caches of the selected libraries. OK?"
+    IDS_SEND_DATA_FOLDER    "Only data or a data folder can be sent."
+    IDS_SELECT_DATA_FOLDER  "Please select the data or folder to be sent."
+    IDS_FILE_PACK           "File packing may take some time. OK?"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DATA                "Data"
+    IDS_EXPORT_FILE         "Export File"
+    IDS_MML_FILE            "MML File"
+    IDS_PRESTO_PAGEMANAGER_FOLDER "Presto page manager folder"
+    IDS_IMPORT_FOLDER       "Import Folder"
+    IDS_IMPORT_FILE         "Import File"
+    IDS_MULTIMEDIA_LIBRARY  "Multimedia Library"
+    IDS_CODE                "Code"
+    IDS_UPDATE_DATE         "Update Date"
+    IDS_SERVER_NAME         "Server Name"
+    IDS_DIRECTORY           "Directory"
+    IDS_SELECT_LIBRARY_FOLDER "Select the library folder."
+    IDS_SELECT_CACHE_FOLDER "Select cache folder"
+    IDS_SELECT_BACKUP_FOLDER "Select backup folder"
+    IDS_SELECT_INBOX_FOLDER "Select inbox folder"
+    IDS_SELECT_KEYWORD_FOLDER "Select keyword index folder"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FILE_PACK_END       "File packing is finished."
+    IDS_SELECT_EXPORT       "Please select the data or folder to be exported."
+    IDS_EXPORT_DATA_FOLDER  "Only data or a data folder can be exported."
+    IDS_SELECT_IMPORT_FOLDER 
+                            "Please select the destination folder for import."
+    IDS_PICT_FILE_IMPORT    "Image files can only be imported to a data file."
+    IDS_SELECT_TRANSFER_DATA "Please select the data to be transferred."
+    IDS_STANSFER_DATA       "Only data can be transferred."
+    IDS_PRINT_FOLDER        "The folder cannot be printed. Please select data."
+    IDS_SELECT_PRINT_DATA   "Please select the data to be printed. (multiple selections are possible.)"
+    IDS_OFFLINE_MODE        "Connection to the database failed, so the file is being opened off-line."
+    IDS_DATA_NOT_FOUND      "Cannot find the data"
+    IDS_PASSWORD_UNMATCH    "Entered password is unmatched."
+    IDS_SELECT_ROTATION     "Please select the direction of rotation."
+    IDS_NOT_FOUND_LIBRARY   "The library could not be found on the specified server."
+    IDS_CONNECT_SERVER_FAIL "Connection to server failed."
+    IDS_SELECT_RECTORE_LIBRARY "Please select a library for backup."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RESTORE_LIBRARY     "Restoring the selected backup library. OK?"
+    IDS_RESTORE_FAIL        "The restore failed."
+    IDS_RESTORE_NORMAL      "The restore ended normally."
+    IDS_INPUT_APPLICATION_NAME "Please enter application name."
+    IDS_INPUT_EXECUTABLE_FILE "Please enter an executable file."
+    IDS_SELECT_DELETE_ITEM  "Please select the item to be deleted."
+    IDS_DELETE_SELECT_ITEM  "Delete the selected items?"
+    IDS_NO_IMAGE_DATA       "There is no image in selected data."
+    IDS_MULTI_PROCESS       "The process of updating the DB can not be run when you start multiple."
+    IDS_SOUND_RECORD        "Start recording audio. OK?"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_APPLICATION_NAME    "Application Name"
+    IDS_EXECUTABLE_FILE     "Executable File"
+    IDS_PROGRAM             "Program"
+    IDS_ALL_FILES           "All Files"
+    IDS_SELECT_TRANSFER_APPL "Select destination application"
+    IDS_SET_ENVIRONMENT     "Options"
+    IDS_NO_TITLE_1          "Untitled-%d"
+    IDS_MMDB_FILE           "MMDB File"
+    IDS_LEFT_ROTATION2      "Left rot."
+    IDS_RIGHT_ROTATION2     "Right rot."
+    IDS_HELP_URL            "http://www.ymec.com/manual/emmlib/"
+    IDS_ONLINE_UPDATE       "MMLIBE"
+    IDS_FIRST_DATA          "First Data Name"
+    IDS_SELECT_ACCESS_LOG_FOLDER "Select access log folder"
+    IDS_ACCESS_TIME         "Access Time"
+    IDS_ALL_LIBRARIES       "All Libraries"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MARGIN              "Margin"
+    IDS_GFOLDER             "Group Folder"
+    IDS_DFOLDER             "Data Folder"
+    IDS_WORD_WRAP           "W.wrap"
+    IDS_IMAGE_SEARCH        "Image"
+    IDS_ACCESS_HISTORY      "History"
+    IDS_PDF_FILE            "PDF file"
+    IDS_PDF                 "Import PDF"
+    IDS_SELECT_AUDIO_FILE   "Audio file selection"
+    IDS_AUDIO_FILE          "Audio file"
+    IDS_OUTPUT_IMAGES_FOLDER "Select images output folder"
+    IDS_TEXT_SEARCH         "Text"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_VIEW_TEXT_WORDWRAP  "Text word wrap\nText word wrap"
+    IDM_IMPORT_MMDB         "Read external MMDB file\nImport MMDB file"
+    IDM_IMPORT_PDF          "Read external PDF file\nImport PDF file"
+    IDM_TEXT_SEARCH         "Search the contents of the text data\nSearch text data"
+END
+
+#endif    // 英語 (米国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE 17, 1
+#pragma code_page(932)
+#endif
+#include "l.jpn\afxres.rc"          // 標準のコンポーネント
+#include "l.jpn\afxprint.rc"        // 印刷/印刷プレビュー リソース
+#endif
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+#include "afxres.rc" // 標準のコンポーネント
+#include "afxprint.rc" // 印刷/印刷プレビュー リソース
+#endif
+
+#include "res\MMLib.rc2"  // Microsoft Visual C++ 以外のツールで編集されたリソース
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,920 @@
+
+ CAPDLL
+
+ Start     Length     Name                   Class
+ 0001:0000 003F8H     AUDPLAY_TEXT           CODE 16-bit
+           at offset 00000H 0006AH bytes from AUDPLAY.OBJ (b:\hama\win\capdll\audplay.c)
+           at offset 0006AH 0022AH bytes from AUDPLAY.OBJ (b:\hama\win\capdll\audplay.c)
+           at offset 00294H 0014AH bytes from AUDPLAY.OBJ (b:\hama\win\capdll\audplay.c)
+           at offset 003DEH 0001AH bytes from AUDPLAY.OBJ (b:\hama\win\capdll\audplay.c)
+
+ 0001:03F8 00000H     DIALOGS_TEXT           CODE 16-bit
+ 0001:03F8 00000H     DIB_TEXT               CODE 16-bit
+ 0001:03F8 00000H     MULDIVAV_TEXT          CODE 16-bit
+ 0001:03F8 00000H     CAPDLL_TEXT            CODE 16-bit
+ 0001:03F8 02355H     _TEXT                  CODE 16-bit
+           at offset 00000H 000FEH bytes from a:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+           at offset 000FEH 000C8H bytes from a:\msvc\lib\ldllcew.lib (dos\lseek.asm)
+           at offset 001C6H 00037H bytes from a:\msvc\lib\ldllcew.lib (dos\close.asm)
+           at offset 001FEH 002E8H bytes from a:\msvc\lib\ldllcew.lib (dos\open.asm)
+           at offset 004E6H 00003H bytes from a:\msvc\lib\ldllcew.lib (atol.asm)
+           at offset 004EAH 0004BH bytes from a:\msvc\lib\ldllcew.lib (dos\diskfree.asm)
+           at offset 00536H 0009AH bytes from a:\msvc\lib\ldllcew.lib (ldiv.asm)
+           at offset 005D0H 00032H bytes from a:\msvc\lib\ldllcew.lib (lmul.asm)
+           at offset 00602H 0000BH bytes from a:\msvc\lib\ldllcew.lib (lshl.asm)
+           at offset 0060EH 0000BH bytes from a:\msvc\lib\ldllcew.lib (ulshr.asm)
+           at offset 0061AH 0003DH bytes from a:\msvc\lib\ldllcew.lib (.\87ftol.asm)
+           at offset 00658H 00014H bytes from a:\msvc\lib\ldllcew.lib (.\fltusedc.asm)
+           at offset 0066CH 0002CH bytes from a:\msvc\lib\ldllcew.lib (windows\stubmain.asm)
+           at offset 00698H 000E3H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+           at offset 0077CH 00023H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 007A0H 00097H bytes from a:\msvc\lib\ldllcew.lib (dos\stdenvp.asm)
+           at offset 00838H 0005DH bytes from a:\msvc\lib\ldllcew.lib (dos\dosret.asm)
+           at offset 00896H 00056H bytes from a:\msvc\lib\ldllcew.lib (atox.asm)
+           at offset 008ECH 00670H bytes from a:\msvc\lib\ldllcew.lib (.\cvt.c)
+           at offset 00F5CH 00024H bytes from a:\msvc\lib\ldllcew.lib (.\cfpsig.asm)
+           at offset 00F80H 0004EH bytes from a:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+           at offset 00FCEH 0004CH bytes from a:\msvc\lib\ldllcew.lib (windows\fatal.asm)
+           at offset 0101AH 00006H bytes from a:\msvc\lib\ldllcew.lib (crt0fp.asm)
+           at offset 01020H 0002DH bytes from a:\msvc\lib\ldllcew.lib (dos\stdalloc.asm)
+           at offset 0104EH 00010H bytes from a:\msvc\lib\ldllcew.lib (windows\windgrp.asm)
+           at offset 0105EH 00001H bytes from a:\msvc\lib\ldllcew.lib (nearstub.asm)
+           at offset 01060H 0005EH bytes from a:\msvc\lib\ldllcew.lib (atof.c)
+           at offset 010BEH 000AEH bytes from a:\msvc\lib\ldllcew.lib (_fptostr.c)
+           at offset 0116CH 00019H bytes from a:\msvc\lib\ldllcew.lib (strlen.asm)
+           at offset 01186H 0003CH bytes from a:\msvc\lib\ldllcew.lib (strcpy.asm)
+           at offset 011C2H 00048H bytes from a:\msvc\lib\ldllcew.lib (hmemset.asm)
+           at offset 0120AH 000CAH bytes from a:\msvc\lib\ldllcew.lib (hmemcpy.asm)
+           at offset 012D4H 00055H bytes from a:\msvc\lib\ldllcew.lib (.\cfout.asm)
+           at offset 0132AH 00117H bytes from a:\msvc\lib\ldllcew.lib (growseg.asm)
+           at offset 01442H 00014H bytes from a:\msvc\lib\ldllcew.lib (windows\windgrpx.c)
+           at offset 01456H 00019H bytes from a:\msvc\lib\ldllcew.lib (strlen.asm)
+           at offset 01470H 00020H bytes from a:\msvc\lib\ldllcew.lib (os2\hdiff.asm)
+           at offset 01490H 00193H bytes from a:\msvc\lib\ldllcew.lib (.\x8fout.asm)
+           at offset 01624H 00064H bytes from a:\msvc\lib\ldllcew.lib (.\cfinn.c)
+           at offset 01688H 000C8H bytes from a:\msvc\lib\ldllcew.lib (fmalloc.asm)
+           at offset 01750H 001B9H bytes from a:\msvc\lib\ldllcew.lib (.\x8tmul.asm)
+           at offset 0190AH 00068H bytes from a:\msvc\lib\ldllcew.lib (.\strgtod.asm)
+           at offset 01972H 00081H bytes from a:\msvc\lib\ldllcew.lib (newseg.asm)
+           at offset 019F4H 0000DH bytes from a:\msvc\lib\ldllcew.lib (fdata.asm)
+           at offset 01A02H 0007CH bytes from a:\msvc\lib\ldllcew.lib (searchsg.asm)
+           at offset 01A7EH 00268H bytes from a:\msvc\lib\ldllcew.lib (.\strgtold.asm)
+           at offset 01CE6H 0002AH bytes from a:\msvc\lib\ldllcew.lib (freelist.asm)
+           at offset 01D10H 00034H bytes from a:\msvc\lib\ldllcew.lib (initseg.asm)
+           at offset 01D44H 00036H bytes from a:\msvc\lib\ldllcew.lib (linkseg.asm)
+           at offset 01D7AH 00511H bytes from a:\msvc\lib\ldllcew.lib (.\tenpow.asm)
+           at offset 0228CH 000B9H bytes from a:\msvc\lib\ldllcew.lib (.\mantold.asm)
+
+ 0001:2750 020F2H     COMDAT_SEG1            CODE 16-bit
+           at offset 00000H 0003CH bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 0003CH 00047H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 00084H 0015AH bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 001DEH 00047H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 00226H 00640H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 00866H 00006H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 0086CH 0001FH bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 0088CH 0002BH bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 008B8H 00026H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 008DEH 00004H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 008E2H 000BAH bytes from DIB.OBJ (b:\hama\win\capdll\dib.c)
+           at offset 0099CH 0017DH bytes from DIB.OBJ (b:\hama\win\capdll\dib.c)
+           at offset 00B1AH 0023DH bytes from DIB.OBJ (b:\hama\win\capdll\dib.c)
+           at offset 00D58H 00032H bytes from DIB.OBJ (b:\hama\win\capdll\dib.c)
+           at offset 00D8AH 00067H bytes from DIB.OBJ (b:\hama\win\capdll\dib.c)
+           at offset 00DF2H 00081H bytes from DIB.OBJ (b:\hama\win\capdll\dib.c)
+           at offset 00E74H 00081H bytes from DIB.OBJ (b:\hama\win\capdll\dib.c)
+           at offset 00EF6H 0001EH bytes from MULDIVAV.OBJ (b:\hama\win\capdll\muldivav.c)
+           at offset 00F14H 00010H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 00F24H 00006H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 00F2AH 00063H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 00F8EH 00062H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 00FF0H 0002EH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 0101EH 00012H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 01030H 00012H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 01042H 00012H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 01054H 0007AH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 010CEH 000BBH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 0118AH 00298H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 01422H 0005CH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 0147EH 00278H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 016F6H 00219H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 01910H 00419H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 01D2AH 002F5H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 02020H 0000FH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 02030H 0002DH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 0205EH 0002FH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 0208EH 00007H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 02096H 0000FH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 020A6H 00026H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 020CCH 00026H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+
+ 0002:0000 00010H     NULL                   BEGDATA 16-bit
+           at offset 00000H 00010H bytes from a:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+
+ 0002:0010 00276H     _DATA                  DATA 16-bit
+           at offset 00000H 00004H bytes from AUDPLAY.OBJ (b:\hama\win\capdll\audplay.c)
+           at offset 00004H 00002H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 00006H 00028H bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 0002EH 00015H bytes from a:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+           at offset 00044H 00014H bytes from a:\msvc\lib\ldllcew.lib (.\fltusedc.asm)
+           at offset 00058H 00044H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+           at offset 0009CH 00004H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 000A0H 00014H bytes from a:\msvc\lib\ldllcew.lib (dos\dosret.asm)
+           at offset 000B4H 00002H bytes from a:\msvc\lib\ldllcew.lib (txtmode.asm)
+           at offset 000B6H 00002H bytes from a:\msvc\lib\ldllcew.lib (seekfast.asm)
+           at offset 000B8H 00022H bytes from a:\msvc\lib\ldllcew.lib (cmiscdat.asm)
+           at offset 000DAH 0000BH bytes from a:\msvc\lib\ldllcew.lib (.\cvt.c)
+           at offset 000E6H 00101H bytes from a:\msvc\lib\ldllcew.lib (ctype.asm)
+           at offset 001E8H 00025H bytes from a:\msvc\lib\ldllcew.lib (.\cfout.asm)
+           at offset 0020EH 00002H bytes from a:\msvc\lib\ldllcew.lib (growseg.asm)
+           at offset 00210H 00049H bytes from a:\msvc\lib\ldllcew.lib (.\x8fout.asm)
+           at offset 0025AH 00004H bytes from a:\msvc\lib\ldllcew.lib (fmalloc.asm)
+           at offset 0025EH 0000AH bytes from a:\msvc\lib\ldllcew.lib (.\strgtod.asm)
+           at offset 00268H 0000EH bytes from a:\msvc\lib\ldllcew.lib (fdata.asm)
+
+ 0002:0286 0000EH     CDATA                  DATA 16-bit
+           at offset 00000H 0000EH bytes from a:\msvc\lib\ldllcew.lib (.\fixups.asm)
+           at offset 00000H 0000EH bytes from a:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+
+ 0002:0294 00000H     XIB                    DATA 16-bit
+ 0002:0294 00004H     XI                     DATA 16-bit
+           at offset 00000H 00004H bytes from a:\msvc\lib\ldllcew.lib (.\fltusedc.asm)
+
+ 0002:0298 00000H     XIE                    DATA 16-bit
+ 0002:0298 00000H     XIFB                   DATA 16-bit
+ 0002:0298 00000H     XIF                    DATA 16-bit
+ 0002:0298 00000H     XIFE                   DATA 16-bit
+ 0002:0298 00000H     XPB                    DATA 16-bit
+ 0002:0298 00000H     XP                     DATA 16-bit
+ 0002:0298 00000H     XPE                    DATA 16-bit
+ 0002:0298 00000H     XCB                    DATA 16-bit
+ 0002:0298 00000H     XC                     DATA 16-bit
+ 0002:0298 00000H     XCE                    DATA 16-bit
+ 0002:0298 00000H     XCFB                   DATA 16-bit
+ 0002:0298 00000H     XCFCRT                 DATA 16-bit
+ 0002:0298 00000H     XCF                    DATA 16-bit
+ 0002:0298 00000H     XCFE                   DATA 16-bit
+ 0002:0298 00000H     XIFCB                  DATA 16-bit
+ 0002:0298 00000H     XIFU                   DATA 16-bit
+ 0002:0298 00000H     XIFL                   DATA 16-bit
+ 0002:0298 00000H     XIFM                   DATA 16-bit
+ 0002:0298 00000H     XIFCE                  DATA 16-bit
+ 0002:0298 00000H     DBDATA                 DATA 16-bit
+ 0002:0298 00018H     CONST                  CONST 16-bit
+           at offset 00000H 00010H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 00010H 00008H bytes from a:\msvc\lib\ldllcew.lib (.\cvt.c)
+
+ 0002:02B0 00008H     HDR                    MSG 16-bit
+           at offset 00000H 00008H bytes from a:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:02B8 00354H     MSG                    MSG 16-bit
+           at offset 00000H 000A5H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 000A5H 00280H bytes from a:\msvc\lib\ldllcew.lib (.\cfpsig.asm)
+           at offset 00325H 0002FH bytes from a:\msvc\lib\ldllcew.lib (crt0fp.asm)
+
+ 0002:060C 00002H     PAD                    MSG 16-bit
+           at offset 00000H 00002H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 00000H 00002H bytes from a:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+           at offset 00000H 00002H bytes from a:\msvc\lib\ldllcew.lib (crt0fp.asm)
+
+ 0002:060E 00001H     EPAD                   MSG 16-bit
+           at offset 00000H 00001H bytes from a:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:0610 0010EH     _BSS                   BSS 16-bit
+           at offset 00000H 00068H bytes from AUDPLAY.OBJ (b:\hama\win\capdll\audplay.c)
+           at offset 00068H 00081H bytes from DIALOGS.OBJ (b:\hama\win\capdll\dialogs.c)
+           at offset 000EAH 00002H bytes from DIB.OBJ (b:\hama\win\capdll\dib.c)
+           at offset 000ECH 0000EH bytes from CAPDLL.OBJ (b:\hama\win\capdll\capdll.c)
+           at offset 000FAH 00004H bytes from a:\msvc\lib\ldllcew.lib (.\cvt.c)
+           at offset 000FEH 00010H bytes from a:\msvc\lib\ldllcew.lib (.\cfinn.c)
+
+ 0002:071E 00000H     XOB                    BSS 16-bit
+ 0002:071E 00000H     XO                     BSS 16-bit
+ 0002:071E 00000H     XOE                    BSS 16-bit
+ 0002:071E 00000H     XOFB                   BSS 16-bit
+ 0002:071E 00000H     XOF                    BSS 16-bit
+ 0002:071E 00000H     XOFE                   BSS 16-bit
+ 0002:0720 00166H     c_common               BSS 16-bit
+
+ Origin   Group
+ 0002:0   DGROUP
+
+ Address   Export                  Alias
+
+ 0001:2750 ABOUTPROC               ABOUTPROC
+ 0001:27D4 ALLOCCAPFILEPROC        ALLOCCAPFILEPROC
+ 0001:3E46 CAPPROC                 CAPPROC
+ 0001:2976 CAPSETUPPROC            CAPSETUPPROC
+ 0001:3740 ERRORCALLBACKPROC       ERRORCALLBACKPROC
+ 0001:3780 FRAMECALLBACKPROC       FRAMECALLBACKPROC
+ 0001:447A GETAVIPROC              GETAVIPROC
+ 0001:36DE PSCD_GETAVI             PSCD_GETAVI
+ 0001:367A PSCD_GETDIB             PSCD_GETDIB
+ 0001:376E STATUSCALLBACKPROC      STATUSCALLBACKPROC
+ 0001:3792 VIDEOCALLBACKPROC       VIDEOCALLBACKPROC
+ 0001:3674 WEP                     WEP
+ 0001:184A ___ExportedStub         ___ExportedStub
+
+  Address         Publics by Name
+
+ 0001:18E6       $i8_output
+ 0001:1CD4       $i8_tpwr10
+ 0001:302E       ??_C@_03JGAL@?$CFlu?$AA@
+                    ??_C@_03JGAL@?$CFlu?$AA@
+
+ 0001:2FB6       ??_C@_05CKBG@Error?$AA@
+                    ??_C@_05CKBG@Error?$AA@
+
+ 0001:47DE       ??_C@_06MBAB@Oops?$CB?$CB?$AA@
+                    ??_C@_06MBAB@Oops?$CB?$CB?$AA@
+
+ 0001:2FBC       ??_C@_0BP@BIHM@Can?8t?5measure?5free?5disk?5space?4?$AA@
+                    ??_C@_0BP@BIHM@Can?8t?5measure?5free?5disk?5space?4?$AA@
+
+ 0001:3008       ??_C@_0CG@HELP@Couldn?8t?5find?5out?5the?5free?5disk?5@
+                    ??_C@_0CG@HELP@Couldn?8t?5find?5out?5the?5free?5disk?5@
+
+ 0001:47F6       ??_C@_0CG@HNJG@Close?5dialogs?5before?5exiting?5Win@
+                    ??_C@_0CG@HNJG@Close?5dialogs?5before?5exiting?5Win@
+
+ 0001:481C       ??_C@_0CG@PFND@Can?8t?5pre?9allocate?5capture?5file?5@
+                    ??_C@_0CG@PFND@Can?8t?5pre?9allocate?5capture?5file?5@
+
+ 0001:2FDC       ??_C@_0CL@IACF@Couldn?8t?5find?5size?5of?5current?5ca@
+                    ??_C@_0CL@IACF@Couldn?8t?5find?5size?5of?5current?5ca@
+
+ 0001:4780       ??_C@_0CN@OMFG@Now?5can?8t?5connect?5back?5to?5previo@
+                    ??_C@_0CN@OMFG@Now?5can?8t?5connect?5back?5to?5previo@
+
+ 0001:47AE       ??_C@_0CP@FKLM@How?5could?5you?5specify?5this?5?$CI?$CFu?$CJ?5@
+                    ??_C@_0CP@FKLM@How?5could?5you?5specify?5this?5?$CI?$CFu?$CJ?5@
+
+ 0001:4770       ??_C@_0P@KOMM@?$9PI?$:H?$<J?$9C?$<F?$9C?$>M?$9C?$<F?$9C?$<N?$9BB?$AA@
+                    ??_C@_0P@KOMM@?$9PI?$:H?$<J?$9C?$<F?$9C?$>M?$9C?$<F?$9C?$<N?$9BB?$AA@
+
+ 0001:47E6       ??_C@_0P@ODKL@Capture?5Window?$AA@
+                    ??_C@_0P@ODKL@Capture?5Window?$AA@
+
+ 0001:2750       ABOUTPROC
+ 0001:27D4       ALLOCCAPFILEPROC
+ 0000:0000  Imp  AVISTREAMINFO        (AVIFILE.162)
+ 0000:0000  Imp  AVISTREAMLENGTH      (AVIFILE.131)
+ 0000:0000  Imp  AVISTREAMREAD        (AVIFILE.167)
+ 0000:0000  Imp  AVISTREAMREADFORMAT  (AVIFILE.164)
+ 0000:0000  Imp  AVISTREAMSAMPLETOTIME (AVIFILE.133)
+ 0000:0000  Imp  AVISTREAMSTART       (AVIFILE.130)
+ 0000:0000  Imp  BEGINPAINT           (USER.39)
+ 0000:0000  Imp  BITBLT               (GDI.34)
+ 0000:0000  Imp  BRINGWINDOWTOTOP     (USER.45)
+ 0000:0000  Imp  CAPCREATECAPTUREWINDOW (AVICAP.2)
+ 0000:0000  Imp  CAPGETDRIVERDESCRIPTION (AVICAP.3)
+ 0001:3E46       CAPPROC
+ 0001:2976       CAPSETUPPROC
+ 0000:0000  Imp  CHECKDLGBUTTON       (USER.97)
+ 0000:0000  Imp  CHECKRADIOBUTTON     (USER.96)
+ 0000:0000  Imp  CLOSECLIPBOARD       (USER.138)
+ 0000:0000  Imp  CREATECOMPATIBLEDC   (GDI.52)
+ 0000:0000  Imp  CREATEDIBITMAP       (GDI.442)
+ 0000:0000  Imp  CREATEPALETTE        (GDI.360)
+ 0000:0000  Imp  CREATEPEN            (GDI.61)
+ 0000:0000  Imp  DELETEDC             (GDI.68)
+ 0000:0000  Imp  DELETEOBJECT         (GDI.69)
+ 0000:0000  Imp  DESTROYWINDOW        (USER.53)
+ 0000:0000  Imp  DIALOGBOX            (USER.87)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  EMPTYCLIPBOARD       (USER.139)
+ 0000:0000  Imp  ENABLEWINDOW         (USER.34)
+ 0000:0000  Imp  ENDDIALOG            (USER.88)
+ 0000:0000  Imp  ENDPAINT             (USER.40)
+ 0001:3740       ERRORCALLBACKPROC
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:FE32  Abs  FIARQQ
+ 0000:0E32  Abs  FICRQQ
+ 0000:5C32  Abs  FIDRQQ
+ 0000:1632  Abs  FIERQQ
+ 0000:0000  Imp  FILLRECT             (USER.81)
+ 0000:0632  Abs  FISRQQ
+ 0000:A23D  Abs  FIWRQQ
+ 0000:4000  Abs  FJARQQ
+ 0000:C000  Abs  FJCRQQ
+ 0000:8000  Abs  FJSRQQ
+ 0001:3780       FRAMECALLBACKPROC
+ 0000:0000  Imp  FREEPROCINSTANCE     (KERNEL.52)
+ 0001:447A       GETAVIPROC
+ 0000:0000  Imp  GETCLIENTRECT        (USER.33)
+ 0000:0000  Imp  GETCLIPBOARDDATA     (USER.142)
+ 0000:0000  Imp  GETDC                (USER.66)
+ 0000:0000  Imp  GETDIBITS            (GDI.441)
+ 0000:0000  Imp  GETDLGITEM           (USER.91)
+ 0000:0000  Imp  GETDLGITEMINT        (USER.95)
+ 0000:0000  Imp  GETDLGITEMTEXT       (USER.93)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0000  Imp  GETOBJECT            (GDI.82)
+ 0000:0000  Imp  GETSTOCKOBJECT       (GDI.87)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  GLOBALHANDLE         (KERNEL.21)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  INVALIDATERECT       (USER.125)
+ 0000:0000  Imp  ISDLGBUTTONCHECKED   (USER.98)
+ 0001:3664       LIBMAIN
+ 0000:0000  Imp  LINETO               (GDI.19)
+ 0000:0000  Imp  LOADCURSOR           (USER.173)
+ 0000:0000  Imp  LOCALALLOC           (KERNEL.5)
+ 0000:0000  Imp  LOCALFREE            (KERNEL.7)
+ 0000:0000  Imp  LOCALINIT            (KERNEL.4)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0001:3542       LREAD
+ 0000:0000  Imp  LSTRCPY              (KERNEL.88)
+ 0001:35C4       LWRITE
+ 0000:0000  Unr  MAKEPALETTEPROC
+ 0000:0000  Imp  MAKEPROCINSTANCE     (KERNEL.51)
+ 0000:0000  Imp  MCISENDCOMMAND       (MMSYSTEM.701)
+ 0000:0000  Imp  MESSAGEBEEP          (USER.104)
+ 0000:0000  Imp  MESSAGEBOX           (USER.1)
+ 0000:0000  Imp  MOVETO               (GDI.20)
+ 0000:0000  Imp  MOVEWINDOW           (USER.56)
+ 0001:3646       MULDIV32
+ 0000:0000  Unr  MULDIVRD
+ 0000:0000  Unr  MULDIVRN
+ 0000:0000  Unr  MULDIVRU
+ 0000:0000  Imp  OPENCLIPBOARD        (USER.137)
+ 0000:0000  Imp  OPENFILE             (KERNEL.74)
+ 0000:0000  Imp  PATBLT               (GDI.29)
+ 0001:36DE       PSCD_GETAVI
+ 0001:367A       PSCD_GETDIB
+ 0000:0000  Imp  REALIZEPALETTE       (USER.283)
+ 0000:0000  Imp  RELEASEDC            (USER.68)
+ 0002:0004       rsrvptrs
+ 0000:0000  Imp  SELECTOBJECT         (GDI.45)
+ 0000:0000  Imp  SELECTPALETTE        (USER.282)
+ 0000:0000  Imp  SENDMESSAGE          (USER.111)
+ 0000:0000  Imp  SETBKMODE            (GDI.2)
+ 0000:0000  Imp  SETCURSOR            (USER.69)
+ 0000:0000  Imp  SETDIBITSTODEVICE    (GDI.443)
+ 0000:0000  Imp  SETDLGITEMINT        (USER.94)
+ 0000:0000  Imp  SETDLGITEMTEXT       (USER.92)
+ 0000:0000  Imp  SETFOCUS             (USER.22)
+ 0000:0000  Imp  SETWINDOWPOS         (USER.232)
+ 0000:0000  Imp  SNDPLAYSOUND         (MMSYSTEM.2)
+ 0001:376E       STATUSCALLBACKPROC
+ 0000:0000  Imp  STRETCHDIBITS        (GDI.439)
+ 0001:3792       VIDEOCALLBACKPROC
+ 0000:0000  Imp  WAVEOUTCLOSE         (MMSYSTEM.405)
+ 0000:0000  Imp  WAVEOUTGETPOSITION   (MMSYSTEM.412)
+ 0000:0000  Imp  WAVEOUTOPEN          (MMSYSTEM.404)
+ 0000:0000  Imp  WAVEOUTPAUSE         (MMSYSTEM.409)
+ 0000:0000  Imp  WAVEOUTPREPAREHEADER (MMSYSTEM.406)
+ 0000:0000  Imp  WAVEOUTRESET         (MMSYSTEM.411)
+ 0000:0000  Imp  WAVEOUTRESTART       (MMSYSTEM.410)
+ 0000:0000  Imp  WAVEOUTUNPREPAREHEADER (MMSYSTEM.407)
+ 0000:0000  Imp  WAVEOUTWRITE         (MMSYSTEM.408)
+ 0001:3674       WEP
+ 0000:0000  Imp  YIELD                (KERNEL.29)
+ 0002:004D       _aseghi
+ 0002:004B       _aseglo
+ 0001:1468       _atof
+ 0001:08EE       _atol
+ 0001:0000       _aviaudioCloseDevice
+ 0001:0294       _aviaudioiFillBuffers
+ 0000:0000  Unr  _aviaudioMessage
+ 0001:006A       _aviaudioOpenDevice
+ 0000:0000  Unr  _aviaudioPlay
+ 0001:03DE       _aviaudioStop
+ 0000:0000  Unr  _aviaudioTime
+ 0000:0000  Unr  _BitmapFromDib
+ 0001:30EC       _CreateBIPalette
+ 0000:0000  Unr  _CreateDibPalette
+ 0000:0000  Unr  _DibBlt
+ 0000:0000  Unr  _DibFromBitmap
+ 0001:3032       _DibInfo
+ 0000:0000  Unr  _DrawBitmap
+ 0002:0610       _edata
+ 0002:0886       _end
+ 0002:0076       _errno
+ 0002:003C       _fHaveDialogUp
+ 0002:0882       _fpErrorCallback
+ 0002:087E       _fpFrameCallback
+ 0002:0832       _fpStatusCallback
+ 0002:083C       _fpVideoCallback
+ 0002:0016       _gachAppName
+ 0002:0020       _gachMCIDeviceName
+ 0002:07A0       _gCapDriverCaps
+ 0002:07FA       _gCapParms
+ 0002:084E       _gCapStatus
+ 0002:0840       _gdwFrameNum
+ 0002:0836       _gdwVideoNum
+ 0001:34DA       _GetDibNumColors
+ 0000:0000  Unr  _GetDibNumColorsByHandle
+ 0001:34A8       _GetPaletteSize
+ 0002:07B8       _gfilename
+ 0002:0760       _gfilename2
+ 0002:0720       _gfilename3
+ 0002:083A       _ghInst
+ 0002:0844       _ghWnd
+ 0002:07F8       _ghWndCap
+ 0002:003A       _gwCapFileSize
+ 0002:07B6       _gwDeviceIndex
+ 0002:0038       _gwPalColors
+ 0002:0036       _gwPalFrames
+ 0000:0000  Imp  _LCLOSE              (KERNEL.81)
+ 0000:0000  Imp  _LLSEEK              (KERNEL.84)
+ 0000:0000  Imp  _LREAD               (KERNEL.82)
+ 0000:0000  Imp  _LWRITE              (KERNEL.86)
+ 0000:0000  Unr  _OpenDIB
+ 0000:0000  Unr  _OpenMemDIB
+ 0001:326A       _ReadDibBitmapInfo
+ 0002:003E       _STKHQQ
+ 0000:0000  Unr  _StretchDibBlt
+ 0001:185E       _strlen
+ 0000:0000  Unr  _WriteDIB
+ 0000:0000  Imp  _wsprintf            (USER.420)
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0002:00AC       __adbgmsg
+ 0000:D6D6  Abs  __aDBused
+ 0001:1878       __aFahdiff
+ 0001:0A22       __aFftol
+ 0001:093E       __aFldiv
+ 0001:09D8       __aFlmul
+ 0001:0A0A       __aFlshl
+ 0001:09D8       __aFulmul
+ 0001:0A16       __aFulshr
+ 0000:0000  Imp  __AHINCR             (KERNEL.114)
+ 0000:0000  Imp  __AHSHIFT            (KERNEL.113)
+ 0002:0068       __aintdiv
+ 0002:021E       __amblksiz
+ 0001:13E0       __amsg_exit
+ 0002:00E8       __asizeC
+ 0002:00E9       __asizeD
+ 0001:044C       __astart
+ 0001:0C9E       __catox
+ 0001:0AE8       __cexit
+ 0001:12C2       __cfltcvt
+ 0002:00C8       __cfltcvt_tab
+ 0001:0E7E       __cftoe
+ 0001:104A       __cftof
+ 0001:11E2       __cftog
+ 0002:00A9       __child
+ 0001:0AA0       __cinit
+ 0001:13D6       __cintDIV
+ 0001:05CE       __close
+ 0002:0081       __cpumode
+ 0001:0D6A       __cropzeros
+ 0001:0B47       __ctermsub
+ 0002:00F6       __ctype
+ 0002:00F6       __ctype_
+ 0001:08DD       __cXENIXtoDOSmode
+ 0001:0AF9       __c_exit
+ 0002:004A       __dllinit
+ 0002:0082       __doserrno
+ 0001:0C40       __dosret0
+ 0001:0C5F       __dosretax
+ 0001:0C4D       __dosreturn
+ 0001:08F2       __dos_getdiskfree
+ 0002:0610       __edata
+ 0002:0886       __end
+ 0002:00A0       __environ
+ 0002:00AB       __exitflag
+ 0002:006C       __fac
+ 0001:0E26       __fassign
+ 0001:1A90       __ffree
+ 0001:0B84       __FF_MSGBANNER
+ 0002:0278       __fheap
+ 0001:1829       __findlast
+ 0001:1A2C       __fltin
+ 0001:16DC       __fltout
+ 0000:9876  Abs  __fltused
+ 0001:1AB1       __fmalloc
+ 0001:1612       __fmemmove
+ 0001:15CA       __fmemset
+ 0002:00C4       __fmode
+ 0001:0CF4       __forcdecpt
+ 0002:0288       __fpinit
+ 0000:0000  Imp  __fpmath             (WIN87EM.1)
+ 0001:1364       __fpsignal
+ 0000:9876  Abs  __fptaskdata
+ 0001:14C6       __fptostr
+ 0001:1422       __fptrap
+ 0001:1DFC       __freefarheap
+ 0001:20EE       __freelist
+ 0001:158E       __fstrcpy
+ 0001:1574       __fstrlen
+ 0001:0A22       __ftol
+ 0001:1456       __GetDGROUP
+ 0001:1732       __growseg
+ 0002:0040       __hModule
+ 0001:17C3       __incseg
+ 0001:2118       __initseg
+ 0002:00C4       __iomode
+ 0001:250F       __LD12MULT
+ 0001:243A       __LD12MULTTENPOWER
+ 0001:214C       __linkseg
+ 0002:0046       __lpszCmdLine
+ 0001:0506       __lseek
+ 0002:00C6       __lseekchk
+ 0001:2694       __MANTOLD12
+ 0001:0C71       __maperror
+ 0002:0846       __mbac
+ 0001:1428       __myalloc
+ 0001:1466       __nearstub
+ 0001:1D7A       __newseg
+ 0002:0084       __nfile
+ 0001:1388       __NMSG_TEXT
+ 0001:13BF       __NMSG_WRITE
+ 0001:04EE       __nomain
+ 0001:061E       __open
+ 0002:0082       __oserr
+ 0002:0086       __osfile
+ 0002:007D       __osmajor
+ 0002:007C       __osminor
+ 0002:0080       __osmode
+ 0002:007C       __osver
+ 0002:007E       __osversion
+ 0002:00A4       __pgmptr
+ 0002:026A       __pnhFarHeap
+ 0001:0DEE       __positive
+ 0001:1E0A       __searchseg
+ 0001:0BA8       __setenvp
+ 0002:00E6       __sigintoff
+ 0002:00E4       __sigintseg
+ 0000:0001  Abs  __sizec
+ 0000:0001  Abs  __sized
+ 0001:0606       __sopen
+ 0001:1D12       __STRINGTOD
+ 0001:1E86       __STRINGTOLD
+ 0001:0A74       __stubmain
+ 0002:0078       __umaskval
+ 0002:0042       __wDataSeg
+ 0001:0408       __wflags
+ 0002:0044       __wHeapSize
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0002:007B       __winmajor
+ 0002:007A       __winminor
+ 0002:007A       __winver
+ 0002:0051       ___aDBrterr
+ 0002:004F       ___aDBswpflg
+ 0002:009A       ___argc
+ 0002:009C       ___argv
+ 0001:184A       ___ExportedStub
+
+  Address         Publics by Value
+
+ 0000:0000  Unr  _StretchDibBlt
+ 0000:0000  Imp  AVISTREAMREADFORMAT  (AVIFILE.164)
+ 0000:0000  Imp  WAVEOUTPREPAREHEADER (MMSYSTEM.406)
+ 0000:0000  Imp  ISDLGBUTTONCHECKED   (USER.98)
+ 0000:0000  Imp  WAVEOUTPAUSE         (MMSYSTEM.409)
+ 0000:0000  Imp  BEGINPAINT           (USER.39)
+ 0000:0000  Imp  DELETEDC             (GDI.68)
+ 0000:0000  Unr  MAKEPALETTEPROC
+ 0000:0000  Unr  _CreateDibPalette
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  INVALIDATERECT       (USER.125)
+ 0000:0000  Unr  _OpenDIB
+ 0000:0000  Imp  _LWRITE              (KERNEL.86)
+ 0000:0000  Imp  __AHSHIFT            (KERNEL.113)
+ 0000:0000  Imp  SELECTOBJECT         (GDI.45)
+ 0000:0000  Imp  LOCALFREE            (KERNEL.7)
+ 0000:0000  Imp  WAVEOUTOPEN          (MMSYSTEM.404)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Imp  CREATEDIBITMAP       (GDI.442)
+ 0000:0000  Imp  RELEASEDC            (USER.68)
+ 0000:0000  Imp  __fpmath             (WIN87EM.1)
+ 0000:0000  Imp  STRETCHDIBITS        (GDI.439)
+ 0000:0000  Imp  BITBLT               (GDI.34)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  MCISENDCOMMAND       (MMSYSTEM.701)
+ 0000:0000  Imp  FREEPROCINSTANCE     (KERNEL.52)
+ 0000:0000  Unr  _DibBlt
+ 0000:0000  Imp  GETCLIPBOARDDATA     (USER.142)
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0000:0000  Imp  __AHINCR             (KERNEL.114)
+ 0000:0000  Imp  WAVEOUTWRITE         (MMSYSTEM.408)
+ 0000:0000  Imp  GETSTOCKOBJECT       (GDI.87)
+ 0000:0000  Unr  MULDIVRN
+ 0000:0000  Unr  _aviaudioTime
+ 0000:0000  Imp  SETDLGITEMINT        (USER.94)
+ 0000:0000  Imp  GETDLGITEMINT        (USER.95)
+ 0000:0000  Imp  AVISTREAMLENGTH      (AVIFILE.131)
+ 0000:0000  Imp  CAPCREATECAPTUREWINDOW (AVICAP.2)
+ 0000:0000  Unr  _aviaudioPlay
+ 0000:0000  Imp  _LREAD               (KERNEL.82)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  SETDLGITEMTEXT       (USER.92)
+ 0000:0000  Imp  GETDLGITEMTEXT       (USER.93)
+ 0000:0000  Unr  _WriteDIB
+ 0000:0000  Imp  CHECKDLGBUTTON       (USER.97)
+ 0000:0000  Imp  AVISTREAMINFO        (AVIFILE.162)
+ 0000:0000  Imp  SETCURSOR            (USER.69)
+ 0000:0000  Imp  SETBKMODE            (GDI.2)
+ 0000:0000  Imp  LOADCURSOR           (USER.173)
+ 0000:0000  Unr  _DibFromBitmap
+ 0000:0000  Imp  CREATECOMPATIBLEDC   (GDI.52)
+ 0000:0000  Imp  WAVEOUTCLOSE         (MMSYSTEM.405)
+ 0000:0000  Imp  DESTROYWINDOW        (USER.53)
+ 0000:0000  Imp  SENDMESSAGE          (USER.111)
+ 0000:0000  Unr  _aviaudioMessage
+ 0000:0000  Imp  AVISTREAMREAD        (AVIFILE.167)
+ 0000:0000  Unr  _BitmapFromDib
+ 0000:0000  Imp  EMPTYCLIPBOARD       (USER.139)
+ 0000:0000  Imp  FILLRECT             (USER.81)
+ 0000:0000  Unr  MULDIVRD
+ 0000:0000  Imp  REALIZEPALETTE       (USER.283)
+ 0000:0000  Unr  MULDIVRU
+ 0000:0000  Imp  AVISTREAMSTART       (AVIFILE.130)
+ 0000:0000  Imp  ENDDIALOG            (USER.88)
+ 0000:0000  Imp  BRINGWINDOWTOTOP     (USER.45)
+ 0000:0000  Imp  DELETEOBJECT         (GDI.69)
+ 0000:0000  Imp  MOVETO               (GDI.20)
+ 0000:0000  Imp  SETFOCUS             (USER.22)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  MESSAGEBEEP          (USER.104)
+ 0000:0000  Imp  _LCLOSE              (KERNEL.81)
+ 0000:0000  Imp  GETCLIENTRECT        (USER.33)
+ 0000:0000  Imp  _wsprintf            (USER.420)
+ 0000:0000  Imp  SETDIBITSTODEVICE    (GDI.443)
+ 0000:0000  Imp  ENDPAINT             (USER.40)
+ 0000:0000  Imp  GETDC                (USER.66)
+ 0000:0000  Imp  OPENCLIPBOARD        (USER.137)
+ 0000:0000  Imp  LOCALINIT            (KERNEL.4)
+ 0000:0000  Imp  LSTRCPY              (KERNEL.88)
+ 0000:0000  Imp  CREATEPALETTE        (GDI.360)
+ 0000:0000  Imp  YIELD                (KERNEL.29)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  SNDPLAYSOUND         (MMSYSTEM.2)
+ 0000:0000  Imp  WAVEOUTRESET         (MMSYSTEM.411)
+ 0000:0000  Unr  _DrawBitmap
+ 0000:0000  Imp  MESSAGEBOX           (USER.1)
+ 0000:0000  Imp  GETDIBITS            (GDI.441)
+ 0000:0000  Imp  CHECKRADIOBUTTON     (USER.96)
+ 0000:0000  Imp  WAVEOUTGETPOSITION   (MMSYSTEM.412)
+ 0000:0000  Imp  SETWINDOWPOS         (USER.232)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  CAPGETDRIVERDESCRIPTION (AVICAP.3)
+ 0000:0000  Imp  LINETO               (GDI.19)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Unr  _GetDibNumColorsByHandle
+ 0000:0000  Imp  AVISTREAMSAMPLETOTIME (AVIFILE.133)
+ 0000:0000  Imp  _LLSEEK              (KERNEL.84)
+ 0000:0000  Imp  GETOBJECT            (GDI.82)
+ 0000:0000  Imp  SELECTPALETTE        (USER.282)
+ 0000:0000  Imp  WAVEOUTUNPREPAREHEADER (MMSYSTEM.407)
+ 0000:0000  Imp  OPENFILE             (KERNEL.74)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  ENABLEWINDOW         (USER.34)
+ 0000:0000  Unr  _OpenMemDIB
+ 0000:0000  Imp  GETDLGITEM           (USER.91)
+ 0000:0000  Imp  MOVEWINDOW           (USER.56)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0000  Imp  CREATEPEN            (GDI.61)
+ 0000:0000  Imp  LOCALALLOC           (KERNEL.5)
+ 0000:0000  Imp  GLOBALHANDLE         (KERNEL.21)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  DIALOGBOX            (USER.87)
+ 0000:0000  Imp  MAKEPROCINSTANCE     (KERNEL.51)
+ 0000:0000  Imp  WAVEOUTRESTART       (MMSYSTEM.410)
+ 0000:0000  Imp  PATBLT               (GDI.29)
+ 0000:0000  Imp  CLOSECLIPBOARD       (USER.138)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0001  Abs  __sizec
+ 0000:0001  Abs  __sized
+ 0000:0632  Abs  FISRQQ
+ 0000:0E32  Abs  FICRQQ
+ 0000:1632  Abs  FIERQQ
+ 0000:9876  Abs  __fltused
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:9876  Abs  __fptaskdata
+ 0000:D6D6  Abs  __aDBused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0001:0000       _aviaudioCloseDevice
+ 0001:006A       _aviaudioOpenDevice
+ 0001:0294       _aviaudioiFillBuffers
+ 0001:03DE       _aviaudioStop
+ 0001:0408       __wflags
+ 0001:044C       __astart
+ 0001:04EE       __nomain
+ 0001:0506       __lseek
+ 0001:05CE       __close
+ 0001:0606       __sopen
+ 0001:061E       __open
+ 0001:08DD       __cXENIXtoDOSmode
+ 0001:08EE       _atol
+ 0001:08F2       __dos_getdiskfree
+ 0001:093E       __aFldiv
+ 0001:09D8       __aFulmul
+ 0001:09D8       __aFlmul
+ 0001:0A0A       __aFlshl
+ 0001:0A16       __aFulshr
+ 0001:0A22       __aFftol
+ 0001:0A22       __ftol
+ 0001:0A74       __stubmain
+ 0001:0AA0       __cinit
+ 0001:0AE8       __cexit
+ 0001:0AF9       __c_exit
+ 0001:0B47       __ctermsub
+ 0001:0B84       __FF_MSGBANNER
+ 0001:0BA8       __setenvp
+ 0001:0C40       __dosret0
+ 0001:0C4D       __dosreturn
+ 0001:0C5F       __dosretax
+ 0001:0C71       __maperror
+ 0001:0C9E       __catox
+ 0001:0CF4       __forcdecpt
+ 0001:0D6A       __cropzeros
+ 0001:0DEE       __positive
+ 0001:0E26       __fassign
+ 0001:0E7E       __cftoe
+ 0001:104A       __cftof
+ 0001:11E2       __cftog
+ 0001:12C2       __cfltcvt
+ 0001:1364       __fpsignal
+ 0001:1388       __NMSG_TEXT
+ 0001:13BF       __NMSG_WRITE
+ 0001:13D6       __cintDIV
+ 0001:13E0       __amsg_exit
+ 0001:1422       __fptrap
+ 0001:1428       __myalloc
+ 0001:1456       __GetDGROUP
+ 0001:1466       __nearstub
+ 0001:1468       _atof
+ 0001:14C6       __fptostr
+ 0001:1574       __fstrlen
+ 0001:158E       __fstrcpy
+ 0001:15CA       __fmemset
+ 0001:1612       __fmemmove
+ 0001:16DC       __fltout
+ 0001:1732       __growseg
+ 0001:17C3       __incseg
+ 0001:1829       __findlast
+ 0001:184A       ___ExportedStub
+ 0001:185E       _strlen
+ 0001:1878       __aFahdiff
+ 0001:18E6       $i8_output
+ 0001:1A2C       __fltin
+ 0001:1A90       __ffree
+ 0001:1AB1       __fmalloc
+ 0001:1CD4       $i8_tpwr10
+ 0001:1D12       __STRINGTOD
+ 0001:1D7A       __newseg
+ 0001:1DFC       __freefarheap
+ 0001:1E0A       __searchseg
+ 0001:1E86       __STRINGTOLD
+ 0001:20EE       __freelist
+ 0001:2118       __initseg
+ 0001:214C       __linkseg
+ 0001:243A       __LD12MULTTENPOWER
+ 0001:250F       __LD12MULT
+ 0001:2694       __MANTOLD12
+ 0001:2750       ABOUTPROC
+ 0001:27D4       ALLOCCAPFILEPROC
+ 0001:2976       CAPSETUPPROC
+ 0001:2FB6       ??_C@_05CKBG@Error?$AA@
+                    ??_C@_05CKBG@Error?$AA@
+
+ 0001:2FBC       ??_C@_0BP@BIHM@Can?8t?5measure?5free?5disk?5space?4?$AA@
+                    ??_C@_0BP@BIHM@Can?8t?5measure?5free?5disk?5space?4?$AA@
+
+ 0001:2FDC       ??_C@_0CL@IACF@Couldn?8t?5find?5size?5of?5current?5ca@
+                    ??_C@_0CL@IACF@Couldn?8t?5find?5size?5of?5current?5ca@
+
+ 0001:3008       ??_C@_0CG@HELP@Couldn?8t?5find?5out?5the?5free?5disk?5@
+                    ??_C@_0CG@HELP@Couldn?8t?5find?5out?5the?5free?5disk?5@
+
+ 0001:302E       ??_C@_03JGAL@?$CFlu?$AA@
+                    ??_C@_03JGAL@?$CFlu?$AA@
+
+ 0001:3032       _DibInfo
+ 0001:30EC       _CreateBIPalette
+ 0001:326A       _ReadDibBitmapInfo
+ 0001:34A8       _GetPaletteSize
+ 0001:34DA       _GetDibNumColors
+ 0001:3542       LREAD
+ 0001:35C4       LWRITE
+ 0001:3646       MULDIV32
+ 0001:3664       LIBMAIN
+ 0001:3674       WEP
+ 0001:367A       PSCD_GETDIB
+ 0001:36DE       PSCD_GETAVI
+ 0001:3740       ERRORCALLBACKPROC
+ 0001:376E       STATUSCALLBACKPROC
+ 0001:3780       FRAMECALLBACKPROC
+ 0001:3792       VIDEOCALLBACKPROC
+ 0001:3E46       CAPPROC
+ 0001:447A       GETAVIPROC
+ 0001:4770       ??_C@_0P@KOMM@?$9PI?$:H?$<J?$9C?$<F?$9C?$>M?$9C?$<F?$9C?$<N?$9BB?$AA@
+                    ??_C@_0P@KOMM@?$9PI?$:H?$<J?$9C?$<F?$9C?$>M?$9C?$<F?$9C?$<N?$9BB?$AA@
+
+ 0001:4780       ??_C@_0CN@OMFG@Now?5can?8t?5connect?5back?5to?5previo@
+                    ??_C@_0CN@OMFG@Now?5can?8t?5connect?5back?5to?5previo@
+
+ 0001:47AE       ??_C@_0CP@FKLM@How?5could?5you?5specify?5this?5?$CI?$CFu?$CJ?5@
+                    ??_C@_0CP@FKLM@How?5could?5you?5specify?5this?5?$CI?$CFu?$CJ?5@
+
+ 0001:47DE       ??_C@_06MBAB@Oops?$CB?$CB?$AA@
+                    ??_C@_06MBAB@Oops?$CB?$CB?$AA@
+
+ 0001:47E6       ??_C@_0P@ODKL@Capture?5Window?$AA@
+                    ??_C@_0P@ODKL@Capture?5Window?$AA@
+
+ 0001:47F6       ??_C@_0CG@HNJG@Close?5dialogs?5before?5exiting?5Win@
+                    ??_C@_0CG@HNJG@Close?5dialogs?5before?5exiting?5Win@
+
+ 0001:481C       ??_C@_0CG@PFND@Can?8t?5pre?9allocate?5capture?5file?5@
+                    ??_C@_0CG@PFND@Can?8t?5pre?9allocate?5capture?5file?5@
+
+ 0002:0004       rsrvptrs
+ 0002:0016       _gachAppName
+ 0002:0020       _gachMCIDeviceName
+ 0002:0036       _gwPalFrames
+ 0002:0038       _gwPalColors
+ 0002:003A       _gwCapFileSize
+ 0002:003C       _fHaveDialogUp
+ 0002:003E       _STKHQQ
+ 0002:0040       __hModule
+ 0002:0042       __wDataSeg
+ 0002:0044       __wHeapSize
+ 0002:0046       __lpszCmdLine
+ 0002:004A       __dllinit
+ 0002:004B       _aseglo
+ 0002:004D       _aseghi
+ 0002:004F       ___aDBswpflg
+ 0002:0051       ___aDBrterr
+ 0002:0068       __aintdiv
+ 0002:006C       __fac
+ 0002:0076       _errno
+ 0002:0078       __umaskval
+ 0002:007A       __winminor
+ 0002:007A       __winver
+ 0002:007B       __winmajor
+ 0002:007C       __osver
+ 0002:007C       __osminor
+ 0002:007D       __osmajor
+ 0002:007E       __osversion
+ 0002:0080       __osmode
+ 0002:0081       __cpumode
+ 0002:0082       __doserrno
+ 0002:0082       __oserr
+ 0002:0084       __nfile
+ 0002:0086       __osfile
+ 0002:009A       ___argc
+ 0002:009C       ___argv
+ 0002:00A0       __environ
+ 0002:00A4       __pgmptr
+ 0002:00A9       __child
+ 0002:00AB       __exitflag
+ 0002:00AC       __adbgmsg
+ 0002:00C4       __iomode
+ 0002:00C4       __fmode
+ 0002:00C6       __lseekchk
+ 0002:00C8       __cfltcvt_tab
+ 0002:00E4       __sigintseg
+ 0002:00E6       __sigintoff
+ 0002:00E8       __asizeC
+ 0002:00E9       __asizeD
+ 0002:00F6       __ctype_
+ 0002:00F6       __ctype
+ 0002:021E       __amblksiz
+ 0002:026A       __pnhFarHeap
+ 0002:0278       __fheap
+ 0002:0288       __fpinit
+ 0002:0610       _edata
+ 0002:0610       __edata
+ 0002:0720       _gfilename3
+ 0002:0760       _gfilename2
+ 0002:07A0       _gCapDriverCaps
+ 0002:07B6       _gwDeviceIndex
+ 0002:07B8       _gfilename
+ 0002:07F8       _ghWndCap
+ 0002:07FA       _gCapParms
+ 0002:0832       _fpStatusCallback
+ 0002:0836       _gdwVideoNum
+ 0002:083A       _ghInst
+ 0002:083C       _fpVideoCallback
+ 0002:0840       _gdwFrameNum
+ 0002:0844       _ghWnd
+ 0002:0846       __mbac
+ 0002:084E       _gCapStatus
+ 0002:087E       _fpFrameCallback
+ 0002:0882       _fpErrorCallback
+ 0002:0886       _end
+ 0002:0886       __end
+ 0000:4000  Abs  FJARQQ
+ 0000:5C32  Abs  FIDRQQ
+ 0000:8000  Abs  FJSRQQ
+ 0000:A23D  Abs  FIWRQQ
+ 0000:C000  Abs  FJCRQQ
+ 0000:FE32  Abs  FIARQQ
+
+Program entry point at 0001:044c

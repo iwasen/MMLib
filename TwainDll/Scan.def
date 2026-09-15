@@ -1,0 +1,11 @@
+;LIBRARY   TWAINDLL
+;EXETYPE   WINDOWS
+;CODE      PRELOAD MOVEABLE DISCARDABLE
+;DATA      PRELOAD MOVEABLE SINGLE
+;HEAPSIZE  1024
+EXPORTS
+		ScanDib	@10
+		ScanBmp	@11
+		SelectTwainDriver @12
+		GetDefaultDriver @13
+		ScanBmpContinue @14

@@ -1,0 +1,1526 @@
+
+ SCAN
+
+ Start     Length     Name                   Class
+ 0001:0000 00000H     DCA_ACQ_TEXT           CODE 16-bit
+ 0001:0000 00000H     DCA_GLUE_TEXT          CODE 16-bit
+ 0001:0000 00000H     SCAN_TEXT              CODE 16-bit
+ 0001:0000 00000H     TOOL_TEXT              CODE 16-bit
+ 0001:0000 00000H     MAIN_TEXT              CODE 16-bit
+ 0001:0000 00000H     DATA_TEXT              CODE 16-bit
+ 0001:0000 027FFH     _TEXT                  CODE 16-bit
+           at offset 00000H 000FEH bytes from a:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+           at offset 000FEH 000E3H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+           at offset 001E2H 0006EH bytes from a:\msvc\lib\ldllcew.lib (sprintf.c)
+           at offset 00250H 00054H bytes from a:\msvc\lib\ldllcew.lib (strcat.asm)
+           at offset 002A4H 0003CH bytes from a:\msvc\lib\ldllcew.lib (strcpy.asm)
+           at offset 002E0H 00019H bytes from a:\msvc\lib\ldllcew.lib (strlen.asm)
+           at offset 002FAH 00054H bytes from a:\msvc\lib\ldllcew.lib (strcat.asm)
+           at offset 0034EH 0003DH bytes from a:\msvc\lib\ldllcew.lib (.\87ftol.asm)
+           at offset 0038CH 00014H bytes from a:\msvc\lib\ldllcew.lib (.\fltusedc.asm)
+           at offset 003A0H 0002CH bytes from a:\msvc\lib\ldllcew.lib (windows\stubmain.asm)
+           at offset 003CCH 00023H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 003F0H 00097H bytes from a:\msvc\lib\ldllcew.lib (dos\stdenvp.asm)
+           at offset 00488H 00506H bytes from a:\msvc\lib\ldllcew.lib (output.asm)
+           at offset 0098EH 000E2H bytes from a:\msvc\lib\ldllcew.lib (_flsbuf.asm)
+           at offset 00A70H 00006H bytes from a:\msvc\lib\ldllcew.lib (crt0fp.asm)
+           at offset 00A76H 00010H bytes from a:\msvc\lib\ldllcew.lib (windows\windgrp.asm)
+           at offset 00A86H 00001H bytes from a:\msvc\lib\ldllcew.lib (nearstub.asm)
+           at offset 00A88H 00670H bytes from a:\msvc\lib\ldllcew.lib (.\cvt.c)
+           at offset 010F8H 00024H bytes from a:\msvc\lib\ldllcew.lib (.\cfpsig.asm)
+           at offset 0111CH 0004EH bytes from a:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+           at offset 0116AH 0005AH bytes from a:\msvc\lib\ldllcew.lib (windows\wchkstk.asm)
+           at offset 011C4H 0004CH bytes from a:\msvc\lib\ldllcew.lib (windows\fatal.asm)
+           at offset 01210H 000C8H bytes from a:\msvc\lib\ldllcew.lib (dos\lseek.asm)
+           at offset 012D8H 00174H bytes from a:\msvc\lib\ldllcew.lib (write.asm)
+           at offset 0144CH 0002DH bytes from a:\msvc\lib\ldllcew.lib (dos\stdalloc.asm)
+           at offset 0147AH 00014H bytes from a:\msvc\lib\ldllcew.lib (windows\windgrpx.c)
+           at offset 0148EH 0004BH bytes from a:\msvc\lib\ldllcew.lib (_getbuf.asm)
+           at offset 014DAH 0005EH bytes from a:\msvc\lib\ldllcew.lib (atof.c)
+           at offset 01538H 000AEH bytes from a:\msvc\lib\ldllcew.lib (_fptostr.c)
+           at offset 015E6H 00019H bytes from a:\msvc\lib\ldllcew.lib (strlen.asm)
+           at offset 01600H 0003CH bytes from a:\msvc\lib\ldllcew.lib (strcpy.asm)
+           at offset 0163CH 00048H bytes from a:\msvc\lib\ldllcew.lib (hmemset.asm)
+           at offset 01684H 000CAH bytes from a:\msvc\lib\ldllcew.lib (hmemcpy.asm)
+           at offset 0174EH 00055H bytes from a:\msvc\lib\ldllcew.lib (.\cfout.asm)
+           at offset 017A4H 00117H bytes from a:\msvc\lib\ldllcew.lib (growseg.asm)
+           at offset 018BCH 0005DH bytes from a:\msvc\lib\ldllcew.lib (dos\dosret.asm)
+           at offset 0191AH 00020H bytes from a:\msvc\lib\ldllcew.lib (os2\hdiff.asm)
+           at offset 0193AH 00193H bytes from a:\msvc\lib\ldllcew.lib (.\x8fout.asm)
+           at offset 01ACEH 00064H bytes from a:\msvc\lib\ldllcew.lib (.\cfinn.c)
+           at offset 01B32H 000C8H bytes from a:\msvc\lib\ldllcew.lib (fmalloc.asm)
+           at offset 01BFAH 001B9H bytes from a:\msvc\lib\ldllcew.lib (.\x8tmul.asm)
+           at offset 01DB4H 00068H bytes from a:\msvc\lib\ldllcew.lib (.\strgtod.asm)
+           at offset 01E1CH 00081H bytes from a:\msvc\lib\ldllcew.lib (newseg.asm)
+           at offset 01E9EH 0000DH bytes from a:\msvc\lib\ldllcew.lib (fdata.asm)
+           at offset 01EACH 0007CH bytes from a:\msvc\lib\ldllcew.lib (searchsg.asm)
+           at offset 01F28H 00268H bytes from a:\msvc\lib\ldllcew.lib (.\strgtold.asm)
+           at offset 02190H 0002AH bytes from a:\msvc\lib\ldllcew.lib (freelist.asm)
+           at offset 021BAH 00034H bytes from a:\msvc\lib\ldllcew.lib (initseg.asm)
+           at offset 021EEH 00036H bytes from a:\msvc\lib\ldllcew.lib (linkseg.asm)
+           at offset 02224H 00511H bytes from a:\msvc\lib\ldllcew.lib (.\tenpow.asm)
+           at offset 02736H 000B9H bytes from a:\msvc\lib\ldllcew.lib (.\mantold.asm)
+
+ 0001:2800 0288CH     COMDAT_SEG1            CODE 16-bit
+           at offset 00000H 000ECH bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 000ECH 0009CH bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 00188H 0000EH bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 00196H 0023AH bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 003D0H 00025H bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 003F6H 0000EH bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 00404H 0002CH bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 00430H 00001H bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 00432H 0000CH bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 0043EH 00014H bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 00452H 00025H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00478H 00133H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 005ACH 000DDH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 0068AH 00004H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 0068EH 000E8H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00776H 000C9H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00840H 000CAH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 0090AH 0009EH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 009A8H 00004H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 009ACH 00004H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 009B0H 00002H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 009B2H 0000AH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 009BCH 0000AH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 009C6H 00012H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 009D8H 00027H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00A00H 00022H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00A22H 0002EH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00A50H 0000FH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00A60H 00034H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00A94H 0001CH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00AB0H 0001BH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00ACCH 00023H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00AF0H 00027H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00B18H 0000CH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00B24H 0002BH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00B50H 00017H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00B68H 00030H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00B98H 00023H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00BBCH 00024H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00BE0H 00014H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00BF4H 0001CH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00C10H 00024H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00C34H 0001FH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00C54H 00024H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00C78H 00026H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00C9EH 0002AH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00CC8H 0000FH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00CD8H 00029H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00D02H 0002BH bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00D2EH 00010H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00D3EH 00027H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00D66H 00044H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00DAAH 0004DH bytes from SCAN.OBJ (b:\hama\win\twaindll\scan.c)
+           at offset 00DF8H 000A1H bytes from SCAN.OBJ (b:\hama\win\twaindll\scan.c)
+           at offset 00E9AH 00027H bytes from SCAN.OBJ (b:\hama\win\twaindll\scan.c)
+           at offset 00EC2H 00005H bytes from SCAN.OBJ (b:\hama\win\twaindll\scan.c)
+           at offset 00EC8H 00007H bytes from SCAN.OBJ (b:\hama\win\twaindll\scan.c)
+           at offset 00ED0H 00009H bytes from SCAN.OBJ (b:\hama\win\twaindll\scan.c)
+           at offset 00EDAH 000CCH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 00FA6H 00067H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0100EH 0007AH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 01088H 000B7H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 01140H 0001EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0115EH 00004H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 01162H 0000EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 01170H 00030H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 011A0H 00304H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 014A4H 0028DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 01732H 00265H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 01998H 0071EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 020B6H 00109H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 021C0H 000AFH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02270H 00142H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 023B2H 00004H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 023B6H 0000BH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 023C2H 000D8H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0249AH 00019H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 024B4H 00019H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 024CEH 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 024DCH 00007H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 024E4H 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 024F2H 00007H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 024FAH 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02508H 0000CH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02514H 00007H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0251CH 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0252AH 00011H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0253CH 0000FH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0254CH 00005H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02552H 0000EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02560H 00008H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02568H 0000BH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02574H 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02582H 00010H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02592H 0001CH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 025AEH 00004H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 025B2H 0000EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 025C0H 0000CH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 025CCH 0000BH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 025D8H 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 025E6H 0000EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 025F4H 00010H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02604H 0000CH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02610H 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0261EH 00010H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0262EH 00004H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02632H 00015H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02648H 00015H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0265EH 00015H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02674H 00014H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02688H 00011H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0269AH 00007H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 026A2H 0000FH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 026B2H 0000FH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 026C2H 00011H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 026D4H 0000EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 026E2H 0000FH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 026F2H 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02700H 00004H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02704H 00007H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0270CH 00008H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02714H 0000BH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02720H 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0272EH 00011H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02740H 00009H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0274AH 0000DH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02758H 00009H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02762H 0000AH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0276CH 0000CH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02778H 0000EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02786H 0000EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02794H 00011H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 027A6H 00003H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 027AAH 00011H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 027BCH 00011H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 027CEH 00011H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 027E0H 00015H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 027F6H 00015H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0280CH 0000FH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0281CH 00003H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02820H 00003H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02824H 00004H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02828H 00004H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0282CH 00003H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02830H 00007H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02838H 00012H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0284AH 0000BH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02856H 0000EH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02864H 0000AH bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0286EH 00003H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02872H 00002H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02874H 00002H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 02876H 00010H bytes from MAIN.OBJ (b:\hama\win\twaindll\main.c)
+           at offset 02886H 00006H bytes from MAIN.OBJ (b:\hama\win\twaindll\main.c)
+
+ 0002:0000 00010H     NULL                   BEGDATA 16-bit
+           at offset 00000H 00010H bytes from a:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+
+ 0002:0010 002BEH     _DATA                  DATA 16-bit
+           at offset 00000H 00008H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00008H 00006H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 0000EH 00015H bytes from a:\msvc\lib\ldllcew.lib (windows\crt0.asm)
+           at offset 00024H 00044H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+           at offset 00068H 00014H bytes from a:\msvc\lib\ldllcew.lib (.\fltusedc.asm)
+           at offset 0007CH 00004H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 00080H 00061H bytes from a:\msvc\lib\ldllcew.lib (output.asm)
+           at offset 000E2H 00022H bytes from a:\msvc\lib\ldllcew.lib (cmiscdat.asm)
+           at offset 00104H 0000BH bytes from a:\msvc\lib\ldllcew.lib (.\cvt.c)
+           at offset 00110H 00004H bytes from a:\msvc\lib\ldllcew.lib (windows\wchkstk.asm)
+           at offset 00114H 00002H bytes from a:\msvc\lib\ldllcew.lib (file.asm)
+           at offset 00116H 00101H bytes from a:\msvc\lib\ldllcew.lib (ctype.asm)
+           at offset 00218H 00025H bytes from a:\msvc\lib\ldllcew.lib (.\cfout.asm)
+           at offset 0023EH 00002H bytes from a:\msvc\lib\ldllcew.lib (growseg.asm)
+           at offset 00240H 00002H bytes from a:\msvc\lib\ldllcew.lib (_cflush.asm)
+           at offset 00242H 00014H bytes from a:\msvc\lib\ldllcew.lib (dos\dosret.asm)
+           at offset 00256H 00002H bytes from a:\msvc\lib\ldllcew.lib (seekfast.asm)
+           at offset 00258H 00049H bytes from a:\msvc\lib\ldllcew.lib (.\x8fout.asm)
+           at offset 002A2H 00004H bytes from a:\msvc\lib\ldllcew.lib (fmalloc.asm)
+           at offset 002A6H 0000AH bytes from a:\msvc\lib\ldllcew.lib (.\strgtod.asm)
+           at offset 002B0H 0000EH bytes from a:\msvc\lib\ldllcew.lib (fdata.asm)
+
+ 0002:02CE 0000EH     CDATA                  DATA 16-bit
+           at offset 00000H 0000EH bytes from a:\msvc\lib\ldllcew.lib (dos\crt0dat.asm)
+           at offset 00000H 0000EH bytes from a:\msvc\lib\ldllcew.lib (.\fixups.asm)
+
+ 0002:02DC 00000H     XIFB                   DATA 16-bit
+ 0002:02DC 00000H     XIF                    DATA 16-bit
+ 0002:02DC 00000H     XIFE                   DATA 16-bit
+ 0002:02DC 00000H     XIB                    DATA 16-bit
+ 0002:02DC 00004H     XI                     DATA 16-bit
+           at offset 00000H 00004H bytes from a:\msvc\lib\ldllcew.lib (.\fltusedc.asm)
+
+ 0002:02E0 00000H     XIE                    DATA 16-bit
+ 0002:02E0 00000H     XPB                    DATA 16-bit
+ 0002:02E0 00000H     XP                     DATA 16-bit
+ 0002:02E0 00000H     XPE                    DATA 16-bit
+ 0002:02E0 00000H     XCB                    DATA 16-bit
+ 0002:02E0 00000H     XC                     DATA 16-bit
+ 0002:02E0 00000H     XCE                    DATA 16-bit
+ 0002:02E0 00000H     XCFB                   DATA 16-bit
+ 0002:02E0 00000H     XCFCRT                 DATA 16-bit
+ 0002:02E0 00000H     XCF                    DATA 16-bit
+ 0002:02E0 00000H     XCFE                   DATA 16-bit
+ 0002:02E0 00000H     XIFCB                  DATA 16-bit
+ 0002:02E0 00000H     XIFU                   DATA 16-bit
+ 0002:02E0 00000H     XIFL                   DATA 16-bit
+ 0002:02E0 00000H     XIFM                   DATA 16-bit
+ 0002:02E0 00000H     XIFCE                  DATA 16-bit
+ 0002:02E0 00000H     DBDATA                 DATA 16-bit
+ 0002:02E0 000E4H     IOB                    DATA 16-bit
+           at offset 00000H 000E4H bytes from a:\msvc\lib\ldllcew.lib (file.asm)
+
+ 0002:03C4 00000H     IOBX                   DATA 16-bit
+ 0002:03C4 0000CH     IOBE                   DATA 16-bit
+           at offset 00000H 0000CH bytes from a:\msvc\lib\ldllcew.lib (file.asm)
+
+ 0002:03D0 000E4H     IOB2                   DATA 16-bit
+           at offset 00000H 000E4H bytes from a:\msvc\lib\ldllcew.lib (file.asm)
+
+ 0002:04B4 00000H     IOB2X                  DATA 16-bit
+ 0002:04B4 0000CH     IOB2E                  DATA 16-bit
+           at offset 00000H 0000CH bytes from a:\msvc\lib\ldllcew.lib (file.asm)
+
+ 0002:04C0 00020H     CONST                  CONST 16-bit
+           at offset 00000H 00018H bytes from TOOL.OBJ (b:\hama\win\twaindll\tool.c)
+           at offset 00018H 00008H bytes from a:\msvc\lib\ldllcew.lib (.\cvt.c)
+
+ 0002:04E0 00008H     HDR                    MSG 16-bit
+           at offset 00000H 00008H bytes from a:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:04E8 00354H     MSG                    MSG 16-bit
+           at offset 00000H 000A5H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 000A5H 0002FH bytes from a:\msvc\lib\ldllcew.lib (crt0fp.asm)
+           at offset 000D4H 00280H bytes from a:\msvc\lib\ldllcew.lib (.\cfpsig.asm)
+
+ 0002:083C 00002H     PAD                    MSG 16-bit
+           at offset 00000H 00002H bytes from a:\msvc\lib\ldllcew.lib (dos\crt0msg.asm)
+           at offset 00000H 00002H bytes from a:\msvc\lib\ldllcew.lib (crt0fp.asm)
+           at offset 00000H 00002H bytes from a:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:083E 00001H     EPAD                   MSG 16-bit
+           at offset 00000H 00001H bytes from a:\msvc\lib\ldllcew.lib (dos\nmsghdr.asm)
+
+ 0002:0840 00026H     _BSS                   BSS 16-bit
+           at offset 00000H 00004H bytes from DCA_ACQ.OBJ (b:\hama\win\twaindll\dca_acq.c)
+           at offset 00004H 00002H bytes from DCA_GLUE.OBJ (b:\hama\win\twaindll\dca_glue.c)
+           at offset 00006H 0000CH bytes from a:\msvc\lib\ldllcew.lib (sprintf.c)
+           at offset 00012H 00004H bytes from a:\msvc\lib\ldllcew.lib (.\cvt.c)
+           at offset 00016H 00010H bytes from a:\msvc\lib\ldllcew.lib (.\cfinn.c)
+
+ 0002:0866 00000H     XOB                    BSS 16-bit
+ 0002:0866 00000H     XO                     BSS 16-bit
+ 0002:0866 00000H     XOE                    BSS 16-bit
+ 0002:0866 00000H     XOFB                   BSS 16-bit
+ 0002:0866 00000H     XOF                    BSS 16-bit
+ 0002:0866 00000H     XOFE                   BSS 16-bit
+ 0002:0870 00354H     c_common               BSS 16-bit
+
+ Origin   Group
+ 0002:0   DGROUP
+
+ Address   Export                  Alias
+
+ 0001:35AA ScanDib                 ScanDib
+ 0001:5086 WEP                     WEP
+ 0001:148A ___ExportedStub         ___ExportedStub
+
+  Address         Publics by Name
+
+ 0001:1998       $i8_output
+ 0001:1D86       $i8_tpwr10
+ 0001:2C30       ??_C@_00A@?$AA@
+                    ??_C@_00A@?$AA@
+
+ 0001:5074       ??_C@_01BJG@?6?$AA@
+                    ??_C@_01BJG@?6?$AA@
+
+ 0001:5072       ??_C@_01FDLN@?1?$AA@
+                    ??_C@_01FDLN@?1?$AA@
+
+ 0001:31B0       ??_C@_01PCFE@?2?$AA@
+                    ??_C@_01PCFE@?2?$AA@
+
+ 0001:506E       ??_C@_02DILL@?$CFs?$AA@
+                    ??_C@_02DILL@?$CFs?$AA@
+
+ 0001:4FA6       ??_C@_02GIEM@?0?5?$AA@
+                    ??_C@_02GIEM@?0?5?$AA@
+
+ 0001:502C       ??_C@_02JBAA@?$CFf?$AA@
+                    ??_C@_02JBAA@?$CFf?$AA@
+
+ 0001:501C       ??_C@_02MECO@?$CFd?$AA@
+                    ??_C@_02MECO@?$CFd?$AA@
+
+ 0001:5020       ??_C@_02MHMJ@?$CFu?$AA@
+                    ??_C@_02MHMJ@?$CFu?$AA@
+
+ 0001:5024       ??_C@_03JFOM@?$CFld?$AA@
+                    ??_C@_03JFOM@?$CFld?$AA@
+
+ 0001:5028       ??_C@_03JGAL@?$CFlu?$AA@
+                    ??_C@_03JGAL@?$CFlu?$AA@
+
+ 0001:4E2E       ??_C@_03JIFC@Id?3?$AA@
+                    ??_C@_03JIFC@Id?3?$AA@
+
+ 0001:4DAE       ??_C@_03MCD@?6?$CFs?$AA@
+                    ??_C@_03MCD@?6?$CFs?$AA@
+
+ 0001:4F00       ??_C@_03MDCO@CAP?$AA@
+                    ??_C@_03MDCO@CAP?$AA@
+
+ 0001:4D4C       ??_C@_04JDGB@?0?5?$CFd?$AA@
+                    ??_C@_04JDGB@?0?5?$CFd?$AA@
+
+ 0001:36C2       ??_C@_04LNOJ@YMEC?$AA@
+                    ??_C@_04LNOJ@YMEC?$AA@
+
+ 0001:4E9A       ??_C@_06BMCF@?6?$CFs?5?$CFs?$AA@
+                    ??_C@_06BMCF@?6?$CFs?5?$CFs?$AA@
+
+ 0001:4F04       ??_C@_06CHOA@?6Cap?3?5?$AA@
+                    ??_C@_06CHOA@?6Cap?3?5?$AA@
+
+ 0001:36C8       ??_C@_06DGHI@M?4HAMA?$AA@
+                    ??_C@_06DGHI@M?4HAMA?$AA@
+
+ 0001:4CDC       ??_C@_06EOPA@?$CFs?5?$CFd?6?$AA@
+                    ??_C@_06EOPA@?$CFs?5?$CFd?6?$AA@
+
+ 0001:5030       ??_C@_06KPHE@Count?3?$AA@
+                    ??_C@_06KPHE@Count?3?$AA@
+
+ 0001:4CF2       ??_C@_06LFJO@?6?$CFs?5?$CFf?$AA@
+                    ??_C@_06LFJO@?6?$CFs?5?$CFf?$AA@
+
+ 0001:4D14       ??_C@_06OALA@?6?$CFs?5?$CFd?$AA@
+                    ??_C@_06OALA@?6?$CFs?5?$CFd?$AA@
+
+ 0001:4D60       ??_C@_07JKLK@Planar?3?$AA@
+                    ??_C@_07JKLK@Planar?3?$AA@
+
+ 0001:4F0C       ??_C@_07NBFO@ConType?$AA@
+                    ??_C@_07NBFO@ConType?$AA@
+
+ 0001:36D0       ??_C@_08DOFA@SCAN?4DLL?$AA@
+                    ??_C@_08DOFA@SCAN?4DLL?$AA@
+
+ 0001:4F58       ??_C@_08EFM@ItemSize?$AA@
+                    ??_C@_08EFM@ItemSize?$AA@
+
+ 0001:4F40       ??_C@_08EHIJ@ItemType?$AA@
+                    ??_C@_08EHIJ@ItemType?$AA@
+
+ 0001:31B2       ??_C@_09FBGJ@TWAIN?4DLL?$AA@
+                    ??_C@_09FBGJ@TWAIN?4DLL?$AA@
+
+ 0001:4F62       ??_C@_09HGCI@NumItems?3?$AA@
+                    ??_C@_09HGCI@NumItems?3?$AA@
+
+ 0001:31BC       ??_C@_09IDDJ@DSM_ENTRY?$AA@
+                    ??_C@_09IDDJ@DSM_ENTRY?$AA@
+
+ 0001:5064       ??_C@_09IGDC@CC?5FAILED?$AA@
+                    ??_C@_09IGDC@CC?5FAILED?$AA@
+
+ 0001:4D82       ??_C@_0BA@BCOP@Condition?5Code?3?$AA@
+                    ??_C@_0BA@BCOP@Condition?5Code?3?$AA@
+
+ 0001:352E       ??_C@_0BA@GEMM@Source?5Disabled?$AA@
+                    ??_C@_0BA@GEMM@Source?5Disabled?$AA@
+
+ 0001:4DF4       ??_C@_0BA@NLBG@DocumentNumber?3?$AA@
+                    ??_C@_0BA@NLBG@DocumentNumber?3?$AA@
+
+ 0001:4E1E       ??_C@_0BA@ODIP@TW_IMAGELAYOUT?4?$AA@
+                    ??_C@_0BA@ODIP@TW_IMAGELAYOUT?4?$AA@
+
+ 0001:4F2E       ??_C@_0BB@BNPM@?6?5?5?5?5?5ItemType?3?5?$AA@
+                    ??_C@_0BB@BNPM@?6?5?5?5?5?5ItemType?3?5?$AA@
+
+ 0001:4D2A       ??_C@_0BB@BPPB@SamplesPerPixel?3?$AA@
+                    ??_C@_0BB@BPPB@SamplesPerPixel?3?$AA@
+
+ 0001:4FCE       ??_C@_0BB@DHL@?6?5?5?5?5?5StepSize?3?5?$AA@
+                    ??_C@_0BB@DHL@?6?5?5?5?5?5StepSize?3?5?$AA@
+
+ 0001:4EC2       ??_C@_0BB@DMKM@SupportedGroups?3?$AA@
+                    ??_C@_0BB@DMKM@SupportedGroups?3?$AA@
+
+ 0001:4E88       ??_C@_0BB@GFDP@TW_VERSION?4Info?3?$AA@
+                    ??_C@_0BB@GFDP@TW_VERSION?4Info?3?$AA@
+
+ 0001:4FAA       ??_C@_0BB@MFHN@?6?5?5?5?5?5MinValue?3?5?$AA@
+                    ??_C@_0BB@MFHN@?6?5?5?5?5?5MinValue?3?5?$AA@
+
+ 0001:4FBC       ??_C@_0BB@OFDC@?6?5?5?5?5?5MaxValue?3?5?$AA@
+                    ??_C@_0BB@OFDC@?6?5?5?5?5?5MaxValue?3?5?$AA@
+
+ 0001:4F94       ??_C@_0BB@PECA@?6?5?5?5?5?5ItemList?3?5?$AA@
+                    ??_C@_0BB@PECA@?6?5?5?5?5?5ItemList?3?5?$AA@
+
+ 0001:5038       ??_C@_0BC@BGNM@TW_PENDINGXRFERS?4?$AA@
+                    ??_C@_0BC@BGNM@TW_PENDINGXRFERS?4?$AA@
+
+ 0001:31C6       ??_C@_0BC@PPDM@TWAIN?5Information?$AA@
+                    ??_C@_0BC@PPDM@TWAIN?5Information?$AA@
+
+ 0001:4E74       ??_C@_0BE@BFCP@TW_VERSION?4Country?3?$AA@
+                    ??_C@_0BE@BFCP@TW_VERSION?4Country?3?$AA@
+
+ 0001:2C3E       ??_C@_0BE@HAJ@Unknown?5Return?5Code?$AA@
+                    ??_C@_0BE@HAJ@Unknown?5Return?5Code?$AA@
+
+ 0001:33E0       ??_C@_0BE@MLII@Cannot?5Close?5Source?$AA@
+                    ??_C@_0BE@MLII@Cannot?5Close?5Source?$AA@
+
+ 0001:4E48       ??_C@_0BF@DDO@TW_VERSION?4MinorNum?3?$AA@
+                    ??_C@_0BF@DDO@TW_VERSION?4MinorNum?3?$AA@
+
+ 0001:4FF6       ??_C@_0BF@EMOC@?6?5?5?5?5?5CurrentValue?3?5?$AA@
+                    ??_C@_0BF@EMOC@?6?5?5?5?5?5CurrentValue?3?5?$AA@
+
+ 0001:4E5E       ??_C@_0BF@HIG@TW_VERSION?4Language?3?$AA@
+                    ??_C@_0BF@HIG@TW_VERSION?4Language?3?$AA@
+
+ 0001:4FE0       ??_C@_0BF@LNFA@?6?5?5?5?5?5DefaultValue?3?5?$AA@
+                    ??_C@_0BF@LNFA@?6?5?5?5?5?5DefaultValue?3?5?$AA@
+
+ 0001:4E32       ??_C@_0BF@PIBM@TW_VERSION?4MajorNum?3?$AA@
+                    ??_C@_0BF@PIBM@TW_VERSION?4MajorNum?3?$AA@
+
+ 0001:3350       ??_C@_0BH@PLCF@Source?5is?5already?5open?$AA@
+                    ??_C@_0BH@PLCF@Source?5is?5already?5open?$AA@
+
+ 0001:4C9A       ??_C@_0BJ@MLCH@MSG_SET?5of?5ICAP_XFERMECH?$AA@
+                    ??_C@_0BJ@MLCH@MSG_SET?5of?5ICAP_XFERMECH?$AA@
+
+ 0001:4CB4       ??_C@_0BJ@NGAD@Memory?5Allocation?5Failed?$AA@
+                    ??_C@_0BJ@NGAD@Memory?5Allocation?5Failed?$AA@
+
+ 0001:32B0       ??_C@_0BL@GBGD@A?5Source?5is?5Currently?5Open?$AA@
+                    ??_C@_0BL@GBGD@A?5Source?5is?5Currently?5Open?$AA@
+
+ 0001:4D92       ??_C@_0BM@BBCG@Condition?5Code?5Check?5Failed?$AA@
+                    ??_C@_0BM@BBCG@Condition?5Code?5Check?5Failed?$AA@
+
+ 0001:33F4       ??_C@_0BM@FMLD@Source?5is?5Currently?5Enabled?$AA@
+                    ??_C@_0BM@FMLD@Source?5is?5Currently?5Enabled?$AA@
+
+ 0001:3294       ??_C@_0BM@IMED@Cannot?5Close?5Source?5Manager?$AA@
+                    ??_C@_0BM@IMED@Cannot?5Close?5Source?5Manager?$AA@
+
+ 0001:3434       ??_C@_0BP@JCBO@Source?5was?5Closed?5successfully?$AA@
+                    ??_C@_0BP@JCBO@Source?5was?5Closed?5successfully?$AA@
+
+ 0001:3200       ??_C@_0CC@BFDD@DG_CONTROL?1DAT_PARENT?1MSG_OPENDS@
+                    ??_C@_0CC@BFDD@DG_CONTROL?1DAT_PARENT?1MSG_OPENDS@
+
+ 0001:3398       ??_C@_0CD@KINH@DG_CONTROL?1DAT_IDENTITY?1MSG_OPEN@
+                    ??_C@_0CD@KINH@DG_CONTROL?1DAT_IDENTITY?1MSG_OPEN@
+
+ 0001:32CC       ??_C@_0CD@LDBM@DG_CONTROL?1DAT_PARENT?1MSG_CLOSED@
+                    ??_C@_0CD@LDBM@DG_CONTROL?1DAT_PARENT?1MSG_CLOSED@
+
+ 0001:3454       ??_C@_0CE@EEJ@Cannot?5Enable?5Source?6No?5Source?5O@
+                    ??_C@_0CE@EEJ@Cannot?5Enable?5Source?6No?5Source?5O@
+
+ 0001:3410       ??_C@_0CE@EPI@DG_CONTROL?1DAT_IDENTITY?1MSG_CLOS@
+                    ??_C@_0CE@EPI@DG_CONTROL?1DAT_IDENTITY?1MSG_CLOS@
+
+ 0001:33BC       ??_C@_0CE@LKFA@Cannot?5Close?5Source?6Source?5Not?5O@
+                    ??_C@_0CE@LKFA@Cannot?5Close?5Source?6Source?5Not?5O@
+
+ 0001:2BD0       ??_C@_0CF@FDJ@DG_IMAGE?1DAT_IMAGENATIVEXFER?1MSG@
+                    ??_C@_0CF@FDJ@DG_IMAGE?1DAT_IMAGENATIVEXFER?1MSG@
+
+ 0001:3478       ??_C@_0CG@LLLF@Cannot?5Enable?5Source?0?5already?5en@
+                    ??_C@_0CG@LLLF@Cannot?5Enable?5Source?0?5already?5en@
+
+ 0001:31D8       ??_C@_0CH@FJIG@Source?5Manager?5was?5Opened?5succes@
+                    ??_C@_0CH@FJIG@Source?5Manager?5was?5Opened?5succes@
+
+ 0001:369A       ??_C@_0CH@JHE@YMEC?5TWAIN?5Interface?5DLL?51?40?5?596@
+                    ??_C@_0CH@JHE@YMEC?5TWAIN?5Interface?5DLL?51?40?5?596@
+
+ 0001:32F0       ??_C@_0CH@LPH@Source?5Manager?5was?5Closed?5succes@
+                    ??_C@_0CH@LPH@Source?5Manager?5was?5Closed?5succes@
+
+ 0001:353E       ??_C@_0CH@OABK@DG_CONTROL?1DAT_IDENTITY?1MSG_USER@
+                    ??_C@_0CH@OABK@DG_CONTROL?1DAT_IDENTITY?1MSG_USER@
+
+ 0001:34D8       ??_C@_0CJ@CNAB@Cannot?5Disable?5Source?6Source?5Not@
+                    ??_C@_0CJ@CNAB@Cannot?5Disable?5Source?6Source?5Not@
+
+ 0001:349E       ??_C@_0CK@DDNK@DG_CONTROL?1DAT_USERINTERFACE?1MSG@
+                    ??_C@_0CK@DDNK@DG_CONTROL?1DAT_USERINTERFACE?1MSG@
+
+ 0001:3502       ??_C@_0CL@NDPH@DG_CONTROL?1DAT_USERINTERFACE?1MSG@
+                    ??_C@_0CL@NDPH@DG_CONTROL?1DAT_USERINTERFACE?1MSG@
+
+ 0001:3324       ??_C@_0CL@NFCM@Cannot?5Open?5Source?6Source?5Manage@
+                    ??_C@_0CL@NFCM@Cannot?5Open?5Source?6Source?5Manage@
+
+ 0001:2C04       ??_C@_0CM@BCBO@DG_CONTROL?5?1?5DAT_PENDINGXFERS?5?1?5@
+                    ??_C@_0CM@BCBO@DG_CONTROL?5?1?5DAT_PENDINGXFERS?5?1?5@
+
+ 0001:3222       ??_C@_0CO@MBPF@Error?5in?5Open?0?5LoadLibrary?0?5or?5G@
+                    ??_C@_0CO@MBPF@Error?5in?5Open?0?5LoadLibrary?0?5or?5G@
+
+ 0001:3368       ??_C@_0DA@EIPD@DG_CONTROL?1DAT_IDENTITY?1MSG_OPEN@
+                    ??_C@_0DA@EIPD@DG_CONTROL?1DAT_IDENTITY?1MSG_OPEN@
+
+ 0001:3260       ??_C@_0DE@KLHI@Cannot?5Close?5Source?5Manager?6Sour@
+                    ??_C@_0DE@KLHI@Cannot?5Close?5Source?5Manager?6Sour@
+
+ 0001:3566       ??_C@_0EE@OJEI@A?5Source?5is?5already?5open?6Close?5S@
+                    ??_C@_0EE@OJEI@A?5Source?5is?5already?5open?6Close?5S@
+
+ 0001:4F14       ??_C@_0L@CPGD@?6ConType?3?5?$AA@
+                    ??_C@_0L@CPGD@?6ConType?3?5?$AA@
+
+ 0001:4DCC       ??_C@_0L@DCIF@Frame?4Top?3?$AA@
+                    ??_C@_0L@DCIF@Frame?4Top?3?$AA@
+
+ 0001:504A       ??_C@_0L@MEBP@ReturnCode?$AA@
+                    ??_C@_0L@MEBP@ReturnCode?$AA@
+
+ 0001:4D68       ??_C@_0L@OJM@PixelType?3?$AA@
+                    ??_C@_0L@OJM@PixelType?3?$AA@
+
+ 0001:2C32       ??_C@_0M@CAD@TWRC_CANCEL?$AA@
+                    ??_C@_0M@CAD@TWRC_CANCEL?$AA@
+
+ 0001:4F6C       ??_C@_0M@DFLO@?6?5?5?5?5?5?$CFs?5?$CFd?$AA@
+                    ??_C@_0M@DFLO@?6?5?5?5?5?5?$CFs?5?$CFd?$AA@
+
+ 0001:4D08       ??_C@_0M@FEBL@ImageWidth?3?$AA@
+                    ??_C@_0M@FEBL@ImageWidth?3?$AA@
+
+ 0001:4E04       ??_C@_0M@IKKO@PageNumber?3?$AA@
+                    ??_C@_0M@IKKO@PageNumber?3?$AA@
+
+ 0001:4DC0       ??_C@_0M@NGGM@Frame?4Left?3?$AA@
+                    ??_C@_0M@NGGM@Frame?4Left?3?$AA@
+
+ 0001:3318       ??_C@_0M@PINM@TWAIN?5Error?$AA@
+                    ??_C@_0M@PINM@TWAIN?5Error?$AA@
+
+ 0001:4F4A       ??_C@_0N@CKIE@?6?5?5?5?5?5Item?3?5?$AA@
+                    ??_C@_0N@CKIE@?6?5?5?5?5?5Item?3?5?$AA@
+
+ 0001:4DD8       ??_C@_0N@GIHF@Frame?4Right?3?$AA@
+                    ??_C@_0N@GIHF@Frame?4Right?3?$AA@
+
+ 0001:4EF2       ??_C@_0N@IHOM@ProductName?3?$AA@
+                    ??_C@_0N@IHOM@ProductName?3?$AA@
+
+ 0001:4E10       ??_C@_0N@IOEE@FrameNumber?3?$AA@
+                    ??_C@_0N@IOEE@FrameNumber?3?$AA@
+
+ 0001:4CE4       ??_C@_0N@IPAA@XResolution?3?$AA@
+                    ??_C@_0N@IPAA@XResolution?3?$AA@
+
+ 0001:4D74       ??_C@_0N@LBMI@Compression?3?$AA@
+                    ??_C@_0N@LBMI@Compression?3?$AA@
+
+ 0001:4D1C       ??_C@_0N@MJPB@ImageLength?3?$AA@
+                    ??_C@_0N@MJPB@ImageLength?3?$AA@
+
+ 0001:4F20       ??_C@_0N@NNFF@?6hContainer?4?$AA@
+                    ??_C@_0N@NNFF@?6hContainer?4?$AA@
+
+ 0001:4CFA       ??_C@_0N@OCOK@YResolution?3?$AA@
+                    ??_C@_0N@OCOK@YResolution?3?$AA@
+
+ 0001:4CCE       ??_C@_0N@PFKO@RETURN?5CODE?3?$AA@
+                    ??_C@_0N@PFKO@RETURN?5CODE?3?$AA@
+
+ 0001:4D52       ??_C@_0O@BDOI@BitsPerPixel?3?$AA@
+                    ??_C@_0O@BDOI@BitsPerPixel?3?$AA@
+
+ 0001:4DE6       ??_C@_0O@BIK@Frame?4Bottom?3?$AA@
+                    ??_C@_0O@BIK@Frame?4Bottom?3?$AA@
+
+ 0001:5056       ??_C@_0O@DALF@ConditionCode?$AA@
+                    ??_C@_0O@DALF@ConditionCode?$AA@
+
+ 0001:2BF6       ??_C@_0O@DFID@TWRC_XFERDONE?$AA@
+                    ??_C@_0O@DFID@TWRC_XFERDONE?$AA@
+
+ 0001:4DB2       ??_C@_0O@EOOD@TW_IMAGEINFO?4?$AA@
+                    ??_C@_0O@EOOD@TW_IMAGEINFO?4?$AA@
+
+ 0001:4F86       ??_C@_0O@GNA@DefaultIndex?3?$AA@
+                    ??_C@_0O@GNA@DefaultIndex?3?$AA@
+
+ 0001:4F78       ??_C@_0O@LEAH@CurrentIndex?3?$AA@
+                    ??_C@_0O@LEAH@CurrentIndex?3?$AA@
+
+ 0001:4ED4       ??_C@_0O@OGNI@Manufacturer?3?$AA@
+                    ??_C@_0O@OGNI@Manufacturer?3?$AA@
+
+ 0001:4D3C       ??_C@_0P@BEHJ@BitsPerSample?3?$AA@
+                    ??_C@_0P@BEHJ@BitsPerSample?3?$AA@
+
+ 0001:34C8       ??_C@_0P@COAL@Source?5Enabled?$AA@
+                    ??_C@_0P@COAL@Source?5Enabled?$AA@
+
+ 0001:4EB2       ??_C@_0P@EKAO@ProtocolMinor?3?$AA@
+                    ??_C@_0P@EKAO@ProtocolMinor?3?$AA@
+
+ 0001:3250       ??_C@_0P@KKLB@Sequence?5Error?$AA@
+                    ??_C@_0P@KKLB@Sequence?5Error?$AA@
+
+ 0001:500C       ??_C@_0P@LKFA@TW_CAPABILITY?4?$AA@
+                    ??_C@_0P@LKFA@TW_CAPABILITY?4?$AA@
+
+ 0001:4EE2       ??_C@_0P@NCKC@ProductFamily?3?$AA@
+                    ??_C@_0P@NCKC@ProductFamily?3?$AA@
+
+ 0001:4EA2       ??_C@_0P@NOGM@ProtocolMajor?3?$AA@
+                    ??_C@_0P@NOGM@ProtocolMajor?3?$AA@
+
+ 0000:0000  Imp  DISPATCHMESSAGE      (USER.114)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  ENABLEWINDOW         (USER.34)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:FE32  Abs  FIARQQ
+ 0000:0E32  Abs  FICRQQ
+ 0000:5C32  Abs  FIDRQQ
+ 0000:1632  Abs  FIERQQ
+ 0000:0632  Abs  FISRQQ
+ 0000:A23D  Abs  FIWRQQ
+ 0000:4000  Abs  FJARQQ
+ 0000:C000  Abs  FJCRQQ
+ 0000:8000  Abs  FJSRQQ
+ 0000:0000  Imp  FREELIBRARY          (KERNEL.96)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0000  Imp  GETPRIVATEPROFILEINT (KERNEL.127)
+ 0000:0000  Imp  GETPRIVATEPROFILESTRING (KERNEL.128)
+ 0000:0000  Imp  GETPROCADDRESS       (KERNEL.50)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  GETWINDOWSDIRECTORY  (KERNEL.134)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0001:5076       LIBMAIN
+ 0000:0000  Imp  LOADCURSOR           (USER.173)
+ 0000:0000  Imp  LOADLIBRARY          (KERNEL.95)
+ 0000:0000  Imp  LOCALINIT            (KERNEL.4)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  LSTRCAT              (KERNEL.89)
+ 0000:0000  Imp  LSTRCPY              (KERNEL.88)
+ 0000:0000  Imp  LSTRLEN              (KERNEL.90)
+ 0000:0000  Imp  MESSAGEBOX           (USER.1)
+ 0000:0000  Imp  OPENFILE             (KERNEL.74)
+ 0000:0008  Abs  pAtomTable
+ 0000:0000  Imp  PEEKMESSAGE          (USER.109)
+ 0000:0006  Abs  pLocalHeap
+ 0000:000E  Abs  pStackBot
+ 0000:000C  Abs  pStackMin
+ 0000:000A  Abs  pStackTop
+ 0002:0004       rsrvptrs
+ 0001:35AA       ScanDib
+ 0000:0000  Imp  SENDMESSAGE          (USER.111)
+ 0000:0000  Imp  SETCURSOR            (USER.69)
+ 0000:0000  Imp  SETFOCUS             (USER.22)
+ 0000:0000  Imp  TRANSLATEMESSAGE     (USER.113)
+ 0001:5086       WEP
+ 0002:0A18       _appID
+ 0002:002D       _aseghi
+ 0002:002B       _aseglo
+ 0001:14EA       _atof
+ 0001:395E       _AutoFeedOn
+ 0002:097A       _dsID
+ 0002:0840       _edata
+ 0002:0BC4       _end
+ 0002:0042       _errno
+ 0002:0AC2       _Filename
+ 0001:3970       _FIX32ToFloat
+ 0000:0000  Unr  _FloatToFIX32
+ 0001:48B6       _GetItem
+ 0002:0A16       _ghInst
+ 0002:0AB6       _hInst
+ 0002:0BC2       _hReady
+ 0002:0974       _hStruct
+ 0002:0AB4       _hWait
+ 0002:0874       _IniFile
+ 0000:0000  Imp  _LCLOSE              (KERNEL.81)
+ 0000:0000  Imp  _LCREAT              (KERNEL.83)
+ 0002:0870       _lpDSM_Entry
+ 0000:0000  Imp  _LWRITE              (KERNEL.86)
+ 0001:4BC2       _MatchTwainInt
+ 0001:4BB2       _MessageLevel
+ 0001:28EC       _ProcessTWMessage
+ 0002:0976       _pStruct
+ 0001:4BB6       _SetMessageLevel
+ 0001:4198       _ShowCapability
+ 0001:39A0       _ShowImageInfo
+ 0001:3CA4       _ShowImageLayout
+ 0001:49C0       _ShowPendingXfers
+ 0001:4A70       _ShowRC_CC
+ 0001:3F32       _ShowTW_ID
+ 0001:01F2       _sprintf
+ 0002:001E       _STKHQQ
+ 0001:0260       _strcat
+ 0001:02B4       _strcpy
+ 0001:02F0       _strlen
+ 0001:2800       _TWAcquire
+ 0001:3940       _TWAutofeed
+ 0001:3962       _TWAutofeedMenu
+ 0001:2F76       _TWCloseDS
+ 0001:2DAC       _TWCloseDSM
+ 0001:310A       _TWDisableDS
+ 0001:3040       _TWEnableDS
+ 0001:2C52       _TWInitialize
+ 0001:31AC       _TWIsDSEnabled
+ 0001:2E8A       _TWIsDSMOpen
+ 0001:31A8       _TWIsDSOpen
+ 0001:2E8E       _TWOpenDS
+ 0001:2C78       _TWOpenDSM
+ 0000:0000  Unr  _TWSelectDS
+ 0001:2988       _TWTransferImage
+ 0001:3888       _TWXferMech
+ 0001:36DA       _WriteDibFile
+ 0002:0AB8       _WriteDibFlag
+ 0002:0120       __aaltstkovr
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0002:008C       __adbgmsg
+ 0000:D6D6  Abs  __aDBused
+ 0001:192A       __aFahdiff
+ 0001:119A       __aFchkstk
+ 0001:035E       __aFftol
+ 0000:0000  Imp  __AHINCR             (KERNEL.114)
+ 0000:0000  Imp  __AHSHIFT            (KERNEL.113)
+ 0002:0034       __aintdiv
+ 0002:024E       __amblksiz
+ 0001:11DE       __amsg_exit
+ 0001:117A       __aNchkstk
+ 0002:0112       __asizeC
+ 0002:0113       __asizeD
+ 0001:0054       __astart
+ 0001:0156       __cexit
+ 0001:1066       __cfltcvt
+ 0002:00F2       __cfltcvt_tab
+ 0002:0250       __cflush
+ 0001:0C22       __cftoe
+ 0001:0DEE       __cftof
+ 0001:0F86       __cftog
+ 0002:0075       __child
+ 0001:119A       __chkstk
+ 0001:010E       __cinit
+ 0001:11D4       __cintDIV
+ 0002:004D       __cpumode
+ 0001:0B0E       __cropzeros
+ 0001:01B5       __ctermsub
+ 0002:0126       __ctype
+ 0002:0126       __ctype_
+ 0001:0167       __c_exit
+ 0002:002A       __dllinit
+ 0002:004E       __doserrno
+ 0001:18CC       __dosret0
+ 0001:18EB       __dosretax
+ 0001:18D9       __dosreturn
+ 0002:0840       __edata
+ 0002:0BC4       __end
+ 0002:006C       __environ
+ 0002:0077       __exitflag
+ 0002:0038       __fac
+ 0001:0BCA       __fassign
+ 0001:1B42       __ffree
+ 0001:03DC       __FF_MSGBANNER
+ 0002:02C0       __fheap
+ 0001:18AB       __findlast
+ 0001:099E       __flsbuf
+ 0001:1ADE       __fltin
+ 0001:175E       __fltout
+ 0000:9876  Abs  __fltused
+ 0001:1B63       __fmalloc
+ 0001:1694       __fmemmove
+ 0001:164C       __fmemset
+ 0001:0A98       __forcdecpt
+ 0002:02D0       __fpinit
+ 0000:0000  Imp  __fpmath             (WIN87EM.1)
+ 0001:1108       __fpsignal
+ 0000:9876  Abs  __fptaskdata
+ 0001:1548       __fptostr
+ 0001:0A80       __fptrap
+ 0001:1EAE       __freefarheap
+ 0001:21A0       __freelist
+ 0001:030A       __fstrcat
+ 0001:1610       __fstrcpy
+ 0001:15F6       __fstrlen
+ 0001:035E       __ftol
+ 0001:149E       __getbuf
+ 0001:0A86       __GetDGROUP
+ 0001:17B4       __growseg
+ 0002:0020       __hModule
+ 0001:1845       __incseg
+ 0001:21CA       __initseg
+ 0002:02E0       __iob
+ 0002:03D0       __iob2
+ 0002:0124       __lastiob
+ 0001:25C1       __LD12MULT
+ 0001:24EC       __LD12MULTTENPOWER
+ 0001:21FE       __linkseg
+ 0002:0026       __lpszCmdLine
+ 0001:1220       __lseek
+ 0002:0266       __lseekchk
+ 0001:2746       __MANTOLD12
+ 0001:18FD       __maperror
+ 0002:0ABA       __mbac
+ 0001:145C       __myalloc
+ 0001:0A96       __nearstub
+ 0001:1E2C       __newseg
+ 0002:0050       __nfile
+ 0001:112C       __NMSG_TEXT
+ 0001:1163       __NMSG_WRITE
+ 0001:00F6       __nomain
+ 0002:004E       __oserr
+ 0002:0052       __osfile
+ 0002:0049       __osmajor
+ 0002:0048       __osminor
+ 0002:004C       __osmode
+ 0002:0048       __osver
+ 0002:004A       __osversion
+ 0001:04A8       __output
+ 0002:0070       __pgmptr
+ 0002:02B2       __pnhFarHeap
+ 0001:0B92       __positive
+ 0001:1EBC       __searchseg
+ 0001:0400       __setenvp
+ 0002:0110       __sigintoff
+ 0002:010E       __sigintseg
+ 0000:0001  Abs  __sizec
+ 0000:0001  Abs  __sized
+ 0001:1DC4       __STRINGTOD
+ 0001:1F38       __STRINGTOLD
+ 0001:03B0       __stubmain
+ 0002:0044       __umaskval
+ 0002:0022       __wDataSeg
+ 0001:0010       __wflags
+ 0002:0024       __wHeapSize
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0002:0047       __winmajor
+ 0002:0046       __winminor
+ 0002:0046       __winver
+ 0001:12E8       __write
+ 0002:0031       ___aDBrterr
+ 0002:002F       ___aDBswpflg
+ 0002:0066       ___argc
+ 0002:0068       ___argv
+ 0001:148A       ___ExportedStub
+
+  Address         Publics by Value
+
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  GETPRIVATEPROFILESTRING (KERNEL.128)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  __AHINCR             (KERNEL.114)
+ 0000:0000  Imp  LOCALINIT            (KERNEL.4)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  GLOBALFREE           (KERNEL.17)
+ 0000:0000  Imp  GETWINDOWSDIRECTORY  (KERNEL.134)
+ 0000:0000  Imp  LSTRLEN              (KERNEL.90)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  FREELIBRARY          (KERNEL.96)
+ 0000:0000  Imp  TRANSLATEMESSAGE     (USER.113)
+ 0000:0000  Imp  GETPROCADDRESS       (KERNEL.50)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  GETMODULEUSAGE       (KERNEL.48)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Unr  _TWSelectDS
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  _LCLOSE              (KERNEL.81)
+ 0000:0000  Imp  DISPATCHMESSAGE      (USER.114)
+ 0000:0000  Imp  SETFOCUS             (USER.22)
+ 0000:0000  Unr  _FloatToFIX32
+ 0000:0000  Imp  GETPRIVATEPROFILEINT (KERNEL.127)
+ 0000:0000  Imp  GLOBALUNLOCK         (KERNEL.19)
+ 0000:0000  Imp  LOADLIBRARY          (KERNEL.95)
+ 0000:0000  Imp  __fpmath             (WIN87EM.1)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  ENABLEWINDOW         (USER.34)
+ 0000:0000  Imp  _LCREAT              (KERNEL.83)
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0000:0000  Imp  PEEKMESSAGE          (USER.109)
+ 0000:0000  Imp  LSTRCAT              (KERNEL.89)
+ 0000:0000  Imp  OPENFILE             (KERNEL.74)
+ 0000:0000  Imp  SETCURSOR            (USER.69)
+ 0000:0000  Imp  __AHSHIFT            (KERNEL.113)
+ 0000:0000  Imp  _LWRITE              (KERNEL.86)
+ 0000:0000  Imp  MESSAGEBOX           (USER.1)
+ 0000:0000  Imp  LSTRCPY              (KERNEL.88)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  LOADCURSOR           (USER.173)
+ 0000:0000  Imp  SENDMESSAGE          (USER.111)
+ 0000:0001  Abs  __sized
+ 0000:0001  Abs  __sizec
+ 0000:0006  Abs  pLocalHeap
+ 0000:0008  Abs  pAtomTable
+ 0000:000A  Abs  pStackTop
+ 0000:000C  Abs  pStackMin
+ 0000:000E  Abs  pStackBot
+ 0000:0632  Abs  FISRQQ
+ 0000:0E32  Abs  FICRQQ
+ 0000:1632  Abs  FIERQQ
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __fltused
+ 0000:9876  Abs  __fptaskdata
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0000:D6D6  Abs  __aDBused
+ 0001:0010       __wflags
+ 0001:0054       __astart
+ 0001:00F6       __nomain
+ 0001:010E       __cinit
+ 0001:0156       __cexit
+ 0001:0167       __c_exit
+ 0001:01B5       __ctermsub
+ 0001:01F2       _sprintf
+ 0001:0260       _strcat
+ 0001:02B4       _strcpy
+ 0001:02F0       _strlen
+ 0001:030A       __fstrcat
+ 0001:035E       __ftol
+ 0001:035E       __aFftol
+ 0001:03B0       __stubmain
+ 0001:03DC       __FF_MSGBANNER
+ 0001:0400       __setenvp
+ 0001:04A8       __output
+ 0001:099E       __flsbuf
+ 0001:0A80       __fptrap
+ 0001:0A86       __GetDGROUP
+ 0001:0A96       __nearstub
+ 0001:0A98       __forcdecpt
+ 0001:0B0E       __cropzeros
+ 0001:0B92       __positive
+ 0001:0BCA       __fassign
+ 0001:0C22       __cftoe
+ 0001:0DEE       __cftof
+ 0001:0F86       __cftog
+ 0001:1066       __cfltcvt
+ 0001:1108       __fpsignal
+ 0001:112C       __NMSG_TEXT
+ 0001:1163       __NMSG_WRITE
+ 0001:117A       __aNchkstk
+ 0001:119A       __chkstk
+ 0001:119A       __aFchkstk
+ 0001:11D4       __cintDIV
+ 0001:11DE       __amsg_exit
+ 0001:1220       __lseek
+ 0001:12E8       __write
+ 0001:145C       __myalloc
+ 0001:148A       ___ExportedStub
+ 0001:149E       __getbuf
+ 0001:14EA       _atof
+ 0001:1548       __fptostr
+ 0001:15F6       __fstrlen
+ 0001:1610       __fstrcpy
+ 0001:164C       __fmemset
+ 0001:1694       __fmemmove
+ 0001:175E       __fltout
+ 0001:17B4       __growseg
+ 0001:1845       __incseg
+ 0001:18AB       __findlast
+ 0001:18CC       __dosret0
+ 0001:18D9       __dosreturn
+ 0001:18EB       __dosretax
+ 0001:18FD       __maperror
+ 0001:192A       __aFahdiff
+ 0001:1998       $i8_output
+ 0001:1ADE       __fltin
+ 0001:1B42       __ffree
+ 0001:1B63       __fmalloc
+ 0001:1D86       $i8_tpwr10
+ 0001:1DC4       __STRINGTOD
+ 0001:1E2C       __newseg
+ 0001:1EAE       __freefarheap
+ 0001:1EBC       __searchseg
+ 0001:1F38       __STRINGTOLD
+ 0001:21A0       __freelist
+ 0001:21CA       __initseg
+ 0001:21FE       __linkseg
+ 0001:24EC       __LD12MULTTENPOWER
+ 0001:25C1       __LD12MULT
+ 0001:2746       __MANTOLD12
+ 0001:2800       _TWAcquire
+ 0001:28EC       _ProcessTWMessage
+ 0001:2988       _TWTransferImage
+ 0001:2BD0       ??_C@_0CF@FDJ@DG_IMAGE?1DAT_IMAGENATIVEXFER?1MSG@
+                    ??_C@_0CF@FDJ@DG_IMAGE?1DAT_IMAGENATIVEXFER?1MSG@
+
+ 0001:2BF6       ??_C@_0O@DFID@TWRC_XFERDONE?$AA@
+                    ??_C@_0O@DFID@TWRC_XFERDONE?$AA@
+
+ 0001:2C04       ??_C@_0CM@BCBO@DG_CONTROL?5?1?5DAT_PENDINGXFERS?5?1?5@
+                    ??_C@_0CM@BCBO@DG_CONTROL?5?1?5DAT_PENDINGXFERS?5?1?5@
+
+ 0001:2C30       ??_C@_00A@?$AA@
+                    ??_C@_00A@?$AA@
+
+ 0001:2C32       ??_C@_0M@CAD@TWRC_CANCEL?$AA@
+                    ??_C@_0M@CAD@TWRC_CANCEL?$AA@
+
+ 0001:2C3E       ??_C@_0BE@HAJ@Unknown?5Return?5Code?$AA@
+                    ??_C@_0BE@HAJ@Unknown?5Return?5Code?$AA@
+
+ 0001:2C52       _TWInitialize
+ 0001:2C78       _TWOpenDSM
+ 0001:2DAC       _TWCloseDSM
+ 0001:2E8A       _TWIsDSMOpen
+ 0001:2E8E       _TWOpenDS
+ 0001:2F76       _TWCloseDS
+ 0001:3040       _TWEnableDS
+ 0001:310A       _TWDisableDS
+ 0001:31A8       _TWIsDSOpen
+ 0001:31AC       _TWIsDSEnabled
+ 0001:31B0       ??_C@_01PCFE@?2?$AA@
+                    ??_C@_01PCFE@?2?$AA@
+
+ 0001:31B2       ??_C@_09FBGJ@TWAIN?4DLL?$AA@
+                    ??_C@_09FBGJ@TWAIN?4DLL?$AA@
+
+ 0001:31BC       ??_C@_09IDDJ@DSM_ENTRY?$AA@
+                    ??_C@_09IDDJ@DSM_ENTRY?$AA@
+
+ 0001:31C6       ??_C@_0BC@PPDM@TWAIN?5Information?$AA@
+                    ??_C@_0BC@PPDM@TWAIN?5Information?$AA@
+
+ 0001:31D8       ??_C@_0CH@FJIG@Source?5Manager?5was?5Opened?5succes@
+                    ??_C@_0CH@FJIG@Source?5Manager?5was?5Opened?5succes@
+
+ 0001:3200       ??_C@_0CC@BFDD@DG_CONTROL?1DAT_PARENT?1MSG_OPENDS@
+                    ??_C@_0CC@BFDD@DG_CONTROL?1DAT_PARENT?1MSG_OPENDS@
+
+ 0001:3222       ??_C@_0CO@MBPF@Error?5in?5Open?0?5LoadLibrary?0?5or?5G@
+                    ??_C@_0CO@MBPF@Error?5in?5Open?0?5LoadLibrary?0?5or?5G@
+
+ 0001:3250       ??_C@_0P@KKLB@Sequence?5Error?$AA@
+                    ??_C@_0P@KKLB@Sequence?5Error?$AA@
+
+ 0001:3260       ??_C@_0DE@KLHI@Cannot?5Close?5Source?5Manager?6Sour@
+                    ??_C@_0DE@KLHI@Cannot?5Close?5Source?5Manager?6Sour@
+
+ 0001:3294       ??_C@_0BM@IMED@Cannot?5Close?5Source?5Manager?$AA@
+                    ??_C@_0BM@IMED@Cannot?5Close?5Source?5Manager?$AA@
+
+ 0001:32B0       ??_C@_0BL@GBGD@A?5Source?5is?5Currently?5Open?$AA@
+                    ??_C@_0BL@GBGD@A?5Source?5is?5Currently?5Open?$AA@
+
+ 0001:32CC       ??_C@_0CD@LDBM@DG_CONTROL?1DAT_PARENT?1MSG_CLOSED@
+                    ??_C@_0CD@LDBM@DG_CONTROL?1DAT_PARENT?1MSG_CLOSED@
+
+ 0001:32F0       ??_C@_0CH@LPH@Source?5Manager?5was?5Closed?5succes@
+                    ??_C@_0CH@LPH@Source?5Manager?5was?5Closed?5succes@
+
+ 0001:3318       ??_C@_0M@PINM@TWAIN?5Error?$AA@
+                    ??_C@_0M@PINM@TWAIN?5Error?$AA@
+
+ 0001:3324       ??_C@_0CL@NFCM@Cannot?5Open?5Source?6Source?5Manage@
+                    ??_C@_0CL@NFCM@Cannot?5Open?5Source?6Source?5Manage@
+
+ 0001:3350       ??_C@_0BH@PLCF@Source?5is?5already?5open?$AA@
+                    ??_C@_0BH@PLCF@Source?5is?5already?5open?$AA@
+
+ 0001:3368       ??_C@_0DA@EIPD@DG_CONTROL?1DAT_IDENTITY?1MSG_OPEN@
+                    ??_C@_0DA@EIPD@DG_CONTROL?1DAT_IDENTITY?1MSG_OPEN@
+
+ 0001:3398       ??_C@_0CD@KINH@DG_CONTROL?1DAT_IDENTITY?1MSG_OPEN@
+                    ??_C@_0CD@KINH@DG_CONTROL?1DAT_IDENTITY?1MSG_OPEN@
+
+ 0001:33BC       ??_C@_0CE@LKFA@Cannot?5Close?5Source?6Source?5Not?5O@
+                    ??_C@_0CE@LKFA@Cannot?5Close?5Source?6Source?5Not?5O@
+
+ 0001:33E0       ??_C@_0BE@MLII@Cannot?5Close?5Source?$AA@
+                    ??_C@_0BE@MLII@Cannot?5Close?5Source?$AA@
+
+ 0001:33F4       ??_C@_0BM@FMLD@Source?5is?5Currently?5Enabled?$AA@
+                    ??_C@_0BM@FMLD@Source?5is?5Currently?5Enabled?$AA@
+
+ 0001:3410       ??_C@_0CE@EPI@DG_CONTROL?1DAT_IDENTITY?1MSG_CLOS@
+                    ??_C@_0CE@EPI@DG_CONTROL?1DAT_IDENTITY?1MSG_CLOS@
+
+ 0001:3434       ??_C@_0BP@JCBO@Source?5was?5Closed?5successfully?$AA@
+                    ??_C@_0BP@JCBO@Source?5was?5Closed?5successfully?$AA@
+
+ 0001:3454       ??_C@_0CE@EEJ@Cannot?5Enable?5Source?6No?5Source?5O@
+                    ??_C@_0CE@EEJ@Cannot?5Enable?5Source?6No?5Source?5O@
+
+ 0001:3478       ??_C@_0CG@LLLF@Cannot?5Enable?5Source?0?5already?5en@
+                    ??_C@_0CG@LLLF@Cannot?5Enable?5Source?0?5already?5en@
+
+ 0001:349E       ??_C@_0CK@DDNK@DG_CONTROL?1DAT_USERINTERFACE?1MSG@
+                    ??_C@_0CK@DDNK@DG_CONTROL?1DAT_USERINTERFACE?1MSG@
+
+ 0001:34C8       ??_C@_0P@COAL@Source?5Enabled?$AA@
+                    ??_C@_0P@COAL@Source?5Enabled?$AA@
+
+ 0001:34D8       ??_C@_0CJ@CNAB@Cannot?5Disable?5Source?6Source?5Not@
+                    ??_C@_0CJ@CNAB@Cannot?5Disable?5Source?6Source?5Not@
+
+ 0001:3502       ??_C@_0CL@NDPH@DG_CONTROL?1DAT_USERINTERFACE?1MSG@
+                    ??_C@_0CL@NDPH@DG_CONTROL?1DAT_USERINTERFACE?1MSG@
+
+ 0001:352E       ??_C@_0BA@GEMM@Source?5Disabled?$AA@
+                    ??_C@_0BA@GEMM@Source?5Disabled?$AA@
+
+ 0001:353E       ??_C@_0CH@OABK@DG_CONTROL?1DAT_IDENTITY?1MSG_USER@
+                    ??_C@_0CH@OABK@DG_CONTROL?1DAT_IDENTITY?1MSG_USER@
+
+ 0001:3566       ??_C@_0EE@OJEI@A?5Source?5is?5already?5open?6Close?5S@
+                    ??_C@_0EE@OJEI@A?5Source?5is?5already?5open?6Close?5S@
+
+ 0001:35AA       ScanDib
+ 0001:369A       ??_C@_0CH@JHE@YMEC?5TWAIN?5Interface?5DLL?51?40?5?596@
+                    ??_C@_0CH@JHE@YMEC?5TWAIN?5Interface?5DLL?51?40?5?596@
+
+ 0001:36C2       ??_C@_04LNOJ@YMEC?$AA@
+                    ??_C@_04LNOJ@YMEC?$AA@
+
+ 0001:36C8       ??_C@_06DGHI@M?4HAMA?$AA@
+                    ??_C@_06DGHI@M?4HAMA?$AA@
+
+ 0001:36D0       ??_C@_08DOFA@SCAN?4DLL?$AA@
+                    ??_C@_08DOFA@SCAN?4DLL?$AA@
+
+ 0001:36DA       _WriteDibFile
+ 0001:3888       _TWXferMech
+ 0001:3940       _TWAutofeed
+ 0001:395E       _AutoFeedOn
+ 0001:3962       _TWAutofeedMenu
+ 0001:3970       _FIX32ToFloat
+ 0001:39A0       _ShowImageInfo
+ 0001:3CA4       _ShowImageLayout
+ 0001:3F32       _ShowTW_ID
+ 0001:4198       _ShowCapability
+ 0001:48B6       _GetItem
+ 0001:49C0       _ShowPendingXfers
+ 0001:4A70       _ShowRC_CC
+ 0001:4BB2       _MessageLevel
+ 0001:4BB6       _SetMessageLevel
+ 0001:4BC2       _MatchTwainInt
+ 0001:4C9A       ??_C@_0BJ@MLCH@MSG_SET?5of?5ICAP_XFERMECH?$AA@
+                    ??_C@_0BJ@MLCH@MSG_SET?5of?5ICAP_XFERMECH?$AA@
+
+ 0001:4CB4       ??_C@_0BJ@NGAD@Memory?5Allocation?5Failed?$AA@
+                    ??_C@_0BJ@NGAD@Memory?5Allocation?5Failed?$AA@
+
+ 0001:4CCE       ??_C@_0N@PFKO@RETURN?5CODE?3?$AA@
+                    ??_C@_0N@PFKO@RETURN?5CODE?3?$AA@
+
+ 0001:4CDC       ??_C@_06EOPA@?$CFs?5?$CFd?6?$AA@
+                    ??_C@_06EOPA@?$CFs?5?$CFd?6?$AA@
+
+ 0001:4CE4       ??_C@_0N@IPAA@XResolution?3?$AA@
+                    ??_C@_0N@IPAA@XResolution?3?$AA@
+
+ 0001:4CF2       ??_C@_06LFJO@?6?$CFs?5?$CFf?$AA@
+                    ??_C@_06LFJO@?6?$CFs?5?$CFf?$AA@
+
+ 0001:4CFA       ??_C@_0N@OCOK@YResolution?3?$AA@
+                    ??_C@_0N@OCOK@YResolution?3?$AA@
+
+ 0001:4D08       ??_C@_0M@FEBL@ImageWidth?3?$AA@
+                    ??_C@_0M@FEBL@ImageWidth?3?$AA@
+
+ 0001:4D14       ??_C@_06OALA@?6?$CFs?5?$CFd?$AA@
+                    ??_C@_06OALA@?6?$CFs?5?$CFd?$AA@
+
+ 0001:4D1C       ??_C@_0N@MJPB@ImageLength?3?$AA@
+                    ??_C@_0N@MJPB@ImageLength?3?$AA@
+
+ 0001:4D2A       ??_C@_0BB@BPPB@SamplesPerPixel?3?$AA@
+                    ??_C@_0BB@BPPB@SamplesPerPixel?3?$AA@
+
+ 0001:4D3C       ??_C@_0P@BEHJ@BitsPerSample?3?$AA@
+                    ??_C@_0P@BEHJ@BitsPerSample?3?$AA@
+
+ 0001:4D4C       ??_C@_04JDGB@?0?5?$CFd?$AA@
+                    ??_C@_04JDGB@?0?5?$CFd?$AA@
+
+ 0001:4D52       ??_C@_0O@BDOI@BitsPerPixel?3?$AA@
+                    ??_C@_0O@BDOI@BitsPerPixel?3?$AA@
+
+ 0001:4D60       ??_C@_07JKLK@Planar?3?$AA@
+                    ??_C@_07JKLK@Planar?3?$AA@
+
+ 0001:4D68       ??_C@_0L@OJM@PixelType?3?$AA@
+                    ??_C@_0L@OJM@PixelType?3?$AA@
+
+ 0001:4D74       ??_C@_0N@LBMI@Compression?3?$AA@
+                    ??_C@_0N@LBMI@Compression?3?$AA@
+
+ 0001:4D82       ??_C@_0BA@BCOP@Condition?5Code?3?$AA@
+                    ??_C@_0BA@BCOP@Condition?5Code?3?$AA@
+
+ 0001:4D92       ??_C@_0BM@BBCG@Condition?5Code?5Check?5Failed?$AA@
+                    ??_C@_0BM@BBCG@Condition?5Code?5Check?5Failed?$AA@
+
+ 0001:4DAE       ??_C@_03MCD@?6?$CFs?$AA@
+                    ??_C@_03MCD@?6?$CFs?$AA@
+
+ 0001:4DB2       ??_C@_0O@EOOD@TW_IMAGEINFO?4?$AA@
+                    ??_C@_0O@EOOD@TW_IMAGEINFO?4?$AA@
+
+ 0001:4DC0       ??_C@_0M@NGGM@Frame?4Left?3?$AA@
+                    ??_C@_0M@NGGM@Frame?4Left?3?$AA@
+
+ 0001:4DCC       ??_C@_0L@DCIF@Frame?4Top?3?$AA@
+                    ??_C@_0L@DCIF@Frame?4Top?3?$AA@
+
+ 0001:4DD8       ??_C@_0N@GIHF@Frame?4Right?3?$AA@
+                    ??_C@_0N@GIHF@Frame?4Right?3?$AA@
+
+ 0001:4DE6       ??_C@_0O@BIK@Frame?4Bottom?3?$AA@
+                    ??_C@_0O@BIK@Frame?4Bottom?3?$AA@
+
+ 0001:4DF4       ??_C@_0BA@NLBG@DocumentNumber?3?$AA@
+                    ??_C@_0BA@NLBG@DocumentNumber?3?$AA@
+
+ 0001:4E04       ??_C@_0M@IKKO@PageNumber?3?$AA@
+                    ??_C@_0M@IKKO@PageNumber?3?$AA@
+
+ 0001:4E10       ??_C@_0N@IOEE@FrameNumber?3?$AA@
+                    ??_C@_0N@IOEE@FrameNumber?3?$AA@
+
+ 0001:4E1E       ??_C@_0BA@ODIP@TW_IMAGELAYOUT?4?$AA@
+                    ??_C@_0BA@ODIP@TW_IMAGELAYOUT?4?$AA@
+
+ 0001:4E2E       ??_C@_03JIFC@Id?3?$AA@
+                    ??_C@_03JIFC@Id?3?$AA@
+
+ 0001:4E32       ??_C@_0BF@PIBM@TW_VERSION?4MajorNum?3?$AA@
+                    ??_C@_0BF@PIBM@TW_VERSION?4MajorNum?3?$AA@
+
+ 0001:4E48       ??_C@_0BF@DDO@TW_VERSION?4MinorNum?3?$AA@
+                    ??_C@_0BF@DDO@TW_VERSION?4MinorNum?3?$AA@
+
+ 0001:4E5E       ??_C@_0BF@HIG@TW_VERSION?4Language?3?$AA@
+                    ??_C@_0BF@HIG@TW_VERSION?4Language?3?$AA@
+
+ 0001:4E74       ??_C@_0BE@BFCP@TW_VERSION?4Country?3?$AA@
+                    ??_C@_0BE@BFCP@TW_VERSION?4Country?3?$AA@
+
+ 0001:4E88       ??_C@_0BB@GFDP@TW_VERSION?4Info?3?$AA@
+                    ??_C@_0BB@GFDP@TW_VERSION?4Info?3?$AA@
+
+ 0001:4E9A       ??_C@_06BMCF@?6?$CFs?5?$CFs?$AA@
+                    ??_C@_06BMCF@?6?$CFs?5?$CFs?$AA@
+
+ 0001:4EA2       ??_C@_0P@NOGM@ProtocolMajor?3?$AA@
+                    ??_C@_0P@NOGM@ProtocolMajor?3?$AA@
+
+ 0001:4EB2       ??_C@_0P@EKAO@ProtocolMinor?3?$AA@
+                    ??_C@_0P@EKAO@ProtocolMinor?3?$AA@
+
+ 0001:4EC2       ??_C@_0BB@DMKM@SupportedGroups?3?$AA@
+                    ??_C@_0BB@DMKM@SupportedGroups?3?$AA@
+
+ 0001:4ED4       ??_C@_0O@OGNI@Manufacturer?3?$AA@
+                    ??_C@_0O@OGNI@Manufacturer?3?$AA@
+
+ 0001:4EE2       ??_C@_0P@NCKC@ProductFamily?3?$AA@
+                    ??_C@_0P@NCKC@ProductFamily?3?$AA@
+
+ 0001:4EF2       ??_C@_0N@IHOM@ProductName?3?$AA@
+                    ??_C@_0N@IHOM@ProductName?3?$AA@
+
+ 0001:4F00       ??_C@_03MDCO@CAP?$AA@
+                    ??_C@_03MDCO@CAP?$AA@
+
+ 0001:4F04       ??_C@_06CHOA@?6Cap?3?5?$AA@
+                    ??_C@_06CHOA@?6Cap?3?5?$AA@
+
+ 0001:4F0C       ??_C@_07NBFO@ConType?$AA@
+                    ??_C@_07NBFO@ConType?$AA@
+
+ 0001:4F14       ??_C@_0L@CPGD@?6ConType?3?5?$AA@
+                    ??_C@_0L@CPGD@?6ConType?3?5?$AA@
+
+ 0001:4F20       ??_C@_0N@NNFF@?6hContainer?4?$AA@
+                    ??_C@_0N@NNFF@?6hContainer?4?$AA@
+
+ 0001:4F2E       ??_C@_0BB@BNPM@?6?5?5?5?5?5ItemType?3?5?$AA@
+                    ??_C@_0BB@BNPM@?6?5?5?5?5?5ItemType?3?5?$AA@
+
+ 0001:4F40       ??_C@_08EHIJ@ItemType?$AA@
+                    ??_C@_08EHIJ@ItemType?$AA@
+
+ 0001:4F4A       ??_C@_0N@CKIE@?6?5?5?5?5?5Item?3?5?$AA@
+                    ??_C@_0N@CKIE@?6?5?5?5?5?5Item?3?5?$AA@
+
+ 0001:4F58       ??_C@_08EFM@ItemSize?$AA@
+                    ??_C@_08EFM@ItemSize?$AA@
+
+ 0001:4F62       ??_C@_09HGCI@NumItems?3?$AA@
+                    ??_C@_09HGCI@NumItems?3?$AA@
+
+ 0001:4F6C       ??_C@_0M@DFLO@?6?5?5?5?5?5?$CFs?5?$CFd?$AA@
+                    ??_C@_0M@DFLO@?6?5?5?5?5?5?$CFs?5?$CFd?$AA@
+
+ 0001:4F78       ??_C@_0O@LEAH@CurrentIndex?3?$AA@
+                    ??_C@_0O@LEAH@CurrentIndex?3?$AA@
+
+ 0001:4F86       ??_C@_0O@GNA@DefaultIndex?3?$AA@
+                    ??_C@_0O@GNA@DefaultIndex?3?$AA@
+
+ 0001:4F94       ??_C@_0BB@PECA@?6?5?5?5?5?5ItemList?3?5?$AA@
+                    ??_C@_0BB@PECA@?6?5?5?5?5?5ItemList?3?5?$AA@
+
+ 0001:4FA6       ??_C@_02GIEM@?0?5?$AA@
+                    ??_C@_02GIEM@?0?5?$AA@
+
+ 0001:4FAA       ??_C@_0BB@MFHN@?6?5?5?5?5?5MinValue?3?5?$AA@
+                    ??_C@_0BB@MFHN@?6?5?5?5?5?5MinValue?3?5?$AA@
+
+ 0001:4FBC       ??_C@_0BB@OFDC@?6?5?5?5?5?5MaxValue?3?5?$AA@
+                    ??_C@_0BB@OFDC@?6?5?5?5?5?5MaxValue?3?5?$AA@
+
+ 0001:4FCE       ??_C@_0BB@DHL@?6?5?5?5?5?5StepSize?3?5?$AA@
+                    ??_C@_0BB@DHL@?6?5?5?5?5?5StepSize?3?5?$AA@
+
+ 0001:4FE0       ??_C@_0BF@LNFA@?6?5?5?5?5?5DefaultValue?3?5?$AA@
+                    ??_C@_0BF@LNFA@?6?5?5?5?5?5DefaultValue?3?5?$AA@
+
+ 0001:4FF6       ??_C@_0BF@EMOC@?6?5?5?5?5?5CurrentValue?3?5?$AA@
+                    ??_C@_0BF@EMOC@?6?5?5?5?5?5CurrentValue?3?5?$AA@
+
+ 0001:500C       ??_C@_0P@LKFA@TW_CAPABILITY?4?$AA@
+                    ??_C@_0P@LKFA@TW_CAPABILITY?4?$AA@
+
+ 0001:501C       ??_C@_02MECO@?$CFd?$AA@
+                    ??_C@_02MECO@?$CFd?$AA@
+
+ 0001:5020       ??_C@_02MHMJ@?$CFu?$AA@
+                    ??_C@_02MHMJ@?$CFu?$AA@
+
+ 0001:5024       ??_C@_03JFOM@?$CFld?$AA@
+                    ??_C@_03JFOM@?$CFld?$AA@
+
+ 0001:5028       ??_C@_03JGAL@?$CFlu?$AA@
+                    ??_C@_03JGAL@?$CFlu?$AA@
+
+ 0001:502C       ??_C@_02JBAA@?$CFf?$AA@
+                    ??_C@_02JBAA@?$CFf?$AA@
+
+ 0001:5030       ??_C@_06KPHE@Count?3?$AA@
+                    ??_C@_06KPHE@Count?3?$AA@
+
+ 0001:5038       ??_C@_0BC@BGNM@TW_PENDINGXRFERS?4?$AA@
+                    ??_C@_0BC@BGNM@TW_PENDINGXRFERS?4?$AA@
+
+ 0001:504A       ??_C@_0L@MEBP@ReturnCode?$AA@
+                    ??_C@_0L@MEBP@ReturnCode?$AA@
+
+ 0001:5056       ??_C@_0O@DALF@ConditionCode?$AA@
+                    ??_C@_0O@DALF@ConditionCode?$AA@
+
+ 0001:5064       ??_C@_09IGDC@CC?5FAILED?$AA@
+                    ??_C@_09IGDC@CC?5FAILED?$AA@
+
+ 0001:506E       ??_C@_02DILL@?$CFs?$AA@
+                    ??_C@_02DILL@?$CFs?$AA@
+
+ 0001:5072       ??_C@_01FDLN@?1?$AA@
+                    ??_C@_01FDLN@?1?$AA@
+
+ 0001:5074       ??_C@_01BJG@?6?$AA@
+                    ??_C@_01BJG@?6?$AA@
+
+ 0001:5076       LIBMAIN
+ 0001:5086       WEP
+ 0002:0004       rsrvptrs
+ 0002:001E       _STKHQQ
+ 0002:0020       __hModule
+ 0002:0022       __wDataSeg
+ 0002:0024       __wHeapSize
+ 0002:0026       __lpszCmdLine
+ 0002:002A       __dllinit
+ 0002:002B       _aseglo
+ 0002:002D       _aseghi
+ 0002:002F       ___aDBswpflg
+ 0002:0031       ___aDBrterr
+ 0002:0034       __aintdiv
+ 0002:0038       __fac
+ 0002:0042       _errno
+ 0002:0044       __umaskval
+ 0002:0046       __winminor
+ 0002:0046       __winver
+ 0002:0047       __winmajor
+ 0002:0048       __osver
+ 0002:0048       __osminor
+ 0002:0049       __osmajor
+ 0002:004A       __osversion
+ 0002:004C       __osmode
+ 0002:004D       __cpumode
+ 0002:004E       __doserrno
+ 0002:004E       __oserr
+ 0002:0050       __nfile
+ 0002:0052       __osfile
+ 0002:0066       ___argc
+ 0002:0068       ___argv
+ 0002:006C       __environ
+ 0002:0070       __pgmptr
+ 0002:0075       __child
+ 0002:0077       __exitflag
+ 0002:008C       __adbgmsg
+ 0002:00F2       __cfltcvt_tab
+ 0002:010E       __sigintseg
+ 0002:0110       __sigintoff
+ 0002:0112       __asizeC
+ 0002:0113       __asizeD
+ 0002:0120       __aaltstkovr
+ 0002:0124       __lastiob
+ 0002:0126       __ctype
+ 0002:0126       __ctype_
+ 0002:024E       __amblksiz
+ 0002:0250       __cflush
+ 0002:0266       __lseekchk
+ 0002:02B2       __pnhFarHeap
+ 0002:02C0       __fheap
+ 0002:02D0       __fpinit
+ 0002:02E0       __iob
+ 0002:03D0       __iob2
+ 0002:0840       _edata
+ 0002:0840       __edata
+ 0002:0870       _lpDSM_Entry
+ 0002:0874       _IniFile
+ 0002:0974       _hStruct
+ 0002:0976       _pStruct
+ 0002:097A       _dsID
+ 0002:0A16       _ghInst
+ 0002:0A18       _appID
+ 0002:0AB4       _hWait
+ 0002:0AB6       _hInst
+ 0002:0AB8       _WriteDibFlag
+ 0002:0ABA       __mbac
+ 0002:0AC2       _Filename
+ 0002:0BC2       _hReady
+ 0002:0BC4       __end
+ 0002:0BC4       _end
+ 0000:4000  Abs  FJARQQ
+ 0000:5C32  Abs  FIDRQQ
+ 0000:8000  Abs  FJSRQQ
+ 0000:A23D  Abs  FIWRQQ
+ 0000:C000  Abs  FJCRQQ
+ 0000:FE32  Abs  FIARQQ
+
+Program entry point at 0001:0054

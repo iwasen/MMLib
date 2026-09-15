@@ -1,0 +1,93 @@
+//Microsoft App Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "code.h"
+
+/////////////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+TW_APP_ICO              ICON    DISCARDABLE     "TWACKER.ICO"
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""code.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DSMNAME             "TWAIN.DLL"
+    IDS_WINDOWTITLE         "TWAIN Twacker"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_NODSM               "Sorry, could not find the TWAIN Source Manager (TWAIN.DLL).  Please copy the TWAIN Source Manager from your Program Disk to your Windows directory."
+    IDS_NODS                "Sorry, no TWAIN Source found in the TWAIN directory.  Refer to your TWAIN Source installation instructions."
+    IDS_LOWMEMORY           "Sorry, there is not enough memory to Acquire."
+    IDS_MAXCONNECTIONS      "Sorry the TWAIN Source %s is already in use."
+    IDS_BUMMER              "Bummer, there is a TWAIN error!"
+    IDS_BADCAP              "Sorry, capability error has occurred."
+    IDS_BADPROTOCOL         "Sorry, protocol error has occurred."
+    IDS_BADVALUE            "Sorry, bad value."
+    IDS_SEQERROR            "Sorry, DG DAT MSG is out of expected sequence."
+    IDS_SUCCESS             "Sorry, detailed error status returns success."
+    IDS_NODETAIL            "Sorry, could not get detailed Error Code."
+    IDS_DEFAULT             "Sorry, Unknown error code returned by DG_CONTROL, DAT_STATUS, MSG_GET."
+    IDS_BADDEST             "Bad Destination"
+END
+
+
+#ifndef APSTUDIO_INVOKED
+////////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

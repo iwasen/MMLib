@@ -1,0 +1,848 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// ニュートラル resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(932)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\MMView.ico"
+
+IDR_MMVIEWTYPE          ICON                    "res\\MMViewDoc.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+IDB_IMAGE_LIST_LARGE    BITMAP                  "res\\bitmap1.bmp"
+
+IDB_IMAGE_LIST_SMALL    BITMAP                  "res\\image_li.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_OPEN
+    SEPARATOR
+    BUTTON      ID_EDIT_COPY
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    SEPARATOR
+    BUTTON      IDW_COMBO
+    BUTTON      IDM_PICT_AUTOSIZE
+    BUTTON      IDM_PICT_AUTOSIZE2
+    BUTTON      IDM_PICT_ENLARGE
+    BUTTON      IDM_PICT_REDUCE
+    SEPARATOR
+    BUTTON      IDM_PICT_LEFT_ROTATE
+    BUTTON      IDM_PICT_RIGHT_ROTATE
+    SEPARATOR
+    BUTTON      IDM_PICT_PREV
+    BUTTON      IDM_PICT_NEXT
+    SEPARATOR
+    BUTTON      IDM_VIEW_PICT
+    BUTTON      IDM_VIEW_ICON
+    BUTTON      IDM_VIEW_LIST
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,2,0,5
+ PRODUCTVERSION 1,2,0,5
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "Written by Shinichi Aizawa"
+            VALUE "CompanyName", "Yoshimasa Electronic Inc."
+            VALUE "FileDescription", "MMView executable file"
+            VALUE "FileVersion", "1.2.0.5"
+            VALUE "InternalName", "MMView"
+            VALUE "LegalCopyright", "Copyright (C) 2001-2026 Yoshimasa Electronic Inc."
+            VALUE "LegalTrademarks", "YMEC"
+            VALUE "OriginalFilename", "MMView.EXE"
+            VALUE "ProductName", "Muitimedia Library Viewer"
+            VALUE "ProductVersion", "1.2.0.5"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HANDCLOSE           CURSOR                  "res\\cur00001.cur"
+
+IDC_HANDOPEN            CURSOR                  "res\\cursor1.cur"
+
+FINGER                  CURSOR                  "res\\finger.cur"
+
+#endif    // ニュートラル resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 (日本) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 17, 1\r\n"
+    "#pragma code_page(932)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""l.jpn\\afxres.rc""          // 標準のコンポーネント\r\n"
+    "#include ""l.jpn\\afxprint.rc""        // 印刷/印刷プレビュー リソース\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""afxres.rc"" // 標準のコンポーネント\r\n"
+    "#include ""afxprint.rc"" // 印刷/印刷プレビュー リソース\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "#include ""res\\MMView.rc2""  // Microsoft Visual C++ 以外のツールで編集されたリソース\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENUEX
+BEGIN
+    POPUP "ファイル(&F)",                       65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "開く(&O)...\tCtrl+O",           ID_FILE_OPEN,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "ページ設定(&G)...",                ID_FILE_PAGE_SETUP,MFT_STRING,MFS_ENABLED
+        MENUITEM "印刷(&P)...\tCtrl+P",           ID_FILE_PRINT,MFT_STRING,MFS_ENABLED
+        MENUITEM "印刷プレビュー(&V)",                 ID_FILE_PRINT_PREVIEW,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "最近使ったファイル",                   ID_FILE_MRU_FILE1,MFT_STRING,MFS_GRAYED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "アプリケーションの終了(&X)",             ID_APP_EXIT,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "編集(&E)",                         65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "コピー(&C)\tCtrl+C",             ID_EDIT_COPY,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "表示(&V)",                         65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "ツールバー(&T)",                   ID_VIEW_TOOLBAR,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+        MENUITEM "ステータスバー(&S)",                 ID_VIEW_STATUS_BAR,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "画像(&P)",                      IDM_VIEW_PICT,MFT_STRING,MFS_ENABLED
+        MENUITEM "縮小画像(&L)",                    IDM_VIEW_ICON,MFT_STRING,MFS_ENABLED
+        MENUITEM "一覧&D)",                       IDM_VIEW_LIST,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        POPUP "一覧表示項目(&A)",                     65535,MFT_STRING,MFS_ENABLED
+        BEGIN
+            MENUITEM "名称",                          IDM_DETAIL_NAME,MFT_STRING,MFS_ENABLED
+            MENUITEM "コード",                         IDM_DETAIL_CODE,MFT_STRING,MFS_ENABLED
+            MENUITEM "作成日時",                        IDM_DETAIL_CDATE,MFT_STRING,MFS_ENABLED
+            MENUITEM "更新日時",                        IDM_DETAIL_UDATE,MFT_STRING,MFS_ENABLED
+            MENUITEM "作成者",                         IDM_DETAIL_CREATOR,MFT_STRING,MFS_ENABLED
+            MENUITEM "備考",                          IDM_DETAIL_REMARK1,MFT_STRING,MFS_ENABLED
+            MENUITEM "キーワード",                       IDM_DETAIL_REMARK2,MFT_STRING,MFS_ENABLED
+        END
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "フォント(&F)",                    IDM_SETFONT,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "画像(&P)",                         65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "前データ表示(&B)",                  IDM_PICT_PREV,MFT_STRING,MFS_ENABLED
+        MENUITEM "次データ表示(&N)",                  IDM_PICT_NEXT,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "自動サイズ調整(&A)",                 IDM_PICT_AUTOSIZE,MFT_STRING,MFS_ENABLED
+        MENUITEM "自動幅調整(&W)",                   IDM_PICT_AUTOSIZE2,MFT_STRING,MFS_ENABLED
+        MENUITEM "拡大(&E)",                      IDM_PICT_ENLARGE,MFT_STRING,MFS_ENABLED
+        MENUITEM "縮小(&H)",                      IDM_PICT_REDUCE,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "左回転(&L)",                     IDM_PICT_LEFT_ROTATE,MFT_STRING,MFS_ENABLED
+        MENUITEM "右回転(&R)",                     IDM_PICT_RIGHT_ROTATE,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "ヘルプ(&H)",                        65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "MMView のバージョン情報(&A)...",      ID_APP_ABOUT,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "オンラインマニュアル(&M)...",           IDM_ONLINE_MANUAL,MFT_STRING,MFS_ENABLED
+        MENUITEM "オンラインアップデート(&U)...",          IDM_ONLINE_UPDATE,MFT_STRING,MFS_ENABLED
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 259, 103
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "バージョン情報"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Product Name & Version",IDC_PRODUCT,41,10,165,8,SS_NOPREFIX
+    LTEXT           "Copyright",IDC_COPYRIGHT,41,25,165,8
+    DEFPUSHBUTTON   "OK",IDOK,213,7,40,14,WS_GROUP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,47,248,1
+    LTEXT           "製品説明",IDC_STATIC,11,57,60,8,0,WS_EX_RIGHT
+    LTEXT           "http://www.ymec.com/products/mlibv/",IDC_PRODUCT_URL,74,57,143,8,SS_NOTIFY
+    LTEXT           "吉正電子株式会社",IDC_STATIC,11,71,60,8,0,WS_EX_RIGHT
+    LTEXT           "http://www.ymec.com/jp.htm",IDC_COMPANY_URL,74,71,143,8,SS_NOTIFY
+    LTEXT           "お問い合わせ",IDC_STATIC,11,85,60,8,0,WS_EX_RIGHT
+    LTEXT           "shop@ymec.com",IDC_EMAIL_ADDR,74,85,143,8,SS_NOTIFY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "MMViewer\n\nMMView\nMML File (*.mml)\n.mml\nMMView.Document\nMMView Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "MMView"
+    AFX_IDS_IDLEMESSAGE     "ﾚﾃﾞｨ"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "上書"
+    ID_INDICATOR_REC        "記録"
+    ID_INDICATOR_KANA       "ｶﾅ"
+    ID_INDICATOR_INFO       "title"
+    ID_INDICATOR_PAGE       "page"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_OPEN            "既存のファイルを開く\n開く"
+    ID_FILE_PAGE_SETUP      "印刷オプション」の変更\nページレイアウトの設定"
+    ID_FILE_PRINT_SETUP     "プリンタ/印刷オプションの変更\n印刷設定"
+    ID_FILE_PRINT           "作業中のファイルを印刷\n印刷"
+    ID_FILE_PRINT_PREVIEW   "印刷イメージを表示\n印刷プレビュー"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "プログラムの情報、バージョンそして著作権を表示\nバージョン情報"
+    ID_APP_EXIT             "アプリケーションを終了し、ファイルの保存を指示\n終了"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE2       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE3       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE4       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE5       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE6       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE7       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE8       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE9       "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE10      "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE11      "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE12      "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE13      "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE14      "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE15      "指定のﾌｧｲﾙを開く"
+    ID_FILE_MRU_FILE16      "指定のﾌｧｲﾙを開く"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "次のウィンドウに切り替える\n次のペイン"
+    ID_PREV_PANE            "前のウィンドウに切り替える\n前のペイン"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "作業中のウィンドウを分割\n分割"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_COPY            "選択範囲をコピーしてクリップボードに保存\nコピー"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "ツールバーの表示/非表示\nツールバーの表示切り替え"
+    ID_VIEW_STATUS_BAR      "ステータスバーの表示/非表示\nステータスバーの表示切り替え"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "ウィンドウのサイズを変更"
+    AFX_IDS_SCMOVE          "ウィンドウの位置を変更"
+    AFX_IDS_SCMINIMIZE      "ウィンドウを最小化する"
+    AFX_IDS_SCMAXIMIZE      "ウィンドウを最大化する"
+    AFX_IDS_SCNEXTWINDOW    "次のウィンドウに切り替える"
+    AFX_IDS_SCPREVWINDOW    "前のウィンドウに切り替える"
+    AFX_IDS_SCCLOSE         "作業中のウィンドウを閉じ、変更したファイルの保存を指示"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "ウィンドウを通常のサイズに戻す"
+    AFX_IDS_SCTASKLIST      "アプリケーションの切り替え"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "印刷プレビューモードの終わり\nプレビューのキャンセル"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_PREV           "前の画像を表示する\n前画像の表示"
+    IDM_PICT_NEXT           "次の画像を表示する\n次画像の表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_AUTOSIZE       "画像のサイズをウィンドウサイズに自動的に合わせます\n画像サイズの自動調整"
+    IDM_PICT_ENLARGE        "画像を拡大します\n画像の拡大"
+    IDM_PICT_REDUCE         "画像を縮小します\n画像の縮小"
+    IDM_DETAIL_NAME         "詳細表示への""名称""の表示をON/OFFします\n""名称""の表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_AUTOSIZE2      "画像のサイズをウィンドウの幅に自動的に合わせます\n画像サイズの幅調整"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_RIGHT_ROTATE   "画像を90度右回転する\n画像の右回転"
+    IDM_PICT_LEFT_ROTATE    "画像を90度左回転する\n画像の左回転"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_VIEW_ICON           "縮小画像を表示します\n縮小画像表示"
+    IDM_ONLINE_UPDATE       "ネットワーク経由でアプリケーションをアップデートします。"
+    IDM_SETFONT             "フォントを設定します\nフォントの設定"
+    IDM_VIEW_LIST           "一覧形式で表示します\n一覧表示"
+    IDM_VIEW_PICT           "画像を表示します\n画像表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_DETAIL_CREATOR      "詳細表示への""作成者""の表示をON/OFFします\n""作成者""の表示"
+    IDM_DETAIL_CDATE        "詳細表示への""作成日時""の表示をON/OFFします\n""作成日時""の表示"
+    IDM_DETAIL_UDATE        "詳細表示への""更新日時""の表示をON/OFFします\n""更新日時""の表示"
+    IDM_DETAIL_CODE         "詳細表示への""コード""の表示をON/OFFします\n""コード""の表示"
+    IDM_DETAIL_REMARK1      "詳細表示への""備考""の表示をON/OFFします\n""備考１""の表示"
+    IDM_DETAIL_REMARK2      "詳細表示への""キーワード""の表示をON/OFFします\n""備考２""の表示"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_ONLINE_MANUAL       "本プログラムのマニュアルを表示します。"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DEFAULT_FONT        "ＭＳ Ｐゴシック"
+    IDS_NAME                "名前"
+    IDS_CODE                "コード"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NOT_FOUND_YMUPDATE_DLL "YMUPDATE.DLL が見つかりません。"
+    IDS_ONLINE_UPDATE_FAIL  "オンラインアップデートが実行できません。"
+    IDS_FILE_OPEN_FAIL      "指定されたファイルがオープンできません。"
+    IDS_FILE_NO_DATA        "指定されたファイルにはデータがありません。"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CREATE_DATE         "作成日時"
+    IDS_UPDATE_DATE         "更新日時"
+    IDS_CREATOR             "作成者"
+    IDS_REMARK              "備考"
+    IDS_KEYWORD             "キーワード"
+    IDS_ONLINE_UPDATE       "MMVIEWJ"
+    IDS_HELP_URL            "http://www.ymec.com/manual/mlibv/"
+END
+
+#endif    // 日本語 (日本) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (米国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENUEX
+BEGIN
+    POPUP "&File",                          65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Pa&ge Setup...",              ID_FILE_PAGE_SETUP,MFT_STRING,MFS_ENABLED
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT,MFT_STRING,MFS_ENABLED
+        MENUITEM "Pre&view",                    ID_FILE_PRINT_PREVIEW,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1,MFT_STRING,MFS_GRAYED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "&Edit",                          65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "&View",                          65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "&Image",                      IDM_VIEW_PICT,MFT_STRING,MFS_ENABLED
+        MENUITEM "&Reduce &Image",              IDM_VIEW_ICON,MFT_STRING,MFS_ENABLED
+        MENUITEM "&List",                       IDM_VIEW_LIST,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        POPUP "List &Display Item",             65535,MFT_STRING,MFS_ENABLED
+        BEGIN
+            MENUITEM "Name",                        IDM_DETAIL_NAME,MFT_STRING,MFS_ENABLED
+            MENUITEM "Code",                        IDM_DETAIL_CODE,MFT_STRING,MFS_ENABLED
+            MENUITEM "Creation Date",               IDM_DETAIL_CDATE,MFT_STRING,MFS_ENABLED
+            MENUITEM "Update Date",                 IDM_DETAIL_UDATE,MFT_STRING,MFS_ENABLED
+            MENUITEM "Creator",                     IDM_DETAIL_CREATOR,MFT_STRING,MFS_ENABLED
+            MENUITEM "Comments",                    IDM_DETAIL_REMARK1,MFT_STRING,MFS_ENABLED
+            MENUITEM "Keyword",                     IDM_DETAIL_REMARK2,MFT_STRING,MFS_ENABLED
+        END
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "&Font",                       IDM_SETFONT,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "&Image",                         65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "Show &Previous Data",         IDM_PICT_PREV,MFT_STRING,MFS_ENABLED
+        MENUITEM "Show &Next Data",             IDM_PICT_NEXT,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Automatic &Size Adjustment",  IDM_PICT_AUTOSIZE,MFT_STRING,MFS_ENABLED
+        MENUITEM "Automatic &Width Adjustment", IDM_PICT_AUTOSIZE2,MFT_STRING,MFS_ENABLED
+        MENUITEM "&Enlarge",                    IDM_PICT_ENLARGE,MFT_STRING,MFS_ENABLED
+        MENUITEM "Re&duce",                     IDM_PICT_REDUCE,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Rotate &Left",                IDM_PICT_LEFT_ROTATE,MFT_STRING,MFS_ENABLED
+        MENUITEM "Rotate &Right",               IDM_PICT_RIGHT_ROTATE,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "&Help",                          65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "&About MMView...",            ID_APP_ABOUT,MFT_STRING,MFS_ENABLED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Online &Manual...",           IDM_ONLINE_MANUAL,MFT_STRING,MFS_ENABLED
+        MENUITEM "Online &Update...",           IDM_ONLINE_UPDATE,MFT_STRING,MFS_ENABLED
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 259, 103
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Version Information"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,23
+    LTEXT           "Product Name & Version",IDC_PRODUCT,41,12,169,9,SS_NOPREFIX
+    LTEXT           "Copyright",IDC_COPYRIGHT,41,28,175,9
+    DEFPUSHBUTTON   "OK",IDOK,212,7,40,14,WS_GROUP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,47,248,2
+    LTEXT           "Product URL",IDC_STATIC,22,58,52,9,0,WS_EX_RIGHT
+    LTEXT           "http://www.ymec.com/products/mlibve/",IDC_PRODUCT_URL,82,58,170,9,SS_NOTIFY
+    LTEXT           "Company URL",IDC_STATIC,22,72,52,9,0,WS_EX_RIGHT
+    LTEXT           "http://www.ymec.com",IDC_COMPANY_URL,82,72,170,9,SS_NOTIFY
+    LTEXT           "Question",IDC_STATIC,22,86,52,9,0,WS_EX_RIGHT
+    LTEXT           "shop@ymec.com",IDC_EMAIL_ADDR,82,86,170,9,SS_NOTIFY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "MMViewer\n\nMMView\nMML File (*.mml)\n.mml\nMMView.Document\nMMView Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "MMView"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_KANA       "KANA"
+    ID_INDICATOR_INFO       "title"
+    ID_INDICATOR_PAGE       "page"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_PREV           "Display the previous data\nDisplay previous data"
+    IDM_PICT_NEXT           "Display the next data\nDisplay next data"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_AUTOSIZE       "Automatically fitting image to window\nAutomatic image size adjustment"
+    IDM_PICT_ENLARGE        "Enlarging image\nEnlarge image"
+    IDM_PICT_REDUCE         "Reducing image\nReduce image"
+    IDM_DETAIL_NAME         "Toggle ""name"" display on/off in detailed display\nShow name"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_AUTOSIZE2      "Automatically fitting image to window width\nAdjust image width"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_PICT_RIGHT_ROTATE   "Rotating image 90 degrees to the right\nRotate right"
+    IDM_PICT_LEFT_ROTATE    "Rotating image 90 degrees to the left\nRotate left"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_VIEW_ICON           "Display thumbnails\nThumbnail view"
+    IDM_ONLINE_UPDATE       "Update application via network"
+    IDM_SETFONT             "Setting the font\nSet font"
+    IDM_VIEW_LIST           "Display as list\nList view"
+    IDM_VIEW_PICT           "Display Image\nImage view"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_DETAIL_CREATOR      "Toggle ""creator"" display on/off in detailed display\nShow creator"
+    IDM_DETAIL_CDATE        "Toggle ""creation date and time"" display on/off in detailed display\nShow creation date and time"
+    IDM_DETAIL_UDATE        "Toggle ""update date and time"" display on/off in detailed display\nShow update date and time"
+    IDM_DETAIL_CODE         "Toggle ""code"" display on/off in detailed display\nShow code"
+    IDM_DETAIL_REMARK1      "Toggle ""comments"" display on/off in detailed display\nShow comments"
+    IDM_DETAIL_REMARK2      "Toggle ""keyword"" display on/off in detailed display\nShow keyword"
+END
+
+STRINGTABLE
+BEGIN
+    IDM_ONLINE_MANUAL       "Display the manual for this program"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DEFAULT_FONT        "MS Sans Serif"
+    IDS_NAME                "Name"
+    IDS_CODE                "Code"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NOT_FOUND_YMUPDATE_DLL "Cannot find YMUPDATE.DLL."
+    IDS_ONLINE_UPDATE_FAIL  "On-line updating cannot be executed."
+    IDS_FILE_OPEN_FAIL      "The specified file cannot be opened."
+    IDS_FILE_NO_DATA        "The specified file contains no data."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CREATE_DATE         "Creation Date"
+    IDS_UPDATE_DATE         "Update Date"
+    IDS_CREATOR             "Creator"
+    IDS_REMARK              "Comments"
+    IDS_KEYWORD             "Keyword"
+    IDS_ONLINE_UPDATE       "MMVIEWE"
+    IDS_HELP_URL            "http://www.ymec.com/manual/emlibv/"
+END
+
+#endif    // 英語 (米国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE 17, 1
+#pragma code_page(932)
+#endif //_WIN32
+#include "l.jpn\afxres.rc"          // 標準のコンポーネント
+#include "l.jpn\afxprint.rc"        // 印刷/印刷プレビュー リソース
+#endif
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+#include "afxres.rc" // 標準のコンポーネント
+#include "afxprint.rc" // 印刷/印刷プレビュー リソース
+#endif
+
+#include "res\MMView.rc2"  // Microsoft Visual C++ 以外のツールで編集されたリソース
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

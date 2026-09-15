@@ -1,0 +1,90 @@
+Using CTL3D from C
+To use CTL3D, follow the steps listed below. See the "Function Reference" section later in this article for descriptions of functions mentioned in this section.
+1.	Include CTL3D.H in each source file that contains a dialog procedure or WinMain, or that uses a standard control.
+2.	Link the application with the appropriate CTL3D library. There are different ways to link CTL3D. Read the "Installing CTL3D with Your Application" section for a discussion of which CTL3D library you should use.
+3.	Add a call to the Ctl3dRegister function when the application initializes. WinMain is usually a good place to add this function call.
+4.	Add a call to Ctl3dColorChange in your application's WM_SYSCOLORCHANGE message handler. WinMain is the best place to add this function call.
+5.	Add a call to Ctl3dUnregister at application destroy time. Add this call at WM_DESTROY time if you subclass only dialog-box controls. If you subclass controls in your main window, you may want to call Ctl3dUnregister just before returning from WinMain.
+6.	Subclass the controls. You can do this in three ways:
+a.	Use automatic subclassing.
+	If your application runs under Windows version 3.1 or later, it can use the automatic subclassing feature of CTL3D. To use this feature, call Ctl3dAutoSubclass after Ctl3dRegister. This automatically subclasses all controls in all dialog boxes, including message boxes and the Windows common dialog boxes.
+	Earlier versions of CTL3D required hook procedures for some of the common dialog boxes. This is no longer required.
+	Automatic subclassing sets a task-specific WH_CBT hook to locate dialog boxes for the application. If your application sets a WH_CBT hook, it should do so before calling Ctl3dAutoSubclass. Your application's CBT hook procedure should also call CallNextHookEx to ensure that CTL3D's CBT hook procedure is called whenever the application's CBT hook is called.
+b.	Subclass each dialog box.
+	If your application runs under Windows version 3.0, or if you want to change only specific dialog boxes to 3-D, add a call to Ctl3dSubclassDlg or Ctl3dSubclassDlgEx in the WM_INITDIALOG message handler for each dialog box. You must do this before your application subclasses any controls itself:
+ 
+
+case WM_INITDIALOG:
+   Ctl3dSubclassDlg(hdlg, CTL3D_ALL);
+break;
+	Or:
+ 
+
+case WM_INITDIALOG:
+   Ctl3dSubclassDlgEx(hdlg, CTL3D_ALL);
+break;
+	If your application uses Ctl3dSubclassDlg, the following steps are required. If your application uses Ctl3dSubclassDlgEx, these steps are not required.
+	The application must also call the Ctl3dCtlColorEx function in the WM_CTLCOLOR message handler for each dialog box, for example, by using the following code:
+ 
+
+case WM_CTLCOLOR:
+   return Ctl3dCtlColorEx(wm, wParam, lParam);
+	For applications running on Windows NT™, the application must call Ctl3dCtlColorEx for the WM_CTLCOLORBTN, WM_CTLCOLORDLG, WM_CTLCOLOREDIT, WM_CTLCOLORLISTBOX, WM_CTLCOLORMSGBOX, WM_CTLCOLORSCROLLBAR, and WM_CTLCOLORSTATIC messages. For example:
+ 
+
+case WM_CTLCOLORBTN:
+case WM_CTLCOLORDLG:
+case WM_CTLCOLOREDIT:
+case WM_CTLCOLORLISTBOX:
+case WM_CTLCOLORMSGBOX:
+case WM_CTLCOLORSCROLLBAR:
+case WM_CTLCOLORSTATIC:
+   return Ctl3dCtlColorEx(wm, wParam, lParam);
+	If you want CTL3D to draw a 3-D border for the dialog box, add the following call to Ctl3dDlgFramePaint in the WM_SETTEXT, WM_NCPAINT, and WM_NCACTIVATE message handlers for the dialog box (the dialog box must have the WS_DLGFRAME and DS_MODALFRAME styles):
+ 
+
+case WM_SETTEXT
+case WM_NCPAINT:
+case WM_NCACTIVATE:
+   SetWindowLong(hdlg, DWL_MSGRESULT,
+                 Ctl3dDlgFramePaint(hdlg, wm, wParam, Param);
+return TRUE;
+c.	Subclass any control that does not appear in a dialog box.
+	If your application uses controls outside of dialog boxes, it must use Ctl3dSubclassCtl to subclass these controls individually. When an application calls Ctl3dCtlColorEx from a window procedure instead of a dialog procedure, it should use the following code:
+ 
+
+#ifdef WIN32
+case WM_CTLCOLORBTN:
+case WM_CTLCOLORDLG:
+case WM_CTLCOLOREDIT:
+case WM_CTLCOLORLISTBOX:
+case WM_CTLCOLORMSGBOX:
+case WM_CTLCOLORSCROLLBAR:
+case WM_CTLCOLORSTATIC:
+#else
+case WM_CTLCOLOR:
+#endif
+   hbrush = Ctl3dCtlColorEx(wm, wParam, lParam)
+   if (hbrush != (HBRUSH) fFalse)
+      return hbrush;
+   else
+      return DefWindowProc(hwnd, wm, wParam, lParam);
+Considerations
+n	Ctl3dAutoSubClass only subclasses windows that have the standard WC_DIALOG dialog window class.
+n	CTL3D adds 3-D effects only to the following controls:
+n	Standard Windows controls (list box, edit control, static control, button, combo box).
+n	Controls that are not superclassed.
+n	Non-dialog box controls (edit controls and list boxes) whose parents do not have the WS_CLIPCHILDREN style.
+n	CTL3D does not subclass buttons that have the BS_OWNERDRAW or BS_LEFTTEXT style.
+n	CTL3D does not subclass static controls that have the SS_ICON, SS_LEFT, SS_CENTER, SS_LEFTNOWORDWRAP, or SS_SIMPLE style.
+n	CTL3D creates 3-D effects for list boxes and edit controls outside the control's client area. For this reason, the controls appear larger than specified in the dialog definition or CreateWindow for the control. The application designer may need to tweak the size of controls to account for this increase.
+n	CTL3D handles static frame controls differently than Windows does. In fact, CTL3D implements its own static rectangles and frames:
+n	Static controls with the SS_BLACKRECT or SS_BLACKFRAME style are drawn as inset 3-D rectangles.
+n	Static controls with the SS_GRAYRECT or SS_GRAYFRAME style are drawn as bas-relief 3-D rectangles.
+n	Static controls with the SS_WHITERECT or SS_WHITEFRAME style are drawn as outset 3-D rectangles.
+	To stop CTL3D from using its own static controls, do not pass the CTL3D_STATICFRAMES flag to the Ctl3dSubclassDlg function. (See the "Function Reference" section later in this article for a description of Ctl3dSubclassDlg.)
+n	If static controls are not disabled (grayed), you need not pass CTL_3DSTATICTEXTS to the Ctl3dSubclassDlg or Ctl3dSubclassDlgEx function.
+n	For future compatibility, an application should not rely on subtle changes in the way CTL3D draws controls.
+n	CTL3D draws a 3-D border for dialogs that have the WS_DLGFRAME and DS_MODALFRAME styles. To disable this feature, see the WM_DLGBORDER message in the "Messages" section later in this article.
+n	When using automatic subclassing, CTL3D sends a WM_CTLCOLOR message to the application's dialog boxes. The application can respond to the message and return a handle to a brush, or it can return FALSE and have CTL3D respond to the message. Dialog procedures usually return FALSE when they do not handle a particular message, so additional programming is necessary only if the application wants to handle WM_CTLCOLOR messages for a particular dialog box.
+
