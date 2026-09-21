@@ -465,7 +465,7 @@ void CDataDlg::SetPicture(HDIB hDIB, const SCAN_IMAGE_INFO *pImageInfo)
 		if (pImageInfo->XResolution != 0) {
 			LPBITMAPINFO lpBmi;
 			lpBmi = (LPBITMAPINFO)::GlobalLock(m_hDIB);
-			if (lpBmi->bmiHeader.biXPelsPerMeter == 0) {
+			if (lpBmi != NULL && lpBmi->bmiHeader.biXPelsPerMeter == 0) {
 				lpBmi->bmiHeader.biXPelsPerMeter = (long)(pImageInfo->XResolution / 0.0254 + 0.5);
 				lpBmi->bmiHeader.biYPelsPerMeter = (long)(pImageInfo->YResolution / 0.0254 + 0.5);
 			}

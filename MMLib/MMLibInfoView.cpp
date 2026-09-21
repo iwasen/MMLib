@@ -6,7 +6,6 @@
 #include "MainFrm.h"
 #include "MMLibInfoView.h"
 #include "FindDb.h"
-#include "Shlwapi.h"
 #include "afxinet.h"
 
 #ifdef _DEBUG

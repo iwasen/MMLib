@@ -5,8 +5,6 @@
 #include "MMView.h"
 
 #include "MainFrm.h"
-#include "MMViewDoc.h"
-#include "MMPictView.h"
 #include "MMListView.h"
 #include "MMTextView.h"
 

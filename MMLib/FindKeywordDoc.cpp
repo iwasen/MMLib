@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "MMLib.h"
-#include "MMLibDoc.h"
 #include "FindKeywordDoc.h"
 #include "MakeIndexDlg.h"
 

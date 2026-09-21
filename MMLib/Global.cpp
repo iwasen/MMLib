@@ -3,7 +3,6 @@
 #include "Mml.h"
 #include "PictFile.h"
 #include <mapi.h>
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <shlwapi.h>
 
@@ -127,8 +126,10 @@ HANDLE CopyHandle(HANDLE hHandle)
 		BYTE *lpCopy = (BYTE *)::GlobalLock((HGLOBAL)hCopy);
 		BYTE *lp = (BYTE *)::GlobalLock((HGLOBAL)hHandle);
 
-		while (dwLen--)
-			*lpCopy++ = *lp++;
+		if (lpCopy != NULL && lp != NULL) {
+			while (dwLen--)
+				*lpCopy++ = *lp++;
+		}
 
 		::GlobalUnlock((HGLOBAL)hCopy);
 		::GlobalUnlock((HGLOBAL)hHandle);

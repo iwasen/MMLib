@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "MMView.h"
-
 #include "MainFrm.h"
 #include "MMViewDoc.h"
 #include "MMPictView.h"

@@ -3,9 +3,7 @@
 
 #include "stdafx.h"
 #include "MMLib.h"
-#include "MMLibDoc.h"
 #include "FindKeywordDoc.h"
-#include "FindKeywordFrame.h"
 #include "FindKeywordView.h"
 
 #ifdef _DEBUG

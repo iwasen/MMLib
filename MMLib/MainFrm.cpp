@@ -5,7 +5,6 @@
 #include "MMLib.h"
 #include "MMLibDoc.h"
 #include "MainFrm.h"
-#include "MMLibTreeView.h"
 #include "MMLibListView.h"
 #include "MMLibPictView.h"
 #include "MMLibInfoView.h"

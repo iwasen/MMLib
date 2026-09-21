@@ -329,13 +329,16 @@ static HDDEDATA CALLBACK DdeCallback(
 		case DDE_DATA:
 			pMmlibData = (MMLIBDATA *)DdeAccessData(hdata, &cbData);
 			HDIB hDIB = ::GlobalAlloc(GMEM_MOVEABLE, pMmlibData->size);
-			LPBYTE pDib = (LPBYTE)GlobalLock(hDIB);
-			memcpy(pDib, pMmlibData->dib, pMmlibData->size);
-			::GlobalUnlock(hDIB);
-			((CMMLibDoc *)theApp.m_pDocument)->InsertData(
+			if (hDIB != NULL) {
+				LPBYTE pDib = (LPBYTE)GlobalLock(hDIB);
+				if (pDib != NULL)
+					memcpy(pDib, pMmlibData->dib, pMmlibData->size);
+				::GlobalUnlock(hDIB);
+				((CMMLibDoc*)theApp.m_pDocument)->InsertData(
 					pMmlibData->folder.title, pMmlibData->folder.comment,
 					pMmlibData->data.title, pMmlibData->data.comment, hDIB, pMmlibData->text);
-			::GlobalFree(hDIB);
+				::GlobalFree(hDIB);
+			}
 			DdeUnaccessData(hdata);
 			return (HDDEDATA)DDE_FACK;
 		}
