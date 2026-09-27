@@ -54,7 +54,7 @@ void CItem::RemoveAll()
 	}
 }
 
-CItem *CItem::GetParent()
+CItem *CItem::GetParent() const
 {
 	HTREEITEM hItem = g_pTreeCtrl->GetParentItem(m_hItem);
 	if (hItem == NULL)

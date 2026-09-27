@@ -100,9 +100,10 @@ CMMViewApp theApp;
 
 BOOL CMMViewApp::InitInstance()
 {
-	INITCOMMONCONTROLSEX InitCtrls;
-	InitCtrls.dwSize = sizeof(InitCtrls);
-	InitCtrls.dwICC = ICC_WIN95_CLASSES;
+	INITCOMMONCONTROLSEX InitCtrls{
+		.dwSize = sizeof(InitCtrls),
+		.dwICC = ICC_WIN95_CLASSES
+	};
 	InitCommonControlsEx(&InitCtrls);
 
 	AfxEnableControlContainer();

@@ -627,7 +627,7 @@ void CMMPcsDB::CloseEx()
 	m_oDataDB2.DBClose();
 }
 
-BOOL CMMPcsDB::ReadLibraryEx(FOLDERREC *pLibraryRec)
+BOOL CMMPcsDB::ReadLibraryEx(FOLDERREC *pLibraryRec) const
 {
 	*pLibraryRec = m_oLibraryRec;
 
@@ -2186,7 +2186,7 @@ int CMMPcsDB::ReadPictureData(LPCTSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC 
 			if (pDataRec->nDpi > 0 && pDataRec->nDpi < 10000) {
 				LPBITMAPINFO lpBmi;
 				lpBmi = (LPBITMAPINFO)::GlobalLock(*phDIB1);
-				if (lpBmi->bmiHeader.biXPelsPerMeter == 0)
+				if (lpBmi != NULL && lpBmi->bmiHeader.biXPelsPerMeter == 0)
 					lpBmi->bmiHeader.biYPelsPerMeter = lpBmi->bmiHeader.biXPelsPerMeter = (long)(pDataRec->nDpi / 0.0254 + 0.5);
 				::GlobalUnlock(*phDIB1);
 			}
@@ -3124,7 +3124,7 @@ void CMMPcsDB::FlushData()
 	m_oDataDB.DBFlush();
 }
 
-BOOL CMMPcsDB::CheckPassword(CString sPassword)
+BOOL CMMPcsDB::CheckPassword(CString sPassword) const
 {
 	return (m_sPassword == sPassword);
 }
@@ -3136,7 +3136,7 @@ void CMMPcsDB::SetPassword(CString sPassword)
 	UpdateFolder(&m_oLibraryRec);
 }
 
-BOOL CMMPcsDB::CheckPermission(DWORD dwPermission)
+BOOL CMMPcsDB::CheckPermission(DWORD dwPermission) const
 {
 	return (m_dwPermission & dwPermission) ? TRUE : FALSE;
 }

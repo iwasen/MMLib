@@ -38,7 +38,7 @@ protected:
 	void ReadPictureInfo();
 	void DrawList(CDC *pDC, CItem *pItem);
 	void DrawPicture(CDC *pDC);
-	CItemData *GetItemByPoint(CPoint point);
+	CItemData *GetItemByPoint(CPoint point) const;
 	void DrawSelect(CDC* pDC, BOOL bSelect = TRUE);
 	void SetViewFont();
 	void OpenPictFrame();

@@ -131,6 +131,19 @@ int CMyEdit::operator=(int nParam)
 	return nParam;
 }
 
+long CMyEdit::operator=(long nParam)
+{
+	CString sStr1, sStr2;
+
+	sStr1.Format("%ld", nParam);
+	GetWindowText(sStr2);
+
+	if (sStr1 != sStr2)
+		SetWindowText(sStr1);
+
+	return nParam;
+}
+
 double CMyEdit::operator=(double fParam)
 {
 	CString sStr1, sStr2;

@@ -609,9 +609,7 @@ void CMMPictView::OnUpdate(CView* /*pSender*/, LPARAM lHint, CObject* /*pHint*/)
 void CMMPictView::DrawItems()
 {
 	if (m_nMapMode > 0) {
-		POINT point;
-		point.x = 0;
-		point.y = 0;
+		POINT point{};
 		ScrollToPosition(point);
 	}
 

@@ -38,6 +38,7 @@ protected:
 	void CloseFile();
 	void ReadCurrentPage();
 	void SetStatusInfo(LPCTSTR pInfoMsg);
+	static UINT ReadThread(LPVOID pParam);
 	void CreateReadThread();
 
 	DECLARE_MESSAGE_MAP()

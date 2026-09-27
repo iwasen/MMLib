@@ -283,7 +283,7 @@ void CMMViewDoc::SetStatusInfo(LPCTSTR pInfoMsg)
 		g_sStatusInfo.Empty();
 }
 
-UINT ReadThread(LPVOID pParam)
+UINT CMMViewDoc::ReadThread(LPVOID pParam)
 {
 	CMMViewDoc *pDoc = (CMMViewDoc *)pParam;
 
@@ -313,11 +313,8 @@ void CMMViewDoc::OnSetfont()
 {
 	CWinApp *pWinApp = AfxGetApp();
 	CWnd *pMainWnd = AfxGetMainWnd();
-	LOGFONT	lf;
-	char	szStyle[LF_FACESIZE];
-
-	memset(&lf, 0, sizeof(lf));
-	memset(szStyle, 0, sizeof(szStyle));
+	LOGFONT	lf{};
+	char	szStyle[LF_FACESIZE]{};
 
 	CFontDialog	fontDialog(&lf, 0, NULL, pMainWnd);
 	fontDialog.m_cf.lStructSize = sizeof(CHOOSEFONT);

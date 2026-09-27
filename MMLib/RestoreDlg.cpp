@@ -106,16 +106,19 @@ int CALLBACK CRestoreDlg::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lP
 {
 	CRestoreDlg *pDlg = (CRestoreDlg *)lParamSort;
 	CListCtrl &dataList = pDlg->m_cBackupList;
-	LV_FINDINFO findInfo;
 	int index1, index2;
 
-	findInfo.flags = LVFI_PARAM;
-	findInfo.lParam = lParam1;
-	index1 = dataList.FindItem(&findInfo);
+	LV_FINDINFO findInfo1{
+		.flags = LVFI_PARAM,
+		.lParam = lParam1
+	};
+	index1 = dataList.FindItem(&findInfo1);
 
-	findInfo.flags = LVFI_PARAM;
-	findInfo.lParam = lParam2;
-	index2 = dataList.FindItem(&findInfo);
+	LV_FINDINFO findInfo2{
+		.flags = LVFI_PARAM,
+		.lParam = lParam2
+	};
+	index2 = dataList.FindItem(&findInfo2);
 
 	return dataList.GetItemText(index1, pDlg->m_nSortItem).Compare(dataList.GetItemText(index2, pDlg->m_nSortItem)) * pDlg->m_nSortDir;
 }
@@ -123,9 +126,6 @@ int CALLBACK CRestoreDlg::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lP
 void CRestoreDlg::OnDelete()
 {
 	POSITION pos;
-	int nIndex;
-	CString *pBackupPath;
-
 	if ((pos = m_cBackupList.GetFirstSelectedItemPosition()) == NULL) {
 		::AfxMessageBox(IDS_SELECT_DELETE_LIBRARY);
 		return;
@@ -134,9 +134,9 @@ void CRestoreDlg::OnDelete()
 	if (::AfxMessageBox(IDS_DELETE_SELECTED_LIBRARY, MB_OKCANCEL | MB_ICONQUESTION) != IDOK)
 		return;
 
-	nIndex = m_cBackupList.GetNextSelectedItem(pos);
+	int nIndex = m_cBackupList.GetNextSelectedItem(pos);
 
-	pBackupPath = (CString *)m_cBackupList.GetItemData(nIndex);
+	CString *pBackupPath = (CString *)m_cBackupList.GetItemData(nIndex);
 	::DeleteDirectory(*pBackupPath);
 
 	SetBackupList();

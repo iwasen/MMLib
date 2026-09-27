@@ -84,8 +84,7 @@ void CMMLibTreeView::OnInitialUpdate()
 
 	g_pItemInbox = ::OpenInbox();
 	if (g_pItemInbox != NULL) {
-		TV_INSERTSTRUCT tvis;
-		memset(&tvis, 0, sizeof(tvis));
+		TV_INSERTSTRUCT tvis{};
 		tvis.hParent = m_hTreeRoot;
 		tvis.hInsertAfter = TVI_LAST;
 		tvis.item.mask = TVIF_HANDLE | TVIF_IMAGE | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_TEXT | TVIF_CHILDREN;
@@ -231,12 +230,11 @@ void CMMLibTreeView::AddLibrary(CMMPcsDB *pPcsDB)
 	CWaitCursor waitCursor;
 	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
 	CTreeCtrl &tvc = GetTreeCtrl();
-	TV_INSERTSTRUCT tvis;
 
 	CItemFolder *pItem = new CItemFolder(pPcsDB);
 	pItem->m_nFolderType = FTYPE_LIBRARY;
 	if (pPcsDB->ReadLibraryEx(&pItem->m_oFolderRec)) {
-		memset(&tvis, 0, sizeof(tvis));
+		TV_INSERTSTRUCT tvis{};
 		tvis.hParent = m_hTreeRoot;
 		tvis.hInsertAfter = TVI_LAST;
 		tvis.item.mask = TVIF_HANDLE | TVIF_IMAGE | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_TEXT | TVIF_CHILDREN;
@@ -256,7 +254,6 @@ void CMMLibTreeView::AddLibrary(CMMPcsDB *pPcsDB)
 void CMMLibTreeView::AddPendingLibrary(CAddItemPending *pAddItemPending)
 {
 	CTreeCtrl &tvc = GetTreeCtrl();
-	TV_INSERTSTRUCT tvis;
 
 	CItemPending *pItem = new CItemPending;
 
@@ -267,7 +264,7 @@ void CMMLibTreeView::AddPendingLibrary(CAddItemPending *pAddItemPending)
 	pItem->m_sLibraryID = pAddItemPending->m_sLibraryID;
 	pItem->m_nCacheMode = pAddItemPending->m_nCacheMode;
 
-	memset(&tvis, 0, sizeof(tvis));
+	TV_INSERTSTRUCT tvis{};
 	tvis.hParent = m_hTreeRoot;
 	tvis.hInsertAfter = TVI_LAST;
 	tvis.item.mask = TVIF_HANDLE | TVIF_IMAGE | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_TEXT | TVIF_CHILDREN;
@@ -323,8 +320,7 @@ CItemFolder *CMMLibTreeView::AddFolder(HTREEITEM hItem, CMMPcsDB *pPcsDB, FOLDER
 	pItem->m_nFolderType = pFolderRec->sFolderType[0];
 	pItem->m_oFolderRec = *pFolderRec;
 
-	TV_INSERTSTRUCT tvis;
-	memset(&tvis, 0, sizeof(tvis));
+	TV_INSERTSTRUCT tvis{};
 	tvis.hParent = hItem;
 	tvis.hInsertAfter = TVI_LAST;
 	tvis.item.mask = TVIF_HANDLE | TVIF_IMAGE | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_TEXT | TVIF_CHILDREN;
@@ -343,8 +339,7 @@ CItemData *CMMLibTreeView::AddData(HTREEITEM hItem, CMMPcsDB *pPcsDB, DATAREC *p
 	CItemData *pItem = new CItemData(pPcsDB);
 	pItem->m_oDataRec = *pDataRec;
 
-	TV_INSERTSTRUCT tvis;
-	memset(&tvis, 0, sizeof(tvis));
+	TV_INSERTSTRUCT tvis{};
 	tvis.hParent = hItem;
 	tvis.hInsertAfter = TVI_LAST;
 	tvis.item.mask = TVIF_HANDLE | TVIF_IMAGE | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_TEXT;
@@ -364,8 +359,7 @@ void CMMLibTreeView::AddFind(CAddItemFind *pAddItemFind)
 	pItem->m_nFindType = pAddItemFind->m_pFindRec->sFindType[0];
 	pItem->m_bSave = pAddItemFind->m_bSave;
 
-	TV_INSERTSTRUCT tvis;
-	memset(&tvis, 0, sizeof(tvis));
+	TV_INSERTSTRUCT tvis{};
 	tvis.hParent = pAddItemFind->m_pItemParent->m_hItem;
 	tvis.hInsertAfter = TVI_LAST;
 	tvis.item.mask = TVIF_HANDLE | TVIF_IMAGE | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_TEXT | TVIF_CHILDREN;
@@ -561,9 +555,8 @@ void CMMLibTreeView::ReFindItem(CItem *pItem)
 
 void CMMLibTreeView::SetChildren(HTREEITEM hItem, BOOL bChild)
 {
-	TV_ITEM tvi;
+	TV_ITEM tvi{};
 
-	memset(&tvi, 0, sizeof(tvi));
 	tvi.hItem = hItem;
 	tvi.mask = TVIF_CHILDREN;
 	tvi.cChildren = bChild;
@@ -1192,11 +1185,11 @@ CItemData *CMMLibTreeView::FindChildData(CItem *pItem, LPCTSTR pDataID)
 
 void CMMLibTreeView::SortItem(CItem *pItem)
 {
-	TVSORTCB tvSort;
-
-	tvSort.hParent = pItem->m_hItem;
-	tvSort.lpfnCompare = CompareFunc;
-	tvSort.lParam = (LPARAM)this;
+	TVSORTCB tvSort{
+		.hParent = pItem->m_hItem,
+		.lpfnCompare = CompareFunc,
+		.lParam = (LPARAM)this
+	};
 
 	GetTreeCtrl().SortChildrenCB(&tvSort);
 }
@@ -1467,7 +1460,7 @@ void CMMLibTreeView::SetTextDataItems()
 	}
 }
 
-LPCTSTR CMMLibTreeView::DataItemText(CItemData *pItemData)
+LPCTSTR CMMLibTreeView::DataItemText(CItemData *pItemData) const
 {
 	static CString sText;
 

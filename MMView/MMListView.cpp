@@ -173,7 +173,6 @@ void CMMListView::InsertColumns()
 		IDS_NAME, IDS_CODE, IDS_CREATE_DATE, IDS_UPDATE_DATE, IDS_CREATOR, IDS_REMARK, IDS_KEYWORD
 	};
 	int i;
-	LV_COLUMN lvc;
 	CListCtrl &listCtrl = GetListCtrl();
 
 	listCtrl.DeleteAllItems();
@@ -184,10 +183,12 @@ void CMMListView::InsertColumns()
 	m_nColumn = 0;
 	for (i = 0; i < DETAIL_NUM; i++) {
 		if (m_bDetailFlag[i]) {
-			lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT;
-			lvc.fmt = LVCFMT_LEFT;
-			lvc.pszText = (LPTSTR)(LPCSTR)GetString(header[i]);
-			lvc.cx = CDpi::AdjustDpi(m_nDetailWidth[i]);
+			LV_COLUMN lvc{
+				.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
+				.fmt = LVCFMT_LEFT,
+				.cx = CDpi::AdjustDpi(m_nDetailWidth[i]),
+				.pszText = (LPTSTR)(LPCSTR)GetString(header[i])
+			};
 			listCtrl.InsertColumn(i, &lvc);
 			m_nColumn++;
 		}
@@ -213,16 +214,19 @@ int CALLBACK CMMListView::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lP
 {
 	CMMListView *pView = (CMMListView *)lParamSort;
 	CListCtrl &lvc = pView->GetListCtrl();
-	LV_FINDINFO findInfo;
 	int index1, index2;
 
-	findInfo.flags = LVFI_PARAM;
-	findInfo.lParam = lParam1;
-	index1 = lvc.FindItem(&findInfo);
+	LV_FINDINFO findInfo1{
+		.flags = LVFI_PARAM,
+		.lParam = lParam1
+	};
+	index1 = lvc.FindItem(&findInfo1);
 
-	findInfo.flags = LVFI_PARAM;
-	findInfo.lParam = lParam2;
-	index2 = lvc.FindItem(&findInfo);
+	LV_FINDINFO findInfo2{
+		.flags = LVFI_PARAM,
+		.lParam = lParam2
+	};
+	index2 = lvc.FindItem(&findInfo2);
 
 	if (pView->m_bDetailFlag[0] && pView->m_nSortItem == 0)
 		return CompareTitle(lvc.GetItemText(index1, pView->m_nSortItem), lvc.GetItemText(index2, pView->m_nSortItem)) * pView->m_nSortDir;

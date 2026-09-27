@@ -27,6 +27,7 @@ CItem::~CItem()
 {
 	if (m_hDIB1 != NULL)
 		::MMPictureFree(m_hDIB1);
+
 	if (m_hDIB2 != NULL)
 		::MMPictureFree(m_hDIB2);
 }

@@ -57,7 +57,7 @@ protected:
 	void SetViewFont();
 	void SortAllItems();
 	void SetTextDataItems();
-	LPCTSTR DataItemText(CItemData *pItemData);
+	LPCTSTR DataItemText(CItemData *pItemData) const;
 	void SelectData(CSelectItem *pSelectItem);
 	BOOL SelectDataSub(CSelectItem *pSelectItem);
 	HTREEITEM SelectFolder(HTREEITEM hItemLibrary, CMMPcsDB *pPcsDB, CString &sFolderID, int nCount);

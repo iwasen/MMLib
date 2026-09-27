@@ -48,7 +48,7 @@ protected:
 	const char *m_pRegistryName;
 
 	void InitDDE();
-	void UninitDDE();
+	void UninitDDE() const;
 	void CopyInifileToRegistory();
 
 	DECLARE_MESSAGE_MAP()

@@ -3273,7 +3273,6 @@ void CMMLibDoc::OnUpdateImageFileOutput(CCmdUI *pCmdUI)
 void CMMLibDoc::OnImageFilesOutput()
 {
 	char dst_file[MAX_PATH];
-	BROWSEINFO binfo;
 	LPITEMIDLIST idlist;
 	CString sTitle;
 
@@ -3282,14 +3281,16 @@ void CMMLibDoc::OnImageFilesOutput()
 		case ITEM_FOLDER:
 			sTitle.LoadString(IDS_OUTPUT_IMAGES_FOLDER);
 			strcpy_s(dst_file, m_OutputImagesFolder);
-			binfo.hwndOwner = ::AfxGetMainWnd()->m_hWnd;
-			binfo.pidlRoot = NULL;
-			binfo.pszDisplayName = dst_file;
-			binfo.lpszTitle = sTitle;
-			binfo.ulFlags = BIF_RETURNONLYFSDIRS | BIF_USENEWUI;
-			binfo.lpfn = &BrowseCallbackProc;
-			binfo.lParam = (LPARAM)dst_file;
-			binfo.iImage = (int)NULL;
+			BROWSEINFO binfo{
+				.hwndOwner = ::AfxGetMainWnd()->m_hWnd,
+				.pidlRoot = NULL,
+				.pszDisplayName = dst_file,
+				.lpszTitle = sTitle,
+				.ulFlags = BIF_RETURNONLYFSDIRS | BIF_USENEWUI,
+				.lpfn = &BrowseCallbackProc,
+				.lParam = (LPARAM)dst_file,
+				.iImage = (int)NULL
+			};
 			idlist = ::SHBrowseForFolder(&binfo);
 			if (idlist) {
 				::SHGetPathFromIDList(idlist, dst_file);

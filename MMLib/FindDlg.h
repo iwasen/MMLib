@@ -48,7 +48,7 @@ protected:
 	void GetFindCondition();
 	void SetFindCondition();
 	void SetLibraryCombo();
-	long GetFindCount(const CItemFolder *pItemFolder);
+	long GetFindCount(const CItemFolder *pItemFolder) const;
 
 	DECLARE_MESSAGE_MAP()
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV サポート

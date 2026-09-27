@@ -19,7 +19,7 @@ public:
 	CItem *m_pNextSelected;
 
 	static void RemoveAll();
-	CItem *GetParent();
+	CItem *GetParent() const;
 	virtual LPCTSTR GetID() = 0;
 	virtual LPCTSTR GetTitle() = 0;
 	static CItem *GetHeadItem();

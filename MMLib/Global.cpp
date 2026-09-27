@@ -175,8 +175,7 @@ BOOL SendDocuments(LPCTSTR pFileName)
 		StrSplit(pFileName, ";", files);
 		int nFileCount = (int)files.GetCount();
 
-		MapiFileDesc *pMfd = new MapiFileDesc[nFileCount];
-		memset(pMfd, 0, sizeof(MapiFileDesc) * nFileCount);
+		MapiFileDesc *pMfd = new MapiFileDesc[nFileCount]();
 		for (int i = 0; i < nFileCount; i++) {
 			pMfd[i].lpszPathName = (LPSTR)(LPCSTR)files[i];
 			pMfd[i].nPosition = i;
@@ -184,8 +183,7 @@ BOOL SendDocuments(LPCTSTR pFileName)
 
 		CString spc(' ', nFileCount);
 
-		MapiMessage mms;
-		memset(&mms, 0, sizeof(mms));
+		MapiMessage mms{};
 		mms.lpFiles = pMfd;
 		mms.nFileCount = nFileCount;
 		mms.lpszNoteText = (LPSTR)(LPCSTR)spc;
@@ -981,10 +979,9 @@ void AutoNextNumbering(CString &sCode, int nStep)
 
 void ExecProcess(LPCTSTR pCommand)
 {
-	STARTUPINFO	siStartupInfo;
+	STARTUPINFO	siStartupInfo{};
 	PROCESS_INFORMATION	piProcInfo;
 
-	memset(&siStartupInfo, 0, sizeof(siStartupInfo));
 	siStartupInfo.cb = sizeof(siStartupInfo);
 	CreateProcess(NULL, (LPTSTR)pCommand, NULL, NULL, FALSE, NORMAL_PRIORITY_CLASS, NULL, ".", &siStartupInfo, &piProcInfo);
 	CloseHandle(piProcInfo.hThread);

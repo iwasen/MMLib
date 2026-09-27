@@ -49,8 +49,9 @@ void CFindKeywordFrame::OnClose()
 {
 	CWinApp *pWinApp = ::AfxGetApp();
 
-	WINDOWPLACEMENT winpl;
-	winpl.length = sizeof(WINDOWPLACEMENT);
+	WINDOWPLACEMENT winpl{
+		.length = sizeof(WINDOWPLACEMENT)
+	};
 	GetWindowPlacement(&winpl);
 
 	pWinApp->WriteProfileInt(g_sSectionFindWindow, "Left", winpl.rcNormalPosition.left);

@@ -155,8 +155,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,2,2,12
- PRODUCTVERSION 1,2,2,12
+ FILEVERSION 1,2,2,13
+ PRODUCTVERSION 1,2,2,13
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -174,13 +174,13 @@ BEGIN
             VALUE "Comments", "Written by Shinichi Aizawa"
             VALUE "CompanyName", "Yoshimasa Electronic Inc."
             VALUE "FileDescription", "MMLib executable file"
-            VALUE "FileVersion", "1.2.2.12"
+            VALUE "FileVersion", "1.2.2.13"
             VALUE "InternalName", "MMLib"
             VALUE "LegalCopyright", "Copyright (C) 2001-2026 Yoshimasa Electronic Inc."
             VALUE "LegalTrademarks", "YMEC"
             VALUE "OriginalFilename", "MMLib.EXE"
             VALUE "ProductName", "Multimedia Library Manager"
-            VALUE "ProductVersion", "1.2.2.12"
+            VALUE "ProductVersion", "1.2.2.13"
         END
     END
     BLOCK "VarFileInfo"

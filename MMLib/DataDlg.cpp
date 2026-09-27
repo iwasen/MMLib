@@ -338,13 +338,13 @@ void CDataDlg::GetPicture(int nMode)
 			CFileDialog dlg(TRUE, "bmp;jpg;png", NULL,
 				OFN_HIDEREADONLY,
 				GetString(IDS_PICTURE_FILE) + " (*.bmp;*.jpg;*.png)|*.bmp;*.jpg;*.png|All Files (*.*)|*.*||", this);
-			char strFileBuf[32767];
 
 			if (m_cAutoSave) {
+				CString sFileBuf;
 				dlg.m_ofn.Flags |= OFN_ALLOWMULTISELECT;
 				dlg.m_ofn.lpstrTitle = GetString(IDS_SELECT_PICT_FILE_MULTI);
-				dlg.m_ofn.lpstrFile = strFileBuf;
-				dlg.m_ofn.nMaxFile = sizeof(strFileBuf);
+				dlg.m_ofn.lpstrFile = sFileBuf.GetBuffer(32768);
+				dlg.m_ofn.nMaxFile = sFileBuf.GetAllocLength();
 				if (dlg.DoModal() == IDOK) {
 					POSITION pos;
 					CString pathName;

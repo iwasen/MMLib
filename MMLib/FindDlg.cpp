@@ -237,7 +237,7 @@ void CFindDlg::OnGetfindnum()
 	m_cFindNum = nFindNum;
 }
 
-long CFindDlg::GetFindCount(const CItemFolder *pItemFolder)
+long CFindDlg::GetFindCount(const CItemFolder *pItemFolder) const
 {
 	CMMPcsDB *pPcsDB = pItemFolder->m_pPcsDB;
 	long nCount, nFindCount = 0;

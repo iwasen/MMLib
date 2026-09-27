@@ -46,7 +46,7 @@ public:
 	void ReOpenEx();
 	BOOL CreateEx(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCTSTR pDirName, int nOpenMode, FOLDERREC *pLibraryRec);
 	void CloseEx();
-	BOOL ReadLibraryEx(FOLDERREC *pLibraryRec);
+	BOOL ReadLibraryEx(FOLDERREC *pLibraryRec) const;
 	BOOL ReadFolderEx(LPCTSTR pFID, FOLDERREC *pFolderRec);
 	BOOL ReadChildFolderEx(LPCTSTR pFID, FOLDERREC *pFolderRec, BOOL bFirst);
 	BOOL AddFolderEx(FOLDERREC *pFolderRec);
@@ -81,9 +81,9 @@ public:
 	BOOL PackFileEx();
 	BOOL BackupEx(LPCTSTR pBackupDir, CProgressCtrl *pProgress);
 	BOOL RestoreEx(LPCTSTR pBackupDir, CProgressCtrl *pProgress);
-	BOOL CheckPassword(CString sPassword);
+	BOOL CheckPassword(CString sPassword) const;
 	void SetPassword(CString sPassword);
-	BOOL CheckPermission(DWORD dwPermission);
+	BOOL CheckPermission(DWORD dwPermission) const;
 	void SetPermission(DWORD dwPermission);
 	int SetFolderIndex(int nIndexNo, int nIndexNo2 = -1);
 	int SetDataIndex(int nIndexNo, int nIndexNo2 = -1);

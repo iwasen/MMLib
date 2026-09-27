@@ -62,7 +62,6 @@ void CFindKeywordView::InsertColumns()
 		{IDS_KEYWORD, LVCFMT_LEFT, 100},
 		{IDS_CREATE_DATE, LVCFMT_LEFT, 110}
 	};
-	LV_COLUMN lvc;
 
 	CStringArray saColumnWidth;
 	CString sColumnWidth = theApp.GetProfileString(g_sSectionFindWindow, "ColumnWidth");
@@ -70,10 +69,12 @@ void CFindKeywordView::InsertColumns()
 	BOOL bColumnWidth = saColumnWidth.GetCount() != 0 && atoi(saColumnWidth[0]) == 1;
 
 	for (int i = 0; i < sizeof(tColumn) / sizeof(LISTCOLUMN); i++) {
-		lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT;
-		lvc.fmt = tColumn[i].nFmt;
-		lvc.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].nText);
-		lvc.cx = bColumnWidth ? atoi(saColumnWidth[i + 1]) : tColumn[i].nWidth;
+		LV_COLUMN lvc{
+			.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
+			.fmt = tColumn[i].nFmt,
+			.cx = bColumnWidth ? atoi(saColumnWidth[i + 1]) : tColumn[i].nWidth,
+			.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].nText)
+		};
 		GetListCtrl().InsertColumn(i, &lvc);
 	}
 }
@@ -255,16 +256,19 @@ int CALLBACK CFindKeywordView::CompareItems(LPARAM lParam1, LPARAM lParam2, LPAR
 {
 	CFindKeywordView *pView = (CFindKeywordView *)lParamSort;
 	CListCtrl &lc = pView->GetListCtrl();
-	LV_FINDINFO oFindInfo;
 	int nIndex1, nIndex2;
 
-	oFindInfo.flags = LVFI_PARAM;
-	oFindInfo.lParam = lParam1;
-	nIndex1 = lc.FindItem(&oFindInfo);
+	LV_FINDINFO oFindInfo1{
+		.flags = LVFI_PARAM,
+		.lParam = lParam1
+	};
+	nIndex1 = lc.FindItem(&oFindInfo1);
 
-	oFindInfo.flags = LVFI_PARAM;
-	oFindInfo.lParam = lParam2;
-	nIndex2 = lc.FindItem(&oFindInfo);
+	LV_FINDINFO oFindInfo2{
+		.flags = LVFI_PARAM,
+		.lParam = lParam2
+	};
+	nIndex2 = lc.FindItem(&oFindInfo2);
 
 	return lc.GetItemText(nIndex1, pView->m_nSortItem).CompareNoCase(lc.GetItemText(nIndex2, pView->m_nSortItem)) * pView->m_nSortDir;
 }

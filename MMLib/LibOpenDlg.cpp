@@ -167,7 +167,6 @@ void CLibOpenDlg::OnReference()
 
 void CLibOpenDlg::ReferenceLocal()
 {
-    BROWSEINFO bInfo;
     LPITEMIDLIST pIDList;
 	char buf[_MAX_PATH];
 	CString sTitle;
@@ -175,14 +174,16 @@ void CLibOpenDlg::ReferenceLocal()
 	sTitle.LoadString(IDS_MMLIB_FOLDER);
 	buf[0] = '\0';
     // BROWSEINFO構造体に値を設定
-    bInfo.hwndOwner             = m_hWnd;				// ダイアログの親ウインドウのハンドル
-    bInfo.pidlRoot              = NULL;					// ルートフォルダを示すITEMIDLISTのポインタ (NULLの場合デスクトップフォルダが使われます）
-    bInfo.pszDisplayName        = buf;					// 選択されたフォルダ名を受け取るバッファのポインタ
-    bInfo.lpszTitle             = sTitle;				// ツリービューの上部に表示される文字列 
-    bInfo.ulFlags               = BIF_RETURNONLYFSDIRS;	// 表示されるフォルダの種類を示すフラグ
-    bInfo.lpfn                  = BrowseCallbackProc;	// BrowseCallbackProc関数のポインタ
-    bInfo.lParam                = (LPARAM)buf;			// コールバック関数に渡す値
- 
+	BROWSEINFO bInfo{
+		.hwndOwner = m_hWnd,				// ダイアログの親ウインドウのハンドル
+		.pidlRoot = NULL,					// ルートフォルダを示すITEMIDLISTのポインタ (NULLの場合デスクトップフォルダが使われます）
+		.pszDisplayName = buf,					// 選択されたフォルダ名を受け取るバッファのポインタ
+		.lpszTitle = sTitle,				// ツリービューの上部に表示される文字列 
+		.ulFlags = BIF_RETURNONLYFSDIRS,	// 表示されるフォルダの種類を示すフラグ
+		.lpfn = BrowseCallbackProc,	// BrowseCallbackProc関数のポインタ
+		.lParam = (LPARAM)buf				// コールバック関数に渡す値
+	};
+
     // フォルダ選択ダイアログを表示
     pIDList = ::SHBrowseForFolder(&bInfo);
     if(pIDList != NULL){

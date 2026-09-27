@@ -560,7 +560,7 @@ BOOL CMMLibPictView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	return CScrollView::OnSetCursor(pWnd, nHitTest, message);
 }
 
-CItemData *CMMLibPictView::GetItemByPoint(CPoint point)
+CItemData *CMMLibPictView::GetItemByPoint(CPoint point) const
 {
 	if (m_pCurrentItem == NULL)
 		return NULL;

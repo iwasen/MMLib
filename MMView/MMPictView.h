@@ -29,7 +29,6 @@ protected:
 	void DrawPicture(CDC *pDC);
 	void DrawIcon(CDC *pDC);
 	int GetItemByPoint(CPoint point);
-	void SetPictScrollSize();
 
 	DECLARE_MESSAGE_MAP()
 	virtual void OnDraw(CDC* pDC);  // このビューを描画する際にオーバーライドされます。

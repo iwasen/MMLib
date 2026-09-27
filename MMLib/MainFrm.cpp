@@ -283,8 +283,9 @@ void CMainFrame::OnClose()
 {
 	CWinApp *pWinApp = ::AfxGetApp();
 
-	WINDOWPLACEMENT winpl;
-	winpl.length = sizeof(WINDOWPLACEMENT);
+	WINDOWPLACEMENT winpl{
+		.length = sizeof(WINDOWPLACEMENT)
+	};
 	GetWindowPlacement(&winpl);
 
 	pWinApp->WriteProfileInt(g_sSectionMainWindow, "Left", winpl.rcNormalPosition.left);
@@ -584,7 +585,6 @@ void CMainFrame::RefreshTransMenu()
 	CString sEntry;
 	CString sAppName;
 	MENUITEMINFO mii;
-	ICONINFO iconInfo;
 	HICON hIcon = NULL;
 	int nIcon;
 
@@ -625,7 +625,8 @@ void CMainFrame::RefreshTransMenu()
 			nIcon = 0;
 			break;
 		}
-		memset(&iconInfo, 0, sizeof(iconInfo));
+
+		ICONINFO iconInfo{};
 		if (nIcon > 0) {
 			::GetIconInfo(hIcon, &iconInfo);
 			::DeleteObject(iconInfo.hbmMask);

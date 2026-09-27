@@ -169,15 +169,18 @@ int CALLBACK CBackupDlg::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lPa
 {
 	CBackupDlg *pDlg = (CBackupDlg *)lParamSort;
 	CListCtrl &oDataList = pDlg->m_cBackupList;
-	LV_FINDINFO findInfo;
 
-	findInfo.flags = LVFI_PARAM;
-	findInfo.lParam = lParam1;
-	int nIndex1 = oDataList.FindItem(&findInfo);
+	LV_FINDINFO findInfo1{
+		.flags = LVFI_PARAM,
+		.lParam = lParam1
+	};
+	int nIndex1 = oDataList.FindItem(&findInfo1);
 
-	findInfo.flags = LVFI_PARAM;
-	findInfo.lParam = lParam2;
-	int nIndex2 = oDataList.FindItem(&findInfo);
+	LV_FINDINFO findInfo2{
+		.flags = LVFI_PARAM,
+		.lParam = lParam2
+	};
+	int nIndex2 = oDataList.FindItem(&findInfo2);
 
 	return oDataList.GetItemText(nIndex1, pDlg->m_nSortItem).Compare(oDataList.GetItemText(nIndex2, pDlg->m_nSortItem)) * pDlg->m_nSortDir;
 }

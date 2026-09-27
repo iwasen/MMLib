@@ -63,13 +63,14 @@ void CAccessLogDlg::InsertColumns()
 		{IDS_FOLDER, LVCFMT_LEFT, 200},
 		{IDS_CREATE_DATE, LVCFMT_LEFT, 110}
 	};
-	LV_COLUMN lvc;
 
 	for (int i = 0; i < sizeof(tColumn) / sizeof(LISTCOLUMN); i++) {
-		lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT;
-		lvc.fmt = tColumn[i].fmt;
-		lvc.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].text);
-		lvc.cx = CDpi::AdjustDpi(tColumn[i].width);
+		LV_COLUMN lvc{
+			.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
+			.fmt = tColumn[i].fmt,
+			.cx = CDpi::AdjustDpi(tColumn[i].width),
+			.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].text)
+		};
 		m_cListAccessLog.InsertColumn(i, &lvc);
 	}
 }

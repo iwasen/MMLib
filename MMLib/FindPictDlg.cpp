@@ -64,13 +64,14 @@ void CFindPictDlg::InsertColumns()
 		{IDS_REMARK, LVCFMT_LEFT, 150},
 		{IDS_KEYWORD, LVCFMT_LEFT, 150}
 	};
-	LV_COLUMN lvc;
 
 	for (int i = 0; i < sizeof(tColumn) / sizeof(LISTCOLUMN); i++) {
-		lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT;
-		lvc.fmt = tColumn[i].nFmt;
-		lvc.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].nText);
-		lvc.cx = CDpi::AdjustDpi(tColumn[i].nWidth, i == 2 ? 100 : 90);
+		LV_COLUMN lvc{
+			.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
+			.fmt = tColumn[i].nFmt,
+			.cx = CDpi::AdjustDpi(tColumn[i].nWidth, i == 2 ? 100 : 90),
+			.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].nText),
+		};
 		m_cListFind.InsertColumn(i, &lvc);
 	}
 }
@@ -227,11 +228,11 @@ void CFindPictDlg::OnLvnItemchangedListFind(NMHDR *pNMHDR, LRESULT *pResult)
 		if (pNMLV->uNewState & LVIS_SELECTED) {
 			CPSDB &oDataDB = m_pItemData->m_pPcsDB->m_oDataDB;
 			CSelectItem oSelectItem;
-			DATABUF oDataBuf;
-			DATAREC oDataRec;
 
 			oDataDB.DBSearch(m_aDataID[pNMLV->iItem], LEN_ID);
+			DATABUF oDataBuf;
 			oDataDB.DBRead(&oDataBuf);
+			DATAREC oDataRec;
 			oDataDB.DBGetFieldBuf(&oDataBuf, &oDataRec);
 
 			oSelectItem.m_sLibraryID = m_pItemData->m_pPcsDB->m_sLibraryID;
@@ -256,12 +257,12 @@ int CFindPictDlg::Compare(const void *p1, const void *p2)
 void CFindPictDlg::GetFolder(const CString &sFolderId, CString &sFolder)
 {
 	CPSDB &oFolderDB = m_pItemData->m_pPcsDB->m_oFolderDB;
-	FOLDERBUF oFolderBuf;
-	FOLDERREC oFolderRec;
 	int nFind;
 
+	FOLDERBUF oFolderBuf;
 	if (oFolderDB.DBReadKey((LPCSTR)sFolderId, LEN_ID, &oFolderBuf, 0, &nFind) == 0) {
 		if (nFind) {
+			FOLDERREC oFolderRec;
 			oFolderDB.DBGetFieldBuf(&oFolderBuf, &oFolderRec);
 
 			if (oFolderRec.sFolderType != FTYPE_LIBRARY) {

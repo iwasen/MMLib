@@ -33,14 +33,12 @@ CMmlWrite::~CMmlWrite()
 
 BOOL CMmlWrite::Create(LPCTSTR pFileName)
 {
-	FILE_HEADER oFileHeader;
-
 	if (!m_oFile.Open(pFileName, CFile::modeCreate | CFile::modeWrite | CFile::shareExclusive))
 		return FALSE;
 
 	m_bNewPage = TRUE;
 
-	memset(&oFileHeader, 0, sizeof(oFileHeader));
+	FILE_HEADER oFileHeader{};
 	m_oFile.Write(&oFileHeader, sizeof(oFileHeader));
 
 	return TRUE;
@@ -48,8 +46,6 @@ BOOL CMmlWrite::Create(LPCTSTR pFileName)
 
 BOOL CMmlWrite::WriteItem(LPCTSTR pItemName, LPCVOID pData, long len)
 {
-	ITEM_HEADER oItemHeader;
-
 	if (m_oFile.m_hFile == CFile::hFileNull)
 		return FALSE;
 
@@ -63,8 +59,10 @@ BOOL CMmlWrite::WriteItem(LPCTSTR pItemName, LPCVOID pData, long len)
 
 	m_pPageListBottom->nItem++;
 
-	oItemHeader.nItemNo = (short)GetItemNo(pItemName);
-	oItemHeader.nLength = len;
+	ITEM_HEADER oItemHeader{
+		.nItemNo = (short)GetItemNo(pItemName),
+		.nLength = len
+	};
 	m_oFile.Write(&oItemHeader, sizeof(oItemHeader));
 
 	m_oFile.Write(pData, len);
@@ -84,7 +82,6 @@ void CMmlWrite::Close()
 	PageList *pPageList, *pPageListNext;
 	ItemNameList *pItemNameList, *pItemNameListNext;
 	int n;
-	PAGE_TABLE oPageTable;
 	char aItemName[10];
 
 	if (m_oFile.m_hFile == CFile::hFileNull)
@@ -95,8 +92,10 @@ void CMmlWrite::Close()
 
 	for (pPageList = m_pPageListTop, n = 0; pPageList != NULL; pPageList = pPageListNext, n++) {
 		pPageListNext = pPageList->pChain;
-		oPageTable.nOffset = pPageList->nOffset;
-		oPageTable.nItem = pPageList->nItem;
+		PAGE_TABLE oPageTable{
+			.nOffset = pPageList->nOffset,
+			.nItem = pPageList->nItem
+		};
 		m_oFile.Write(&oPageTable, sizeof(oPageTable));
 		delete pPageList;
 	}

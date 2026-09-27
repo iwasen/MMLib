@@ -495,7 +495,6 @@ void CMMLibListView::InsertColumns(int nDetailDisp)
 	};
 
 	int i, nDetailNo;
-	LVCOLUMN lvc;
 	CListCtrl &listCtrl = GetListCtrl();
 	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
 
@@ -510,10 +509,12 @@ void CMMLibListView::InsertColumns(int nDetailDisp)
 	for (i = 0; i < DETAIL_NUM; i++) {
 		nDetailNo = g_tColumnOrder[i];
 		if (pDoc->m_bDetailFlag[nDetailDisp][nDetailNo]) {
-			lvc.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT;
-			lvc.fmt = LVCFMT_LEFT;
-			lvc.pszText = (LPTSTR)(LPCSTR)GetString(header[nDetailNo]);
-			lvc.cx = CDpi::AdjustDpi(pDoc->m_nDetailWidth[nDetailDisp][nDetailNo]);
+			LVCOLUMN lvc{
+				.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
+				.fmt = LVCFMT_LEFT,
+				.cx = CDpi::AdjustDpi(pDoc->m_nDetailWidth[nDetailDisp][nDetailNo]),
+				.pszText = (LPTSTR)(LPCSTR)GetString(header[nDetailNo])
+			};
 			listCtrl.InsertColumn(m_nColumn, &lvc);
 			m_nCurrentDetailNo[m_nColumn] = nDetailNo;
 			m_nColumn++;
@@ -530,11 +531,12 @@ void CMMLibListView::SaveColumnWidth()
 	CListCtrl &listCtrl = GetListCtrl();
 	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
 	int i, nDetailNo;
-	LVCOLUMN lvc;
 
 	if (m_nCurrentDetailDisp != DETAIL_NONE) {
 		for (i = 0; i < m_nColumn; i++) {
-			lvc.mask = LVCF_WIDTH;
+			LVCOLUMN lvc{
+				.mask = LVCF_WIDTH
+			};
 			listCtrl.GetColumn(i, &lvc);
 			nDetailNo = m_nCurrentDetailNo[i];
 			pDoc->m_nDetailWidth[m_nCurrentDetailDisp][nDetailNo] = CDpi::OriginalDpi(lvc.cx);
@@ -960,15 +962,18 @@ int CALLBACK CMMLibListView::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM
 {
 	CMMLibListView *pView = (CMMLibListView *)lParamSort;
 	CListCtrl &lvc = pView->GetListCtrl();
-	LV_FINDINFO findInfo;
 
-	findInfo.flags = LVFI_PARAM;
-	findInfo.lParam = lParam1;
-	int index1 = lvc.FindItem(&findInfo);
+	LV_FINDINFO findInfo1{
+		.flags = LVFI_PARAM,
+		.lParam = lParam1
+	};
+	int index1 = lvc.FindItem(&findInfo1);
 
-	findInfo.flags = LVFI_PARAM;
-	findInfo.lParam = lParam2;
-	int index2 = lvc.FindItem(&findInfo);
+	LV_FINDINFO findInfo2{
+		.flags = LVFI_PARAM,
+		.lParam = lParam2
+	};
+	int index2 = lvc.FindItem(&findInfo2);
 
 	if (pView->m_bTitleDisp && pView->m_nSortItem == 0)
 		return CompareTitle(lvc.GetItemText(index1, pView->m_nSortItem), lvc.GetItemText(index2, pView->m_nSortItem)) * pView->m_nSortDir;

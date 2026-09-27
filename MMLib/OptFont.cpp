@@ -72,10 +72,8 @@ void COptFont::OnOK()
 
 void COptFont::OnViewFontChange()
 {
-	LOGFONT lf;
+	LOGFONT lf{};
 	char szStyle[LF_FACESIZE];
-
-	memset(&lf, 0, sizeof(lf));
 
 	CFontDialog	fontDialog(&lf, 0, NULL, this);
 	fontDialog.m_cf.lStructSize = sizeof(CHOOSEFONT);

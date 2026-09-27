@@ -135,9 +135,10 @@ BOOL CMMLibApp::InitInstance()
 		}
 	}
 */
-	INITCOMMONCONTROLSEX InitCtrls;
-	InitCtrls.dwSize = sizeof(InitCtrls);
-	InitCtrls.dwICC = ICC_WIN95_CLASSES;
+	INITCOMMONCONTROLSEX InitCtrls{
+		.dwSize = sizeof(InitCtrls),
+		.dwICC = ICC_WIN95_CLASSES
+	};
 	InitCommonControlsEx(&InitCtrls);
 
 	AfxEnableControlContainer();
@@ -361,7 +362,7 @@ void CMMLibApp::InitDDE()
 	DdeNameService(m_dwIdInst, m_hService, NULL, DNS_REGISTER);
 }
 
-void CMMLibApp::UninitDDE()
+void CMMLibApp::UninitDDE() const
 {
 	if (m_hService)
 		DdeFreeStringHandle(m_dwIdInst, m_hService);
