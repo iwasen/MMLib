@@ -52,15 +52,15 @@ DEVMODE *g_pPrintDevMode;
 CRect g_rcPrintMargin;
 BOOL g_bPrintMargin;
 
-static void MakeFilterSub(CString &sStr, LPCTSTR pOption, LPCTSTR pFieldName, LPCTSTR pOperation, LPCTSTR pFind, BOOL bAnd = TRUE);
+static void MakeFilterSub(CString &sStr, LPCSTR pOption, LPCSTR pFieldName, LPCSTR pOperation, LPCSTR pFind, BOOL bAnd = TRUE);
 static CString MakeDateBefore(const CString &sDays);
-static void GetMmlibDir(CString &sDir, LPCTSTR pSubDir);
+static void GetMmlibDir(CString &sDir, LPCSTR pSubDir);
 static LONG GetLineSize(const int Width, const int BitCount);
 static COLORREF GetDIBPixel(const BYTE *buff, const int x, const int y);
 
 void FormatDate(const CString &sStrIn, CString &sStrOut)
 {
-	LPCTSTR pDate = sStrIn;
+	LPCSTR pDate = sStrIn;
 
 	sStrOut.Format("%.4s/%.2s/%.2s %.2s:%.2s",
 			pDate, pDate + 4, pDate + 6,
@@ -86,7 +86,7 @@ HDIB MakeSmallPicture(HDIB hDIB1, int nWidth, int nHeight)
 	return hDIB2;
 }
 
-BOOL CreateDirectoryAll(LPCTSTR pDirPath)
+BOOL CreateDirectoryAll(LPCSTR pDirPath)
 {
 	DWORD err;
 
@@ -146,12 +146,12 @@ void PrintPicture(CDC *pDC, HDIB hDIB, CRect rcMargin)
 	short nSrcWidth, nSrcHeight, nColor;
 	MMPictureGetInfo(hDIB, &nSrcWidth, &nSrcHeight, &nColor);
 
-	int nMapMode = pDC->SetMapMode(MM_HIMETRIC);
+	const int nMapMode = pDC->SetMapMode(MM_HIMETRIC);
 	pDC->LPtoDP(rcMargin);
 	pDC->SetMapMode(nMapMode);
 
-	int nDevWidth = pDC->GetDeviceCaps(HORZRES) - (rcMargin.left + rcMargin.right);
-	int nDevHeight = pDC->GetDeviceCaps(VERTRES) + (rcMargin.top + rcMargin.bottom);
+	const int nDevWidth = pDC->GetDeviceCaps(HORZRES) - (rcMargin.left + rcMargin.right);
+	const int nDevHeight = pDC->GetDeviceCaps(VERTRES) + (rcMargin.top + rcMargin.bottom);
 
 	int nDstWidth = nDevWidth;
 	int nDstHeight = nSrcHeight * nDevWidth / nSrcWidth;
@@ -163,7 +163,7 @@ void PrintPicture(CDC *pDC, HDIB hDIB, CRect rcMargin)
 	MMPictureDraw(hDIB, pDC->m_hDC, (SHORT)rcMargin.left, (SHORT)-rcMargin.top, (SHORT)nDstWidth, (SHORT)nDstHeight, 0, 0, (SHORT)nSrcWidth, (SHORT)nSrcHeight);
 }
 
-BOOL SendDocuments(LPCTSTR pFileName)
+BOOL SendDocuments(LPCSTR pFileName)
 {
 	HINSTANCE hModule;
 	if ((hModule = LoadLibrary("MAPI32.DLL")) == NULL)
@@ -173,7 +173,7 @@ BOOL SendDocuments(LPCTSTR pFileName)
 	if ((pProc = GetProcAddress(hModule, "MAPISendMail")) != NULL) {
 		CStringArray files;
 		StrSplit(pFileName, ";", files);
-		int nFileCount = (int)files.GetCount();
+		const int nFileCount = (int)files.GetCount();
 
 		MapiFileDesc *pMfd = new MapiFileDesc[nFileCount]();
 		for (int i = 0; i < nFileCount; i++) {
@@ -183,11 +183,11 @@ BOOL SendDocuments(LPCTSTR pFileName)
 
 		CString spc(' ', nFileCount);
 
-		MapiMessage mms{};
-		mms.lpFiles = pMfd;
-		mms.nFileCount = nFileCount;
-		mms.lpszNoteText = (LPSTR)(LPCSTR)spc;
-
+		MapiMessage mms{
+			.lpszNoteText = (LPSTR)(LPCSTR)spc,
+			.nFileCount = (ULONG)nFileCount,
+			.lpFiles = pMfd
+		};
 		(*(LPMAPISENDMAIL)pProc)(0, 0, &mms, MAPI_LOGON_UI | MAPI_DIALOG, 0);
 
 		delete [] pMfd;
@@ -237,13 +237,12 @@ void MakeFilterString(const FIND_CONDITION *pFindConditions, int nFindType, CStr
 	}
 }
 
-void MakeFilterString2(LPCTSTR pKeyword, CString &sFolderFilter, CString &sDataFilter)
+void MakeFilterString2(LPCSTR pKeyword, CString &sFolderFilter, CString &sDataFilter)
 {
 	CString sStr;
-	CString sOption;
 	char buf[256];
 
-	sOption = "*S*N*Z";
+	const CString sOption = "*S*N*Z";
 
 	sFolderFilter.Empty();
 	sDataFilter.Empty();
@@ -282,7 +281,7 @@ void MakeFilterString2(LPCTSTR pKeyword, CString &sFolderFilter, CString &sDataF
 	}
 }
 
-static void MakeFilterSub(CString &sStr, LPCTSTR pOption, LPCTSTR pFieldName, LPCTSTR pOperation, LPCTSTR pFind, BOOL bAnd)
+static void MakeFilterSub(CString &sStr, LPCSTR pOption, LPCSTR pFieldName, LPCSTR pOperation, LPCSTR pFind, BOOL bAnd)
 {
 
 	if (*pFind != '\0') {
@@ -318,7 +317,7 @@ void MakeID(char prefix, DWORD nNumber, CString &sID)
 	char buf[8];
 
 	for (int i = 6; i >= 0; i--) {
-		int n = (nNumber & 0x1f);
+		const int n = (nNumber & 0x1f);
 		if (n < 10)
 			buf[i] = (char)(n + 0x30);
 		else
@@ -341,7 +340,7 @@ int GetPictureBitCount(HDIB hDIB)
 		return 0;
 	}
 
-	int nBitCount = lpBmi->biBitCount;
+	const int nBitCount = lpBmi->biBitCount;
 
 	::GlobalUnlock(hDIB);
 
@@ -426,7 +425,7 @@ BOOL MakeTempFile(CItem *pItem, CString &sFileName, int nSupportFile, BOOL bRead
 	return TRUE;
 }
 
-BOOL MakeMmlFile(CItem *pItem, LPCTSTR pFileName, BOOL bReadIniFile)
+BOOL MakeMmlFile(CItem *pItem, LPCSTR pFileName, BOOL bReadIniFile)
 {
 	FOLDERREC *pFolderRec;
 	FINDREC *pFindRec;
@@ -434,7 +433,7 @@ BOOL MakeMmlFile(CItem *pItem, LPCTSTR pFileName, BOOL bReadIniFile)
 	CItemFind *pItemFind;
 	CItemData *pItemData;
 	DATAREC *pDataRec;
-	LPCTSTR pPict;
+	LPCSTR pPict;
 	long nSize;
 	CString sText;
 
@@ -519,7 +518,7 @@ BOOL MakeMmlFile(CItem *pItem, LPCTSTR pFileName, BOOL bReadIniFile)
 
 BOOL MakePictFile(CItemData *pItemData, CString &sTempFile, int nSupportFile, BOOL bReadIniFile)
 {
-	LPCTSTR pPict;
+	LPCSTR pPict;
 	long nSize;
 
 	nSupportFile &= PICTFILE_DEFAULT;
@@ -592,9 +591,9 @@ void CheckFileName(CString &sFileName)
 		sFileName.SetAt(n, '_');
 }
 
-int CheckFileType(LPCTSTR pFileName)
+int CheckFileType(LPCSTR pFileName)
 {
-	LPCTSTR p;
+	LPCSTR p;
 
 	if ((p = strrchr(pFileName, '.')) == NULL)
 		return 0;
@@ -712,10 +711,9 @@ void GetDefaultAccessLogDir(CString &sDir)
 
 static void GetFolder(int nFolder, TCHAR *pPath)
 {
-	HRESULT	(CALLBACK* pfnSHGetFolderPath)(HWND, int, HANDLE, DWORD, LPTSTR) = NULL;
-	HMODULE hDLL;
+	HRESULT	(CALLBACK* pfnSHGetFolderPath)(HWND, int, HANDLE, DWORD, LPSTR) = NULL;
 
-	hDLL = ::LoadLibrary("shell32.dll");
+	HMODULE hDLL = ::LoadLibrary("shell32.dll");
 	if (hDLL != NULL)
 		*(FARPROC *)&pfnSHGetFolderPath = ::GetProcAddress(hDLL, "SHGetFolderPathA");
 
@@ -737,9 +735,9 @@ static void GetFolder(int nFolder, TCHAR *pPath)
 		::FreeLibrary(hDLL);
 }
 
-void GetMmlibDir(CString &sDir, LPCTSTR pSubDir)
+void GetMmlibDir(CString &sDir, LPCSTR pSubDir)
 {
-	LPTSTR pDir = sDir.GetBuffer(MAX_PATH);
+	LPSTR pDir = sDir.GetBuffer(MAX_PATH);
 
 	GetFolder(CSIDL_APPDATA, pDir);
 	::PathAppend(pDir, "YMEC\\MMLIB");
@@ -758,7 +756,7 @@ int SetLibraryComboBox(CComboBox &oComboBox)
 	for (int i = 0; hItem != NULL; i++) {
 		CItemFolder *pItemFolder = (CItemFolder *)g_pTreeCtrl->GetItemData(hItem);
 		if (pItemFolder->m_nItemType == ITEM_FOLDER) {
-			int nIndex = oComboBox.AddString(pItemFolder->m_oFolderRec.sFolderName);
+			const int nIndex = oComboBox.AddString(pItemFolder->m_oFolderRec.sFolderName);
 			oComboBox.SetItemDataPtr(nIndex, pItemFolder);
 			nCount++;
 		}
@@ -769,7 +767,7 @@ int SetLibraryComboBox(CComboBox &oComboBox)
 	return nCount;
 }
 
-void GetNewFolder(LPCTSTR pDir, LPCTSTR pPrefix, CString &sPath)
+void GetNewFolder(LPCSTR pDir, LPCSTR pPrefix, CString &sPath)
 {
 	struct _stat st;
 
@@ -780,7 +778,7 @@ void GetNewFolder(LPCTSTR pDir, LPCTSTR pPrefix, CString &sPath)
 	}
 }
 
-void DeleteDirectory(LPCTSTR pDirName)
+void DeleteDirectory(LPCSTR pDirName)
 {
 	WIN32_FIND_DATA	oFindBuf;
 
@@ -806,8 +804,8 @@ void DeleteDirectory(LPCTSTR pDirName)
 
 int CompareTitle(const CString &sStr1, const CString &sStr2)
 {
-	int n1 = FindLastNum(sStr1);
-	int n2 = FindLastNum(sStr2);
+	const int n1 = FindLastNum(sStr1);
+	const int n2 = FindLastNum(sStr2);
 
 	if (n1 != -1 && n1 == n2) {
 		int n = sStr1.Left(n1).CompareNoCase(sStr2.Left(n2));
@@ -823,9 +821,9 @@ int CompareTitle(const CString &sStr1, const CString &sStr2)
 
 int FindLastNum(const CString &sStr)
 {
-	int len = sStr.GetLength();
+	int const len = sStr.GetLength();
 	for (int i = len; i > 0; i--) {
-		int c = sStr[i - 1];
+		const int c = sStr[i - 1];
 		if (c < '0' || c > '9') {
 			return i == len ? -1 : i;
 		}
@@ -848,7 +846,7 @@ CString RemoveDir(const CString &sPathName)
 {
 	CString sStr;
 
-	int n = sPathName.ReverseFind('\\');
+	const int n = sPathName.ReverseFind('\\');
 	if (n != -1)
 		sStr = sPathName.Mid(n + 1);
 	else
@@ -923,7 +921,7 @@ CItemInbox *OpenInbox()
 	return pItemInbox;
 }
 
-void WritePicture(CMMPcsDB *pPcsDB, LPCTSTR pDataID, HDIB hDIB)
+void WritePicture(CMMPcsDB *pPcsDB, LPCSTR pDataID, HDIB hDIB)
 {
 	HDIB hDIB2;
 
@@ -956,7 +954,7 @@ CString &GetString(UINT nID, int nIndex)
 
 void AutoNextNumbering(CString &sCode, int nStep)
 {
-	static const char number[] = "0123456789";
+	static constexpr char number[] = "0123456789";
 	int n;
 
 	if ((n = sCode.FindOneOf(number)) == -1)
@@ -966,10 +964,10 @@ void AutoNextNumbering(CString &sCode, int nStep)
 	long i, nMax;
 
 	CString sStr = sCode.Mid(n).SpanIncluding(number);
-	int len = sStr.GetLength();
+	const int len = sStr.GetLength();
 	for (i = 0, nMax = 1; i < len; i++)
 		nMax *= 10;
-	long nNum = (atol(sStr) + nStep) % nMax;
+	const long nNum = (atol(sStr) + nStep) % nMax;
 
 	format.Format("%%0%du", len);
 	sStr.Format(format, nNum);
@@ -977,13 +975,14 @@ void AutoNextNumbering(CString &sCode, int nStep)
 	sCode.Insert(n, sStr);
 }
 
-void ExecProcess(LPCTSTR pCommand)
+void ExecProcess(LPCSTR pCommand)
 {
-	STARTUPINFO	siStartupInfo{};
 	PROCESS_INFORMATION	piProcInfo;
 
-	siStartupInfo.cb = sizeof(siStartupInfo);
-	CreateProcess(NULL, (LPTSTR)pCommand, NULL, NULL, FALSE, NORMAL_PRIORITY_CLASS, NULL, ".", &siStartupInfo, &piProcInfo);
+	STARTUPINFO	siStartupInfo{
+		.cb = sizeof(siStartupInfo)
+	};
+	CreateProcess(NULL, (LPSTR)pCommand, NULL, NULL, FALSE, NORMAL_PRIORITY_CLASS, NULL, ".", &siStartupInfo, &piProcInfo);
 	CloseHandle(piProcInfo.hThread);
 	WaitForSingleObject(piProcInfo.hProcess, INFINITE);
 	CloseHandle(piProcInfo.hProcess);
@@ -991,11 +990,11 @@ void ExecProcess(LPCTSTR pCommand)
 
 void DispTrialVersion(CWnd *pWnd, CDC *pDC)
 {
-	static const char text[] = "Trial Version";
+	static constexpr char text[] = "Trial Version";
 	CFont font;
 	font.CreatePointFont(280, "Impact");
 	CFont *pFontOrg = pDC->SelectObject(&font);
-	int nBkModeOrg = pDC->SetBkMode(TRANSPARENT);
+	const int nBkModeOrg = pDC->SetBkMode(TRANSPARENT);
 	COLORREF nColorOrg = pDC->SetTextColor(RGB(128, 240, 128));
 	SIZE size = pDC->GetTextExtent(text);
 	RECT rect;
@@ -1042,7 +1041,7 @@ void GetPictFactor(HDIB hDIB, double *factor_r, double *factor_g, double *factor
 
 	::GlobalUnlock(hDIB);
 
-	double fTemp = (double)pbi->biWidth * pbi->biHeight * 255;
+	const double fTemp = (double)pbi->biWidth * pbi->biHeight * 255;
 
 	*factor_r = fSumR / fTemp;
 	*factor_g = fSumG / fTemp;
@@ -1089,7 +1088,7 @@ COLORREF GetDIBPixel(const BYTE *buff, const int x, const int y)
 	return 0;
 }
 
-void StrSplit(LPCTSTR pText, LPCTSTR pSeparator, CStringArray &saText)
+void StrSplit(LPCSTR pText, LPCSTR pSeparator, CStringArray &saText)
 {
 	saText.RemoveAll();
 
@@ -1103,7 +1102,7 @@ void StrSplit(LPCTSTR pText, LPCTSTR pSeparator, CStringArray &saText)
 	}
 }
 
-void StrJoin(const CStringArray &saText, LPCTSTR pSeparator, CString &sText)
+void StrJoin(const CStringArray &saText, LPCSTR pSeparator, CString &sText)
 {
 	sText.Empty();
 

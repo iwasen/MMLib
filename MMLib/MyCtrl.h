@@ -10,7 +10,7 @@ class CMyDate : public CEdit
 {
 public:
 	CString &operator=(CString &sParam);
-	LPCTSTR operator=(LPCTSTR pParam);
+	LPCSTR operator=(LPCSTR pParam);
 	operator CString();
 
 protected:
@@ -34,14 +34,14 @@ public:
 	long operator=(long nParam);
 	double operator=(double fParam);
 	CString &operator=(CString &sParam);
-	LPCTSTR operator=(LPCTSTR pParam);
+	LPCSTR operator=(LPCSTR pParam);
 	CMyEdit &operator=(CMyEdit &oParam);
 	int operator==(int nParam);
 	int operator!=(int nParam);
 	operator int();
 	operator double();
 	operator CString();
-	void Format(LPCTSTR lpszFormat, ...);
+	void Format(LPCSTR lpszFormat, ...);
 	void Blank();
 	void LoadString(UINT nStringID);
 	void FormatMessage(UINT nStringID, ...);

@@ -160,7 +160,7 @@ BOOL COutputImagesDlg::OutputImages(const CString &sParentFolder, const FOLDERRE
 
 	qsort(aDataArray.GetData(), aDataArray.GetSize(), sizeof(DATAREC), CompareProc);
 
-	int nPageNum = (int)log10((double)aDataArray.GetSize()) + 1;
+	const int nPageNum = (int)log10((double)aDataArray.GetSize()) + 1;
 	int nPage = 1;
 	for (int i = 0; i < aDataArray.GetCount(); i++) {
 		if (m_bCancel)
@@ -201,7 +201,7 @@ void COutputImagesDlg::OutputImage(const CString &sParentFolder, const DATAREC &
 	SHORT	mmType;
 	PSDBReadBinary(m_pPcsDB->m_oDataDB.GetFCB(), PICT1_FIELD, (char *)&mmType, 2);
 	if (mmType == MMTYPE_JPG || mmType == MMTYPE_PNG) {
-		MMDownloadFile(m_pPcsDB->m_oDataDB.GetFCB(), PICT1_FIELD, (LPTSTR)(LPCSTR)sFilePath);
+		MMDownloadFile(m_pPcsDB->m_oDataDB.GetFCB(), PICT1_FIELD, (LPSTR)(LPCSTR)sFilePath);
 	} else {
 		HDIB hDIB;
 		if (MMPictureReadDB(&hDIB, m_pPcsDB->m_oDataDB.GetFCB(), PICT1_FIELD) == 0) {
@@ -219,14 +219,14 @@ void COutputImagesDlg::OutputImage(const CString &sParentFolder, const DATAREC &
 
 			sFilePath += "." + sExt;
 
-			MMPictureWriteFile(hDIB, (LPTSTR)(LPCSTR)sFilePath);
+			MMPictureWriteFile(hDIB, (LPSTR)(LPCSTR)sFilePath);
 
 			::GlobalFree(hDIB);
 		}
 	}
 
 	m_nOutputCount++;
-	int nPercent = (int)(100.0 * m_nOutputCount / m_nTotalCount);
+	const int nPercent = (int)(100.0 * m_nOutputCount / m_nTotalCount);
 	if (nPercent != m_nPercent) {
 		// プログレスバーのアニメーションを無効化（戻すときは即座に反映されることを利用）
 		UpdateProgressBar(m_cProgressCtrl, nPercent);

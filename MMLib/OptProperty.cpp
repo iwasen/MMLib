@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -20,7 +18,7 @@ COptProperty::COptProperty(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 	AddPropertyPage();
 }
 
-COptProperty::COptProperty(LPCTSTR pszCaption, CWnd* pParentWnd, UINT iSelectPage)
+COptProperty::COptProperty(LPCSTR pszCaption, CWnd* pParentWnd, UINT iSelectPage)
 	:CPropertySheet(pszCaption, pParentWnd, iSelectPage)
 {
 	AddPropertyPage();

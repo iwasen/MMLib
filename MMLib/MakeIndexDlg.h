@@ -21,7 +21,7 @@ protected:
 	BOOL CreateAllIndex();
 	BOOL CreateKeywordIndex(CPcserve &oPcserve, CPSDB &oDB);
 	BOOL WriteKeywordIndex(CItemFolder *pItemFolder, CPSDB &oDB);
-	BOOL WriteSub(CPSDB *pDB, CPSDB &oDB, char type, LPCTSTR pLibraryID, LPCTSTR pLibraryName);
+	BOOL WriteSub(CPSDB *pDB, CPSDB &oDB, char type, LPCSTR pLibraryID, LPCSTR pLibraryName);
 
 	DECLARE_MESSAGE_MAP()
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV サポート

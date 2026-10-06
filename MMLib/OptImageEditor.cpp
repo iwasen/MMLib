@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -63,7 +61,7 @@ void COptImageEditor::DispIcon()
 {
 	if (!m_sImageEditor.IsEmpty()) {
 		HICON hIcon;
-		UINT nIcon = ::ExtractIconEx(m_sImageEditor, 0, &hIcon, NULL, 1);
+		const UINT nIcon = ::ExtractIconEx(m_sImageEditor, 0, &hIcon, NULL, 1);
 		if (nIcon > 0) {
 			hIcon = m_cImageEditorIcon.SetIcon(hIcon);
 			if (hIcon)

@@ -8,8 +8,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -19,10 +17,10 @@ IMPLEMENT_DYNCREATE(CMMListView, CListView)
 
 CMMListView::CMMListView()
 {
-	static const int defaultFlag[DETAIL_NUM] = {
+	static constexpr int defaultFlag[DETAIL_NUM] = {
 		1, 1, 1, 0, 1, 1, 0
 	};
-	static const int defaultWidth[DETAIL_NUM] = {
+	static constexpr int defaultWidth[DETAIL_NUM] = {
 		200, 100, 110, 110, 100, 150, 150
 	};
 	CMMViewApp *pApp = (CMMViewApp *)AfxGetApp();
@@ -111,7 +109,7 @@ void CMMListView::DrawItems()
 	CMMViewDoc *pDoc = (CMMViewDoc *)GetDocument();
 	CListCtrl &listCtrl = GetListCtrl();
 	CString sStr;
-	LPCTSTR p;
+	LPCSTR p;
 
 	InsertColumns();
 
@@ -169,7 +167,7 @@ void CMMListView::DrawItems()
 
 void CMMListView::InsertColumns()
 {
-	static const UINT header[] = {
+	static constexpr UINT header[] = {
 		IDS_NAME, IDS_CODE, IDS_CREATE_DATE, IDS_UPDATE_DATE, IDS_CREATOR, IDS_REMARK, IDS_KEYWORD
 	};
 	int i;
@@ -187,7 +185,7 @@ void CMMListView::InsertColumns()
 				.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
 				.fmt = LVCFMT_LEFT,
 				.cx = CDpi::AdjustDpi(m_nDetailWidth[i]),
-				.pszText = (LPTSTR)(LPCSTR)GetString(header[i])
+				.pszText = (LPSTR)(LPCSTR)GetString(header[i])
 			};
 			listCtrl.InsertColumn(i, &lvc);
 			m_nColumn++;
@@ -240,7 +238,7 @@ void CMMListView::OnDblclk(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 	CListCtrl &listCtrl = GetListCtrl();
 	int i;
 
-	int nItem = listCtrl.GetItemCount();
+	const int nItem = listCtrl.GetItemCount();
 	for (i = 0; i < nItem; i++) {
 		if (listCtrl.GetItemState(i, LVIS_SELECTED) != 0)
 			break;
@@ -254,7 +252,7 @@ void CMMListView::OnDblclk(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 
 BOOL CMMListView::OnPreparePrinting(CPrintInfo* pInfo)
 {
-	int nSelected = GetListCtrl().GetSelectedCount();
+	const int nSelected = GetListCtrl().GetSelectedCount();
 	if (nSelected == 0)
 		return FALSE;
 
@@ -280,7 +278,7 @@ void CMMListView::OnPrint(CDC* pDC, CPrintInfo* pInfo)
 	for (UINT i = 0; i < pInfo->m_nCurPage; i++)
 		iItem = lvc.GetNextItem(iItem, LVNI_ALL | LVNI_SELECTED);
 
-	int nPage = (int)lvc.GetItemData(iItem);
+	const int nPage = (int)lvc.GetItemData(iItem);
 	pDoc->ReadPage((int)lvc.GetItemData(iItem));
 
 	PrintPicture(pDC, pDoc->m_pItem[nPage].m_hDIB1, g_rcPrintMargin);

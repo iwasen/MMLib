@@ -21,7 +21,7 @@ protected:
 	int m_nFindCount;
 
 	DECLARE_MESSAGE_MAP()
-	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
+	virtual BOOL OnOpenDocument(LPCSTR lpszPathName);
 	virtual BOOL OnNewDocument();
 	afx_msg void OnCloseFind();
 	afx_msg void OnMakeIndex();

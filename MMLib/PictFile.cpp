@@ -7,8 +7,6 @@
 #include "PictFile.h"
 
 #ifdef _DEBUG
-#undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
@@ -59,7 +57,7 @@ void CPictFile::FreeMem()
 	}
 }
 
-LPCTSTR CPictFile::ReadPict(CItemData *pItemData, int nSupportFile, long *pSize)
+LPCSTR CPictFile::ReadPict(CItemData *pItemData, int nSupportFile, long *pSize)
 {
 	SHORT nMmType;
 
@@ -85,7 +83,7 @@ LPCTSTR CPictFile::ReadPict(CItemData *pItemData, int nSupportFile, long *pSize)
 		return NULL;
 }
 
-SHORT CPictFile::ConvertMMType1(LPCTSTR pPict, int nSupportFile, long *pSize)
+SHORT CPictFile::ConvertMMType1(LPCSTR pPict, int nSupportFile, long *pSize)
 {
 	SHORT nMmType;
 	HDIB hDIB;
@@ -161,7 +159,7 @@ SHORT CPictFile::ConvertMMType1(LPCTSTR pPict, int nSupportFile, long *pSize)
 	return nMmType;
 }
 
-SHORT CPictFile::ConvertMMType2(LPCTSTR pPict, int nSupportFile, long *pSize)
+SHORT CPictFile::ConvertMMType2(LPCSTR pPict, int nSupportFile, long *pSize)
 {
 	HDIB hDIB, hDIB2;
 	SHORT nWidth, nHeight, nColor;

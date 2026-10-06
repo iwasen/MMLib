@@ -8,8 +8,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -70,7 +68,7 @@ BOOL CMMViewDoc::OnNewDocument()
 /////////////////////////////////////////////////////////////////////////////
 // CMMViewDoc ƒRƒ}ƒ“ƒh
 
-BOOL CMMViewDoc::OnOpenDocument(LPCTSTR lpszPathName)
+BOOL CMMViewDoc::OnOpenDocument(LPCSTR lpszPathName)
 {
 	if (!CDocument::OnOpenDocument(lpszPathName))
 		return FALSE;
@@ -275,7 +273,7 @@ void CMMViewDoc::ShowPicture(int nPage)
 	UpdateAllViews(NULL);
 }
 
-void CMMViewDoc::SetStatusInfo(LPCTSTR pInfoMsg)
+void CMMViewDoc::SetStatusInfo(LPCSTR pInfoMsg)
 {
 	if (pInfoMsg != NULL)
 		g_sStatusInfo = pInfoMsg;

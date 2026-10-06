@@ -433,7 +433,6 @@ static	long MenuProc(HWND hWnd, WPARAM wParam, LPARAM lParam)
 			else
 				capGrabFrame(ghWndCap);
 			break;
-			/* no break */
 
         case IDCANCEL:
 			EndDialog(hWnd, TRUE) ;

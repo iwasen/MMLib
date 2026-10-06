@@ -57,7 +57,7 @@ void CFindPictDlg::InsertColumns()
 		int nFmt;
 		int nWidth;
 	};
-	static const LISTCOLUMN tColumn[] = {
+	static constexpr LISTCOLUMN tColumn[] = {
 		{IDS_NAME, LVCFMT_LEFT, 130},
 		{IDS_FOLDER, LVCFMT_LEFT, 150},
 		{IDS_CREATE_DATE, LVCFMT_LEFT, 110},
@@ -65,12 +65,12 @@ void CFindPictDlg::InsertColumns()
 		{IDS_KEYWORD, LVCFMT_LEFT, 150}
 	};
 
-	for (int i = 0; i < sizeof(tColumn) / sizeof(LISTCOLUMN); i++) {
+	for (int i = 0; i < ARRAY_SIZE(tColumn); i++) {
 		LV_COLUMN lvc{
 			.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
 			.fmt = tColumn[i].nFmt,
 			.cx = CDpi::AdjustDpi(tColumn[i].nWidth, i == 2 ? 100 : 90),
-			.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].nText),
+			.pszText = (LPSTR)(LPCSTR)GetString(tColumn[i].nText),
 		};
 		m_cListFind.InsertColumn(i, &lvc);
 	}
@@ -201,7 +201,7 @@ void CFindPictDlg::GetPictList(int nFactorIndex, CArray <PICT_LIST, PICT_LIST &>
 
 	PICT_LIST oPictList;
 	int nItem = 0;
-	double fPictFactor = atof(*pFactor);
+	const double fPictFactor = atof(*pFactor);
 	while (nItem < FIND_LIST_NUM) {
 		oFindPictDB.DBEof(&bEof);
 		if (bEof)
@@ -279,7 +279,7 @@ void CFindPictDlg::OnBnClickedButtonPrev()
 		int nItem = m_cListFind.GetItemCount() - 1;
 		POSITION pos = m_cListFind.GetFirstSelectedItemPosition();
 		if (pos != NULL) {
-			int nPrevItem = m_cListFind.GetNextSelectedItem(pos) - 1;
+			const int nPrevItem = m_cListFind.GetNextSelectedItem(pos) - 1;
 			if (nPrevItem >= 0)
 				nItem = nPrevItem;
 		}
@@ -294,7 +294,7 @@ void CFindPictDlg::OnBnClickedButtonNext()
 		int nItem = 0;
 		POSITION pos = m_cListFind.GetFirstSelectedItemPosition();
 		if (pos != NULL) {
-			int nNextItem = m_cListFind.GetNextSelectedItem(pos) + 1;
+			const int nNextItem = m_cListFind.GetNextSelectedItem(pos) + 1;
 			if (nNextItem < m_cListFind.GetItemCount())
 				nItem = nNextItem;
 		}

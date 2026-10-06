@@ -7,8 +7,6 @@
 #include "CheckPwdDlg.h"
 
 #ifdef _DEBUG
-#undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
@@ -27,9 +25,9 @@ BOOL g_bNoDispError;
 static int CopyDB(CPSDB *pSrcFolderDB, CPSDB *pSrcDataDB, CPSDB *pDstFolderDB, CPSDB *pDstDataDB, CProgressCtrl *pProgress);
 static int CopyFolderDB(CPSDB *pSrcFolderDB, CPSDB *pDstFolderDB, CProgressCtrl *pProgress, int nCount);
 static int CopyDataDB(CPSDB *pSrcDataDB, CPSDB *pDstDataDB, CProgressCtrl *pProgress, int nCount);
-static int CopyBinaryDB(CPSDB *pSrcDB, CPSDB *pDstDB, LPCTSTR pFieldName);
+static int CopyBinaryDB(CPSDB *pSrcDB, CPSDB *pDstDB, LPCSTR pFieldName);
 static void PcserveError(int nErrorCode);
-//static void VersionError(int nChType, LPCTSTR pServer, LPCTSTR pDirectory);
+//static void VersionError(int nChType, LPCSTR pServer, LPCSTR pDirectory);
 
 //////////////////////////////////////////////////////////////////////
 // 構築/消滅
@@ -55,7 +53,7 @@ CMMLibDB::~CMMLibDB()
 	m_oAccessLog.DBClose();
 }
 
-CMMPcsDB *CMMLibDB::OpenMMLibrary(int nChType, LPCTSTR pServerName, LPCTSTR pDirName, int nOpenMode, LPCTSTR pLibraryID)
+CMMPcsDB *CMMLibDB::OpenMMLibrary(int nChType, LPCSTR pServerName, LPCSTR pDirName, int nOpenMode, LPCSTR pLibraryID)
 {
 	CMMPcserve *pPcserve;
 	CMMPcsDB *pPcsDB;
@@ -109,7 +107,7 @@ void CMMLibDB::ReOpenMMLibrary()
 	}
 }
 
-CMMPcsDB *CMMLibDB::CreateMMLibrary(int nChType, LPCTSTR pServerName, LPCTSTR pDirName, int nOpenMode, FOLDERREC *pLibraryRec)
+CMMPcsDB *CMMLibDB::CreateMMLibrary(int nChType, LPCSTR pServerName, LPCSTR pDirName, int nOpenMode, FOLDERREC *pLibraryRec)
 {
 	CMMPcserve *pPcserve;
 	CMMPcsDB *pPcsDB;
@@ -215,7 +213,7 @@ void CMMLibDB::ExitMMLibrary()
 	}
 }
 
-BOOL CMMLibDB::GetLibraryName(LPCTSTR pDirName, CString &sLibraryName)
+BOOL CMMLibDB::GetLibraryName(LPCSTR pDirName, CString &sLibraryName)
 {
 	CPSDB oFolderDB;
 	CString sPathName;
@@ -247,7 +245,7 @@ BOOL CMMLibDB::GetLibraryName(LPCTSTR pDirName, CString &sLibraryName)
 	return TRUE;
 }
 
-CMMPcserve *CMMLibDB::ConnectPcserve(int nChType, LPCTSTR pServerName)
+CMMPcserve *CMMLibDB::ConnectPcserve(int nChType, LPCSTR pServerName)
 {
 	CMMPcserve *pPcserve = NULL;
 	BOOL bFind = FALSE;
@@ -275,7 +273,7 @@ CMMPcserve *CMMLibDB::ConnectPcserve(int nChType, LPCTSTR pServerName)
 	return pPcserve;
 }
 
-int CMMLibDB::DeleteAllFiles(CMMPcserve *pPcserve, LPCTSTR pDirName)
+int CMMLibDB::DeleteAllFiles(CMMPcserve *pPcserve, LPCSTR pDirName)
 {
 	CString sPathName;
 	int err;
@@ -356,7 +354,7 @@ BOOL CMMLibDB::OpenAccessLog()
 
 BOOL CMMLibDB::CreateAccessLog()
 {
-	static DBF_I field[] = {
+	static constexpr DBF_I field[] = {
 		{"SEQNO",      'I', LEN_SEQ_NO,      0},	// シーケンス番号
 		{"LID",        'C', LEN_ID,          0},	// ライブラリＩＤ
 		{"DID",        'C', LEN_ID,          0},	// データＩＤ
@@ -372,7 +370,7 @@ BOOL CMMLibDB::CreateAccessLog()
 	CreateDirectoryAll(sDir);
 
 	sPathName.Format("%s\\%s", (LPCSTR)sDir, FN_ACCESS_LOG_DBF);
-	if (m_oAccessLog.DBCreate(m_oPcserveLocal.m_oPcserve, sPathName, field, sizeof(field) / sizeof(DBF_I)) != 0)
+	if (m_oAccessLog.DBCreate(m_oPcserveLocal.m_oPcserve, sPathName, field, ARRAY_SIZE(field)) != 0)
 		return FALSE;
 
 	sPathName.Format("%s\\%s", (LPCSTR)sDir, FN_ACCESS_LOG_NDX1);
@@ -435,7 +433,7 @@ void CMMLibDB::WriteAccessLog(CItemData *pItemData)
 	m_oAccessLog.DBStore(&oAccessLogBuf);
 }
 
-void CMMLibDB::DeleteAccessLog(LPCTSTR pLID, LPCTSTR pDID)
+void CMMLibDB::DeleteAccessLog(LPCSTR pLID, LPCSTR pDID)
 {
 	CString sKey;
 
@@ -465,7 +463,7 @@ void CMMLibDB::GetFolderPath(CItem *pItem, CStringArray &saFolderPath)
 // CMMPcserve クラス
 //////////////////////////////////////////////////////////////////////
 
-int CMMPcserve::Open(int nChType, LPCTSTR pServerName)
+int CMMPcserve::Open(int nChType, LPCSTR pServerName)
 {
 	int err;
 
@@ -500,7 +498,7 @@ CMMPcsDB::CMMPcsDB()
 // CMMPcsDB クラス
 //////////////////////////////////////////////////////////////////////
 
-BOOL CMMPcsDB::OpenEx(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCTSTR pDirName, int nOpenMode, LPCTSTR pLibraryID)
+BOOL CMMPcsDB::OpenEx(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCSTR pDirName, int nOpenMode, LPCSTR pLibraryID)
 {
 	int err;
 
@@ -544,7 +542,7 @@ void CMMPcsDB::ReOpenEx()
 	OpenEx(m_pPcserve, m_pCachePcserve, m_sDirName, m_nCacheMode, m_sLibraryID);
 }
 
-int CMMPcsDB::ConvertVersion(CMMPcserve *pPcserve, LPCTSTR pDirName)
+int CMMPcsDB::ConvertVersion(CMMPcserve *pPcserve, LPCSTR pDirName)
 {
 	int err;
 
@@ -563,7 +561,7 @@ int CMMPcsDB::ConvertVersion(CMMPcserve *pPcserve, LPCTSTR pDirName)
 	return err;
 }
 
-int CMMPcsDB::ConvertVersionSub(CMMPcserve *pPcserve, LPCTSTR pDirName)
+int CMMPcsDB::ConvertVersionSub(CMMPcserve *pPcserve, LPCSTR pDirName)
 {
 	CString sPathName;
 	CPSDB oOldDB;
@@ -604,7 +602,7 @@ int CMMPcsDB::ConvertVersionSub(CMMPcserve *pPcserve, LPCTSTR pDirName)
 	return err;
 }
 
-BOOL CMMPcsDB::CreateEx(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCTSTR pDirName, int nOpenMode, FOLDERREC *pLibraryRec)
+BOOL CMMPcsDB::CreateEx(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCSTR pDirName, int nOpenMode, FOLDERREC *pLibraryRec)
 {
 	int err;
 
@@ -634,7 +632,7 @@ BOOL CMMPcsDB::ReadLibraryEx(FOLDERREC *pLibraryRec) const
 	return TRUE;
 }
 
-BOOL CMMPcsDB::ReadFolderEx(LPCTSTR pFID, FOLDERREC *pFolderRec)
+BOOL CMMPcsDB::ReadFolderEx(LPCSTR pFID, FOLDERREC *pFolderRec)
 {
 	int err;
 
@@ -646,7 +644,7 @@ BOOL CMMPcsDB::ReadFolderEx(LPCTSTR pFID, FOLDERREC *pFolderRec)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::ReadChildFolderEx(LPCTSTR pFID, FOLDERREC *pFolderRec, BOOL bFirst)
+BOOL CMMPcsDB::ReadChildFolderEx(LPCSTR pFID, FOLDERREC *pFolderRec, BOOL bFirst)
 {
 	BOOL bRead;
 	int err;
@@ -697,7 +695,7 @@ BOOL CMMPcsDB::UpdateFolderEx(FOLDERREC *pFolderRec)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::DeleteFolderEx(LPCTSTR pFID)
+BOOL CMMPcsDB::DeleteFolderEx(LPCSTR pFID)
 {
 	int err;
 
@@ -717,7 +715,7 @@ BOOL CMMPcsDB::DeleteFolderEx(LPCTSTR pFID)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::ReadTextFolderEx(LPCTSTR pFID, CString *pText)
+BOOL CMMPcsDB::ReadTextFolderEx(LPCSTR pFID, CString *pText)
 {
 	int err;
 
@@ -729,7 +727,7 @@ BOOL CMMPcsDB::ReadTextFolderEx(LPCTSTR pFID, CString *pText)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::WriteTextFolderEx(LPCTSTR pFID, CString *pText)
+BOOL CMMPcsDB::WriteTextFolderEx(LPCSTR pFID, CString *pText)
 {
 	int err;
 
@@ -741,7 +739,7 @@ BOOL CMMPcsDB::WriteTextFolderEx(LPCTSTR pFID, CString *pText)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::MoveFolderEx(LPCTSTR pFidSrc, LPCTSTR pFidDst, FOLDERREC *pFolderRec)
+BOOL CMMPcsDB::MoveFolderEx(LPCSTR pFidSrc, LPCSTR pFidDst, FOLDERREC *pFolderRec)
 {
 	int err;
 
@@ -760,7 +758,7 @@ BOOL CMMPcsDB::MoveFolderEx(LPCTSTR pFidSrc, LPCTSTR pFidDst, FOLDERREC *pFolder
 	return TRUE;
 }
 
-BOOL CMMPcsDB::CopyFolderEx(CMMPcsDB *pPcsDBSrc, LPCTSTR pFidSrc, CMMPcsDB *pPcsDBDst, LPCTSTR pFidDst, FOLDERREC *pFolderRec)
+BOOL CMMPcsDB::CopyFolderEx(CMMPcsDB *pPcsDBSrc, LPCSTR pFidSrc, CMMPcsDB *pPcsDBDst, LPCSTR pFidDst, FOLDERREC *pFolderRec)
 {
 	int err;
 
@@ -780,7 +778,7 @@ BOOL CMMPcsDB::CopyFolderEx(CMMPcsDB *pPcsDBSrc, LPCTSTR pFidSrc, CMMPcsDB *pPcs
 	return TRUE;
 }
 
-BOOL CMMPcsDB::RotateFolderEx(LPCTSTR pFID, int nRotate)
+BOOL CMMPcsDB::RotateFolderEx(LPCSTR pFID, int nRotate)
 {
 	int err;
 
@@ -799,7 +797,7 @@ BOOL CMMPcsDB::RotateFolderEx(LPCTSTR pFID, int nRotate)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::ReadDataEx(LPCTSTR pDID, DATAREC *pDataRec)
+BOOL CMMPcsDB::ReadDataEx(LPCSTR pDID, DATAREC *pDataRec)
 {
 	int err;
 
@@ -811,7 +809,7 @@ BOOL CMMPcsDB::ReadDataEx(LPCTSTR pDID, DATAREC *pDataRec)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::RotateDataEx(LPCTSTR pDID, int nRotate)
+BOOL CMMPcsDB::RotateDataEx(LPCSTR pDID, int nRotate)
 {
 	int err;
 
@@ -830,7 +828,7 @@ BOOL CMMPcsDB::RotateDataEx(LPCTSTR pDID, int nRotate)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::ReadChildDataEx(LPCTSTR pFID, DATAREC *pDataRec, BOOL bFirst)
+BOOL CMMPcsDB::ReadChildDataEx(LPCSTR pFID, DATAREC *pDataRec, BOOL bFirst)
 {
 	BOOL bRead;
 	int err;
@@ -843,7 +841,7 @@ BOOL CMMPcsDB::ReadChildDataEx(LPCTSTR pFID, DATAREC *pDataRec, BOOL bFirst)
 	return bRead;
 }
 
-BOOL CMMPcsDB::ReadBinaryDataEx(LPCTSTR pDID, LPCTSTR pFieldName, LPSTR *pPict, long *pPictSize)
+BOOL CMMPcsDB::ReadBinaryDataEx(LPCSTR pDID, LPCSTR pFieldName, LPSTR *pPict, long *pPictSize)
 {
 	int err;
 
@@ -855,7 +853,7 @@ BOOL CMMPcsDB::ReadBinaryDataEx(LPCTSTR pDID, LPCTSTR pFieldName, LPSTR *pPict, 
 	return TRUE;
 }
 
-BOOL CMMPcsDB::ReadPictureDataEx(LPCTSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC *pDataRec)
+BOOL CMMPcsDB::ReadPictureDataEx(LPCSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC *pDataRec)
 {
 	int err;
 
@@ -867,7 +865,7 @@ BOOL CMMPcsDB::ReadPictureDataEx(LPCTSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAR
 	return TRUE;
 }
 
-BOOL CMMPcsDB::WritePictureDataEx(LPCTSTR pDID, HDIB hDIB1, HDIB hDIB2, short nMMType)
+BOOL CMMPcsDB::WritePictureDataEx(LPCSTR pDID, HDIB hDIB1, HDIB hDIB2, short nMMType)
 {
 	int err;
 
@@ -881,7 +879,7 @@ BOOL CMMPcsDB::WritePictureDataEx(LPCTSTR pDID, HDIB hDIB1, HDIB hDIB2, short nM
 	return TRUE;
 }
 
-BOOL CMMPcsDB::ReadTextDataEx(LPCTSTR pDID, CString *pText)
+BOOL CMMPcsDB::ReadTextDataEx(LPCSTR pDID, CString *pText)
 {
 	int err;
 
@@ -893,7 +891,7 @@ BOOL CMMPcsDB::ReadTextDataEx(LPCTSTR pDID, CString *pText)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::WriteTextDataEx(LPCTSTR pDID, const CString &oText)
+BOOL CMMPcsDB::WriteTextDataEx(LPCSTR pDID, const CString &oText)
 {
 	int err;
 
@@ -943,7 +941,7 @@ BOOL CMMPcsDB::UpdateDataEx(DATAREC *pDataRec)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::DeleteDataEx(LPCTSTR pDID)
+BOOL CMMPcsDB::DeleteDataEx(LPCSTR pDID)
 {
 	int err;
 
@@ -962,7 +960,7 @@ BOOL CMMPcsDB::DeleteDataEx(LPCTSTR pDID)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::MoveDataEx(LPCTSTR pDidSrc, LPCTSTR pFidDst, DATAREC *pDataRec)
+BOOL CMMPcsDB::MoveDataEx(LPCSTR pDidSrc, LPCSTR pFidDst, DATAREC *pDataRec)
 {
 	int err;
 
@@ -981,7 +979,7 @@ BOOL CMMPcsDB::MoveDataEx(LPCTSTR pDidSrc, LPCTSTR pFidDst, DATAREC *pDataRec)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::CopyDataEx(CMMPcsDB *pPcsDBSrc, LPCTSTR pDidSrc, CMMPcsDB *pPcsDBDst, LPCTSTR pFidDst, DATAREC *pDataRec)
+BOOL CMMPcsDB::CopyDataEx(CMMPcsDB *pPcsDBSrc, LPCSTR pDidSrc, CMMPcsDB *pPcsDBDst, LPCSTR pFidDst, DATAREC *pDataRec)
 {
 	int err;
 
@@ -1000,7 +998,7 @@ BOOL CMMPcsDB::CopyDataEx(CMMPcsDB *pPcsDBSrc, LPCTSTR pDidSrc, CMMPcsDB *pPcsDB
 	return TRUE;
 }
 
-BOOL CMMPcsDB::FillCacheEx(LPCTSTR pFID)
+BOOL CMMPcsDB::FillCacheEx(LPCSTR pFID)
 {
 	int err;
 
@@ -1024,7 +1022,7 @@ BOOL CMMPcsDB::ClearCacheEx()
 	return TRUE;
 }
 
-BOOL CMMPcsDB::FilterFolderEx(LPCTSTR pFilter)
+BOOL CMMPcsDB::FilterFolderEx(LPCSTR pFilter)
 {
 	int err;
 
@@ -1060,7 +1058,7 @@ BOOL CMMPcsDB::ReadFolderAllEx(FOLDERREC *pFolderRec, BOOL *pRead)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::FilterDataEx(LPCTSTR pFilter)
+BOOL CMMPcsDB::FilterDataEx(LPCSTR pFilter)
 {
 	int err;
 
@@ -1116,7 +1114,7 @@ BOOL CMMPcsDB::PackFileEx()
 	return TRUE;
 }
 
-BOOL CMMPcsDB::BackupEx(LPCTSTR pBackupDir, CProgressCtrl *pProgress)
+BOOL CMMPcsDB::BackupEx(LPCSTR pBackupDir, CProgressCtrl *pProgress)
 {
 	int err;
 
@@ -1128,7 +1126,7 @@ BOOL CMMPcsDB::BackupEx(LPCTSTR pBackupDir, CProgressCtrl *pProgress)
 	return TRUE;
 }
 
-BOOL CMMPcsDB::RestoreEx(LPCTSTR pBackupDir, CProgressCtrl *pProgress)
+BOOL CMMPcsDB::RestoreEx(LPCSTR pBackupDir, CProgressCtrl *pProgress)
 {
 	int err;
 
@@ -1145,7 +1143,7 @@ BOOL CMMPcsDB::RestoreEx(LPCTSTR pBackupDir, CProgressCtrl *pProgress)
 	return TRUE;
 }
 
-int CMMPcsDB::Open(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCTSTR pDirName, int nOpenMode, LPCTSTR pLibraryID)
+int CMMPcsDB::Open(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCSTR pDirName, int nOpenMode, LPCSTR pLibraryID)
 {
 	CString sCacheDirName;
 	int err;
@@ -1199,7 +1197,7 @@ int CMMPcsDB::Open(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCTSTR pDir
 	return 0;
 }
 
-int CMMPcsDB::OpenDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, LPCTSTR pDirName, BOOL bIndex)
+int CMMPcsDB::OpenDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, LPCSTR pDirName, BOOL bIndex)
 {
 	CString sPathName;
 	int nRecSize;
@@ -1269,7 +1267,7 @@ int CMMPcsDB::OpenDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, LPC
 	return 0;
 }
 
-int CMMPcsDB::Create(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCTSTR pDirName, int nOpenMode, FOLDERREC *pLibraryRec)
+int CMMPcsDB::Create(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCSTR pDirName, int nOpenMode, FOLDERREC *pLibraryRec)
 {
 	CString sCacheDirName;
 	int err;
@@ -1312,7 +1310,7 @@ int CMMPcsDB::Create(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCTSTR pD
 	return 0;
 }
 
-int CMMPcsDB::CreateDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, LPCTSTR pDirName, BOOL bIndex)
+int CMMPcsDB::CreateDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, LPCSTR pDirName, BOOL bIndex)
 {
 	static DBF_I   folderField[] = {
 		{"FID",       'C', LEN_ID,         0},	// フォルダＩＤ
@@ -1356,7 +1354,7 @@ int CMMPcsDB::CreateDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, L
 
 	// フォルダ管理
 	sPathName.Format("%s%s", pDirName, FN_FOLDER_DBF);
-	if ((err = oFolderDB.DBCreate(pPcserve->m_oPcserve, sPathName, folderField, sizeof(folderField) / sizeof(DBF_I))) != 0)
+	if ((err = oFolderDB.DBCreate(pPcserve->m_oPcserve, sPathName, folderField, ARRAY_SIZE(folderField))) != 0)
 			return err;
 
 	if (bIndex) {
@@ -1371,7 +1369,7 @@ int CMMPcsDB::CreateDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, L
 
 	// データファイル管理
 	sPathName.Format("%s%s", pDirName, FN_DATA_DBF);
-	if ((err = oDataDB.DBCreate(pPcserve->m_oPcserve, sPathName, dataField, sizeof(dataField) / sizeof(DBF_I))) != 0)
+	if ((err = oDataDB.DBCreate(pPcserve->m_oPcserve, sPathName, dataField, ARRAY_SIZE(dataField))) != 0)
 			return err;
 
 	if (bIndex) {
@@ -1387,7 +1385,7 @@ int CMMPcsDB::CreateDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, L
 	return 0;
 }
 
-int CMMPcsDB::ReadFolder(LPCTSTR pFID, FOLDERREC *pFolderRec)
+int CMMPcsDB::ReadFolder(LPCSTR pFID, FOLDERREC *pFolderRec)
 {
 	int err;
 
@@ -1418,7 +1416,7 @@ int CMMPcsDB::ReadFolder(LPCTSTR pFID, FOLDERREC *pFolderRec)
 	return 0;
 }
 
-int CMMPcsDB::ReadChildFolder(LPCTSTR pFID, FOLDERREC *pFolderRec, BOOL bFirst, BOOL *pRead)
+int CMMPcsDB::ReadChildFolder(LPCSTR pFID, FOLDERREC *pFolderRec, BOOL bFirst, BOOL *pRead)
 {
 	CPSDB *pFolderDB;
 	int nRead;
@@ -1455,7 +1453,7 @@ int CMMPcsDB::ReadChildFolder(LPCTSTR pFID, FOLDERREC *pFolderRec, BOOL bFirst, 
 	return 0;
 }
 
-int CMMPcsDB::CacheFolder(LPCTSTR pFID, LPBOOL pCachedChildren, LPTSTR pFolderType)
+int CMMPcsDB::CacheFolder(LPCSTR pFID, LPBOOL pCachedChildren, LPSTR pFolderType)
 {
 	int nFind;
 	int err;
@@ -1493,7 +1491,7 @@ int CMMPcsDB::CacheFolder(LPCTSTR pFID, LPBOOL pCachedChildren, LPTSTR pFolderTy
 	return 0;
 }
 
-int CMMPcsDB::CacheChildFolder(LPCTSTR pFID)
+int CMMPcsDB::CacheChildFolder(LPCSTR pFID)
 {
 	BOOL bCachedChildren;
 	int nFind;
@@ -1611,7 +1609,7 @@ int CMMPcsDB::UpdateFolder(FOLDERREC *pFolderRec)
 	return 0;
 }
 
-int CMMPcsDB::DeleteFolder(LPCTSTR pFID)
+int CMMPcsDB::DeleteFolder(LPCSTR pFID)
 {
 	FOLDERBUF oFolderBuf;
 	int nFind;
@@ -1657,7 +1655,7 @@ int CMMPcsDB::DeleteFolder(LPCTSTR pFID)
 	return 0;
 }
 
-int CMMPcsDB::ReadTextFolder(LPCTSTR pFID, CString *pText)
+int CMMPcsDB::ReadTextFolder(LPCSTR pFID, CString *pText)
 {
 	CPSDB *pFolderDB;
 	int nFind;
@@ -1705,7 +1703,7 @@ int CMMPcsDB::ReadTextFolder(LPCTSTR pFID, CString *pText)
 	return 0;
 }
 
-int CMMPcsDB::WriteTextFolder(LPCTSTR pFID, CString *pText)
+int CMMPcsDB::WriteTextFolder(LPCSTR pFID, CString *pText)
 {
 	CPSDB *pFolderDB;
 	int nFind;
@@ -1739,7 +1737,7 @@ int CMMPcsDB::WriteTextFolder(LPCTSTR pFID, CString *pText)
 	return 0;
 }
 
-int CMMPcsDB::CacheBinFldFolder(LPCTSTR pFID, LPCTSTR pFieldName)
+int CMMPcsDB::CacheBinFldFolder(LPCSTR pFID, LPCSTR pFieldName)
 {
 	long nSize;
 	int err;
@@ -1755,7 +1753,7 @@ int CMMPcsDB::CacheBinFldFolder(LPCTSTR pFID, LPCTSTR pFieldName)
 	return 0;
 }
 
-int CMMPcsDB::MoveFolder(LPCTSTR pFidSrc, LPCTSTR pFidDst, FOLDERREC *pFolderRec)
+int CMMPcsDB::MoveFolder(LPCSTR pFidSrc, LPCSTR pFidDst, FOLDERREC *pFolderRec)
 {
 	FOLDERREC oFolderRec;
 	int err;
@@ -1774,7 +1772,7 @@ int CMMPcsDB::MoveFolder(LPCTSTR pFidSrc, LPCTSTR pFidDst, FOLDERREC *pFolderRec
 	return 0;
 }
 
-int CMMPcsDB::CopyFolder(CMMPcsDB *pPcsDBSrc, LPCTSTR pFidSrc, CMMPcsDB *pPcsDBDst, LPCTSTR pFidDst, FOLDERREC *pFolderRec)
+int CMMPcsDB::CopyFolder(CMMPcsDB *pPcsDBSrc, LPCSTR pFidSrc, CMMPcsDB *pPcsDBDst, LPCSTR pFidDst, FOLDERREC *pFolderRec)
 {
 	FOLDERREC oFolderRec;
 	char (*pFID)[LEN_ID];
@@ -1840,7 +1838,7 @@ int CMMPcsDB::CopyFolder(CMMPcsDB *pPcsDBSrc, LPCTSTR pFidSrc, CMMPcsDB *pPcsDBD
 	return 0;
 }
 
-int CMMPcsDB::RotateFolder(LPCTSTR pFID, int nRotate)
+int CMMPcsDB::RotateFolder(LPCSTR pFID, int nRotate)
 {
 	FOLDERREC oFolderRec;
 	char (*pID)[LEN_ID];
@@ -1924,7 +1922,7 @@ int CMMPcsDB::RotateFolder(LPCTSTR pFID, int nRotate)
 	return 0;
 }
 
-int CMMPcsDB::RotateData(LPCTSTR pDID, int nRotate)
+int CMMPcsDB::RotateData(LPCSTR pDID, int nRotate)
 {
 	HDIB hDIB;
 	DATAREC oDataRec;
@@ -1958,7 +1956,7 @@ int CMMPcsDB::RotateData(LPCTSTR pDID, int nRotate)
 	return 0;
 }
 
-int CMMPcsDB::ReadData(LPCTSTR pDID, DATAREC *pDataRec)
+int CMMPcsDB::ReadData(LPCSTR pDID, DATAREC *pDataRec)
 {
 	int nFind;
 	int err;
@@ -1975,7 +1973,7 @@ int CMMPcsDB::ReadData(LPCTSTR pDID, DATAREC *pDataRec)
 	return 0;
 }
 
-int CMMPcsDB::ReadChildData(LPCTSTR pFID, DATAREC *pDataRec, BOOL bFirst, BOOL *pRead)
+int CMMPcsDB::ReadChildData(LPCSTR pFID, DATAREC *pDataRec, BOOL bFirst, BOOL *pRead)
 {
 	CPSDB *pDataDB;
 	int nRead;
@@ -2011,7 +2009,7 @@ int CMMPcsDB::ReadChildData(LPCTSTR pFID, DATAREC *pDataRec, BOOL bFirst, BOOL *
 	return 0;
 }
 
-int CMMPcsDB::ReadBinaryData(LPCTSTR pDID, LPCTSTR pFieldName, LPSTR *pPict, long *pPictSize)
+int CMMPcsDB::ReadBinaryData(LPCSTR pDID, LPCSTR pFieldName, LPSTR *pPict, long *pPictSize)
 {
 	CPSDB *pDataDB;
 	int nFind;
@@ -2052,7 +2050,7 @@ int CMMPcsDB::ReadBinaryData(LPCTSTR pDID, LPCTSTR pFieldName, LPSTR *pPict, lon
 	return 0;
 }
 
-int CMMPcsDB::CacheChildData(LPCTSTR pFID)
+int CMMPcsDB::CacheChildData(LPCSTR pFID)
 {
 	BOOL bCachedChildren;
 	BOOL bReadFlag;
@@ -2100,17 +2098,17 @@ int CMMPcsDB::CacheChildData(LPCTSTR pFID)
 	return 0;
 }
 
-int CMMPcsDB::CacheBinaryFolder(LPCTSTR pFieldName)
+int CMMPcsDB::CacheBinaryFolder(LPCSTR pFieldName)
 {
 	return CacheBinary(pFieldName, m_oFolderDB, m_oFolderDB2);
 }
 
-int CMMPcsDB::CacheBinaryData(LPCTSTR pFieldName)
+int CMMPcsDB::CacheBinaryData(LPCSTR pFieldName)
 {
 	return CacheBinary(pFieldName, m_oDataDB, m_oDataDB2);
 }
 
-int CMMPcsDB::CacheBinary(LPCTSTR pFieldName, CPSDB &oDB, CPSDB &oDB2)
+int CMMPcsDB::CacheBinary(LPCSTR pFieldName, CPSDB &oDB, CPSDB &oDB2)
 {
 	long nSize;
 	long nReadNum;
@@ -2136,7 +2134,7 @@ int CMMPcsDB::CacheBinary(LPCTSTR pFieldName, CPSDB &oDB, CPSDB &oDB2)
 	return 0;
 }
 
-int CMMPcsDB::ReadPictureData(LPCTSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC *pDataRec)
+int CMMPcsDB::ReadPictureData(LPCSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC *pDataRec)
 {
 	CPSDB *pDataDB;
 	DATABUF oDataBuf;
@@ -2201,7 +2199,7 @@ int CMMPcsDB::ReadPictureData(LPCTSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC 
 	return 0;
 }
 
-int CMMPcsDB::CacheBinFldData(LPCTSTR pDID, LPCTSTR pFieldName)
+int CMMPcsDB::CacheBinFldData(LPCSTR pDID, LPCSTR pFieldName)
 {
 	long nSize;
 	int nFind;
@@ -2217,7 +2215,7 @@ int CMMPcsDB::CacheBinFldData(LPCTSTR pDID, LPCTSTR pFieldName)
 	return 0;
 }
 
-int CMMPcsDB::WritePictureData(LPCTSTR pDID, HDIB hDIB1, HDIB hDIB2, short nMMType)
+int CMMPcsDB::WritePictureData(LPCSTR pDID, HDIB hDIB1, HDIB hDIB2, short nMMType)
 {
 	CPSDB *pDataDB;
 	int nFind;
@@ -2261,7 +2259,7 @@ int CMMPcsDB::WritePictureData(LPCTSTR pDID, HDIB hDIB1, HDIB hDIB2, short nMMTy
 	return 0;
 }
 
-int CMMPcsDB::ReadTextData(LPCTSTR pDID, CString *pText)
+int CMMPcsDB::ReadTextData(LPCSTR pDID, CString *pText)
 {
 	CPSDB *pDataDB;
 	int nFind;
@@ -2309,7 +2307,7 @@ int CMMPcsDB::ReadTextData(LPCTSTR pDID, CString *pText)
 	return 0;
 }
 
-int CMMPcsDB::WriteTextData(LPCTSTR pDID, const CString *pText)
+int CMMPcsDB::WriteTextData(LPCSTR pDID, const CString *pText)
 {
 	CPSDB *pDataDB;
 	int nFind;
@@ -2343,7 +2341,7 @@ int CMMPcsDB::WriteTextData(LPCTSTR pDID, const CString *pText)
 	return 0;
 }
 
-int CMMPcsDB::WritePictureCacheData(LPCTSTR pDID)
+int CMMPcsDB::WritePictureCacheData(LPCSTR pDID)
 {
 	int nFind;
 
@@ -2357,7 +2355,7 @@ int CMMPcsDB::WritePictureCacheData(LPCTSTR pDID)
 	return 0;
 }
 
-int CMMPcsDB::WriteTextCacheData(LPCTSTR pDID)
+int CMMPcsDB::WriteTextCacheData(LPCSTR pDID)
 {
 	int nFind;
 
@@ -2370,7 +2368,7 @@ int CMMPcsDB::WriteTextCacheData(LPCTSTR pDID)
 	return 0;
 }
 
-int CMMPcsDB::WriteTextCacheFolder(LPCTSTR pFID)
+int CMMPcsDB::WriteTextCacheFolder(LPCSTR pFID)
 {
 	int nFind;
 
@@ -2383,7 +2381,7 @@ int CMMPcsDB::WriteTextCacheFolder(LPCTSTR pFID)
 	return 0;
 }
 
-void CMMPcsDB::WriteCacheBinary(CPSDB &oDB, CPSDB &oDB2, LPCTSTR pFieldName)
+void CMMPcsDB::WriteCacheBinary(CPSDB &oDB, CPSDB &oDB2, LPCSTR pFieldName)
 {
 	long nSize;
 
@@ -2454,7 +2452,7 @@ int CMMPcsDB::UpdateData(DATAREC *pDataRec)
 	return 0;
 }
 
-int CMMPcsDB::DeleteData(LPCTSTR pDID)
+int CMMPcsDB::DeleteData(LPCSTR pDID)
 {
 	int err;
 
@@ -2474,7 +2472,7 @@ int CMMPcsDB::DeleteData(LPCTSTR pDID)
 	return 0;
 }
 
-int CMMPcsDB::MoveData(LPCTSTR pDidSrc, LPCTSTR pFidDst, DATAREC *pDataRec)
+int CMMPcsDB::MoveData(LPCSTR pDidSrc, LPCSTR pFidDst, DATAREC *pDataRec)
 {
 	DATAREC oDataRec;
 	int err;
@@ -2493,7 +2491,7 @@ int CMMPcsDB::MoveData(LPCTSTR pDidSrc, LPCTSTR pFidDst, DATAREC *pDataRec)
 	return 0;
 }
 
-int CMMPcsDB::CopyData(CMMPcsDB *pPcsDBSrc, LPCTSTR pDidSrc, CMMPcsDB *pPcsDBDst, LPCTSTR pFidDst, DATAREC *pDataRec)
+int CMMPcsDB::CopyData(CMMPcsDB *pPcsDBSrc, LPCSTR pDidSrc, CMMPcsDB *pPcsDBDst, LPCSTR pFidDst, DATAREC *pDataRec)
 {
 	DATAREC oDataRec;
 	int err;
@@ -2527,7 +2525,7 @@ int CMMPcsDB::CopyData(CMMPcsDB *pPcsDBSrc, LPCTSTR pDidSrc, CMMPcsDB *pPcsDBDst
 	return 0;
 }
 
-int CMMPcsDB::CopyChildData(CMMPcsDB *pPcsDBSrc, LPCTSTR pFidSrc, CMMPcsDB *pPcsDBDst, LPCTSTR pFidDst)
+int CMMPcsDB::CopyChildData(CMMPcsDB *pPcsDBSrc, LPCSTR pFidSrc, CMMPcsDB *pPcsDBDst, LPCSTR pFidDst)
 {
 	int err;
 
@@ -2581,7 +2579,7 @@ int CMMPcsDB::CopyChildData(CMMPcsDB *pPcsDBSrc, LPCTSTR pFidSrc, CMMPcsDB *pPcs
 	return 0;
 }
 
-int CMMPcsDB::CopyBinary(CPSDB &oSrcDB, CPSDB &oDstDB, LPCTSTR pFieldName)
+int CMMPcsDB::CopyBinary(CPSDB &oSrcDB, CPSDB &oDstDB, LPCSTR pFieldName)
 {
 	long nSize;
 	int err;
@@ -2729,7 +2727,7 @@ void CMMPcsDB::SetCurrentTime(CString &sTime)
 	sTime.Format("%04d%02d%02d%02d%02d", stime.year, stime.month, stime.day, stime.hour, stime.minute);
 }
 
-int CMMPcsDB::UpdateFolderUpdateCount(LPCTSTR pFID)
+int CMMPcsDB::UpdateFolderUpdateCount(LPCSTR pFID)
 {
 	int nFind;
 	int err;
@@ -2757,7 +2755,7 @@ int CMMPcsDB::UpdateFolderUpdateCount(LPCTSTR pFID)
 	return 0;
 }
 
-int CMMPcsDB::FillCache(LPCTSTR pFID)
+int CMMPcsDB::FillCache(LPCSTR pFID)
 {
 	if (m_nCacheMode != CACHEMODE_CACHE)
 		return ERROR_PROGRAM;
@@ -2816,7 +2814,7 @@ int CMMPcsDB::FillCache(LPCTSTR pFID)
 	return 0;
 }
 
-int CMMPcsDB::FillDataCache(LPCTSTR pFID)
+int CMMPcsDB::FillDataCache(LPCSTR pFID)
 {
 	int err;
 
@@ -2916,7 +2914,7 @@ int CMMPcsDB::ClearCache()
 	return 0;
 }
 
-int CMMPcsDB::FilterFolder(LPCTSTR pFilter)
+int CMMPcsDB::FilterFolder(LPCSTR pFilter)
 {
 	int err;
 
@@ -2952,7 +2950,7 @@ int CMMPcsDB::ReadFolderAll(FOLDERREC *pFolderRec, BOOL *pRead)
 	return 0;
 }
 
-int CMMPcsDB::FilterData(LPCTSTR pFilter)
+int CMMPcsDB::FilterData(LPCSTR pFilter)
 {
 	int err;
 
@@ -3012,7 +3010,7 @@ int CMMPcsDB::PackFile()
 	return 0;
 }
 
-int CMMPcsDB::SelectFolder(LPCTSTR pFID, long *nRec)
+int CMMPcsDB::SelectFolder(LPCSTR pFID, long *nRec)
 {
 	int err;
 
@@ -3033,7 +3031,7 @@ int CMMPcsDB::SelectFolder(LPCTSTR pFID, long *nRec)
 	return 0;
 }
 
-int CMMPcsDB::SelectData(LPCTSTR pFID, long *nRec)
+int CMMPcsDB::SelectData(LPCSTR pFID, long *nRec)
 {
 	int err;
 
@@ -3054,7 +3052,7 @@ int CMMPcsDB::SelectData(LPCTSTR pFID, long *nRec)
 	return 0;
 }
 
-int CMMPcsDB::Backup(LPCTSTR pBackupDir, CProgressCtrl *pProgress)
+int CMMPcsDB::Backup(LPCSTR pBackupDir, CProgressCtrl *pProgress)
 {
 	CMMPcserve oPcserveLocal;
 	CPSDB oFolderDB, oDataDB;
@@ -3078,7 +3076,7 @@ int CMMPcsDB::Backup(LPCTSTR pBackupDir, CProgressCtrl *pProgress)
 	return 0;
 }
 
-int CMMPcsDB::Restore(LPCTSTR pBackupDir, CProgressCtrl *pProgress)
+int CMMPcsDB::Restore(LPCSTR pBackupDir, CProgressCtrl *pProgress)
 {
 	CMMPcserve oPcserveLocal;
 	CPSDB oFolderDB, oDataDB;
@@ -3150,7 +3148,7 @@ void CMMPcsDB::SetPermission(DWORD dwPermission)
 
 BOOL CMMPcsDB::CreateFindPictDB()
 {
-	static DBF_I field[] = {
+	static constexpr DBF_I field[] = {
 		{"DID",			'C', LEN_ID,         0},	// データＩＤ
 		{"FACTOR_R",	'C', LEN_PFACTOR,    0},	// 画像ファクタ
 		{"FACTOR_G",	'C', LEN_PFACTOR,    0},	// 画像ファクタ
@@ -3163,7 +3161,7 @@ BOOL CMMPcsDB::CreateFindPictDB()
 		m_oFindPictDB.DBClose();
 
 	sPath.Format("%s%s", (LPCSTR)m_sDirName, FN_PICTURE_DBF);
-	if (m_oFindPictDB.DBCreate(m_pPcserve->m_oPcserve, sPath, field, sizeof(field) / sizeof(DBF_I)) != 0)
+	if (m_oFindPictDB.DBCreate(m_pPcserve->m_oPcserve, sPath, field, ARRAY_SIZE(field)) != 0)
 		return FALSE;
 
 	sPath.Format("%s%s", (LPCSTR)m_sDirName, FN_PICTURE_NDX1);
@@ -3220,7 +3218,7 @@ BOOL CMMPcsDB::OpenFindPictDB()
 	return TRUE;
 }
 
-void CMMPcsDB::UpdateFindPictDB(LPCTSTR pDID, HDIB hDIB)
+void CMMPcsDB::UpdateFindPictDB(LPCSTR pDID, HDIB hDIB)
 {
 	if (hDIB != NULL && m_oFindPictDB.GetFCB() != NULL) {
 		BOOL bEof;
@@ -3267,7 +3265,7 @@ void CMMPcsDB::DeleteFindPictDB()
 	::DeleteFile(sPath);
 }
 
-void CMMPcsDB::DeleteFindPictItem(LPCTSTR pDID)
+void CMMPcsDB::DeleteFindPictItem(LPCSTR pDID)
 {
 	if (m_oFindPictDB.GetFCB() != NULL) {
 		m_oFindPictDB.DBChgIdx(1);
@@ -3275,7 +3273,7 @@ void CMMPcsDB::DeleteFindPictItem(LPCTSTR pDID)
 	}
 }
 
-BOOL CMMPcsDB::CheckFolderID(LPCTSTR pFolderID, int nDepth)
+BOOL CMMPcsDB::CheckFolderID(LPCSTR pFolderID, int nDepth)
 {
 	if (nDepth > 100)
 		return FALSE;
@@ -3395,7 +3393,7 @@ static int CopyDataDB(CPSDB *pSrcDataDB, CPSDB *pDstDataDB, CProgressCtrl *pProg
 	return 0;
 }
 
-static int CopyBinaryDB(CPSDB *pSrcDB, CPSDB *pDstDB, LPCTSTR pFieldName)
+static int CopyBinaryDB(CPSDB *pSrcDB, CPSDB *pDstDB, LPCSTR pFieldName)
 {
 	long nSize;
 	int err;

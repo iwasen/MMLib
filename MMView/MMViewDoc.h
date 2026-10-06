@@ -37,13 +37,13 @@ protected:
 
 	void CloseFile();
 	void ReadCurrentPage();
-	void SetStatusInfo(LPCTSTR pInfoMsg);
+	void SetStatusInfo(LPCSTR pInfoMsg);
 	static UINT ReadThread(LPVOID pParam);
 	void CreateReadThread();
 
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL OnNewDocument();
-	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
+	virtual BOOL OnOpenDocument(LPCSTR lpszPathName);
 	afx_msg void OnPictNext();
 	afx_msg void OnUpdatePictNext(CCmdUI* pCmdUI);
 	afx_msg void OnPictPrev();

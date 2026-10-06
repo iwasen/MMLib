@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -33,7 +31,7 @@ CString &CMyDate::operator=(CString &sParam)
 	return sParam;
 }
 
-LPCTSTR CMyDate::operator=(LPCTSTR pParam)
+LPCSTR CMyDate::operator=(LPCSTR pParam)
 {
 	SetWindowText(pParam);
 
@@ -169,7 +167,7 @@ CString &CMyEdit::operator=(CString &sParam)
 	return sParam;
 }
 
-LPCTSTR CMyEdit::operator=(LPCTSTR pParam)
+LPCSTR CMyEdit::operator=(LPCSTR pParam)
 {
 	CString sStr2;
 
@@ -221,7 +219,7 @@ CMyEdit::operator CString()
 	return m_sStr;
 }
 
-void CMyEdit::Format(LPCTSTR lpszFormat, ...)
+void CMyEdit::Format(LPCSTR lpszFormat, ...)
 {
 	va_list vl;
 	char str[256];

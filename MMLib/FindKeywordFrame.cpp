@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -28,10 +26,10 @@ BOOL CFindKeywordFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	CWinApp *pWinApp = ::AfxGetApp();
 
-	int left = pWinApp->GetProfileInt(g_sSectionFindWindow, "Left", 0);
-	int top = pWinApp->GetProfileInt(g_sSectionFindWindow, "Top", 0);
-	int right = pWinApp->GetProfileInt(g_sSectionFindWindow, "Right", 0);
-	int bottom = pWinApp->GetProfileInt(g_sSectionFindWindow, "Bottom", 0);
+	const int left = pWinApp->GetProfileInt(g_sSectionFindWindow, "Left", 0);
+	const int top = pWinApp->GetProfileInt(g_sSectionFindWindow, "Top", 0);
+	const int right = pWinApp->GetProfileInt(g_sSectionFindWindow, "Right", 0);
+	const int bottom = pWinApp->GetProfileInt(g_sSectionFindWindow, "Bottom", 0);
 
 	if (right != 0 && bottom != 0) {
 		cs.x = left;
@@ -75,7 +73,7 @@ int CFindKeywordFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	LOGFONT lf;
 	CFont *pFont = m_wndReBar.GetFont();
 	pFont->GetLogFont(&lf);
-	int lfHeight = -MulDiv(lf.lfHeight, GetDeviceCaps(GetDC()->m_hDC, LOGPIXELSY), 72);
+	const int lfHeight = -MulDiv(lf.lfHeight, GetDeviceCaps(GetDC()->m_hDC, LOGPIXELSY), 72);
 
 	if (!m_wndKeyword.Create(WS_CHILD | WS_TABSTOP, CRect(0, 0, 100, lfHeight + 2), &m_wndReBar, IDC_KEYWORD)) {
 		TRACE0("Failed to create textbox\n");

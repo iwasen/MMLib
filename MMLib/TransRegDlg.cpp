@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -80,7 +78,7 @@ void CTransRegDlg::OnOK()
 		return;
 	}
 
-	int n = m_cAppList.GetItemCount();
+	const int n = m_cAppList.GetItemCount();
 	for (i = 0; i < n; i++) {
 		if (m_cAppList.GetItemText(i, 0) == m_sAppName)
 			break;
@@ -111,7 +109,7 @@ void CTransRegDlg::OnDelete()
 	if (::AfxMessageBox(IDS_DELETE_SELECT_ITEM, MB_OKCANCEL + MB_ICONQUESTION) == IDCANCEL)
 		return;
 
-	int nItem = m_cAppList.GetItemCount();
+	const int nItem = m_cAppList.GetItemCount();
 	for (int i = nItem - 1; i >= 0; i--) {
 		if (m_cAppList.GetItemState(i, LVIS_SELECTED) != 0)
 			m_cAppList.DeleteItem(i);
@@ -125,7 +123,7 @@ void CTransRegDlg::OnClose()
 
 	UpdateData(TRUE);
 
-	int nItem = m_cAppList.GetItemCount();
+	const int nItem = m_cAppList.GetItemCount();
 
 	pWinApp->WriteProfileInt(g_sSectionTransfer, "Num", nItem);
 
@@ -166,7 +164,7 @@ void CTransRegDlg::SetAppList()
 	CString sAppName, sAppFile;
 	int nSupportFile;
 
-	int n = pWinApp->GetProfileInt(g_sSectionTransfer, "Num", 0);
+	const int n = pWinApp->GetProfileInt(g_sSectionTransfer, "Num", 0);
 	for (int i = 0; i < n; i++) {
 		sEntry.Format("AppName%d", i);
 		sAppName = pWinApp->GetProfileString(g_sSectionTransfer, sEntry);
@@ -190,7 +188,7 @@ void CTransRegDlg::OnItemchangedAppList(NMHDR* pNMHDR, LRESULT* pResult)
 	if (pNMListView->uNewState & LVIS_SELECTED) {
 		m_sAppName = m_cAppList.GetItemText(pNMListView->iItem, 0);
 		m_sAppFile = m_cAppList.GetItemText(pNMListView->iItem, 1);
-		int nSupportFile = (int)m_cAppList.GetItemData(pNMListView->iItem);
+		const int nSupportFile = (int)m_cAppList.GetItemData(pNMListView->iItem);
 		m_bPictBMP = ((nSupportFile & PICTFILE_BMP) != 0);
 //		m_bPictGIF = ((nSupportFile & PICTFILE_GIF) != 0);
 		m_bPictJPG = ((nSupportFile & PICTFILE_JPG) != 0);

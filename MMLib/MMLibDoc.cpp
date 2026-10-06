@@ -30,8 +30,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -165,12 +163,12 @@ BEGIN_MESSAGE_MAP(CMMLibDoc, CDocument)
 
 CMMLibDoc::CMMLibDoc()
 {
-	static const int defaultFlag[3][DETAIL_NUM] = {
+	static constexpr int defaultFlag[3][DETAIL_NUM] = {
 		{1, 0, 1, 0, 1, 0, 0, 1, 1, 0},
 		{1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
 		{1, 1, 1, 0, 1, 0, 0, 0, 0, 0}
 	};
-	static const int defaultWidth[DETAIL_NUM] = {
+	static constexpr int defaultWidth[DETAIL_NUM] = {
 		200, 100, 110, 110, 100, 100, 100, 100, 200, 200
 	};
 	char entry[16];
@@ -234,7 +232,7 @@ void CMMLibDoc::OpenCurrentLibrary()
 	int chType;
 	int cacheMode;
 
-	int n = pWinApp->GetProfileInt(g_sSectionLibrary, "Num", 0);
+	const int n = pWinApp->GetProfileInt(g_sSectionLibrary, "Num", 0);
 	for (int i = 0; i < n; i++) {
 		sEntry.Format("Server%d", i);
 		server = pWinApp->GetProfileString(g_sSectionLibrary, sEntry);
@@ -266,7 +264,7 @@ void CMMLibDoc::OpenFind(CItem *pItemParent)
 	CFindDB oFindDB;
 	FINDREC findRec;
 	CAddItemFind oAddItem;
-	LPCTSTR pFindID;
+	LPCSTR pFindID;
 
 	if (!oFindDB.Open(FALSE))
 		return;
@@ -694,7 +692,7 @@ void CMMLibDoc::UpdateFindExpert(CItemFind *pItemFind)
 	UpdateAllViews(NULL, VIEWHINT_REFINDITEM, pItemFind);
 }
 
-void CMMLibDoc::NameChange(CItem *pItem, LPCTSTR pName)
+void CMMLibDoc::NameChange(CItem *pItem, LPCSTR pName)
 {
 	CItemFolder *pItemFolder;
 	CItemData *pItemData;
@@ -746,7 +744,7 @@ void CMMLibDoc::OnFileDelete()
 	if (!OfflineCheck(pItem))
 		return;
 
-	LPCTSTR text;
+	LPCSTR text;
 
 	switch (pItem->m_nItemType) {
 	case ITEM_FOLDER:
@@ -1459,7 +1457,7 @@ void CMMLibDoc::OnUpdateRefind(CCmdUI* pCmdUI)
 	pCmdUI->Enable(CheckSelectedItemType(ITEM_FIND));
 }
 
-BOOL CMMLibDoc::OnOpenDocument(LPCTSTR /*lpszPathName*/)
+BOOL CMMLibDoc::OnOpenDocument(LPCSTR /*lpszPathName*/)
 {
 	OpenCurrentLibrary();
 
@@ -1477,9 +1475,9 @@ void CMMLibDoc::OnCloseDocument()
 	CMMPcsDB *pPcsDB;
 	CString sEntry;
 	int n = 0;
-	LPCTSTR server, directory;
-	LPCTSTR libraryID;
-	LPCTSTR title;
+	LPCSTR server, directory;
+	LPCSTR libraryID;
+	LPCSTR title;
 	int chType;
 	int cacheMode;
 
@@ -1714,7 +1712,7 @@ void CMMLibDoc::OnSelchangeCombo()
 {
 	CComboBox &comboBox = ((CMainFrame *)::AfxGetMainWnd())->GetComboBox();
 
-	int n = comboBox.GetCurSel();
+	const int n = comboBox.GetCurSel();
 	if (n != LB_ERR) {
 		CString sStr;
 
@@ -1875,7 +1873,7 @@ BOOL CMMLibDoc::ExportData(CItemData *pItemData)
 
 	dlg.m_ofn.lpstrTitle = GetString(IDS_EXPORT_FILE);
 	if (dlg.DoModal() == IDOK) {
-		if (MMPictureWriteFile(hDIB, (LPTSTR)(LPCSTR)dlg.GetPathName()) != 0) {
+		if (MMPictureWriteFile(hDIB, (LPSTR)(LPCSTR)dlg.GetPathName()) != 0) {
 			::GlobalFree(hDIB);
 			return FALSE;
 		}
@@ -2030,7 +2028,7 @@ void CMMLibDoc::OnUpdateImportPpm(CCmdUI* pCmdUI)
 	pCmdUI->Enable(CheckSelectedItemType(ITEM_FOLDER | ITEM_INBOX | ITEM_DATA));
 }
 
-void CMMLibDoc::ImportFile(LPCTSTR pFilter)
+void CMMLibDoc::ImportFile(LPCSTR pFilter)
 {
 	CItem *pItem = GetSelectedItem();
 
@@ -2176,7 +2174,7 @@ void CMMLibDoc::ImportPictFile(const CString *pFileName, int nFileName, CItemFol
 	}
 }
 
-void CMMLibDoc::ImportMmlFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
+void CMMLibDoc::ImportMmlFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 {
 	CMmlRead mml;
 	FOLDERREC oFolderRec;
@@ -2251,7 +2249,7 @@ void CMMLibDoc::ImportMmlFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
 	}
 }
 
-void CMMLibDoc::ImportMmdbFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
+void CMMLibDoc::ImportMmdbFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 {
 	CWaitCursor wait;
 
@@ -2261,7 +2259,7 @@ void CMMLibDoc::ImportMmdbFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
 	UpdateAllViews(NULL, VIEWHINT_RELOADITEM);
 }
 
-void CMMLibDoc::ImportPpmFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
+void CMMLibDoc::ImportPpmFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 {
 	HDIB hDIB;
 	HDIB hDIB2;
@@ -2400,7 +2398,7 @@ void CMMLibDoc::ImportPpmFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
 	}
 }
 
-CString CMMLibDoc::CreateDFolder(CItemFolder *pItemFolder, LPCTSTR pName, LPCTSTR pCreator, LPCTSTR pDate)
+CString CMMLibDoc::CreateDFolder(CItemFolder *pItemFolder, LPCSTR pName, LPCSTR pCreator, LPCSTR pDate)
 {
 	FOLDERREC oFolderRec;
 	CString sFolderID;
@@ -2568,10 +2566,10 @@ void CMMLibDoc::OnTransApp(int nIndex)
 		}
 	}
 
-	CMainFrame *pMainWnd = (CMainFrame *)::AfxGetMainWnd();
 	CWaitCursor wait;
-	CString sFileName;
 
+	CMainFrame *pMainWnd = (CMainFrame *)::AfxGetMainWnd();
+	CString sFileName;
 	if (!MakeTempFile(GetSelectedItem(), sFileName, pMainWnd->m_pTransMenu[nIndex].nSupportFile, FALSE, FALSE))
 		return;
 
@@ -2720,13 +2718,11 @@ void CMMLibDoc::OnUpdateEditCut(CCmdUI* pCmdUI)
 
 void CMMLibDoc::OnEditPaste()
 {
-	HANDLE hMem;
-	CItem *pItemClip;
-	CItem *pItemSelect;
-
 	if (::AfxGetMainWnd()->OpenClipboard()) {
+		HANDLE hMem;
 		if ((hMem = ::GetClipboardData(g_nCFMMLibrary)) != NULL) {
-			pItemClip = *(CItem **)::GlobalLock(hMem);
+			CItem *pItemClip = *(CItem **)::GlobalLock(hMem);
+			CItem *pItemSelect;
 			if ((pItemSelect = GetSelectedItem()) != NULL) {
 				if (m_bEditCut)
 					MoveItem(pItemClip, pItemSelect);
@@ -2740,14 +2736,13 @@ void CMMLibDoc::OnEditPaste()
 
 void CMMLibDoc::OnUpdateEditPaste(CCmdUI* pCmdUI)
 {
-	HANDLE hMem;
-	CItem *pItemClip;
-	CItem *pItemSelect;
 	BOOL bEnable = FALSE;
 
 	if (::AfxGetMainWnd()->OpenClipboard()) {
+		HANDLE hMem;
 		if ((hMem = ::GetClipboardData(g_nCFMMLibrary)) != NULL) {
-			pItemClip = *(CItem **)::GlobalLock(hMem);
+			CItem *pItemClip = *(CItem **)::GlobalLock(hMem);
+			CItem *pItemSelect;
 			if ((pItemSelect = GetSelectedItem()) != NULL) {
 				if (pItemClip != pItemSelect && pItemClip->GetParent() != pItemSelect && !CheckParent(pItemClip, pItemSelect)) {
 					if (pItemSelect->m_nItemType == ITEM_FOLDER || pItemSelect->m_nItemType == ITEM_INBOX) {
@@ -2806,13 +2801,11 @@ void CMMLibDoc::OnNewData()
 	if (g_pItemInbox == NULL)
 		return;
 
-	CMMPcsDB *pPcsDB = g_pItemInbox->m_pPcsDB;
-	FOLDERREC oFolderRec;
-	DATAREC oDataRec;
 	STIME stime;
-
+	CMMPcsDB *pPcsDB = g_pItemInbox->m_pPcsDB;
 	pPcsDB->m_pPcserve->m_oPcserve.GetTime(&stime);
 
+	FOLDERREC oFolderRec;
 	oFolderRec.sParentFolderID = g_pItemInbox->m_oFolderRec.sFolderID;
 	oFolderRec.sFolderType = FTYPE_DFOLDER;
 	oFolderRec.sFolderName.Format("Inbox%04d%02d%02d%02d%02d%02d", stime.year, stime.month, stime.day, stime.hour, stime.minute, stime.second);
@@ -2830,6 +2823,7 @@ void CMMLibDoc::OnNewData()
 
 		CreateData(oAddItem.m_pItemAddFolder);
 
+		DATAREC oDataRec;
 		if (!pPcsDB->ReadChildDataEx(oFolderRec.sFolderID, &oDataRec, TRUE))
 			DeleteFolder(oAddItem.m_pItemAddFolder);
 	}
@@ -2863,7 +2857,7 @@ void CMMLibDoc::OnKeyword()
 	pFrame->m_wndKeyword.SetFocus();
 }
 
-void CMMLibDoc::InsertData(LPCTSTR pFolderTitle, LPCTSTR pFolderComment, LPCTSTR pDataTitle, LPCTSTR pDataComment, HDIB hDIB, LPCTSTR pText)
+void CMMLibDoc::InsertData(LPCSTR pFolderTitle, LPCSTR pFolderComment, LPCSTR pDataTitle, LPCSTR pDataComment, HDIB hDIB, LPCSTR pText)
 {
 	if (g_pItemInbox == NULL)
 		return;
@@ -3130,11 +3124,11 @@ CString CMMLibDoc::GetGsCommand()
 	return sGsCommand;
 }
 
-void CMMLibDoc::ImportPdfFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
+void CMMLibDoc::ImportPdfFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 {
 	CWaitCursor wait;
 	CString sTempFolder;
-	GetTempPath(MAX_PATH, sTempFolder.GetBuffer(MAX_PATH));
+	::GetTempPath(MAX_PATH, sTempFolder.GetBuffer(MAX_PATH));
 	sTempFolder.ReleaseBuffer();
 	sTempFolder += "MMLIB_PDF";
 	::DeleteDirectory(sTempFolder);
@@ -3154,7 +3148,7 @@ void CMMLibDoc::ImportPdfFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
 		(LPCSTR)(sTempFolder + "\\" + ::RemoveExt(::RemoveDir(pFileName)) + "_%02d.bmp"),
 			pFileName);
 
-	CreateProcess(NULL, (LPTSTR)(LPCSTR)sCommand, NULL, NULL, FALSE, NORMAL_PRIORITY_CLASS, NULL, NULL, &si, &pi);
+	CreateProcess(NULL, (LPSTR)(LPCSTR)sCommand, NULL, NULL, FALSE, NORMAL_PRIORITY_CLASS, NULL, NULL, &si, &pi);
 	CloseHandle(pi.hThread);
 	WaitForSingleObject(pi.hProcess,INFINITE);
 	CloseHandle(pi.hProcess);
@@ -3242,7 +3236,7 @@ void CMMLibDoc::ImportPdfFile(LPCTSTR pFileName, CItemFolder *pItemFolder)
 			if (hDIB2 != NULL)
 				::GlobalFree(hDIB2);
 
-			int nPageIndex = nPageNo - 1;
+			const int nPageIndex = nPageNo - 1;
 			if (nPageIndex < aText.GetCount() && aText[nPageIndex].GetLength() != 0)
 				pItemFolder->m_pPcsDB->WriteTextDataEx(oDataRec.sDataID, aText[nPageIndex]);
 

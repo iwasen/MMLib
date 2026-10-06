@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -44,7 +42,7 @@ BOOL CBackupDlg::OnInitDialog()
 {
 	CDialogAF::OnInitDialog();
 
-	int n = SetLibraryComboBox(m_cLibrary);
+	const int n = SetLibraryComboBox(m_cLibrary);
 	if (n == 1)
 		m_cLibrary.SetCurSel(0);
 	else if (n != 0) {
@@ -143,7 +141,7 @@ void CBackupDlg::OnDelete()
 	if (::AfxMessageBox(IDS_DELETE_SELECTED_LIBRARY, MB_OKCANCEL | MB_ICONQUESTION) != IDOK)
 		return;
 
-	int nIndex = m_cBackupList.GetNextSelectedItem(pos);
+	const int nIndex = m_cBackupList.GetNextSelectedItem(pos);
 	CString *pBackupPath = (CString *)m_cBackupList.GetItemData(nIndex);
 	::DeleteDirectory(*pBackupPath);
 
@@ -174,13 +172,13 @@ int CALLBACK CBackupDlg::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lPa
 		.flags = LVFI_PARAM,
 		.lParam = lParam1
 	};
-	int nIndex1 = oDataList.FindItem(&findInfo1);
+	const int nIndex1 = oDataList.FindItem(&findInfo1);
 
 	LV_FINDINFO findInfo2{
 		.flags = LVFI_PARAM,
 		.lParam = lParam2
 	};
-	int nIndex2 = oDataList.FindItem(&findInfo2);
+	const int nIndex2 = oDataList.FindItem(&findInfo2);
 
 	return oDataList.GetItemText(nIndex1, pDlg->m_nSortItem).Compare(oDataList.GetItemText(nIndex2, pDlg->m_nSortItem)) * pDlg->m_nSortDir;
 }
@@ -194,7 +192,7 @@ void CBackupDlg::OnDestroy()
 
 void CBackupDlg::RemoveBackupItem()
 {
-	int nCount = m_cBackupList.GetItemCount();
+	const int nCount = m_cBackupList.GetItemCount();
 	for (int i = 0; i < nCount; i++)
 		delete (CString *)m_cBackupList.GetItemData(i);
 

@@ -10,8 +10,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -531,7 +529,7 @@ void CMMLibInfoView::OnBnClickedButtonOcr()
 	if (MMPictureWriteMem(hDIB, &hMem, mmType, &nImageSize) == 0) {
 		BYTE *pImageBuf = (BYTE *)::GlobalLock(hMem);
 
-		CString url = "http://mmlib.troot.co.jp/ocr.php";
+		const CString url = "http://mmlib.troot.co.jp/ocr.php";
 
 		CString sServer, sObject;
 		INTERNET_PORT nPort;
@@ -641,7 +639,7 @@ void CMMLibInfoView::OnBnClickedButtonSoundFile()
 		CWaitCursor waitCursor;
 		HWAVEDATA hWaveData;
 
-		if (MMWaveReadFile(&hWaveData, (LPTSTR)(LPCSTR)dlg.GetPathName()) == 0) {
+		if (MMWaveReadFile(&hWaveData, (LPSTR)(LPCSTR)dlg.GetPathName()) == 0) {
 			pItemData->m_pPcsDB->m_oDataDB.DBChgIdx(2);
 			pItemData->m_pPcsDB->m_oDataDB.DBSearch(pItemData->m_oDataRec.sDataID, LEN_ID);
 			MMWaveWriteDB(hWaveData, pItemData->m_pPcsDB->m_oDataDB.GetFCB(), SOUND_FIELD, MMTYPE_FLAC);
@@ -669,7 +667,7 @@ void CMMLibInfoView::OnBnClickedButtonSoundText()
 	pItemData->m_pPcsDB->m_oDataDB.DBReadBinary(SOUND_FIELD, pData, nDataSize, &nReadSize);
 
 	if (nReadSize != 0) {
-		CString url = "http://mmlib.troot.co.jp/speech.php";
+		const CString url = "http://mmlib.troot.co.jp/speech.php";
 
 		CString sServer, sObject;
 		INTERNET_PORT nPort;

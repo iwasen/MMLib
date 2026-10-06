@@ -11,8 +11,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -173,7 +171,7 @@ void CMMLibListView::DrawLibrary(CItemRoot *pItem)
 	int i, j;
 	int nRow, column;
 	CString sStr;
-	LPCTSTR p;
+	LPCSTR p;
 
 	InsertColumns(DETAIL_LIBRARY);
 
@@ -299,7 +297,7 @@ void CMMLibListView::DrawGroupFolder(CItem *pItem)
 	int i, j;
 	int nRow, column;
 	CString sStr;
-	LPCTSTR p;
+	LPCSTR p;
 	int nDetailNo;
 
 	InsertColumns(DETAIL_FOLDER);
@@ -380,7 +378,7 @@ void CMMLibListView::DrawDataFolder(CItem *pItem)
 	int i, j;
 	int nRow, column;
 	CString sStr;
-	LPCTSTR p;
+	LPCSTR p;
 
 	InsertColumns(DETAIL_DATA);
 
@@ -489,7 +487,7 @@ void CMMLibListView::DrawDataFolder(CItem *pItem)
 
 void CMMLibListView::InsertColumns(int nDetailDisp)
 {
-	static const UINT header[] = {
+	static constexpr UINT header[] = {
 		IDS_NAME, IDS_CODE, IDS_CREATE_DATE, IDS_UPDATE_DATE, IDS_CREATOR,
 		IDS_REMARK, IDS_KEYWORD, IDS_SERVER_NAME, IDS_DIRECTORY, IDS_FIRST_DATA
 	};
@@ -513,7 +511,7 @@ void CMMLibListView::InsertColumns(int nDetailDisp)
 				.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
 				.fmt = LVCFMT_LEFT,
 				.cx = CDpi::AdjustDpi(pDoc->m_nDetailWidth[nDetailDisp][nDetailNo]),
-				.pszText = (LPTSTR)(LPCSTR)GetString(header[nDetailNo])
+				.pszText = (LPSTR)(LPCSTR)GetString(header[nDetailNo])
 			};
 			listCtrl.InsertColumn(m_nColumn, &lvc);
 			m_nCurrentDetailNo[m_nColumn] = nDetailNo;
@@ -753,7 +751,7 @@ DROPEFFECT CMMLibListView::DragOverFile(COleDataObject* pDataObject, DWORD /*dwK
 	if (pItemDst->m_nItemType != ITEM_FOLDER && pItemDst->m_nItemType != ITEM_INBOX)
 		return DROPEFFECT_NONE;
 
-	int nFileType = GetSourceFileType(pDataObject);
+	const int nFileType = GetSourceFileType(pDataObject);
 
 	if (nFileType & SRCFILETYPE_MML)
 		;
@@ -868,7 +866,7 @@ CItem *CMMLibListView::GetTargetItem(CPoint point)
 	CListCtrl& lvc = GetListCtrl();
 	UINT flags;
 
-	int iItem = lvc.HitTest(point, &flags);
+	const int iItem = lvc.HitTest(point, &flags);
 	if (iItem == -1)
 		return m_pCurrentItem;
 
@@ -967,13 +965,13 @@ int CALLBACK CMMLibListView::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM
 		.flags = LVFI_PARAM,
 		.lParam = lParam1
 	};
-	int index1 = lvc.FindItem(&findInfo1);
+	const int index1 = lvc.FindItem(&findInfo1);
 
 	LV_FINDINFO findInfo2{
 		.flags = LVFI_PARAM,
 		.lParam = lParam2
 	};
-	int index2 = lvc.FindItem(&findInfo2);
+	const int index2 = lvc.FindItem(&findInfo2);
 
 	if (pView->m_bTitleDisp && pView->m_nSortItem == 0)
 		return CompareTitle(lvc.GetItemText(index1, pView->m_nSortItem), lvc.GetItemText(index2, pView->m_nSortItem)) * pView->m_nSortDir;
@@ -1009,8 +1007,8 @@ BOOL CMMLibListView::OnScroll(UINT nScrollCode, UINT /*nPos*/, BOOL bDoScroll)
 	int nMinPos, nMaxPos;
 	BOOL bScroll = FALSE;
 
-	int y = GetScrollPos(SB_VERT);
-	int nLimit = GetScrollLimit(SB_VERT);
+	const int y = GetScrollPos(SB_VERT);
+	const int nLimit = GetScrollLimit(SB_VERT);
 	GetScrollRange(SB_VERT, &nMinPos, &nMaxPos);
 
 	switch (HIBYTE(nScrollCode)) {

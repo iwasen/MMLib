@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 #define DEFAULT_ORDER	"0123456"
@@ -71,7 +69,7 @@ void COptOrder::OnUp()
 
 	CString sStr;
 	m_cOrderList.GetText(nIndex, sStr);
-	DWORD data = (DWORD)m_cOrderList.GetItemData(nIndex);
+	const DWORD data = (DWORD)m_cOrderList.GetItemData(nIndex);
 	m_cOrderList.DeleteString(nIndex);
 
 	m_cOrderList.InsertString(--nIndex, sStr);
@@ -92,7 +90,7 @@ void COptOrder::OnDown()
 
 	CString sStr;
 	m_cOrderList.GetText(nIndex, sStr);
-	DWORD data = (DWORD)m_cOrderList.GetItemData(nIndex);
+	const DWORD data = (DWORD)m_cOrderList.GetItemData(nIndex);
 	m_cOrderList.DeleteString(nIndex);
 
 	m_cOrderList.InsertString(++nIndex, sStr);
@@ -105,7 +103,7 @@ void COptOrder::OnOK()
 {
 	UpdateData(TRUE);
 
-	int nCount = m_cOrderList.GetCount();
+	const int nCount = m_cOrderList.GetCount();
 	CString sStr(' ', nCount);
 
 	for (int i = 0; i < nCount; i++)
@@ -138,15 +136,15 @@ void COptOrder::OnDefault()
 	UpdateData(FALSE);
 }
 
-void COptOrder::SetListBox(LPCTSTR pOrder)
+void COptOrder::SetListBox(LPCSTR pOrder)
 {
-	static const UINT item[] = {
+	static constexpr UINT item[] = {
 		IDS_NAME, IDS_CODE, IDS_CREATE_DATE, IDS_UPDATE_DATE, IDS_CREATOR, IDS_REMARK, IDS_KEYWORD
 	};
 
 	m_cOrderList.ResetContent();
 	for (int i = 0; i < m_sOrder.GetLength(); i++) {
-		int nIndex = pOrder[i] - '0';
+		const int nIndex = pOrder[i] - '0';
 		m_cOrderList.InsertString(i, GetString(item[nIndex]));
 		m_cOrderList.SetItemData(i, nIndex);
 	}

@@ -7,8 +7,6 @@
 #include "FindDB.h"
 
 #ifdef _DEBUG
-#undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
@@ -29,7 +27,7 @@ CFindDB::~CFindDB()
 
 BOOL CFindDB::Open(BOOL bCreate)
 {
-	static DBF_I field[] = {
+	static constexpr DBF_I field[] = {
 		{"FINDID",	    'C', LEN_ID,       0},	// 検索フォルダＩＤ
 		{"LIBRARYID",	'C', LEN_ID,       0},	// 検索対象ライブラリＩＤ
 		{"FINDTYPE",	'C', LEN_FINDTYPE, 0},	// 検索種別
@@ -114,7 +112,7 @@ open:
 	if ((err = m_oFindDB.DBOpen(m_oPcserve, sPathName)) != 0) {
 		bCreateIndex = TRUE;
 		if (err == ERROR_DB_NOFILE && bCreate)
-			err = m_oFindDB.DBCreate(m_oPcserve, sPathName, field, sizeof(field) / sizeof(DBF_I));
+			err = m_oFindDB.DBCreate(m_oPcserve, sPathName, field, ARRAY_SIZE(field));
 		if (err != 0)
 			return FALSE;
 	} else {
@@ -126,7 +124,7 @@ open:
 
 		if (nRecSize - 1 < sizeof(FINDBUF)) {
 			CString sPathName2 = sDirName + "FINDTMP.DBF";
-			if ((err = oNewDB.DBCreate(m_oPcserve, sPathName2, field, sizeof(field) / sizeof(DBF_I))) == 0) {
+			if ((err = oNewDB.DBCreate(m_oPcserve, sPathName2, field, ARRAY_SIZE(field))) == 0) {
 				if ((err = oNewDB.DBCopy(m_oFindDB)) != 0)
 					return err;
 				m_oFindDB.DBClose();
@@ -148,7 +146,7 @@ open:
 	return TRUE;
 }
 
-BOOL CFindDB::ReadFind(LPCTSTR pLibraryID, FINDREC *pFindRec)
+BOOL CFindDB::ReadFind(LPCSTR pLibraryID, FINDREC *pFindRec)
 {
 	int err;
 
@@ -207,7 +205,7 @@ BOOL CFindDB::UpdateFind(FINDREC *pFindRec)
 	return TRUE;
 }
 
-BOOL CFindDB::DeleteFind(LPCTSTR pDID)
+BOOL CFindDB::DeleteFind(LPCSTR pDID)
 {
 	int err;
 

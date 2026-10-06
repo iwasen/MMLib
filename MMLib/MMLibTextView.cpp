@@ -10,8 +10,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -220,7 +218,7 @@ BOOL CMMLibTextView::DropFile(COleDataObject* pDataObject, DROPEFFECT /*dropEffe
 	if ((hDrop = (HDROP)pDataObject->GetGlobalData(CF_HDROP, NULL)) == NULL)
 		return FALSE;
 
-	int nNumFiles = ::DragQueryFile(hDrop, (UINT)-1, NULL, 0);
+	const int nNumFiles = ::DragQueryFile(hDrop, (UINT)-1, NULL, 0);
 	if (nNumFiles > 0) {
 		char fileNameBuf[256];
 		::DragQueryFile(hDrop, 0, fileNameBuf, sizeof(fileNameBuf));
@@ -264,7 +262,7 @@ void CMMLibTextView::SetTextWordwrap()
 	// 古い情報を取り出す。
 	int	bufLen = GetWindowTextLength();	// エディトバッファ内の文字数。NULLを含まない
 	BYTE *pSaveText = new BYTE[bufLen+1];	// セーブエリアを確保
-	GetWindowText((LPTSTR)pSaveText, bufLen+1);	// エディットバッファ内のデータをコピー
+	GetWindowText((LPSTR)pSaveText, bufLen+1);	// エディットバッファ内のデータをコピー
 
 	// WRAPスタイルを設定する。
 	DWORD dwStyle;
@@ -281,10 +279,10 @@ void CMMLibTextView::SetTextWordwrap()
 	pParent->ScreenToClient(rect);	// 座標を親ウィンドウとの相対位置に変換
 	CWnd* pFocus = GetFocus();	// 入力のフォーカスを持つウィンドウを取得
 
-	UINT nID = GetDlgCtrlID();	// ウィンドウの子ウィンドウの識別子
+	const UINT nID = GetDlgCtrlID();	// ウィンドウの子ウィンドウの識別子
 
 	// 新たにウィンドウを作成する。
-	DWORD dwExStyle = GetExStyle();	// 拡張スタイルを取得
+	const DWORD dwExStyle = GetExStyle();	// 拡張スタイルを取得
 	HWND hWnd =
 		::CreateWindowEx(dwExStyle,	// 拡張ウィンドウスタイル
 				"Edit",// クラス名
@@ -314,7 +312,7 @@ void CMMLibTextView::SetTextWordwrap()
 	SetWindowText(NULL);
 
 	// 新しいウィンドウのエディットバッファにテキストをセット
-	::SetWindowText(hWnd, (LPTSTR)pSaveText);
+	::SetWindowText(hWnd, (LPSTR)pSaveText);
 	delete[] pSaveText;
 
 	// 旧ウィンドウを切り離す
@@ -355,7 +353,7 @@ int CMMLibTextView::GetSearchCount(const CString &sSearchText)
 		nPosMin = INT_MAX;
 		POSITION nPosSearch = lSearchTextW.GetHeadPosition();
 		while (nPosSearch != NULL) {
-			int nPos = sTextW.Find(lSearchTextW.GetNext(nPosSearch), nPosText + 1);
+			const int nPos = sTextW.Find(lSearchTextW.GetNext(nPosSearch), nPosText + 1);
 			if (nPos != -1) {
 				if (nPos < nPosMin) {
 					nPosMin = nPos;
@@ -367,7 +365,7 @@ int CMMLibTextView::GetSearchCount(const CString &sSearchText)
 
 		nPosSearch = lSearchTextW.GetHeadPosition();
 		while (nPosSearch != NULL) {
-			int nPos = sTextW.Find(lSearchTextW.GetNext(nPosSearch), nPosText + 1);
+			const int nPos = sTextW.Find(lSearchTextW.GetNext(nPosSearch), nPosText + 1);
 			if (nPos == nPosMin) {
 				nCount++;
 			}
@@ -400,7 +398,7 @@ void CMMLibTextView::SetSel(const CString &sSearchText, int nCount)
 		POSITION nPosSearch = lSearchTextW.GetHeadPosition();
 		while (nPosSearch != NULL) {
 			CStringW &sSearchTextW = lSearchTextW.GetNext(nPosSearch);
-			int nPos = sTextW.Find(sSearchTextW, nPosText + 1);
+			const int nPos = sTextW.Find(sSearchTextW, nPosText + 1);
 			if (nPos != -1) {
 				if (nPos < nPosMin) {
 					nPosMin = nPos;
@@ -413,10 +411,10 @@ void CMMLibTextView::SetSel(const CString &sSearchText, int nCount)
 		nPosSearch = lSearchTextW.GetHeadPosition();
 		while (nPosSearch != NULL) {
 			CStringW &sSearchTextW = lSearchTextW.GetNext(nPosSearch);
-			int nPos = sTextW.Find(sSearchTextW, nPosText + 1);
+			const int nPos = sTextW.Find(sSearchTextW, nPosText + 1);
 			if (nPos == nPosMin) {
 				if (nCount == nCount2) {
-					int nLen = sSearchTextW.GetLength();
+					const int nLen = sSearchTextW.GetLength();
 					GetEditCtrl().SetSel(nPos, nPos + nLen);
 					return;
 				}

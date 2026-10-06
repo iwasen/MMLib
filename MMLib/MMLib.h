@@ -45,7 +45,7 @@ protected:
 	CString m_sExeFileName;
 	HSZ m_hService;
 	ULONG m_nCheckData;
-	const char *m_pRegistryName;
+	LPCSTR m_pRegistryName;
 
 	void InitDDE();
 	void UninitDDE() const;
@@ -67,5 +67,5 @@ extern CMMLibApp theApp;
 class CMyCmdLineInfo : public CCommandLineInfo
 {
 public:
-	void ParseParam( LPCTSTR lpszParam, BOOL bFlag, BOOL bLast );
+	void ParseParam( LPCSTR lpszParam, BOOL bFlag, BOOL bLast );
 };

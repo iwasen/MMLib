@@ -16,7 +16,7 @@ protected:
 
 	void InsertColumns();
 	CString GetFilter(CString &sKeywords);
-	BOOL FindKeyword(LPCTSTR pFilter);
+	BOOL FindKeyword(LPCSTR pFilter);
 	void DeleteAllItems();
 	static int CALLBACK CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort);
 	void SelectPrev();

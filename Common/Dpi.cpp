@@ -4,6 +4,10 @@
 #include "stdafx.h"
 #include "Dpi.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
+
 int CDpi::m_nDpi;
 
 void CDpi::InitDpi()

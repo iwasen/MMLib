@@ -6,8 +6,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -48,7 +46,7 @@ BOOL CHyperLink::OnSetCursor(CWnd* /*pWnd*/, UINT /*nHitTest*/, UINT /*message*/
     return TRUE;
 }
 
-void CHyperLink::SetHyperLinkURL(LPCTSTR pLinkURL, LPCTSTR pFontName, int nFontSize)
+void CHyperLink::SetHyperLinkURL(LPCSTR pLinkURL, LPCSTR pFontName, int nFontSize)
 {
 	LOGFONT oFont{};
 

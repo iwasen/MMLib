@@ -20,14 +20,14 @@ public:
 	int m_nAutoSize;
 	double m_fPictRatio;
 
-	void ShowPicture(LPCTSTR pTitle, HDIB hDIB, int nAutoSize, double fPictRatio);
+	void ShowPicture(LPCSTR pTitle, HDIB hDIB, int nAutoSize, double fPictRatio);
 
 protected:
 	CPictFrame *GetPictFrame();
 
 	DECLARE_MESSAGE_MAP()
-	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
-	virtual void SetPathName(LPCTSTR lpszPathName, BOOL bAddToMRU = TRUE);
+	virtual BOOL OnOpenDocument(LPCSTR lpszPathName);
+	virtual void SetPathName(LPCSTR lpszPathName, BOOL bAddToMRU = TRUE);
 	virtual BOOL OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo);
 	virtual BOOL OnNewDocument();
 	afx_msg void OnPictAutosize();

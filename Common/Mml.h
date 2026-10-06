@@ -42,8 +42,8 @@ public:
 	CMmlWrite();
 	virtual ~CMmlWrite();
 
-	BOOL Create(LPCTSTR pFileName);
-	BOOL WriteItem(LPCTSTR pItemName, LPCVOID pData, long len);
+	BOOL Create(LPCSTR pFileName);
+	BOOL WriteItem(LPCSTR pItemName, LPCVOID pData, long len);
 	void NextPage();
 	void Close();
 
@@ -56,7 +56,7 @@ protected:
 	BOOL m_bNewPage;
 
 	void NewPage();
-	int GetItemNo(LPCTSTR pItemName);
+	int GetItemNo(LPCSTR pItemName);
 };
 
 class CMmlRead : public CObject
@@ -67,9 +67,9 @@ public:
 
 	int m_nPage;
 
-	BOOL Open(LPCTSTR pFileName);
+	BOOL Open(LPCSTR pFileName);
 	BOOL SetPage(int nPage);
-	BOOL ReadItem(LPTSTR pItemName, LPVOID *pData, long *pLen);
+	BOOL ReadItem(LPSTR pItemName, LPVOID *pData, long *pLen);
 	void Close();
 
 protected:

@@ -106,8 +106,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,2,0,6
- PRODUCTVERSION 1,2,0,6
+ FILEVERSION 1,2,0,7
+ PRODUCTVERSION 1,2,0,7
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -125,13 +125,13 @@ BEGIN
             VALUE "Comments", "Written by Shinichi Aizawa"
             VALUE "CompanyName", "Yoshimasa Electronic Inc."
             VALUE "FileDescription", "MMView executable file"
-            VALUE "FileVersion", "1.2.0.6"
+            VALUE "FileVersion", "1.2.0.7"
             VALUE "InternalName", "MMView"
             VALUE "LegalCopyright", "Copyright (C) 2001-2026 Yoshimasa Electronic Inc."
             VALUE "LegalTrademarks", "YMEC"
             VALUE "OriginalFilename", "MMView.EXE"
             VALUE "ProductName", "Muitimedia Library Viewer"
-            VALUE "ProductVersion", "1.2.0.6"
+            VALUE "ProductVersion", "1.2.0.7"
         END
     END
     BLOCK "VarFileInfo"

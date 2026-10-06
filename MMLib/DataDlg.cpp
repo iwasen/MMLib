@@ -9,8 +9,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -420,7 +418,7 @@ LRESULT CDataDlg::OnScanBmp(WPARAM wParam, LPARAM lParam)
 {
 	HDIB hDIB = (HDIB)wParam;
 
-	int nRotation = m_cAutoRotation.GetCurSel();
+	const int nRotation = m_cAutoRotation.GetCurSel();
 	if (nRotation >= 1 && nRotation <= 3)
 		MMPictureRotate2(hDIB, &hDIB, (SHORT)nRotation);
 
@@ -436,7 +434,7 @@ LRESULT CDataDlg::OnFrameBmp(WPARAM wParam, LPARAM /*lParam*/)
 {
 	HDIB hDIB = (HDIB)wParam;
 
-	int nRotation = m_cAutoRotation.GetCurSel();
+	const int nRotation = m_cAutoRotation.GetCurSel();
 	if (nRotation >= 1 && nRotation <= 3)
 		MMPictureRotate2(hDIB, &hDIB, (SHORT)nRotation);
 
@@ -562,7 +560,7 @@ void CDataDlg::ExitDialog()
 		else
 			nMsg = IDS_UPDATE_DATA_SAVE;
 
-		int rc = ::AfxMessageBox(nMsg, MB_ICONQUESTION | MB_YESNOCANCEL);
+		const int rc = ::AfxMessageBox(nMsg, MB_ICONQUESTION | MB_YESNOCANCEL);
 		switch (rc) {
 		case IDYES:
 			OnSave();
@@ -837,7 +835,7 @@ void CDataDlg::DrawWindowFrame(CWnd *pWnd)
 	CRect rect;
 	pWnd->GetWindowRect(rect);
 
-	int nDrawModeOrg = pDC->SetROP2(R2_NOTXORPEN);
+	const int nDrawModeOrg = pDC->SetROP2(R2_NOTXORPEN);
 	CPen *pPenOrg = pDC->SelectObject(&pen);
 
 	pDC->Rectangle(0, 0, rect.Width(), rect.Height());
@@ -871,8 +869,8 @@ HDIB CDataDlg::GetWindowDIB(CWnd *pWnd)
 {
 	CRect rect;
 	pWnd->GetWindowRect(&rect);
-	int nWidth = rect.Width();
-	int nHeight = rect.Height();
+	const int nWidth = rect.Width();
+	const int nHeight = rect.Height();
 
 	CDC *pDC = pWnd->GetWindowDC();
 	CDC DCMem;

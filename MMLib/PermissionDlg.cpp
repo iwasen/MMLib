@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -42,7 +40,7 @@ BOOL CPermissionDlg::OnInitDialog()
 
 	CDialogAF::OnInitDialog();
 
-	int n = SetLibraryComboBox(m_cLibrary);
+	const int n = SetLibraryComboBox(m_cLibrary);
 	if (n == 1)
 		m_cLibrary.SetCurSel(0);
 	else if (n != 0) {

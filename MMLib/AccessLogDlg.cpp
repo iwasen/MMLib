@@ -5,6 +5,10 @@
 #include "MMLib.h"
 #include "AccessLogDlg.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
+
 // CAccessLogDlg ダイアログ
 
 CAccessLogDlg::CAccessLogDlg(CWnd* pParent /*=NULL*/)
@@ -57,19 +61,19 @@ void CAccessLogDlg::InsertColumns()
 		int fmt;
 		int width;
 	};
-	static const LISTCOLUMN tColumn[] = {
+	static constexpr LISTCOLUMN tColumn[] = {
 		{IDS_ACCESS_TIME, LVCFMT_LEFT, 125},
 		{IDS_NAME, LVCFMT_LEFT, 130},
 		{IDS_FOLDER, LVCFMT_LEFT, 200},
 		{IDS_CREATE_DATE, LVCFMT_LEFT, 110}
 	};
 
-	for (int i = 0; i < sizeof(tColumn) / sizeof(LISTCOLUMN); i++) {
+	for (int i = 0; i < ARRAY_SIZE(tColumn); i++) {
 		LV_COLUMN lvc{
 			.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
 			.fmt = tColumn[i].fmt,
 			.cx = CDpi::AdjustDpi(tColumn[i].width),
-			.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].text)
+			.pszText = (LPSTR)(LPCSTR)GetString(tColumn[i].text)
 		};
 		m_cListAccessLog.InsertColumn(i, &lvc);
 	}
@@ -117,7 +121,7 @@ void CAccessLogDlg::OnDestroy()
 {
 	CDialogEx2::OnDestroy();
 
-	int nCount = m_cListAccessLog.GetItemCount();
+	const int nCount = m_cListAccessLog.GetItemCount();
 	for (int i = 0; i < nCount; i++)
 		delete (CSelectItem *)m_cListAccessLog.GetItemData(i);
 }

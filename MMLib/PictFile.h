@@ -11,7 +11,7 @@ public:
 	virtual ~CPictFile();
 
 	void ReadIniFile();
-	LPCTSTR ReadPict(CItemData *pItemData, int nSupportFile, long *pSize);
+	LPCSTR ReadPict(CItemData *pItemData, int nSupportFile, long *pSize);
 
 protected:
 	LPSTR m_pPict;
@@ -24,6 +24,6 @@ protected:
 	int m_nVPixel;
 
 	void FreeMem();
-	SHORT ConvertMMType1(LPCTSTR pPict, int nSupportFile, long *pSize);
-	SHORT ConvertMMType2(LPCTSTR pPict, int nSupportFile, long *pSize);
+	SHORT ConvertMMType1(LPCSTR pPict, int nSupportFile, long *pSize);
+	SHORT ConvertMMType2(LPCSTR pPict, int nSupportFile, long *pSize);
 };

@@ -34,16 +34,16 @@ public:
 	void CreateFolder(CItemFolder *pItemFolder);
 	void CreateData(CItemFolder *pItemFolder);
 	void OpenLibrary();
-	void NameChange(CItem *pItem, LPCTSTR pName);
+	void NameChange(CItem *pItem, LPCSTR pName);
 	void CopyItem(CItem *pItemSrc, CItem *pItemDst);
 	void MoveItem(CItem *pItemSrc, CItem *pItemDst);
 	CItem *GetSelectedItem();
-	void ImportMmlFile(LPCTSTR pFileName, CItemFolder *pItemFolder);
-	void ImportMmdbFile(LPCTSTR pFileName, CItemFolder *pItemFolder);
+	void ImportMmlFile(LPCSTR pFileName, CItemFolder *pItemFolder);
+	void ImportMmdbFile(LPCSTR pFileName, CItemFolder *pItemFolder);
 	void ImportPictFile(const CString *pFileName, int nFileName, CItemFolder *pItemFolder, BOOL bDataDlg);
-	void ImportPpmFile(LPCTSTR pFileName, CItemFolder *pItemFolder);
-	void ImportPdfFile(LPCTSTR pFileName, CItemFolder *pItemFolder);
-	void InsertData(LPCTSTR pFolderTitle, LPCTSTR pFolderComment, LPCTSTR pDataTitle, LPCTSTR pDataComment, HDIB hDIB, LPCTSTR pText);
+	void ImportPpmFile(LPCSTR pFileName, CItemFolder *pItemFolder);
+	void ImportPdfFile(LPCSTR pFileName, CItemFolder *pItemFolder);
+	void InsertData(LPCSTR pFolderTitle, LPCSTR pFolderComment, LPCSTR pDataTitle, LPCSTR pDataComment, HDIB hDIB, LPCSTR pText);
 	void Reload();
 
 protected:
@@ -72,8 +72,8 @@ protected:
 	BOOL OfflineCheck(CItem *pItem);
 	BOOL ExportData(CItemData *pItemData);
 	BOOL ExportMmlFile(CItem *pItem);
-	void ImportFile(LPCTSTR pFilter);
-	CString CreateDFolder(CItemFolder *pItemFolder, LPCTSTR pName, LPCTSTR pCreator, LPCTSTR pDate);
+	void ImportFile(LPCSTR pFilter);
+	CString CreateDFolder(CItemFolder *pItemFolder, LPCSTR pName, LPCSTR pCreator, LPCSTR pDate);
 	BOOL ReadMmlHeader(CMmlRead *pMmlRead, FOLDERREC *pFolderRec, CString *pText);
 	BOOL ReadMmlData(int nPage, CMmlRead *pMmlRead, DATAREC *pDataRec, HDIB *phDIB, CString *pText);
 	void OnTransApp(int nIndex);
@@ -83,7 +83,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL OnNewDocument();
-	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
+	virtual BOOL OnOpenDocument(LPCSTR lpszPathName);
 	virtual void OnCloseDocument();
 	virtual BOOL OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo);
 	virtual BOOL SaveModified();

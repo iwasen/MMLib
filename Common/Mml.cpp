@@ -6,8 +6,6 @@
 #include "Mml.h"
 
 #ifdef _DEBUG
-#undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
@@ -31,7 +29,7 @@ CMmlWrite::~CMmlWrite()
 	Close();
 }
 
-BOOL CMmlWrite::Create(LPCTSTR pFileName)
+BOOL CMmlWrite::Create(LPCSTR pFileName)
 {
 	if (!m_oFile.Open(pFileName, CFile::modeCreate | CFile::modeWrite | CFile::shareExclusive))
 		return FALSE;
@@ -44,7 +42,7 @@ BOOL CMmlWrite::Create(LPCTSTR pFileName)
 	return TRUE;
 }
 
-BOOL CMmlWrite::WriteItem(LPCTSTR pItemName, LPCVOID pData, long len)
+BOOL CMmlWrite::WriteItem(LPCSTR pItemName, LPCVOID pData, long len)
 {
 	if (m_oFile.m_hFile == CFile::hFileNull)
 		return FALSE;
@@ -135,7 +133,7 @@ void CMmlWrite::NewPage()
 	m_pPageListBottom = pPageList;
 }
 
-int CMmlWrite::GetItemNo(LPCTSTR pItemName)
+int CMmlWrite::GetItemNo(LPCSTR pItemName)
 {
 	ItemNameList *pItemNameList;
 	int n;
@@ -180,7 +178,7 @@ CMmlRead::~CMmlRead()
 	Close();
 }
 
-BOOL CMmlRead::Open(LPCTSTR pFileName)
+BOOL CMmlRead::Open(LPCSTR pFileName)
 {
 	if (!m_oFile.Open(pFileName, CFile::modeRead | CFile::shareDenyWrite))
 		return FALSE;
@@ -231,7 +229,7 @@ BOOL CMmlRead::SetPage(int nPage)
 	return TRUE;
 }
 
-BOOL CMmlRead::ReadItem(LPTSTR pItemName, LPVOID *pData, long *pLen)
+BOOL CMmlRead::ReadItem(LPSTR pItemName, LPVOID *pData, long *pLen)
 {
 	if (m_oFile.m_hFile == CFile::hFileNull)
 		return FALSE;

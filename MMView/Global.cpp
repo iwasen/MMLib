@@ -13,7 +13,7 @@ CRect g_rcPrintMargin;
 
 void FormatDate(CString &strIn, CString &strOut)
 {
-	LPCTSTR pDate = strIn;
+	LPCSTR pDate = strIn;
 
 	strOut.Format("%.4s/%.2s/%.2s %.2s:%.2s",
 			pDate, pDate + 4, pDate + 6,
@@ -50,22 +50,21 @@ HANDLE CopyHandle(HANDLE h)
 void PrintPicture(CDC *pDC, HDIB hDIB, CRect rcMargin)
 {
 	short nSrcWidth, nSrcHeight, nColor;
-	int nDstWidth, nDstHeight;
 
 	if (hDIB == NULL)
 		return;
 
 	MMPictureGetInfo(hDIB, &nSrcWidth, &nSrcHeight, &nColor);
 
-	int nMapMode = pDC->SetMapMode(MM_HIMETRIC);
+	const int nMapMode = pDC->SetMapMode(MM_HIMETRIC);
 	pDC->LPtoDP(rcMargin);
 	pDC->SetMapMode(nMapMode);
 
-	int nDevWidth = pDC->GetDeviceCaps(HORZRES) - (rcMargin.left + rcMargin.right);
-	int nDevHeight = pDC->GetDeviceCaps(VERTRES) - (rcMargin.top + rcMargin.bottom);
+	const int nDevWidth = pDC->GetDeviceCaps(HORZRES) - (rcMargin.left + rcMargin.right);
+	const int nDevHeight = pDC->GetDeviceCaps(VERTRES) - (rcMargin.top + rcMargin.bottom);
 
-	nDstWidth = nDevWidth;
-	nDstHeight = nSrcHeight * nDevWidth / nSrcWidth;
+	int nDstWidth = nDevWidth;
+	int nDstHeight = nSrcHeight * nDevWidth / nSrcWidth;
 	if (nDstHeight > nDevHeight) {
 		nDstWidth = nSrcWidth * nDevHeight / nSrcHeight;
 		nDstHeight = nDevHeight;
@@ -97,7 +96,7 @@ int CompareTitle(const CString &sStr1, const CString &sStr2)
 {
 	int n1, n2;
 	int n;
-	static const char num[] = "0123456789";
+	static constexpr char num[] = "0123456789";
 
 	n1 = sStr1.FindOneOf(num);
 	n2 = sStr2.FindOneOf(num);

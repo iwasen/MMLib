@@ -11,10 +11,10 @@ public:
 	virtual ~CFindDB();
 
 	BOOL Open(BOOL bCreate);
-	BOOL ReadFind(LPCTSTR pLibraryID, FINDREC *pFindRec);
+	BOOL ReadFind(LPCSTR pLibraryID, FINDREC *pFindRec);
 	BOOL AddFind(FINDREC *pFindRec);
 	BOOL UpdateFind(FINDREC *pFindRec);
-	BOOL DeleteFind(LPCTSTR pDID);
+	BOOL DeleteFind(LPCSTR pDID);
 
 private:
 	CPcserve m_oPcserve;

@@ -16,7 +16,7 @@ class COptProperty : public CPropertySheet
 {
 public:
 	COptProperty(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
-	COptProperty(LPCTSTR pszCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
+	COptProperty(LPCSTR pszCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
 
 	COptFolder m_oOptFolder;
 	COptFont m_oOptFont;

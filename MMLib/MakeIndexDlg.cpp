@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -50,7 +48,7 @@ void CMakeIndexDlg::OnOK()
 
 void CMakeIndexDlg::OnAllSelect()
 {
-	int n = m_cLibraryList.GetCount();
+	const int n = m_cLibraryList.GetCount();
 
 	for (int i = 0; i < n; i++)
 		m_cLibraryList.SetSel(i);
@@ -89,7 +87,7 @@ BOOL CMakeIndexDlg::CreateAllIndex()
 	CPcserve oPcserve;
 	CPSDB oDb;
 	BOOL bSel = FALSE;
-	int n = m_cLibraryList.GetCount();
+	const int n = m_cLibraryList.GetCount();
 
 	if (!CreateKeywordIndex(oPcserve, oDb)) {
 		::AfxMessageBox(IDS_CREAE_KEYWORD_INDEX_FAIL);
@@ -129,7 +127,7 @@ BOOL CMakeIndexDlg::CreateAllIndex()
 
 BOOL CMakeIndexDlg::CreateKeywordIndex(CPcserve &oPcserve, CPSDB &oDB)
 {
-	static DBF_I field[] = {
+	static constexpr DBF_I field[] = {
 		{"LID",     'C', LEN_ID,         0},	// ライブラリＩＤ
 		{"LNAME",   'C', LEN_FOLDERNAME, 0},	// ライブラリ名
 		{"IDTYPE",  'C', 1,              0},	// フォルダ／データ区分
@@ -150,7 +148,7 @@ BOOL CMakeIndexDlg::CreateKeywordIndex(CPcserve &oPcserve, CPSDB &oDB)
 	CreateDirectoryAll(dir);
 
 	path.Format("%s\\%s", (LPCSTR)dir, FN_KEYWORD_DBF);
-	if (oDB.DBCreate(oPcserve, path, field, sizeof(field) / sizeof(DBF_I)) != 0)
+	if (oDB.DBCreate(oPcserve, path, field, ARRAY_SIZE(field)) != 0)
 		return FALSE;
 
 	return TRUE;
@@ -159,7 +157,7 @@ BOOL CMakeIndexDlg::CreateKeywordIndex(CPcserve &oPcserve, CPSDB &oDB)
 BOOL CMakeIndexDlg::WriteKeywordIndex(CItemFolder *pItemFolder, CPSDB &oDB)
 {
 	CMMPcsDB *pPcsDB = pItemFolder->m_pPcsDB;
-	LPCTSTR pLibraryID = pItemFolder->m_pPcsDB->m_sLibraryID;
+	LPCSTR pLibraryID = pItemFolder->m_pPcsDB->m_sLibraryID;
 	CPSDB *pDB;
 	int nLen;
 	CWaitCursor wait;
@@ -185,7 +183,7 @@ BOOL CMakeIndexDlg::WriteKeywordIndex(CItemFolder *pItemFolder, CPSDB &oDB)
 	return TRUE;
 }
 
-BOOL CMakeIndexDlg::WriteSub(CPSDB *pDB, CPSDB &oDB, char type, LPCTSTR pLibraryID, LPCTSTR pLibraryName)
+BOOL CMakeIndexDlg::WriteSub(CPSDB *pDB, CPSDB &oDB, char type, LPCSTR pLibraryID, LPCSTR pLibraryName)
 {
 	KEYWORDBUF keywordBuf;
 	struct {

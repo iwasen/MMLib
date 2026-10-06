@@ -10,8 +10,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -171,10 +169,10 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	CWinApp *pWinApp = AfxGetApp();
 
-	int left = pWinApp->GetProfileInt(g_sSectionMainWindow, "Left", 0);
-	int top = pWinApp->GetProfileInt(g_sSectionMainWindow, "Top", 0);
-	int right = pWinApp->GetProfileInt(g_sSectionMainWindow, "Right", 0);
-	int bottom = pWinApp->GetProfileInt(g_sSectionMainWindow, "Bottom", 0);
+	const int left = pWinApp->GetProfileInt(g_sSectionMainWindow, "Left", 0);
+	const int top = pWinApp->GetProfileInt(g_sSectionMainWindow, "Top", 0);
+	const int right = pWinApp->GetProfileInt(g_sSectionMainWindow, "Right", 0);
+	const int bottom = pWinApp->GetProfileInt(g_sSectionMainWindow, "Bottom", 0);
 
 	if (right != 0 && bottom != 0) {
 		cs.x = left;
@@ -243,7 +241,7 @@ void CMainFrame::SwitchView(UINT nIndex)
 			pViewRemove = m_pViews[VIEWWND_PICT];
 		}
 
-		int nSwitchChildID = pViewAdd->GetDlgCtrlID();
+		const int nSwitchChildID = pViewAdd->GetDlgCtrlID();
 		pViewAdd->SetDlgCtrlID(pViewRemove->GetDlgCtrlID());
 		pViewRemove->SetDlgCtrlID(nSwitchChildID);
 
@@ -309,7 +307,7 @@ void CMainFrame::ShowTextView(BOOL bShow)
 				pView = m_pViews[VIEWWND_PICT];
 			else
 				pView = m_pViews[VIEWWND_LIST];
-			int nSwitchChildID = m_wndSplitter.GetDlgCtrlID() - 1;
+			const int nSwitchChildID = m_wndSplitter.GetDlgCtrlID() - 1;
 			m_wndSplitter.SetDlgCtrlID(pView->GetDlgCtrlID());
 			pView->SetDlgCtrlID(nSwitchChildID);
 			RecalcLayout();
@@ -323,7 +321,7 @@ void CMainFrame::ShowTextView(BOOL bShow)
 				pView = m_pViews[VIEWWND_PICT];
 			else
 				pView = m_pViews[VIEWWND_LIST];
-			int nSwitchChildID = pView->GetDlgCtrlID() + 1;
+			const int nSwitchChildID = pView->GetDlgCtrlID() + 1;
 			pView->SetDlgCtrlID(m_wndSplitter.GetDlgCtrlID());
 			m_wndSplitter.SetDlgCtrlID(nSwitchChildID);
 			RecalcLayout();

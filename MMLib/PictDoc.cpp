@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -45,16 +43,16 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CPictDoc ƒRƒ}ƒ“ƒh
 
-BOOL CPictDoc::OnOpenDocument(LPCTSTR /*lpszPathName*/)
+BOOL CPictDoc::OnOpenDocument(LPCSTR /*lpszPathName*/)
 {
 	return TRUE;
 }
 
-void CPictDoc::SetPathName(LPCTSTR /*lpszPathName*/, BOOL /*bAddToMRU*/)
+void CPictDoc::SetPathName(LPCSTR /*lpszPathName*/, BOOL /*bAddToMRU*/)
 {
 }
 
-void CPictDoc::ShowPicture(LPCTSTR pTitle, HDIB hDIB, int nAutoSize, double fPictRatio)
+void CPictDoc::ShowPicture(LPCSTR pTitle, HDIB hDIB, int nAutoSize, double fPictRatio)
 {
 	CPictFrame *pPictFrame;
 
@@ -110,7 +108,7 @@ void CPictDoc::OnSelchangeCombo()
 {
 	CComboBox &comboBox = GetPictFrame()->GetComboBox();
 
-	int n = comboBox.GetCurSel();
+	const int n = comboBox.GetCurSel();
 	if (n != LB_ERR) {
 		CString sStr;
 

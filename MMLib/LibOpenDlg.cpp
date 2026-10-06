@@ -8,8 +8,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -252,7 +250,7 @@ void CLibOpenDlg::SetLibraryList()
 			if (oFindBuf.dwFileAttributes && FILE_ATTRIBUTE_DIRECTORY) {
 				 sLibraryPath = sDir + "\\" + oFindBuf.cFileName;
 				if (g_pMMLibDB->GetLibraryName(sLibraryPath, sLibraryName)) {
-					int nIndex = m_cLibraryList.AddString(sLibraryName);
+					const int nIndex = m_cLibraryList.AddString(sLibraryName);
 					pLibraryPath = new CString;
 					*pLibraryPath = sLibraryPath;
 					m_cLibraryList.SetItemDataPtr(nIndex, pLibraryPath);

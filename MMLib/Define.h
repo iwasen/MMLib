@@ -228,11 +228,11 @@
 
 #define PROGRAM_ERROR		{CString msg; msg.Format("Program Error. File=%s Line=%d", __FILE__, __LINE__); ::AfxMessageBox(msg);}
 
+#define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
+
 #define PRODUCT_CODE	"MMLIB"
-//#define PRODUCT_CODE	"DSSF3"
 
 // ライセンスチェック
-//#define GET_CHECK_DATA GetCheckData1()
 #define GET_CHECK_DATA \
 		((GetCheckData1() + 19580414) ^ 0x3f81f9ca)
 #define CHECK_LICENSE0(_app_id, _product_version) \

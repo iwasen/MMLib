@@ -14,8 +14,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -167,10 +165,10 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	CWinApp *pWinApp = ::AfxGetApp();
 
-	int nLeft = pWinApp->GetProfileInt(g_sSectionMainWindow, "Left", 0);
-	int nTop = pWinApp->GetProfileInt(g_sSectionMainWindow, "Top", 0);
-	int nRight = pWinApp->GetProfileInt(g_sSectionMainWindow, "Right", 0);
-	int nBottom = pWinApp->GetProfileInt(g_sSectionMainWindow, "Bottom", 0);
+	const int nLeft = pWinApp->GetProfileInt(g_sSectionMainWindow, "Left", 0);
+	const int nTop = pWinApp->GetProfileInt(g_sSectionMainWindow, "Top", 0);
+	const int nRight = pWinApp->GetProfileInt(g_sSectionMainWindow, "Right", 0);
+	const int nBottom = pWinApp->GetProfileInt(g_sSectionMainWindow, "Bottom", 0);
 
 	if (nRight != 0 && nBottom != 0) {
 //		cs.x = left;
@@ -233,8 +231,8 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
 
 	CRect rect;
 	GetClientRect(rect);
-	int nHeight1 = rect.Height() - 150;//pWinApp->GetProfileInt(g_sSectionMainWindow, "Height", rect.Height() - 150);
-	int nHeight2 = 200;//pWinApp->GetProfileInt(g_sSectionMainWindow, "Height2", 200);
+	const int nHeight1 = rect.Height() - 150;//pWinApp->GetProfileInt(g_sSectionMainWindow, "Height", rect.Height() - 150);
+	const int nHeight2 = 200;//pWinApp->GetProfileInt(g_sSectionMainWindow, "Height2", 200);
 //	if (nHeight1 < nHeight2 || nHeight1 <= 10 || nHeight2 <= 10) {
 //		nHeight1 = rect.Height() - 150;
 //		nHeight2 = 200;
@@ -328,7 +326,7 @@ void CMainFrame::ShowPictView(BOOL bShowPict)
 			SizePictView(FALSE);
 		}
 
-		int nSwitchChildID = pViewAdd->GetDlgCtrlID();
+		const int nSwitchChildID = pViewAdd->GetDlgCtrlID();
 		pViewAdd->SetDlgCtrlID(pViewRemove->GetDlgCtrlID());
 		pViewRemove->SetDlgCtrlID(nSwitchChildID);
 
@@ -358,7 +356,7 @@ void CMainFrame::MaxPictView(BOOL bMaxPict)
 				pView = m_pPictView;
 			else
 				pView = m_pListView;
-			int nSwitchChildID = pView->GetDlgCtrlID();
+			const int nSwitchChildID = pView->GetDlgCtrlID();
 			pView->SetDlgCtrlID(m_wndSplitter.GetDlgCtrlID());
 			m_wndSplitter.SetDlgCtrlID(nSwitchChildID);
 			RecalcLayout();
@@ -369,7 +367,7 @@ void CMainFrame::MaxPictView(BOOL bMaxPict)
 				pView = m_pPictView;
 			else
 				pView = m_pListView;
-			int nSwitchChildID = m_wndSplitter.GetDlgCtrlID();
+			const int nSwitchChildID = m_wndSplitter.GetDlgCtrlID();
 			m_wndSplitter.SetDlgCtrlID(pView->GetDlgCtrlID());
 			pView->SetDlgCtrlID(nSwitchChildID);
 			RecalcLayout();
@@ -491,8 +489,8 @@ void CMainFrame::SetToolbar()
 		CFont *pFont = m_wndMainToolBar.GetFont();
 		LOGFONT lf;
 		pFont->GetLogFont(&lf);
-		int nHeight = abs(lf.lfHeight) + 25;
-		int nWidth = abs(lf.lfHeight) * 3 + 25;
+		const int nHeight = abs(lf.lfHeight) + 25;
+		const int nWidth = abs(lf.lfHeight) * 3 + 25;
 
 		m_wndMainToolBar.GetToolBarCtrl().SetMaxTextRows(1);
 		m_wndViewToolBar.GetToolBarCtrl().SetMaxTextRows(1);
@@ -596,7 +594,7 @@ void CMainFrame::RefreshTransMenu()
 	}
 
 	m_nTransMenu = pWinApp->GetProfileInt(g_sSectionTransfer, "Num", 0);
-	int nMenuIcon = pWinApp->GetProfileInt(g_sSectionTransfer, "MenuIcon", 1);
+	const int nMenuIcon = pWinApp->GetProfileInt(g_sSectionTransfer, "MenuIcon", 1);
 
 	if (m_pTransMenu != NULL)
 		delete [] m_pTransMenu;
@@ -644,7 +642,7 @@ void CMainFrame::RefreshTransMenu()
 		mii.hbmpChecked = NULL;
 		mii.hbmpUnchecked = NULL;
 		mii.dwItemData = 0;
-		mii.dwTypeData = (LPTSTR)(LPCSTR)sAppName;
+		mii.dwTypeData = (LPSTR)(LPCSTR)sAppName;
 		mii.cch = sAppName.GetLength();
 		mii.hbmpItem = iconInfo.hbmColor;
 		::InsertMenuItem(pTransMenu->m_hMenu, i, MF_BYPOSITION, &mii);
@@ -727,7 +725,7 @@ LRESULT CMainFrame::OnMyCommand(WPARAM /*wParam*/, LPARAM lParam)
 
 LRESULT CMainFrame::OnGetCheckLicense1(WPARAM wParam, LPARAM /*lParam*/)
 {
-	const char *pRegistryName;
+	LPCSTR pRegistryName;
 
 	if (m_nCheckData == GetCheckData2())
 		pRegistryName = g_sRegistryName;
@@ -739,7 +737,7 @@ LRESULT CMainFrame::OnGetCheckLicense1(WPARAM wParam, LPARAM /*lParam*/)
 
 LRESULT CMainFrame::OnGetCheckLicense2(WPARAM wParam, LPARAM /*lParam*/)
 {
-	const char *pRegistryName;
+	LPCSTR pRegistryName;
 
 	if (m_nCheckData == GetCheckData2())
 		pRegistryName = g_sRegistryName;
@@ -787,8 +785,8 @@ void CMainFrame::OpenTextSearchDlg()
 	CRect rectDlg;
 	m_pTextSearchDlg->GetWindowRect(rectDlg);
 
-	int nLeft = rectView.right - rectDlg.Width() - 20;
-	int nTop = (rectView.Height() > rectDlg.Height() + 20) ? rectView.top + 20 : rectView.top - rectDlg.Height() - 20;
+	const int nLeft = rectView.right - rectDlg.Width() - 20;
+	const int nTop = (rectView.Height() > rectDlg.Height() + 20) ? rectView.top + 20 : rectView.top - rectDlg.Height() - 20;
 	m_pTextSearchDlg->SetWindowPos(NULL, nLeft, nTop, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
 	m_pTextSearchDlg->ShowWindow(SW_SHOW);
 }

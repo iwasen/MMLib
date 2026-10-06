@@ -9,8 +9,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -161,8 +159,8 @@ void CMMPictView::DrawPicture(CDC *pDC)
 
 	short nWidth, nHeight, nColor;
 	MMPictureGetInfo(pItem->m_hDIB1, &nWidth, &nHeight, &nColor);
-	int nWidthSrc = nWidth;
-	int nHeightSrc = nHeight;
+	const int nWidthSrc = nWidth;
+	const int nHeightSrc = nHeight;
 	int nWidthDst, nHeightDst;
 
 	switch (m_nAutoSize) {
@@ -246,7 +244,7 @@ void CMMPictView::DrawIcon(CDC *pDC)
 	CRect rect;
 	GetClientRect(&rect);
 
-	int nColumn = max((rect.right - PICT_MARGIN) / (PICT_WIDTH + PICT_MARGIN), 1);
+	const int nColumn = max((rect.right - PICT_MARGIN) / (PICT_WIDTH + PICT_MARGIN), 1);
 
 	CFont *pFontOrg = pDC->SelectObject(&pDoc->m_oFont);
 
@@ -422,7 +420,7 @@ void CMMPictView::OnSelchangeCombo()
 {
 	CComboBox &comboBox = ((CMainFrame *)AfxGetMainWnd())->GetComboBox();
 
-	int n = comboBox.GetCurSel();
+	const int n = comboBox.GetCurSel();
 	if (n != LB_ERR) {
 		CString sStr;
 

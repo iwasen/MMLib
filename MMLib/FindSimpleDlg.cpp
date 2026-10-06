@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -49,7 +47,7 @@ BOOL CFindSimpleDlg::OnInitDialog()
 	BOOL bSelectedLibrary = FALSE;
 
 	SetLibraryCombo();
-	int n = m_cLibrary.GetCount();
+	const int n = m_cLibrary.GetCount();
 	if (n == 1) {
 		m_cLibrary.SetCurSel(0);
 		bSelectedLibrary = TRUE;
@@ -142,7 +140,7 @@ void CFindSimpleDlg::SetLibraryCombo()
 
 	sStr.LoadString(IDS_ALL_LIBRARIES);
 	m_cLibrary.ResetContent();
-	int nIndex = m_cLibrary.AddString(sStr);
+	const int nIndex = m_cLibrary.AddString(sStr);
 	m_cLibrary.SetItemData(nIndex, g_pTreeCtrl->GetItemData(g_pTreeCtrl->GetRootItem()));
 	SetLibraryComboBox(m_cLibrary);
 }

@@ -4,6 +4,10 @@
 #include "stdafx.h"
 #include "DialogEx.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
+
 // CDialogEx2 ダイアログ
 
 CDialogEx2::CDialogEx2(UINT nID, CWnd* pParent)
@@ -44,7 +48,7 @@ void CDialogEx2::SetCtlPosition(CWnd *pWnd, double fLeft, double fTop, double fR
 	pWnd->GetWindowPlacement(&wp);
 	cDlgCtlPosition.rectCtl = wp.rcNormalPosition;
 
-	int nSize = (int)m_aDlgCtlPosition.GetSize();
+	const int nSize = (int)m_aDlgCtlPosition.GetSize();
 	for (int i = 0; i < nSize; i++) {
 		if (m_aDlgCtlPosition[i].hWnd == hWnd) {
 			// 配列に設定情報を上書き
@@ -95,11 +99,11 @@ void CDialogEx2::RepositionControls(int cx, int cy)
 	// ダイアログコントロールを適切な位置に再配置
 	if (m_sizeClient.cx && cx != 0) {
 		// サイズの差分
-		int nx = cx - m_sizeClient.cx;
-		int ny = cy - m_sizeClient.cy;
+		const int nx = cx - m_sizeClient.cx;
+		const int ny = cy - m_sizeClient.cy;
 
 		// 変更されたサイズ分ダイアログ内のコントロールの大きさと位置を変更する
-		int nDlgCtlPosition = (int)m_aDlgCtlPosition.GetSize();
+		const int nDlgCtlPosition = (int)m_aDlgCtlPosition.GetSize();
 		for (int i = 0; i < nDlgCtlPosition; i++) {
 			// 子ウィンドウを取得
 			SDlgCtlPosition &cDlgCtlPosition = m_aDlgCtlPosition[i];
@@ -168,7 +172,7 @@ void CDialogEx2::SetStatusBar(UINT nID)
 	SetStatusBar(sText);
 }
 
-void CDialogEx2::SetStatusBar(LPCTSTR pText)
+void CDialogEx2::SetStatusBar(LPCSTR pText)
 {
 	m_wndStatusBar.SetPaneText(0, pText);
 }

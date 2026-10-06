@@ -8,8 +8,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -54,7 +52,7 @@ void CFindKeywordView::InsertColumns()
 		int nFmt;
 		int nWidth;
 	};
-	static const LISTCOLUMN tColumn[] = {
+	static constexpr LISTCOLUMN tColumn[] = {
 		{IDS_NAME, LVCFMT_LEFT, 130},
 		{IDS_LIBRARY, LVCFMT_LEFT, 100},
 		{IDS_CREATOR, LVCFMT_LEFT, 100},
@@ -66,14 +64,14 @@ void CFindKeywordView::InsertColumns()
 	CStringArray saColumnWidth;
 	CString sColumnWidth = theApp.GetProfileString(g_sSectionFindWindow, "ColumnWidth");
 	StrSplit(sColumnWidth, ",", saColumnWidth);
-	BOOL bColumnWidth = saColumnWidth.GetCount() != 0 && atoi(saColumnWidth[0]) == 1;
+	BOOL bColumnWidth = saColumnWidth.GetCount() != 0 && atoi(saColumnWidth[0]) == 1;	size_t aa = ARRAY_SIZE(tColumn);aa;
 
-	for (int i = 0; i < sizeof(tColumn) / sizeof(LISTCOLUMN); i++) {
+	for (int i = 0; i < ARRAY_SIZE(tColumn); i++) {
 		LV_COLUMN lvc{
 			.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT,
 			.fmt = tColumn[i].nFmt,
 			.cx = bColumnWidth ? atoi(saColumnWidth[i + 1]) : tColumn[i].nWidth,
-			.pszText = (LPTSTR)(LPCSTR)GetString(tColumn[i].nText)
+			.pszText = (LPSTR)(LPCSTR)GetString(tColumn[i].nText)
 		};
 		GetListCtrl().InsertColumn(i, &lvc);
 	}
@@ -141,7 +139,7 @@ CString CFindKeywordView::GetFilter(CString &sKeywords)
 	return sFilter;
 }
 
-BOOL CFindKeywordView::FindKeyword(LPCTSTR pFilter)
+BOOL CFindKeywordView::FindKeyword(LPCSTR pFilter)
 {
 	CPcserve oPcserve;
 	CPSDB oDb;
@@ -229,7 +227,7 @@ BOOL CFindKeywordView::FindKeyword(LPCTSTR pFilter)
 void CFindKeywordView::DeleteAllItems()
 {
 	CListCtrl &lc = GetListCtrl();
-	int nItem = lc.GetItemCount();
+	const int nItem = lc.GetItemCount();
 
 	for (int i = 0; i < nItem; i++)
 		delete (CSelectItem *)lc.GetItemData(i);
@@ -255,7 +253,7 @@ void CFindKeywordView::OnColumnclick(NMHDR* pNMHDR, LRESULT* pResult)
 int CALLBACK CFindKeywordView::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
 {
 	CFindKeywordView *pView = (CFindKeywordView *)lParamSort;
-	CListCtrl &lc = pView->GetListCtrl();
+	const CListCtrl &lc = pView->GetListCtrl();
 	int nIndex1, nIndex2;
 
 	LV_FINDINFO oFindInfo1{
@@ -290,7 +288,7 @@ void CFindKeywordView::OnDestroy()
 	CStringArray saColumnWidth;
 	CString sWidth;
 	CString sColumnWidth;
-	int nColumn = GetListCtrl().GetHeaderCtrl()->GetItemCount();
+	const int nColumn = GetListCtrl().GetHeaderCtrl()->GetItemCount();
 	saColumnWidth.Add("1");
 	for (int i = 0; i < nColumn; i++) {
 		sWidth.Format("%d", GetListCtrl().GetColumnWidth(i));
@@ -312,7 +310,7 @@ void CFindKeywordView::SelectPrev()
 		int nItem = lc.GetItemCount() - 1;
 		POSITION pos = lc.GetFirstSelectedItemPosition();
 		if (pos != NULL) {
-			int nPrevItem = lc.GetNextSelectedItem(pos) - 1;
+			const int nPrevItem = lc.GetNextSelectedItem(pos) - 1;
 			if (nPrevItem >= 0)
 				nItem = nPrevItem;
 		}
@@ -329,7 +327,7 @@ void CFindKeywordView::SelectNext()
 		int nItem = 0;
 		POSITION pos = lc.GetFirstSelectedItemPosition();
 		if (pos != NULL) {
-			int nNextItem = lc.GetNextSelectedItem(pos) + 1;
+			const int nNextItem = lc.GetNextSelectedItem(pos) + 1;
 			if (nNextItem < lc.GetItemCount())
 				nItem = nNextItem;
 		}

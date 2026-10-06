@@ -26,7 +26,7 @@ protected:
 	int m_nViewText;
 	int m_nSmallSize;
 
-	void SetListBox(LPCTSTR pOrder);
+	void SetListBox(LPCSTR pOrder);
 
 	DECLARE_MESSAGE_MAP()
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV サポート

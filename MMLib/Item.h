@@ -20,8 +20,8 @@ public:
 
 	static void RemoveAll();
 	CItem *GetParent() const;
-	virtual LPCTSTR GetID() = 0;
-	virtual LPCTSTR GetTitle() = 0;
+	virtual LPCSTR GetID() = 0;
+	virtual LPCSTR GetTitle() = 0;
 	static CItem *GetHeadItem();
 	static CItem *GetNextItem();
 
@@ -34,8 +34,8 @@ class CItemRoot : public CItem
 {
 public:
 	CItemRoot();
-	virtual LPCTSTR GetID() { return ""; }
-	virtual LPCTSTR GetTitle() { return ""; }
+	virtual LPCSTR GetID() { return ""; }
+	virtual LPCSTR GetTitle() { return ""; }
 };
 
 class CItemFolder : public CItem
@@ -48,8 +48,8 @@ public:
 	int m_nFolderType;
 	CString m_sFirstData;
 
-	virtual LPCTSTR GetID() { return m_oFolderRec.sFolderID; }
-	virtual LPCTSTR GetTitle() { return m_oFolderRec.sFolderName; }
+	virtual LPCSTR GetID() { return m_oFolderRec.sFolderID; }
+	virtual LPCSTR GetTitle() { return m_oFolderRec.sFolderName; }
 	CString GetFirstData();
 };
 
@@ -71,8 +71,8 @@ public:
 	CSize m_oSize;
 	CRect m_oRect;
 
-	virtual LPCTSTR GetID() { return m_oDataRec.sDataID; }
-	virtual LPCTSTR GetTitle() { return m_oDataRec.sTitle; }
+	virtual LPCSTR GetID() { return m_oDataRec.sDataID; }
+	virtual LPCSTR GetTitle() { return m_oDataRec.sTitle; }
 };
 
 class CItemFind : public CItem
@@ -84,8 +84,8 @@ public:
 	int m_nFindType;
 	BOOL m_bSave;
 
-	virtual LPCTSTR GetID() { return m_oFindRec.sFindID; }
-	virtual LPCTSTR GetTitle() { return m_oFindRec.sFolderName; }
+	virtual LPCSTR GetID() { return m_oFindRec.sFindID; }
+	virtual LPCSTR GetTitle() { return m_oFindRec.sFolderName; }
 };
 
 class CItemPending : public CItem
@@ -100,8 +100,8 @@ public:
 	CString m_sLibraryID;
 	int m_nCacheMode;
 
-	virtual LPCTSTR GetID() { return m_sLibraryID; }
-	virtual LPCTSTR GetTitle() { return m_sTitle; }
+	virtual LPCSTR GetID() { return m_sLibraryID; }
+	virtual LPCSTR GetTitle() { return m_sTitle; }
 };
 
 class CAddItem : public CObject

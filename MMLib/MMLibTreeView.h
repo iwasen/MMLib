@@ -31,7 +31,7 @@ protected:
 	void AddFind(CAddItemFind *pAddItemFind);
 	void ReadChildren(CItemFolder *pItemFolder);
 	void FindData(CItemFind *pItemFind);
-	void FindDataSub(CItemFind *pItemFind, CMMPcsDB *pPcsDB, LPCTSTR pFolderFilter, LPCTSTR pDataFilter, BOOL &bHasChild);
+	void FindDataSub(CItemFind *pItemFind, CMMPcsDB *pPcsDB, LPCSTR pFolderFilter, LPCSTR pDataFilter, BOOL &bHasChild);
 	void ReFindItem(CItem *pItem);
 	void SetChildren(HTREEITEM hItem, BOOL bChild);
 	void AddItem(CAddItem *pAddItem);
@@ -47,8 +47,8 @@ protected:
 	CItem *GetSourceItem(COleDataObject* pDataObject);
 	int GetSourceFileType(COleDataObject* pDataObject);
 	void ReloadItem(CItemFolder *pItemFolder, BOOL bSubitem);
-	CItemFolder *FindChildFolder(CItem *pItem, LPCTSTR pFolderID);
-	CItemData *FindChildData(CItem *pItem, LPCTSTR pDataID);
+	CItemFolder *FindChildFolder(CItem *pItem, LPCSTR pFolderID);
+	CItemData *FindChildData(CItem *pItem, LPCSTR pDataID);
 	void ReloadAllItems();
 	void SortItem(CItem *pItem);
 	static int CALLBACK CompareFunc(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort);
@@ -57,7 +57,7 @@ protected:
 	void SetViewFont();
 	void SortAllItems();
 	void SetTextDataItems();
-	LPCTSTR DataItemText(CItemData *pItemData) const;
+	LPCSTR DataItemText(CItemData *pItemData) const;
 	void SelectData(CSelectItem *pSelectItem);
 	BOOL SelectDataSub(CSelectItem *pSelectItem);
 	HTREEITEM SelectFolder(HTREEITEM hItemLibrary, CMMPcsDB *pPcsDB, CString &sFolderID, int nCount);

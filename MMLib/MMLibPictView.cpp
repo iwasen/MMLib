@@ -11,8 +11,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 #define DISPMODE_LIST	0
@@ -274,7 +272,7 @@ void CMMLibPictView::DrawList(CDC *pDC, CItem *pItem)
 		nPictHeight = PICT_HEIGHT * 2;
 	}
 
-	int nColumn = max((rect.right - PICT_MARGIN) / (nPictWidth + PICT_MARGIN), 1);
+	const int nColumn = max((rect.right - PICT_MARGIN) / (nPictWidth + PICT_MARGIN), 1);
 
 	CFont *pFontOrg = pDC->SelectObject(&m_oFont);
 
@@ -738,7 +736,7 @@ BOOL CMMLibPictView::OnDrop(COleDataObject* pDataObject, DROPEFFECT /*dropEffect
 	if ((hDrop = (HDROP)pDataObject->GetGlobalData(CF_HDROP, NULL)) == NULL)
 		return FALSE;
 
-	int nNumFiles = ::DragQueryFile(hDrop, (UINT)-1, NULL, 0);
+	const int nNumFiles = ::DragQueryFile(hDrop, (UINT)-1, NULL, 0);
 	if (nNumFiles > 0) {
 		char fileNameBuf[256];
 		HDIB hDIB;
@@ -818,10 +816,10 @@ void CMMLibPictView::EditPictureSub()
 
 	ExecProcess(execCmd);
 
-	DWORD attr = ::GetFileAttributes(sTempFile);
+	const DWORD attr = ::GetFileAttributes(sTempFile);
 	if (attr & FILE_ATTRIBUTE_ARCHIVE) {
 		HDIB hDIB;
-		if (MMPictureReadFile(&hDIB, (LPTSTR)(LPCSTR)sTempFile) == 0)
+		if (MMPictureReadFile(&hDIB, (LPSTR)(LPCSTR)sTempFile) == 0)
 			SendMessage(WM_UPDATEPICT, 0, (LPARAM)hDIB);
 	}
 

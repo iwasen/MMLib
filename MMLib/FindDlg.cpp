@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -70,7 +68,7 @@ BOOL CFindDlg::OnInitDialog()
 	CDialogAF::OnInitDialog();
 
 	SetLibraryCombo();
-	int n = m_cLibrary.GetCount();
+	const int n = m_cLibrary.GetCount();
 	if (n == 1)
 		m_cLibrary.SetCurSel(0);
 	else if (n != 0) {
@@ -134,7 +132,7 @@ void CFindDlg::OnSelchangeConditionTab(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 
 void CFindDlg::GetFindCondition()
 {
-	int nIndex = m_cConditionTab.GetCurSel();
+	const int nIndex = m_cConditionTab.GetCurSel();
 
 	UpdateData(TRUE);
 
@@ -170,7 +168,7 @@ void CFindDlg::GetFindCondition()
 
 void CFindDlg::SetFindCondition()
 {
-	int nIndex = m_cConditionTab.GetCurSel();
+	const int nIndex = m_cConditionTab.GetCurSel();
 
 	m_cCreateDateFrom = m_aFindConditions[nIndex].sCreateDateFrom;
 	m_cCreateDateTo = m_aFindConditions[nIndex].sCreateDateTo;
@@ -294,7 +292,7 @@ void CFindDlg::SetLibraryCombo()
 
 	sStr.LoadString(IDS_ALL_LIBRARIES);
 	m_cLibrary.ResetContent();
-	int nIndex = m_cLibrary.AddString(sStr);
+	const int nIndex = m_cLibrary.AddString(sStr);
 	m_cLibrary.SetItemData(nIndex, g_pTreeCtrl->GetItemData(g_pTreeCtrl->GetRootItem()));
 	SetLibraryComboBox(m_cLibrary);
 }

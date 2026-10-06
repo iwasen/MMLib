@@ -7,8 +7,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -134,7 +132,7 @@ void CRestoreDlg::OnDelete()
 	if (::AfxMessageBox(IDS_DELETE_SELECTED_LIBRARY, MB_OKCANCEL | MB_ICONQUESTION) != IDOK)
 		return;
 
-	int nIndex = m_cBackupList.GetNextSelectedItem(pos);
+	const int nIndex = m_cBackupList.GetNextSelectedItem(pos);
 
 	CString *pBackupPath = (CString *)m_cBackupList.GetItemData(nIndex);
 	::DeleteDirectory(*pBackupPath);
@@ -208,7 +206,7 @@ void CRestoreDlg::OnDestroy()
 
 void CRestoreDlg::RemoveBackupItem()
 {
-	int nCount = m_cBackupList.GetItemCount();
+	const int nCount = m_cBackupList.GetItemCount();
 
 	for (int i = 0; i < nCount; i++)
 		delete (CString *)m_cBackupList.GetItemData(i);

@@ -20,8 +20,6 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
 #endif
 
 #define DDE_TEXT	1
@@ -415,7 +413,7 @@ void CMMLibApp::OnOnlineManual()
 
 void CMMLibApp::CopyInifileToRegistory()
 {
-	static const char sIniFile[] = "MMLib.ini";
+	static constexpr char sIniFile[] = "MMLib.ini";
 	char sSections[1024];
 	char sEntries[1024];
 
@@ -455,7 +453,7 @@ void CMMLibApp::OnFileNew()
 // CMyCmdLineInfo ƒNƒ‰ƒX
 //////////////////////////////////////////////////////////////////////
 
-void CMyCmdLineInfo::ParseParam(LPCTSTR lpszParam, BOOL /*bFlag*/, BOOL /*bLast*/)
+void CMyCmdLineInfo::ParseParam(LPCSTR lpszParam, BOOL /*bFlag*/, BOOL /*bLast*/)
 {
 	if (_stricmp(lpszParam, "offline") == 0)
 		g_bParamOffline = TRUE;
