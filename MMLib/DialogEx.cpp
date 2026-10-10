@@ -147,7 +147,7 @@ void CDialogEx2::SetMaximunControl(HWND hMaximunCtrl)
 void CDialogEx2::CreateStatusBar()
 {
 	if (m_wndStatusBar.Create(this)) {
-		const UINT ind[2] = {0};
+		const UINT ind[2]{};
 
 		m_wndStatusBar.SetIndicators(ind, 1);
 		m_wndStatusBar.SetPaneInfo(0, 0, SBPS_STRETCH, 0);

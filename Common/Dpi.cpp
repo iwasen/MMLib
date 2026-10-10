@@ -81,7 +81,6 @@ BOOL CDialogAF::OnInitDialog()
 			m_oFont.CreateFontIndirect(&lf);
 
 			// ダイアログ自身およびすべての子コントロールにフォントを設定
-//			SendMessageToDescendants(WM_SETFONT, (WPARAM)(HFONT)m_oFont.GetSafeHandle(), MAKELPARAM(0, 0), FALSE, TRUE);
 			CWnd* pChild = GetWindow(GW_CHILD);
 			while (pChild)
 			{

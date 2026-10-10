@@ -103,7 +103,7 @@ void CBackupDlg::SetBackupList()
 
 	RemoveBackupItem();
 
-	HANDLE hDir = FindFirstFile(sDir + "\\*", &oFindBuf);
+	HANDLE hDir = ::FindFirstFile(sDir + "\\*", &oFindBuf);
 	if (hDir != INVALID_HANDLE_VALUE) {
 		do {
 			if (oFindBuf.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
@@ -120,9 +120,9 @@ void CBackupDlg::SetBackupList()
 					nIndex++;
 				}
 			}
-		} while (FindNextFile(hDir, &oFindBuf));
+		} while (::FindNextFile(hDir, &oFindBuf));
 
-		FindClose(hDir);
+		::FindClose(hDir);
 	}
 
 	m_cBackupList.SortItems(CompareItems, (LPARAM)this);

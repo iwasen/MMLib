@@ -189,7 +189,7 @@ void CLibOpenDlg::ReferenceLocal()
         ::SHGetPathFromIDList(pIDList, buf);
 
         // ÅŒã‚ÉpIDList‚Ìƒ|ƒCƒ“ƒg‚µ‚Ä‚¢‚éƒƒ‚ƒŠ‚ğ‰ğ•ú‚µ‚Ü‚·
-        ::CoTaskMemFree( pIDList );
+        ::CoTaskMemFree(pIDList);
 		m_sDirectory = buf;
 
 		UpdateData(FALSE);

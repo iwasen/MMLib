@@ -54,11 +54,6 @@ void CAutoNumDlg::EnableControl()
 {
 	UpdateData(TRUE);
 
-	if (m_bAutoNumbering) {
-		m_cCode.EnableWindow(TRUE);
-		m_cStep.EnableWindow(TRUE);
-	} else {
-		m_cCode.EnableWindow(FALSE);
-		m_cStep.EnableWindow(FALSE);
-	}
+	m_cCode.EnableWindow(m_bAutoNumbering);
+	m_cStep.EnableWindow(m_bAutoNumbering);
 }

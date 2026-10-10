@@ -106,7 +106,7 @@ BOOL CFindDB::Open(BOOL bCreate)
 	BOOL bCreateIndex = FALSE;
 	int err;
 
-	CString sDirName = g_pMMLibDB->m_sCacheDir;
+	const CString sDirName = g_pMMLibDB->m_sCacheDir;
 open:
 	CString sPathName = sDirName + FN_FIND_DBF;
 	if ((err = m_oFindDB.DBOpen(m_oPcserve, sPathName)) != 0) {
@@ -123,7 +123,7 @@ open:
 			return err;
 
 		if (nRecSize - 1 < sizeof(FINDBUF)) {
-			CString sPathName2 = sDirName + "FINDTMP.DBF";
+			const CString sPathName2 = sDirName + "FINDTMP.DBF";
 			if ((err = oNewDB.DBCreate(m_oPcserve, sPathName2, field, ARRAY_SIZE(field))) == 0) {
 				if ((err = oNewDB.DBCopy(m_oFindDB)) != 0)
 					return err;

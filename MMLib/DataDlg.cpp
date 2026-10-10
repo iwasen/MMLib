@@ -114,7 +114,6 @@ BOOL CDataDlg::OnInitDialog()
 	if (m_pItemData == NULL) {
 		m_sTitle.LoadString(IDS_NO_TITLE);
 		m_sCreator = GetDefaultUserName();
-		//UpdateData(FALSE);
 
 		AutoNumbering(FALSE);
 
@@ -191,17 +190,18 @@ void CDataDlg::OnSave()
 	CWaitCursor wait;
 	UpdateData(TRUE);
 
-	DATAREC oDataRec;
-	oDataRec.sCreator = m_sCreator;
-	oDataRec.sCode = m_sCode;
-	oDataRec.sTitle = m_sTitle;
-	oDataRec.sCreateDate = m_sCreateDate;
-	oDataRec.sRemark = m_sRemark;
-	oDataRec.sKeyword = m_sKeyword;
-	oDataRec.nDpi = m_nDPI;
-	oDataRec.nWidth = atoi(m_sPictWidth);
-	oDataRec.nHeight = atoi(m_sPictHeight);
-	oDataRec.nBit = atoi(m_sPictColor);
+	DATAREC oDataRec{
+		.sCreateDate = m_sCreateDate,
+		.sCreator = m_sCreator,
+		.sCode = m_sCode,
+		.sTitle = m_sTitle,
+		.sRemark = m_sRemark,
+		.sKeyword = m_sKeyword,
+		.nDpi = m_nDPI,
+		.nWidth = atoi(m_sPictWidth),
+		.nHeight = atoi(m_sPictHeight),
+		.nBit = atoi(m_sPictColor)
+	};
 
 	if (m_pItemData == NULL) {
 		oDataRec.sFolderID = m_pItemFolder->m_oFolderRec.sFolderID;
@@ -461,8 +461,7 @@ void CDataDlg::SetPicture(HDIB hDIB, const SCAN_IMAGE_INFO *pImageInfo)
 		m_sPictHeight.Format("%d", pImageInfo->ImageLength);
 		m_sPictColor.Format("%d", pImageInfo->BitsPerPixel);
 		if (pImageInfo->XResolution != 0) {
-			LPBITMAPINFO lpBmi;
-			lpBmi = (LPBITMAPINFO)::GlobalLock(m_hDIB);
+			LPBITMAPINFO lpBmi = (LPBITMAPINFO)::GlobalLock(m_hDIB);
 			if (lpBmi != NULL && lpBmi->bmiHeader.biXPelsPerMeter == 0) {
 				lpBmi->bmiHeader.biXPelsPerMeter = (long)(pImageInfo->XResolution / 0.0254 + 0.5);
 				lpBmi->bmiHeader.biYPelsPerMeter = (long)(pImageInfo->YResolution / 0.0254 + 0.5);
@@ -487,38 +486,39 @@ void CDataDlg::SetPicture(HDIB hDIB, const SCAN_IMAGE_INFO *pImageInfo)
 
 void CDataDlg::GetImageInfo(HDIB hDIB, SCAN_IMAGE_INFO *pImageInfo)
 {
-	LPBITMAPINFO lpBmi = (LPBITMAPINFO)::GlobalLock(hDIB);
-
-	pImageInfo->XResolution = (int)(lpBmi->bmiHeader.biXPelsPerMeter * 0.0254 + 0.5);
-	pImageInfo->YResolution = (int)(lpBmi->bmiHeader.biYPelsPerMeter * 0.0254 + 0.5);
-	pImageInfo->ImageWidth = lpBmi->bmiHeader.biWidth;
-	pImageInfo->ImageLength = lpBmi->bmiHeader.biHeight;
-	pImageInfo->BitsPerPixel = lpBmi->bmiHeader.biBitCount;
-	::GlobalUnlock(hDIB);
+	if (LPBITMAPINFO pBmi = (LPBITMAPINFO)::GlobalLock(hDIB); pBmi != NULL) {
+		pImageInfo->XResolution = (int)(pBmi->bmiHeader.biXPelsPerMeter * 0.0254 + 0.5);
+		pImageInfo->YResolution = (int)(pBmi->bmiHeader.biYPelsPerMeter * 0.0254 + 0.5);
+		pImageInfo->ImageWidth = pBmi->bmiHeader.biWidth;
+		pImageInfo->ImageLength = pBmi->bmiHeader.biHeight;
+		pImageInfo->BitsPerPixel = pBmi->bmiHeader.biBitCount;
+		::GlobalUnlock(hDIB);
+	}
 }
 
 BOOL CDataDlg::CheckColorMode(HDIB hDIB)
 {
 	BOOL bResult = FALSE;
 
-	LPBITMAPINFO pBmi = (LPBITMAPINFO)GlobalLock(hDIB);
-	if (pBmi->bmiHeader.biCompression != 0) {
-		::AfxMessageBox(IDS_ONLY_COMPRESS, MB_ICONEXCLAMATION);
-	} else {
-		switch (pBmi->bmiHeader.biBitCount) {
-		case 1:
-		case 4:
-		case 8:
-		case 24:
-			bResult = TRUE;
-			break;
-		default:
-			::AfxMessageBox(IDS_VALID_COLOR, MB_ICONEXCLAMATION);
-			break;
+	if (LPBITMAPINFO pBmi = (LPBITMAPINFO)GlobalLock(hDIB); pBmi != NULL) {
+		if (pBmi->bmiHeader.biCompression != 0) {
+			::AfxMessageBox(IDS_ONLY_COMPRESS, MB_ICONEXCLAMATION);
+		} else {
+			switch (pBmi->bmiHeader.biBitCount) {
+			case 1:
+			case 4:
+			case 8:
+			case 24:
+				bResult = TRUE;
+				break;
+			default:
+				::AfxMessageBox(IDS_VALID_COLOR, MB_ICONEXCLAMATION);
+				break;
+			}
 		}
-	}
 
-	::GlobalUnlock(hDIB);
+		::GlobalUnlock(hDIB);
+	}
 
 	return bResult;
 }
