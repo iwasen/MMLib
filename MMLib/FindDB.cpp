@@ -117,13 +117,13 @@ open:
 			return FALSE;
 	} else {
 		int nRecSize;
-		CPSDB oNewDB;
 
 		if ((err = m_oFindDB.DBRecSize(&nRecSize)) != 0)
 			return err;
 
 		if (nRecSize - 1 < sizeof(FINDBUF)) {
 			const CString sPathName2 = sDirName + "FINDTMP.DBF";
+			CPSDB oNewDB;
 			if ((err = oNewDB.DBCreate(m_oPcserve, sPathName2, field, ARRAY_SIZE(field))) == 0) {
 				if ((err = oNewDB.DBCopy(m_oFindDB)) != 0)
 					return err;

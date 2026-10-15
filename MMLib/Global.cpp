@@ -10,22 +10,22 @@ CImageList g_oImageList;
 CImageList g_oImageList2;
 CTreeCtrl *g_pTreeCtrl;
 CString g_sStatusInfo;
-const char g_sSectionSettings[] = "Settings";
-const char g_sSectionMainWindow[] = "MainWindow";
-const char g_sSectionLibrary[] = "Library";
-const char g_sSectionDetails[] = "Details";
-const char g_sSectionOptions[] = "Options";
-const char g_sSectionRecent[] = "Recent";
-const char g_sSectionTransfer[] = "Transfer";
-const char g_sSectionFindWindow[] = "FindWindow";
-const char g_sSectionMailAtt[] = "MailAtt";
-const char g_sSectionSearchHistory[] = "SearchHistory";
-const char g_sProgName[] = "Multimedia Library Manager";
-const char g_sRegistryName[] = "Multimedia Library";
-//const char g_sRegistryName[] = "Analyzing System for Sound Fields Ver5";
+constexpr char g_sSectionSettings[] = "Settings";
+constexpr char g_sSectionMainWindow[] = "MainWindow";
+constexpr char g_sSectionLibrary[] = "Library";
+constexpr char g_sSectionDetails[] = "Details";
+constexpr char g_sSectionOptions[] = "Options";
+constexpr char g_sSectionRecent[] = "Recent";
+constexpr char g_sSectionTransfer[] = "Transfer";
+constexpr char g_sSectionFindWindow[] = "FindWindow";
+constexpr char g_sSectionMailAtt[] = "MailAtt";
+constexpr char g_sSectionSearchHistory[] = "SearchHistory";
+constexpr char g_sProgName[] = "Multimedia Library Manager";
+constexpr char g_sRegistryName[] = "Multimedia Library";
+
 HICON g_hIcon;
 
-const int g_tColumnOrder[] = {
+constexpr int g_tColumnOrder[] = {
 	DETAIL_NAME,
 	DETAIL_FIRSTDATA,
 	DETAIL_CODE,
@@ -242,7 +242,7 @@ void MakeFilterString2(LPCSTR pKeyword, CString &sFolderFilter, CString &sDataFi
 	CString sStr;
 	char buf[256];
 
-	const CString sOption = "*S*N*Z";
+	constexpr char sOption[] = "*S*N*Z";
 
 	sFolderFilter.Empty();
 	sDataFilter.Empty();
@@ -1092,7 +1092,7 @@ void StrSplit(LPCSTR pText, LPCSTR pSeparator, CStringArray &saText)
 {
 	saText.RemoveAll();
 
-	int nPos= 0;
+	int nPos = 0;
 	CString sText(pText);
 	CString sToken = sText.Tokenize(pSeparator, nPos);
 
@@ -1116,9 +1116,9 @@ void StrJoin(const CStringArray &saText, LPCSTR pSeparator, CString &sText)
 
 CString IntToCommaSeparateString(int n)
 {
-	int           i = 0; // èëÇ´çûÇÒÇæåÖêî
+	int i = 0;		// èëÇ´çûÇÒÇæåÖêî
 	CString sStr;
-	char         *p = sStr.GetBuffer(100);
+	char *p = sStr.GetBuffer(100);
 	unsigned int  u = abs(n);
 
 	do // while( 0 != u );

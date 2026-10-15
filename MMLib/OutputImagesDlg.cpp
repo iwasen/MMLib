@@ -177,8 +177,8 @@ BOOL COutputImagesDlg::OutputImages(const CString &sParentFolder, const FOLDERRE
 
 int COutputImagesDlg::CompareProc(const void *p1, const void *p2)
 {
-	DATAREC *pDataRec1 = (DATAREC *)p1;
-	DATAREC *pDataRec2 = (DATAREC *)p2;
+	const DATAREC *pDataRec1 = (DATAREC *)p1;
+	const DATAREC *pDataRec2 = (DATAREC *)p2;
 
 	if (!pDataRec1->sCode.IsEmpty() && !pDataRec2->sCode.IsEmpty()) {
 		return atoi(pDataRec1->sCode) - atoi(pDataRec2->sCode);

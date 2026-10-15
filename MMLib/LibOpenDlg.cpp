@@ -175,10 +175,10 @@ void CLibOpenDlg::ReferenceLocal()
 	BROWSEINFO bInfo{
 		.hwndOwner = m_hWnd,				// ダイアログの親ウインドウのハンドル
 		.pidlRoot = NULL,					// ルートフォルダを示すITEMIDLISTのポインタ (NULLの場合デスクトップフォルダが使われます）
-		.pszDisplayName = buf,					// 選択されたフォルダ名を受け取るバッファのポインタ
+		.pszDisplayName = buf,				// 選択されたフォルダ名を受け取るバッファのポインタ
 		.lpszTitle = sTitle,				// ツリービューの上部に表示される文字列 
 		.ulFlags = BIF_RETURNONLYFSDIRS,	// 表示されるフォルダの種類を示すフラグ
-		.lpfn = BrowseCallbackProc,	// BrowseCallbackProc関数のポインタ
+		.lpfn = BrowseCallbackProc,			// BrowseCallbackProc関数のポインタ
 		.lParam = (LPARAM)buf				// コールバック関数に渡す値
 	};
 
@@ -194,19 +194,6 @@ void CLibOpenDlg::ReferenceLocal()
 
 		UpdateData(FALSE);
     }
-/*
-	CFileDialog fileDlg(TRUE, NULL, "*", OFN_NOCHANGEDIR | OFN_HIDEREADONLY | OFN_NOVALIDATE, NULL, this);
-
-	fileDlg.m_ofn.lpstrTitle = GetString(IDS_MMLIB_FOLDER);
-	if (fileDlg.DoModal() == IDOK) {
-		m_sDirectory = fileDlg.GetPathName();
-		int pos = m_sDirectory.ReverseFind('\\');
-		if (pos != -1)
-			m_sDirectory = m_sDirectory.Mid(0, pos);
-
-		UpdateData(FALSE);
-	}
-*/
 }
 
 void CLibOpenDlg::ReferenceNetwork()
@@ -238,22 +225,19 @@ void CLibOpenDlg::SetLibraryList()
 {
 	CString sDir;
 	WIN32_FIND_DATA	oFindBuf;
-	CString sLibraryName;
-	CString sLibraryPath;
-	CString *pLibraryPath;
 
 	::GetLibraryDir(sDir);
 
 	HANDLE hDir = FindFirstFile(sDir + "\\*", &oFindBuf);
 	if (hDir != INVALID_HANDLE_VALUE) {
+		CString sLibraryName;
+		CString sLibraryPath;
 		do {
 			if (oFindBuf.dwFileAttributes && FILE_ATTRIBUTE_DIRECTORY) {
 				 sLibraryPath = sDir + "\\" + oFindBuf.cFileName;
 				if (g_pMMLibDB->GetLibraryName(sLibraryPath, sLibraryName)) {
 					const int nIndex = m_cLibraryList.AddString(sLibraryName);
-					pLibraryPath = new CString;
-					*pLibraryPath = sLibraryPath;
-					m_cLibraryList.SetItemDataPtr(nIndex, pLibraryPath);
+					m_cLibraryList.SetItemDataPtr(nIndex, new CString(sLibraryPath));
 				}
 			}
 		} while (FindNextFile(hDir, &oFindBuf));
