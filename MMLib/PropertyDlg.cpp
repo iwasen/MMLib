@@ -84,13 +84,13 @@ void CPropertyDlg::DispData()
 void CPropertyDlg::GetFolder(CMMPcsDB *pPcsDB, const CString &sFolderId, CString &sFolder)
 {
 	CPSDB &oFolderDB = pPcsDB->m_oFolderDB;
-	FOLDERBUF oFolderBuf;
-	FOLDERREC oFolderRec;
 	int nFind;
 
 	pPcsDB->SetFolderIndex(1);
+	FOLDERBUF oFolderBuf;
 	if (oFolderDB.DBReadKey((LPCSTR)sFolderId, LEN_ID, &oFolderBuf, 0, &nFind) == 0) {
 		if (nFind) {
+			FOLDERREC oFolderRec;
 			oFolderDB.DBGetFieldBuf(&oFolderBuf, &oFolderRec);
 
 			if (oFolderRec.sFolderType != FTYPE_LIBRARY) {

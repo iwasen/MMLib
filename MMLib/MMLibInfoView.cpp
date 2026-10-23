@@ -8,10 +8,6 @@
 #include "FindDb.h"
 #include "afxinet.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMMLibInfoView
 
@@ -686,5 +682,5 @@ void CMMLibInfoView::OnBnClickedButtonSoundText()
 		}
 	}
 
-	delete [] pData;
+	delete[] pData;
 }

@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "FindSimpleDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CFindSimpleDlg ダイアログ
 

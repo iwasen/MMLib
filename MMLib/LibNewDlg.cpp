@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "LibNewDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CLibNewDlg ダイアログ
 
@@ -64,9 +60,9 @@ BOOL CLibNewDlg::OnInitDialog()
 
 	CDialogAF::OnInitDialog();
 
-	CRect rectSeparator;
+	RECT rectSeparator;
 	GetWindowRect(m_rectDlg);
-	m_cSeparator.GetWindowRect(rectSeparator);
+	m_cSeparator.GetWindowRect(&rectSeparator);
 	SetWindowPos(NULL, 0, 0, m_rectDlg.Width(), rectSeparator.top - m_rectDlg.top, SWP_NOZORDER | SWP_NOMOVE);
 
 	for (i = 0; i < MAX_RECENT; i++) {

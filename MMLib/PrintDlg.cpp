@@ -28,12 +28,12 @@ BOOL CPrintDlg::OnInitDialog()
 {
 	CPrintDialog::OnInitDialog();
 
-	CRect rcClinet;
-	GetClientRect(rcClinet);
+	RECT rcClinet;
+	GetClientRect(&rcClinet);
 
-	CRect rcOK;
-	GetDlgItem(IDOK)->GetWindowRect(rcOK);
-	ScreenToClient(rcOK);
+	RECT rcOK;
+	GetDlgItem(IDOK)->GetWindowRect(&rcOK);
+	ScreenToClient(&rcOK);
 
 	m_cMargin.Create(GetString(IDS_MARGIN), BS_CHECKBOX | BS_AUTOCHECKBOX | WS_VISIBLE, CRect(20, rcOK.top, 100, rcOK.bottom), this, 999);
 	m_cMargin.SetCheck(g_bPrintMargin);

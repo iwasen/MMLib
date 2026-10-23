@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "BackupDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CBackupDlg ダイアログ
 

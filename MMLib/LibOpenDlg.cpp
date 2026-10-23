@@ -6,10 +6,6 @@
 #include "LibOpenDlg.h"
 #include "RefNetDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CLibOpenDlg ダイアログ
 
@@ -60,9 +56,9 @@ BOOL CLibOpenDlg::OnInitDialog()
 
 	CDialogAF::OnInitDialog();
 
-	CRect rectSeparator;
+	RECT rectSeparator;
 	GetWindowRect(m_rectDlg);
-	m_cSeparator.GetWindowRect(rectSeparator);
+	m_cSeparator.GetWindowRect(&rectSeparator);
 	SetWindowPos(NULL, 0, 0, m_rectDlg.Width(), rectSeparator.top - m_rectDlg.top, SWP_NOZORDER | SWP_NOMOVE);
 
 	SetLibraryList();
@@ -198,8 +194,6 @@ void CLibOpenDlg::ReferenceLocal()
 
 void CLibOpenDlg::ReferenceNetwork()
 {
-	CRefNetDlg dlg;
-
 	UpdateData(TRUE);
 
 	if (m_sServerName.IsEmpty()) {
@@ -207,6 +201,7 @@ void CLibOpenDlg::ReferenceNetwork()
 		return;
 	}
 
+	CRefNetDlg dlg;
 	dlg.m_sServerName = m_sServerName;
 	dlg.m_nChType = m_iChType;
 	if (dlg.DoModal() == IDOK) {
@@ -224,10 +219,9 @@ void CLibOpenDlg::OnExternal()
 void CLibOpenDlg::SetLibraryList()
 {
 	CString sDir;
-	WIN32_FIND_DATA	oFindBuf;
-
 	::GetLibraryDir(sDir);
 
+	WIN32_FIND_DATA	oFindBuf;
 	HANDLE hDir = FindFirstFile(sDir + "\\*", &oFindBuf);
 	if (hDir != INVALID_HANDLE_VALUE) {
 		CString sLibraryName;

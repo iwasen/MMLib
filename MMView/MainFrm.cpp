@@ -8,10 +8,6 @@
 #include "MMListView.h"
 #include "MMTextView.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMainFrame
 
@@ -115,8 +111,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_wndToolBar.SetHeight(27);
 
-	CRect rect;
-	m_wndToolBar.GetItemRect(7, rect);
+	RECT rect;
+	m_wndToolBar.GetItemRect(7, &rect);
 
 	// create a combo box for the address bar
 	if (!m_wndComboBox.Create(CBS_DROPDOWN | WS_CHILD | WS_VISIBLE, CRect(rect.left+2, 1, rect.left + 58, 200), &m_wndToolBar, IDW_COMBO))
@@ -336,8 +332,8 @@ LRESULT CMainFrame::OnEnterSizeMove(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_wndSplitter.GetRowInfo(0, cxCur, cyMin);
 	m_nFixedHeight = cxCur;
 
-	CRect rect;
-	GetClientRect(rect);
+	RECT rect;
+	GetClientRect(&rect);
 	m_nClientHeight = rect.bottom;
 
 	return 0;

@@ -9,10 +9,6 @@
 #include "PictDoc.h"
 #include "PrintDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 #define DISPMODE_LIST	0
 #define DISPMODE_PICT	1
 
@@ -69,7 +65,7 @@ void CMMLibPictView::OnInitialUpdate()
 {
 	CScrollView::OnInitialUpdate();
 
-	CSize sizeTotal;
+	SIZE sizeTotal;
 	sizeTotal.cx = sizeTotal.cy = 100;
 	SetScrollSizes(MM_TEXT, sizeTotal);
 
@@ -180,8 +176,7 @@ void CMMLibPictView::DrawItems()
 	m_pSelectItem = NULL;
 	BOOL bHidePict = FALSE;
 
-	HTREEITEM hItem = g_pTreeCtrl->GetSelectedItem();
-	if (hItem != NULL) {
+	if (HTREEITEM hItem = g_pTreeCtrl->GetSelectedItem(); hItem != NULL) {
 		m_pCurrentItem = (CItem *)g_pTreeCtrl->GetItemData(hItem);
 
 		switch (m_pCurrentItem->m_nItemType) {
@@ -245,25 +240,15 @@ void CMMLibPictView::ReadPictureInfo()
 
 void CMMLibPictView::DrawList(CDC *pDC, CItem *pItem)
 {
-	CRect rcDest;
 	int	nCount = 0;
-	int	x, y, nMod, nRow;
-	short nWidth, nHeight,nColor;
-	HDIB hDIB;
-	HTREEITEM hItem;
-	CItem *pItemChild;
-	CItemData *pItemData;
-	CRect rcVisible;
-	CRect rcText;
-	CSize sizeScroll(0, 0);
-	CString sText;
-	int nPictWidth, nPictHeight;
+	SIZE sizeScroll(0, 0);
 
 	pDC->SetBkMode(TRANSPARENT);
 
-	CRect rect;
+	RECT rect;
 	GetClientRect(&rect);
 
+	int nPictWidth, nPictHeight;
 	if (m_nSmallSize == SMALL_NORMAL) {
 		nPictWidth = PICT_WIDTH;
 		nPictHeight = PICT_HEIGHT;
@@ -276,29 +261,31 @@ void CMMLibPictView::DrawList(CDC *pDC, CItem *pItem)
 
 	CFont *pFontOrg = pDC->SelectObject(&m_oFont);
 
-	for (hItem = g_pTreeCtrl->GetChildItem(pItem->m_hItem) ; hItem != NULL; hItem = g_pTreeCtrl->GetNextSiblingItem(hItem)) {
-		pItemChild = (CItem *)g_pTreeCtrl->GetItemData(hItem);
+	for (HTREEITEM hItem = g_pTreeCtrl->GetChildItem(pItem->m_hItem) ; hItem != NULL; hItem = g_pTreeCtrl->GetNextSiblingItem(hItem)) {
+		CItem *pItemChild = (CItem *)g_pTreeCtrl->GetItemData(hItem);
 
 		if (pItemChild->m_nItemType != ITEM_DATA)
 			continue;
 
-		pItemData = (CItemData *)pItemChild;
+		CItemData *pItemData = (CItemData *)pItemChild;
 
-		nMod = nCount % nColumn;
-		x = (nPictWidth + PICT_MARGIN) * nMod + PICT_MARGIN;
-		rcDest.left = x;
-		rcDest.right = x + nPictWidth;
+		int nMod = nCount % nColumn;
+		int x = (nPictWidth + PICT_MARGIN) * nMod + PICT_MARGIN;
+		int nRow = nCount / nColumn;
+		int y = (nPictHeight + PICT_TEXT + PICT_MARGIN) * nRow + PICT_MARGIN;
+		RECT rcDest{
+			.left = x,
+			.top = y,
+			.right = x + nPictWidth,
+			.bottom = y + nPictHeight
+		};
 
-		nRow = nCount / nColumn;
-		y = (nPictHeight + PICT_TEXT + PICT_MARGIN) * nRow + PICT_MARGIN;
-		rcDest.top = y;
-		rcDest.bottom = y + nPictHeight;
-
-		rcVisible.left = rcDest.left - PICT_FRAME;
-		rcVisible.top = rcDest.top - PICT_FRAME;
-		rcVisible.right = rcDest.right + PICT_FRAME;
-		rcVisible.bottom = rcDest.bottom + PICT_TEXT + PICT_MARGIN;
-
+		RECT rcVisible{
+			.left = rcDest.left - PICT_FRAME,
+			.top = rcDest.top - PICT_FRAME,
+			.right = rcDest.right + PICT_FRAME,
+			.bottom = rcDest.bottom + PICT_TEXT + PICT_MARGIN
+		};
 		if (rcVisible.right > sizeScroll.cx)
 			sizeScroll.cx = rcVisible.right;
 
@@ -307,9 +294,11 @@ void CMMLibPictView::DrawList(CDC *pDC, CItem *pItem)
 
 		nCount++;
 
-		if (!pDC->RectVisible(rcVisible))
+		if (!pDC->RectVisible(&rcVisible))
 			continue;
 
+		short nWidth, nHeight, nColor;
+		HDIB hDIB;
 		if (pItemData->m_hDIB == NULL) {
 			if (m_nSmallSize == SMALL_HIRES) {
 				HDIB hDIB2;
@@ -345,17 +334,20 @@ void CMMLibPictView::DrawList(CDC *pDC, CItem *pItem)
 		rcDest.top -= PICT_FRAME;
 		rcDest.right += PICT_FRAME;
 		rcDest.bottom += PICT_FRAME;
-		pDC->DrawEdge(rcDest, EDGE_RAISED, BF_RECT);
+		pDC->DrawEdge(&rcDest, EDGE_RAISED, BF_RECT);
 
-		rcText.left = x;
-		rcText.top = y + nPictHeight + PICT_FRAME + 1;
-		rcText.right = rcText.left + nPictWidth;
-		rcText.bottom = rcText.top + PICT_TEXT;
+		RECT rcText{
+			.left = x,
+			.top = y + nPictHeight + PICT_FRAME + 1,
+			.right = rcText.left + nPictWidth,
+			.bottom = rcText.top + PICT_TEXT
+		};
 		if (m_nTextMode == TEXTMODE_TITLE_ONLY || pItemData->m_oDataRec.sCode.IsEmpty())
-			pDC->DrawText(pItemData->m_oDataRec.sTitle, rcText, DT_WORDBREAK);
+			pDC->DrawText(pItemData->m_oDataRec.sTitle, &rcText, DT_WORDBREAK);
 		else {
+			CString sText;
 			sText.Format("%s (%s)", (LPCSTR)pItemData->m_oDataRec.sTitle, (LPCSTR)pItemData->m_oDataRec.sCode);
-			pDC->DrawText(sText, rcText, DT_WORDBREAK);
+			pDC->DrawText(sText, &rcText, DT_WORDBREAK);
 		}
 	}
 
@@ -373,22 +365,19 @@ void CMMLibPictView::DrawPicture(CDC *pDC)
 	if (m_hDIB == NULL)
 		return;
 
-	int nWidthSrc, nHeightSrc;
-	int nWidthDst, nHeightDst;
-	int nXDst, nYDst;
-	CRect rcView;
-	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
-
 	if (m_bIgnoreUpdate) {
 		m_bIgnoreUpdate = FALSE;
 		return;
 	}
 
-	GetClientRect(rcView);
+	RECT rcView;
+	GetClientRect(&rcView);
 
-	nWidthSrc = m_sizePict.cx;
-	nHeightSrc = m_sizePict.cy;
+	int nWidthSrc = m_sizePict.cx;
+	int nHeightSrc = m_sizePict.cy;
 
+	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
+	int nWidthDst, nHeightDst;
 	switch (pDoc->m_nAutoSize) {
 	case AUTOSIZE_NONE:
 		nWidthDst = (int)(nWidthSrc * m_fPictRatio + 0.5);
@@ -419,11 +408,11 @@ void CMMLibPictView::DrawPicture(CDC *pDC)
 	comboBox.SetWindowText(sStr);
 	comboBox.SetEditSel(0, -1);
 
-	nXDst = (rcView.right - nWidthDst) / 2;
+	int nXDst = (rcView.right - nWidthDst) / 2;
 	if (nXDst < 0)
 		nXDst = 0;
 
-	nYDst = (rcView.bottom - nHeightDst) / 2;
+	int nYDst = (rcView.bottom - nHeightDst) / 2;
 	if (nYDst < 0)
 		nYDst = 0;
 
@@ -432,8 +421,8 @@ void CMMLibPictView::DrawPicture(CDC *pDC)
 		m_sizeDraw.cy = nHeightDst;
 		SetScrollSizes(MM_TEXT, m_sizeDraw);
 
-		CRect rcView2;
-		GetClientRect(rcView2);
+		RECT rcView2;
+		GetClientRect(&rcView2);
 		if (pDoc->m_nAutoSize == AUTOSIZE_WIDTH && rcView.right > rcView2.right) {
 			m_sizeDraw.cx = rcView2.right;
 			m_sizeDraw.cy = nHeightDst;
@@ -457,9 +446,9 @@ BOOL CMMLibPictView::OnEraseBkgnd(CDC* pDC)
 	if (m_bIgnoreUpdate)
 		return TRUE;
 
-	CRect rect;
-	pDC->GetClipBox(rect);
-	pDC->FillRect(rect, &m_hBrushBkgnd);
+	RECT rect;
+	pDC->GetClipBox(&rect);
+	pDC->FillRect(&rect, &m_hBrushBkgnd);
 	return TRUE;
 }
 
@@ -536,8 +525,8 @@ void CMMLibPictView::OnMouseMove(UINT /*nFlags*/, CPoint point)
 		if (m_bScrollPicture) {
 			CPoint scrollPos = m_posPicture - point;
 
-			CRect rectView;
-			GetClientRect(rectView);
+			RECT rectView;
+			GetClientRect(&rectView);
 			if (rectView.right >= m_sizeDraw.cx)
 				scrollPos.x = 0;
 			if (rectView.bottom >= m_sizeDraw.cy)
@@ -732,7 +721,6 @@ DROPEFFECT CMMLibPictView::OnDragOver(COleDataObject* pDataObject, DWORD /*dwKey
 BOOL CMMLibPictView::OnDrop(COleDataObject* pDataObject, DROPEFFECT /*dropEffect*/, CPoint /*point*/)
 {
 	HDROP hDrop;
-
 	if ((hDrop = (HDROP)pDataObject->GetGlobalData(CF_HDROP, NULL)) == NULL)
 		return FALSE;
 
@@ -796,8 +784,6 @@ UINT CMMLibPictView::EditPictureThread(LPVOID pParam)
 void CMMLibPictView::EditPictureSub()
 {
 	CString sTempFile;
-	CString execCmd;
-
 	m_pCurrentItem->m_pNextSelected = NULL;
 	if (!MakeTempFile(m_pCurrentItem, sTempFile, PICTFILE_ALL, FALSE, FALSE))
 		return;
@@ -809,6 +795,7 @@ void CMMLibPictView::EditPictureSub()
 
 	sTempFile.Replace(';', ' ');
 	sTempFile.TrimRight();
+	CString execCmd;
 	execCmd.Format("\"%s\" %s", (LPCSTR)g_sImageEditor, (LPCSTR)sTempFile);
 
 	CWnd *pMainWnd = ::AfxGetMainWnd();

@@ -6,10 +6,6 @@
 #include "MMLib.h"
 #include "MyOleData.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 BOOL CMyOleDataSource::OnRenderGlobalData(LPFORMATETC lpFormatEtc, HGLOBAL* phGlobal)
 {
 	DROPFILES *pDropFiles;

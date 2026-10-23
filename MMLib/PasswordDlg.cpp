@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "PasswordDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CPasswordDlg ダイアログ
 

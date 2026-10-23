@@ -4,10 +4,6 @@
 #include "stdafx.h"
 #include "HyperLink.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CHyperLink
 

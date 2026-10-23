@@ -6,10 +6,6 @@
 #include "MainFrm.h"
 #include "MMViewDoc.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMMViewDoc
 
@@ -113,7 +109,7 @@ void CMMViewDoc::CloseFile()
 	m_oCriticalSection1.Lock();
 
 	if (m_pItem != NULL) {
-		delete [] m_pItem;
+		delete[] m_pItem;
 		m_pItem = NULL;
 	}
 

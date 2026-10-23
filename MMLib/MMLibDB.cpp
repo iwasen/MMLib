@@ -6,10 +6,6 @@
 #include "MMLib.h"
 #include "CheckPwdDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 #define IDX_NULL			0
 #define IDX_FOLDER_FID		1
 #define IDX_FOLDER_PFID		2
@@ -109,10 +105,7 @@ void CMMLibDB::ReOpenMMLibrary()
 
 CMMPcsDB *CMMLibDB::CreateMMLibrary(int nChType, LPCSTR pServerName, LPCSTR pDirName, int nOpenMode, FOLDERREC *pLibraryRec)
 {
-	CMMPcserve *pPcserve;
-	CMMPcsDB *pPcsDB;
 	CString oDirectory;
-
 	oDirectory = pDirName;
 
 	if (oDirectory.IsEmpty())
@@ -121,13 +114,14 @@ CMMPcsDB *CMMLibDB::CreateMMLibrary(int nChType, LPCSTR pServerName, LPCSTR pDir
 	if (oDirectory.Right(1) != '\\')
 		oDirectory += "\\";
 
+	CMMPcserve *pPcserve;
 	if (nOpenMode != CACHEMODE_OFFLINE) {
 		if ((pPcserve = ConnectPcserve(nChType, pServerName)) == NULL)
 			return NULL;
 	} else
 		pPcserve = NULL;
 
-	pPcsDB = new CMMPcsDB;
+	CMMPcsDB *pPcsDB = new CMMPcsDB;
 	if (!pPcsDB->CreateEx(pPcserve, &m_oPcserveLocal, oDirectory, nOpenMode, pLibraryRec)) {
 		delete pPcsDB;
 		return NULL;
@@ -354,7 +348,7 @@ BOOL CMMLibDB::OpenAccessLog()
 
 BOOL CMMLibDB::CreateAccessLog()
 {
-	static constexpr DBF_I field[] = {
+	static constexpr DBF_I field[]{
 		{"SEQNO",      'I', LEN_SEQ_NO,      0},	// シーケンス番号
 		{"LID",        'C', LEN_ID,          0},	// ライブラリＩＤ
 		{"DID",        'C', LEN_ID,          0},	// データＩＤ
@@ -1312,7 +1306,7 @@ int CMMPcsDB::Create(CMMPcserve *pPcserve, CMMPcserve *pCachePcserve, LPCSTR pDi
 
 int CMMPcsDB::CreateDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, LPCSTR pDirName, BOOL bIndex)
 {
-	static DBF_I   folderField[] = {
+	static constexpr DBF_I folderField[]{
 		{"FID",       'C', LEN_ID,         0},	// フォルダＩＤ
 		{"PFID",      'C', LEN_ID,         0},	// 親フォルダＩＤ
 		{"FTYPE",     'C', LEN_FOLDERTYPE, 0},	// フォルダタイプ
@@ -1328,7 +1322,7 @@ int CMMPcsDB::CreateDB(CMMPcserve *pPcserve, CPSDB &oFolderDB, CPSDB &oDataDB, L
 		{FORM_FIELD,  'B', 0, 0}				// フォームデータ
 	};
 
-	static DBF_I   dataField[] = {
+	static constexpr DBF_I dataField[]{
 		{"FID",       'C', LEN_ID,      0},		// フォルダＩＤ
 		{"DID",       'C', LEN_ID,      0},		// 画像ＩＤ
 		{"CDATE",     'C', LEN_DATE,    0},		// 撮影年月日時分
@@ -1803,28 +1797,28 @@ int CMMPcsDB::CopyFolder(CMMPcsDB *pPcsDBSrc, LPCSTR pFidSrc, CMMPcsDB *pPcsDBDs
 
 		pFID = new char[nRec][LEN_ID];
 		if ((err = pPcsDBSrc->m_oFolderDB.DBReadNext(nRec, pFID, &nRead)) != 0) {
-			delete [] pFID;
+			delete[] pFID;
 			return err;
 		}
 
 		if ((err = pPcsDBSrc->SelectFolder(NULL, &nRec)) != 0) {
-			delete [] pFID;
+			delete[] pFID;
 			return err;
 		}
 
 		if ((err = pPcsDBSrc->m_oFolderDB.DBSetReadField(NULL, &nLen)) != 0) {
-			delete [] pFID;
+			delete[] pFID;
 			return err;
 		}
 
 		for (i = 0; i < nRead; i++) {
 			if ((err = CopyFolder(pPcsDBSrc, pFID[i], pPcsDBDst, oFolderRec.sFolderID)) != 0) {
-				delete [] pFID;
+				delete[] pFID;
 				return err;
 			}
 		}
 
-		delete [] pFID;
+		delete[] pFID;
 		break;
 	case FTYPE_DFOLDER:
 		if ((err = CopyChildData(pPcsDBSrc, pFidSrc, pPcsDBDst, oFolderRec.sFolderID)) != 0)
@@ -1840,7 +1834,6 @@ int CMMPcsDB::CopyFolder(CMMPcsDB *pPcsDBSrc, LPCSTR pFidSrc, CMMPcsDB *pPcsDBDs
 
 int CMMPcsDB::RotateFolder(LPCSTR pFID, int nRotate)
 {
-	FOLDERREC oFolderRec;
 	char (*pID)[LEN_ID];
 	long nRec;
 	int nRead;
@@ -1848,6 +1841,7 @@ int CMMPcsDB::RotateFolder(LPCSTR pFID, int nRotate)
 	int i;
 	int err;
 
+	FOLDERREC oFolderRec;
 	if ((err = ReadFolder(pFID, &oFolderRec)) != 0)
 		return err;
 
@@ -1862,28 +1856,28 @@ int CMMPcsDB::RotateFolder(LPCSTR pFID, int nRotate)
 
 		pID = new char[nRec][LEN_ID];
 		if ((err = m_oFolderDB.DBReadNext(nRec, pID, &nRead)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		if ((err = SelectFolder(NULL, &nRec)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		if ((err = m_oFolderDB.DBSetReadField(NULL, &nLen)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		for (i = 0; i < nRead; i++) {
 			if ((err = RotateFolder(pID[i], nRotate)) != 0) {
-				delete [] pID;
+				delete[] pID;
 				return err;
 			}
 		}
 
-		delete [] pID;
+		delete[] pID;
 		break;
 	case FTYPE_DFOLDER:
 		if ((err = SelectData(pFID, &nRec)) != 0)
@@ -1894,28 +1888,28 @@ int CMMPcsDB::RotateFolder(LPCSTR pFID, int nRotate)
 
 		pID = new char[nRec][LEN_ID];
 		if ((err = m_oDataDB.DBReadNext(nRec, pID, &nRead)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		if ((err = SelectData(NULL, &nRec)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		if ((err = m_oDataDB.DBSetReadField(NULL, &nLen)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		for (i = 0; i < nRead; i++) {
 			if ((err = RotateData(pID[i], nRotate)) != 0) {
-				delete [] pID;
+				delete[] pID;
 				return err;
 			}
 		}
 
-		delete [] pID;
+		delete[] pID;
 		break;
 	}
 
@@ -2039,7 +2033,7 @@ int CMMPcsDB::ReadBinaryData(LPCSTR pDID, LPCSTR pFieldName, LPSTR *pPict, long 
 	if (nSize != 0) {
 		*pPict = new char[nSize];
 		if ((err = pDataDB->DBReadBinary(pFieldName, *pPict, nSize, pPictSize)) != 0) {
-			delete [] pPict;
+			delete[] pPict;
 			return err;
 		}
 	} else {
@@ -2120,16 +2114,16 @@ int CMMPcsDB::CacheBinary(LPCSTR pFieldName, CPSDB &oDB, CPSDB &oDB2)
 	char *pBuf = new char[nSize];
 
 	if ((err = oDB.DBReadBinary(pFieldName, pBuf, nSize, &nReadNum)) != 0) {
-		delete [] pBuf;
+		delete[] pBuf;
 		return err;
 	}
 
 	if ((err = oDB2.DBWriteBinary(pFieldName, pBuf, nReadNum)) != 0) {
-		delete [] pBuf;
+		delete[] pBuf;
 		return err;
 	}
 
-	delete [] pBuf;
+	delete[] pBuf;
 
 	return 0;
 }
@@ -2137,8 +2131,6 @@ int CMMPcsDB::CacheBinary(LPCSTR pFieldName, CPSDB &oDB, CPSDB &oDB2)
 int CMMPcsDB::ReadPictureData(LPCSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC *pDataRec)
 {
 	CPSDB *pDataDB;
-	DATABUF oDataBuf;
-	DATAREC oDataRec;
 	int nFind;
 	int err;
 
@@ -2150,6 +2142,7 @@ int CMMPcsDB::ReadPictureData(LPCSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC *
 	else
 		pDataDB = &m_oDataDB;
 
+	DATABUF oDataBuf;
 	if ((err = pDataDB->DBReadKey(pDID, LEN_ID, &oDataBuf, 0, &nFind)) != 0)
 		return err;
 
@@ -2172,6 +2165,7 @@ int CMMPcsDB::ReadPictureData(LPCSTR pDID, PHDIB phDIB1, PHDIB phDIB2, DATAREC *
 			CacheBinFldData(pDID, PICT2_FIELD);
 	}
 
+	DATAREC oDataRec;
 	if (pDataRec == NULL)
 		pDataRec = &oDataRec;
 
@@ -2391,7 +2385,7 @@ void CMMPcsDB::WriteCacheBinary(CPSDB &oDB, CPSDB &oDB2, LPCSTR pFieldName)
 			char *pBuf = new char [nSize];
 			if (oDB2.DBReadBinary(pFieldName, pBuf, nSize, &nReadNum) == 0)
 				oDB.DBWriteBinary(pFieldName, pBuf, nReadNum);
-			delete [] pBuf;
+			delete[] pBuf;
 		} else
 			oDB.DBWriteBinary(pFieldName, NULL, 0);
 	}
@@ -2591,16 +2585,16 @@ int CMMPcsDB::CopyBinary(CPSDB &oSrcDB, CPSDB &oDstDB, LPCSTR pFieldName)
 	long readNum;
 
 	if ((err = oSrcDB.DBReadBinary(pFieldName, pBuf, nSize, &readNum)) != 0) {
-		delete [] pBuf;
+		delete[] pBuf;
 		return err;
 	}
 
 	if ((err = oDstDB.DBWriteBinary(pFieldName, pBuf, readNum)) != 0) {
-		delete [] pBuf;
+		delete[] pBuf;
 		return err;
 	}
 
-	delete [] pBuf;
+	delete[] pBuf;
 
 	return 0;
 }
@@ -2782,28 +2776,28 @@ int CMMPcsDB::FillCache(LPCSTR pFID)
 
 		pID = new char[nRec][LEN_ID];
 		if ((err = m_oFolderDB.DBReadNext(nRec, pID, &nRead)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		if ((err = SelectFolder(NULL, &nRec)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		if ((err = m_oFolderDB.DBSetReadField(NULL, &nLen)) != 0) {
-			delete [] pID;
+			delete[] pID;
 			return err;
 		}
 
 		for (i = 0; i < nRead; i++) {
 			if ((err = FillCache(pID[i])) != 0) {
-				delete [] pID;
+				delete[] pID;
 				return err;
 			}
 		}
 
-		delete [] pID;
+		delete[] pID;
 		break;
 	case FTYPE_DFOLDER:
 		if ((err = FillDataCache(pFID)) != 0)
@@ -2939,9 +2933,9 @@ int CMMPcsDB::GetFolderCount(long *pRecNum)
 
 int CMMPcsDB::ReadFolderAll(FOLDERREC *pFolderRec, BOOL *pRead)
 {
-	FOLDERBUF oFolderBuf;
 	int err;
 
+	FOLDERBUF oFolderBuf;
 	if ((err = m_oFolderDB.DBReadAll(&oFolderBuf, pRead)) != 0)
 		return err;
 
@@ -2975,9 +2969,9 @@ int CMMPcsDB::GetDataCount(long *pRecNum)
 
 int CMMPcsDB::ReadDataAll(DATAREC *pDataRec, BOOL *pRead)
 {
-	DATABUF oDataBuf;
 	int err;
 
+	DATABUF oDataBuf;
 	if ((err = m_oDataDB.DBReadAll(&oDataBuf, pRead)) != 0)
 		return err;
 
@@ -3054,19 +3048,18 @@ int CMMPcsDB::SelectData(LPCSTR pFID, long *nRec)
 
 int CMMPcsDB::Backup(LPCSTR pBackupDir, CProgressCtrl *pProgress)
 {
-	CMMPcserve oPcserveLocal;
-	CPSDB oFolderDB, oDataDB;
-	CString sDir;
 	int err;
 
 	CreateDirectoryAll(pBackupDir);
 
+	CMMPcserve oPcserveLocal;
 	oPcserveLocal.Open(CHT_LOCAL, NULL);
 
-	sDir = pBackupDir;
+	CString sDir = pBackupDir;
 	if (sDir.Right(1) != '\\')
 		sDir += "\\";
 
+	CPSDB oFolderDB, oDataDB;
 	if ((err = CreateDB(&oPcserveLocal, oFolderDB, oDataDB, sDir, FALSE)) != 0)
 		return err;
 
@@ -3078,19 +3071,18 @@ int CMMPcsDB::Backup(LPCSTR pBackupDir, CProgressCtrl *pProgress)
 
 int CMMPcsDB::Restore(LPCSTR pBackupDir, CProgressCtrl *pProgress)
 {
-	CMMPcserve oPcserveLocal;
-	CPSDB oFolderDB, oDataDB;
-	CString sDir;
 	int err;
 
 	CreateDirectoryAll(pBackupDir);
 
+	CMMPcserve oPcserveLocal;
 	oPcserveLocal.Open(CHT_LOCAL, NULL);
 
-	sDir = pBackupDir;
+	CString sDir = pBackupDir;
 	if (sDir.Right(1) != '\\')
 		sDir += "\\";
 
+	CPSDB oFolderDB, oDataDB;
 	if ((err = OpenDB(&oPcserveLocal, oFolderDB, oDataDB, sDir, FALSE)) != 0)
 		return err;
 
@@ -3148,7 +3140,7 @@ void CMMPcsDB::SetPermission(DWORD dwPermission)
 
 BOOL CMMPcsDB::CreateFindPictDB()
 {
-	static constexpr DBF_I field[] = {
+	static constexpr DBF_I field[]{
 		{"DID",			'C', LEN_ID,         0},	// データＩＤ
 		{"FACTOR_R",	'C', LEN_PFACTOR,    0},	// 画像ファクタ
 		{"FACTOR_G",	'C', LEN_PFACTOR,    0},	// 画像ファクタ
@@ -3408,16 +3400,16 @@ static int CopyBinaryDB(CPSDB *pSrcDB, CPSDB *pDstDB, LPCSTR pFieldName)
 	long readNum;
 
 	if ((err = pSrcDB->DBReadBinary(pFieldName, pBuf, nSize, &readNum)) != 0) {
-		delete [] pBuf;
+		delete[] pBuf;
 		return err;
 	}
 
 	if ((err = pDstDB->DBWriteBinary(pFieldName, pBuf, readNum)) != 0) {
-		delete [] pBuf;
+		delete[] pBuf;
 		return err;
 	}
 
-	delete [] pBuf;
+	delete[] pBuf;
 
 	return 0;
 }

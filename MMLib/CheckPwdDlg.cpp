@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "CheckPwdDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CCheckPwdDlg ダイアログ
 

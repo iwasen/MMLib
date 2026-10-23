@@ -25,7 +25,7 @@ constexpr char g_sRegistryName[] = "Multimedia Library";
 
 HICON g_hIcon;
 
-constexpr int g_tColumnOrder[] = {
+constexpr int g_tColumnOrder[]{
 	DETAIL_NAME,
 	DETAIL_FIRSTDATA,
 	DETAIL_CODE,
@@ -190,7 +190,7 @@ BOOL SendDocuments(LPCSTR pFileName)
 		};
 		(*(LPMAPISENDMAIL)pProc)(0, 0, &mms, MAPI_LOGON_UI | MAPI_DIALOG, 0);
 
-		delete [] pMfd;
+		delete[] pMfd;
 	}
 
 	FreeLibrary(hModule);
@@ -834,10 +834,9 @@ int FindLastNum(const CString &sStr)
 CString ConvFileTime(const FILETIME *pFileTime)
 {
 	SYSTEMTIME st;
-	CString sStr;
-
 	FileTimeToSystemTime(pFileTime, &st);
 
+	CString sStr;
 	sStr.Format("%04d%02d%02d%02d%02d", st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute);
 	return sStr;
 }
@@ -960,15 +959,14 @@ void AutoNextNumbering(CString &sCode, int nStep)
 	if ((n = sCode.FindOneOf(number)) == -1)
 		return;
 
-	CString format;
-	long i, nMax;
-
+	long nMax = 1;
 	CString sStr = sCode.Mid(n).SpanIncluding(number);
 	const int len = sStr.GetLength();
-	for (i = 0, nMax = 1; i < len; i++)
+	for (int i = 0; i < len; i++)
 		nMax *= 10;
 	const long nNum = (atol(sStr) + nStep) % nMax;
 
+	CString format;
 	format.Format("%%0%du", len);
 	sStr.Format(format, nNum);
 	sCode.Delete(n, len);

@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "PictRotateDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CPictRotateDlg ダイアログ
 

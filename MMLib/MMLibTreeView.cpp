@@ -8,10 +8,6 @@
 #include "MyOleData.h"
 #include "PrintDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMMLibTreeView
 
@@ -808,7 +804,7 @@ void CMMLibTreeView::OnBegindrag(NMHDR* pNMHDR, LRESULT* pResult)
 	*ppItem = pItem;
 	::GlobalUnlock(hMem);
 
-	CMyOleDataSource* pods = new CMyOleDataSource;
+	CMyOleDataSource *pods = new CMyOleDataSource;
 	pods->m_pItem = pItem;
 
 	pods->CacheGlobalData((CLIPFORMAT)g_nCFMMLibrary, hMem);
@@ -834,13 +830,11 @@ DROPEFFECT CMMLibTreeView::OnDragOver(COleDataObject* pDataObject, DWORD dwKeySt
 
 DROPEFFECT CMMLibTreeView::DragOverItem(COleDataObject* pDataObject, DWORD dwKeyState, CPoint point)
 {
-	CTreeCtrl& tvc = GetTreeCtrl();
-	CItem *pItemSrc, *pItemDst, *pItemParent;
-	CMMPcsDB *pPcsDBSrc, *pPcsDBDst;
-
+	CItem *pItemDst;
 	if ((pItemDst = GetTargetItem(point)) == NULL)
 		return DROPEFFECT_NONE;
-
+	
+	CItem *pItemSrc;
 	if (pItemDst->m_nItemType != ITEM_FOLDER && pItemDst->m_nItemType != ITEM_INBOX)
 		return DROPEFFECT_NONE;
 
@@ -850,6 +844,7 @@ DROPEFFECT CMMLibTreeView::DragOverItem(COleDataObject* pDataObject, DWORD dwKey
 	if (pItemSrc == pItemDst)
 		return DROPEFFECT_NONE;
 
+	CMMPcsDB *pPcsDBSrc;
 	switch (pItemSrc->m_nItemType) {
 	case ITEM_FOLDER:
 		if (((CItemFolder *)pItemDst)->m_nFolderType == FTYPE_DFOLDER)
@@ -865,16 +860,17 @@ DROPEFFECT CMMLibTreeView::DragOverItem(COleDataObject* pDataObject, DWORD dwKey
 		return DROPEFFECT_NONE;
 	}
 
+	CTreeCtrl& tvc = GetTreeCtrl();
 	tvc.SelectDropTarget(pItemDst->m_hItem);
 
-	pPcsDBDst = ((CItemFolder *)pItemDst)->m_pPcsDB;
+	CMMPcsDB *pPcsDBDst = ((CItemFolder *)pItemDst)->m_pPcsDB;
 	if ((dwKeyState & MK_CONTROL) && pPcsDBSrc != pPcsDBDst)
 		return DROPEFFECT_COPY;
 
 	if (dwKeyState & MK_SHIFT)
 		return DROPEFFECT_MOVE;
 
-	pItemParent = pItemSrc;
+	CItem *pItemParent = pItemSrc;
 	while ((pItemParent = pItemParent->GetParent()) != NULL) {
 		if (pItemParent->m_nItemType == ITEM_INBOX)
 			return DROPEFFECT_MOVE;
@@ -888,9 +884,7 @@ DROPEFFECT CMMLibTreeView::DragOverItem(COleDataObject* pDataObject, DWORD dwKey
 
 DROPEFFECT CMMLibTreeView::DragOverFile(COleDataObject* pDataObject, DWORD /*dwKeyState*/, CPoint point)
 {
-	CTreeCtrl& tvc = GetTreeCtrl();
 	CItem *pItemDst;
-
 	if ((pItemDst = GetTargetItem(point)) == NULL)
 		return DROPEFFECT_NONE;
 
@@ -898,7 +892,6 @@ DROPEFFECT CMMLibTreeView::DragOverFile(COleDataObject* pDataObject, DWORD /*dwK
 		return DROPEFFECT_NONE;
 
 	const int nFileType = GetSourceFileType(pDataObject);
-
 	if (nFileType & SRCFILETYPE_MML)
 		;
 	else if (nFileType & SRCFILETYPE_PICT) {
@@ -907,6 +900,7 @@ DROPEFFECT CMMLibTreeView::DragOverFile(COleDataObject* pDataObject, DWORD /*dwK
 	} else
 		return DROPEFFECT_NONE;
 
+	CTreeCtrl& tvc = GetTreeCtrl();
 	tvc.SelectDropTarget(pItemDst->m_hItem);
 
 	return DROPEFFECT_COPY;
@@ -930,14 +924,14 @@ BOOL CMMLibTreeView::OnDrop(COleDataObject* pDataObject, DROPEFFECT dropEffect, 
 
 BOOL CMMLibTreeView::DropItem(COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point)
 {
-	CItem *pItemSrc, *pItemDst;
-
+	CItem *pItemDst;
 	if ((pItemDst = GetTargetItem(point)) == NULL)
 		return FALSE;
 
 	if (pItemDst->m_nItemType != ITEM_FOLDER && pItemDst->m_nItemType != ITEM_INBOX)
 		return FALSE;
 
+	CItem *pItemSrc;
 	if ((pItemSrc = GetSourceItem(pDataObject)) == NULL)
 		return FALSE;
 
@@ -945,7 +939,6 @@ BOOL CMMLibTreeView::DropItem(COleDataObject* pDataObject, DROPEFFECT dropEffect
 		return FALSE;
 
 	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
-
 	switch (dropEffect) {
 	case DROPEFFECT_COPY:
 		pDoc->CopyItem(pItemSrc, pItemDst);
@@ -963,25 +956,24 @@ BOOL CMMLibTreeView::DropItem(COleDataObject* pDataObject, DROPEFFECT dropEffect
 BOOL CMMLibTreeView::DropFile(COleDataObject* pDataObject, DROPEFFECT /*dropEffect*/, CPoint point)
 {
 	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
-	CItem *pItemDst;
-	HDROP hDrop;
-	int nNumFiles;
 	int i;
-	int nFileType = 0;
-	int nPictFile = 0;
 	char fileNameBuf[256];
 
+	CItem *pItemDst;
 	if ((pItemDst = GetTargetItem(point)) == NULL)
 		return FALSE;
 
 	if (pItemDst->m_nItemType != ITEM_FOLDER && pItemDst->m_nItemType != ITEM_INBOX)
 		return FALSE;
 
+	HDROP hDrop;
 	if ((hDrop = (HDROP)pDataObject->GetGlobalData(CF_HDROP, NULL)) == NULL)
 		return FALSE;
 
-	nNumFiles = ::DragQueryFile(hDrop, (UINT)-1, NULL, 0);
+	int nNumFiles = ::DragQueryFile(hDrop, (UINT)-1, NULL, 0);
 
+	int nFileType = 0;
+	int nPictFile = 0;
 	for (i = 0; i < nNumFiles; i++) {
 		::DragQueryFile(hDrop, i, fileNameBuf, sizeof(fileNameBuf));
 		nFileType = CheckFileType(fileNameBuf);
@@ -1030,7 +1022,6 @@ CItem *CMMLibTreeView::GetTargetItem(CPoint point)
 CItem *CMMLibTreeView::GetSourceItem(COleDataObject* pDataObject)
 {
 	HGLOBAL hGlobal;
-
 	if ((hGlobal = pDataObject->GetGlobalData((CLIPFORMAT)g_nCFMMLibrary, NULL)) == NULL)
 		return NULL;
 
@@ -1044,14 +1035,13 @@ CItem *CMMLibTreeView::GetSourceItem(COleDataObject* pDataObject)
 int CMMLibTreeView::GetSourceFileType(COleDataObject* pDataObject)
 {
 	HDROP hDrop;
-	int nFileType = 0;
-	char fileNameBuf[256];
-
 	if ((hDrop = (HDROP)pDataObject->GetGlobalData(CF_HDROP, NULL)) == NULL)
 		return 0;
 
 	const int nNumFiles = ::DragQueryFile(hDrop, (UINT)-1, NULL, 0);
 
+	char fileNameBuf[256];
+	int nFileType = 0;
 	for (int i = 0; i < nNumFiles; i++) {
 		::DragQueryFile(hDrop, i, fileNameBuf, sizeof(fileNameBuf));
 		nFileType |= CheckFileType(fileNameBuf);
@@ -1084,6 +1074,9 @@ void CMMLibTreeView::ReloadAllItems()
 
 void CMMLibTreeView::ReloadItem(CItemFolder *pItemFolder, BOOL bSubitem)
 {
+	if (!pItemFolder->m_bReadChildren)
+		return;
+
 	CWaitCursor waitCursor;
 	CTreeCtrl& tvc = GetTreeCtrl();
 	HTREEITEM hItem;
@@ -1091,12 +1084,6 @@ void CMMLibTreeView::ReloadItem(CItemFolder *pItemFolder, BOOL bSubitem)
 	CItemFolder *pItemChildFolder;
 	CItemData *pItemData;
 	BOOL bFirst;
-	FOLDERREC oFolderRec;
-	DATAREC oDataRec;
-	BOOL bHasChild = FALSE;
-
-	if (!pItemFolder->m_bReadChildren)
-		return;
 
 	for (hItem = tvc.GetChildItem(pItemFolder->m_hItem); hItem != NULL; hItem = tvc.GetNextSiblingItem(hItem)) {
 		pItemChild = (CItem *)tvc.GetItemData(hItem);
@@ -1106,36 +1093,43 @@ void CMMLibTreeView::ReloadItem(CItemFolder *pItemFolder, BOOL bSubitem)
 	LPCSTR pFolderID = pItemFolder->m_oFolderRec.sFolderID;
 	CMMPcsDB *pPcsDB = pItemFolder->m_pPcsDB;
 
+	BOOL bHasChild = FALSE;
 	switch (pItemFolder->m_nFolderType) {
 	case FTYPE_LIBRARY:
 	case FTYPE_GFOLDER:
-		bFirst = TRUE;
-		while (pPcsDB->ReadChildFolderEx(pFolderID, &oFolderRec, bFirst)) {
-			if ((pItemChildFolder = FindChildFolder(pItemFolder, oFolderRec.sFolderID)) != NULL) {
-				pItemChildFolder->m_oFolderRec = oFolderRec;
-				tvc.SetItemText(pItemChildFolder->m_hItem, oFolderRec.sFolderName);
-				pItemChildFolder->m_bCheck = TRUE;
-			} else
-				pItemChildFolder = AddFolder(pItemFolder->m_hItem, pItemFolder->m_pPcsDB, &oFolderRec);
+		{
+			bFirst = TRUE;
+			FOLDERREC oFolderRec;
+			while (pPcsDB->ReadChildFolderEx(pFolderID, &oFolderRec, bFirst)) {
+				if ((pItemChildFolder = FindChildFolder(pItemFolder, oFolderRec.sFolderID)) != NULL) {
+					pItemChildFolder->m_oFolderRec = oFolderRec;
+					tvc.SetItemText(pItemChildFolder->m_hItem, oFolderRec.sFolderName);
+					pItemChildFolder->m_bCheck = TRUE;
+				} else
+					pItemChildFolder = AddFolder(pItemFolder->m_hItem, pItemFolder->m_pPcsDB, &oFolderRec);
 
-			pItemChildFolder->m_bCheck = TRUE;
-			bFirst = FALSE;
-			bHasChild = TRUE;
+				pItemChildFolder->m_bCheck = TRUE;
+				bFirst = FALSE;
+				bHasChild = TRUE;
+			}
 		}
 		break;
 	case FTYPE_DFOLDER:
-		bFirst = TRUE;
-		while (pPcsDB->ReadChildDataEx(pFolderID, &oDataRec, bFirst)) {
-			if ((pItemData = FindChildData(pItemFolder, oDataRec.sDataID)) != NULL) {
-				pItemData->m_oDataRec = oDataRec;
-				tvc.SetItemText(pItemData->m_hItem, DataItemText(pItemData));
-				pItemData->m_bCheck = TRUE;
-			} else
-				pItemData = AddData(pItemFolder->m_hItem, pItemFolder->m_pPcsDB, &oDataRec);
+		{
+			bFirst = TRUE;
+			DATAREC oDataRec;
+			while (pPcsDB->ReadChildDataEx(pFolderID, &oDataRec, bFirst)) {
+				if ((pItemData = FindChildData(pItemFolder, oDataRec.sDataID)) != NULL) {
+					pItemData->m_oDataRec = oDataRec;
+					tvc.SetItemText(pItemData->m_hItem, DataItemText(pItemData));
+					pItemData->m_bCheck = TRUE;
+				} else
+					pItemData = AddData(pItemFolder->m_hItem, pItemFolder->m_pPcsDB, &oDataRec);
 
-			pItemData->m_bCheck = TRUE;
-			bFirst = FALSE;
-			bHasChild = TRUE;
+				pItemData->m_bCheck = TRUE;
+				bFirst = FALSE;
+				bHasChild = TRUE;
+			}
 		}
 		break;
 	}
@@ -1351,19 +1345,18 @@ LRESULT CMMLibTreeView::OnGetSelectedItem(WPARAM /*wParam*/, LPARAM /*lParam*/)
 
 BOOL CMMLibTreeView::OnPreparePrinting(CPrintInfo* pInfo)
 {
-	CTreeCtrl& tvc = GetTreeCtrl();
-	HTREEITEM hItem;
-	int nCount;
-
 	delete pInfo->m_pPD;
 	pInfo->m_pPD = new CPrintDlg(FALSE, PD_ALLPAGES | PD_USEDEVMODECOPIES | PD_NOSELECTION, NULL);
 	pInfo->SetMinPage(1);
 
+	CTreeCtrl& tvc = GetTreeCtrl();
+	HTREEITEM hItem;
 	if ((hItem = tvc.GetSelectedItem()) == NULL)
 		return FALSE;
 
 	CItem *pItem = (CItem *)tvc.GetItemData(hItem);
 
+	int nCount;
 	switch (pItem->m_nItemType) {
 	case ITEM_DATA:
 		pInfo->SetMaxPage(1);
@@ -1526,15 +1519,13 @@ void CMMLibTreeView::SelectData(CSelectItem *pSelectItem)
 
 BOOL CMMLibTreeView::SelectDataSub(CSelectItem *pSelectItem)
 {
-	CItem *pItem;
-	LPCSTR pLibraryID;
-	CMMPcsDB *pPcsDB;
 	BOOL bOK = FALSE;
 	CTreeCtrl &tc = GetTreeCtrl();
 
+	LPCSTR pLibraryID;
 	HTREEITEM hItem = g_pTreeCtrl->GetChildItem(g_pTreeCtrl->GetRootItem());
 	for (int i = 0; hItem != NULL; i++) {
-		pItem = (CItem *)g_pTreeCtrl->GetItemData(hItem);
+		CItem *pItem = (CItem *)g_pTreeCtrl->GetItemData(hItem);
 		switch (pItem->m_nItemType) {
 		case ITEM_FOLDER:
 		case ITEM_INBOX:
@@ -1555,7 +1546,7 @@ BOOL CMMLibTreeView::SelectDataSub(CSelectItem *pSelectItem)
 			}
 
 			if (pItem->m_nItemType == ITEM_FOLDER || pItem->m_nItemType == ITEM_INBOX) {
-				pPcsDB = ((CItemFolder *)pItem)->m_pPcsDB;
+				CMMPcsDB *pPcsDB = ((CItemFolder *)pItem)->m_pPcsDB;
 				if (!pSelectItem->m_sDataID.IsEmpty()) {
 					DATAREC oDataRec;
 					if (!pPcsDB->ReadDataEx(pSelectItem->m_sDataID, &oDataRec))
@@ -1594,28 +1585,26 @@ BOOL CMMLibTreeView::SelectDataSub(CSelectItem *pSelectItem)
 
 HTREEITEM CMMLibTreeView::SelectFolder(HTREEITEM hItemLibrary, CMMPcsDB *pPcsDB, CString &sFolderID, int nCount)
 {
-	HTREEITEM hItem;
-	CItem *pItem;
-	FOLDERREC oFolderRec;
-	CTreeCtrl &tc = GetTreeCtrl();
-
 	if (sFolderID == FID_LIBRARY)
 		return hItemLibrary;
 
 	if (nCount > 20)
 		return NULL;
 
+	FOLDERREC oFolderRec;
 	if (!pPcsDB->ReadFolderEx(sFolderID, &oFolderRec))
 		return NULL;
 
+	HTREEITEM hItem;
 	if ((hItem = SelectFolder(hItemLibrary, pPcsDB, oFolderRec.sParentFolderID, nCount + 1)) == NULL)
 		return NULL;
 
+	CTreeCtrl &tc = GetTreeCtrl();
 	tc.Expand(hItem, TVE_EXPAND);
 
 	hItem = tc.GetChildItem(hItem);
 	while (hItem != NULL) {
-		pItem = (CItem *)tc.GetItemData(hItem);
+		CItem *pItem = (CItem *)tc.GetItemData(hItem);
 		if (pItem->m_nItemType == ITEM_FOLDER || pItem->m_nItemType == ITEM_INBOX) {
 			if (((CItemFolder *)pItem)->m_oFolderRec.sFolderID == sFolderID)
 				return hItem;
@@ -1630,11 +1619,10 @@ void CMMLibTreeView::OnUpdateFilePrint(CCmdUI *pCmdUI)
 {
 	CTreeCtrl& tvc = GetTreeCtrl();
 	HTREEITEM hItem;
-	CItem *pItem;
 	BOOL bEnable = FALSE;
 
 	if ((hItem = tvc.GetSelectedItem()) != NULL) {
-		pItem = (CItem *)tvc.GetItemData(hItem);
+		CItem *pItem = (CItem *)tvc.GetItemData(hItem);
 
 		switch (pItem->m_nItemType) {
 		case ITEM_DATA:

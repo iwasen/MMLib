@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "TransRegDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CTransRegDlg ダイアログ
 

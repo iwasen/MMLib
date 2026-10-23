@@ -6,10 +6,6 @@
 #include "FindKeywordDoc.h"
 #include "FindKeywordView.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CFindKeywordView
 
@@ -52,7 +48,7 @@ void CFindKeywordView::InsertColumns()
 		int nFmt;
 		int nWidth;
 	};
-	static constexpr LISTCOLUMN tColumn[] = {
+	static constexpr LISTCOLUMN tColumn[]{
 		{IDS_NAME, LVCFMT_LEFT, 130},
 		{IDS_LIBRARY, LVCFMT_LEFT, 100},
 		{IDS_CREATOR, LVCFMT_LEFT, 100},
@@ -64,7 +60,7 @@ void CFindKeywordView::InsertColumns()
 	CStringArray saColumnWidth;
 	CString sColumnWidth = theApp.GetProfileString(g_sSectionFindWindow, "ColumnWidth");
 	StrSplit(sColumnWidth, ",", saColumnWidth);
-	BOOL bColumnWidth = saColumnWidth.GetCount() != 0 && atoi(saColumnWidth[0]) == 1;	size_t aa = ARRAY_SIZE(tColumn);aa;
+	BOOL bColumnWidth = saColumnWidth.GetCount() != 0 && atoi(saColumnWidth[0]) == 1;
 
 	for (int i = 0; i < ARRAY_SIZE(tColumn); i++) {
 		LV_COLUMN lvc{
@@ -141,8 +137,6 @@ CString CFindKeywordView::GetFilter(CString &sKeywords)
 
 BOOL CFindKeywordView::FindKeyword(LPCSTR pFilter)
 {
-	CPcserve oPcserve;
-	CPSDB oDb;
 	CString sDir, sPath;
 	int nRead;
 	KEYWORDBUF oKeywordBuf;
@@ -156,11 +150,13 @@ BOOL CFindKeywordView::FindKeyword(LPCSTR pFilter)
 
 	DeleteAllItems();
 
+	CPcserve oPcserve;
 	if (oPcserve.Connect(CHT_LOCAL, "", "MMLIB") != 0)
 		return FALSE;
 
 	::GetKeywordDir(sDir);
 	sPath.Format("%s\\%s", (LPCSTR)sDir, FN_KEYWORD_DBF);
+	CPSDB oDb;
 	if (oDb.DBOpen(oPcserve, sPath) != 0) {
 		::AfxMessageBox(IDS_NO_KEYWORD_INDEX);
 		return TRUE;

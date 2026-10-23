@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "PermissionDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CPermissionDlg ダイアログ
 

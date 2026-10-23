@@ -57,7 +57,7 @@ void CFindPictDlg::InsertColumns()
 		int nFmt;
 		int nWidth;
 	};
-	static constexpr LISTCOLUMN tColumn[] = {
+	static constexpr LISTCOLUMN tColumn[]{
 		{IDS_NAME, LVCFMT_LEFT, 130},
 		{IDS_FOLDER, LVCFMT_LEFT, 150},
 		{IDS_CREATE_DATE, LVCFMT_LEFT, 110},

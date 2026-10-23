@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "OptOrder.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 #define DEFAULT_ORDER	"0123456"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -138,7 +134,7 @@ void COptOrder::OnDefault()
 
 void COptOrder::SetListBox(LPCSTR pOrder)
 {
-	static constexpr UINT item[] = {
+	static constexpr UINT item[]{
 		IDS_NAME, IDS_CODE, IDS_CREATE_DATE, IDS_UPDATE_DATE, IDS_CREATOR, IDS_REMARK, IDS_KEYWORD
 	};
 

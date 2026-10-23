@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "MakeIndexDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMakeIndexDlg ダイアログ
 
@@ -56,12 +52,11 @@ void CMakeIndexDlg::OnAllSelect()
 
 int CMakeIndexDlg::SetLibraryListBox()
 {
-	CItem *pItem;
 	int i, nIndex;
 
 	HTREEITEM hItem = g_pTreeCtrl->GetChildItem(g_pTreeCtrl->GetRootItem());
 	for (i = 0; hItem != NULL; i++) {
-		pItem = (CItem *)g_pTreeCtrl->GetItemData(hItem);
+		CItem *pItem = (CItem *)g_pTreeCtrl->GetItemData(hItem);
 		switch (pItem->m_nItemType) {
 		case ITEM_FOLDER:
 		case ITEM_INBOX:
@@ -127,7 +122,7 @@ BOOL CMakeIndexDlg::CreateAllIndex()
 
 BOOL CMakeIndexDlg::CreateKeywordIndex(CPcserve &oPcserve, CPSDB &oDB)
 {
-	static constexpr DBF_I field[] = {
+	static constexpr DBF_I field[]{
 		{"LID",     'C', LEN_ID,         0},	// ライブラリＩＤ
 		{"LNAME",   'C', LEN_FOLDERNAME, 0},	// ライブラリ名
 		{"IDTYPE",  'C', 1,              0},	// フォルダ／データ区分

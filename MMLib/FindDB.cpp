@@ -6,10 +6,6 @@
 #include "MMLib.h"
 #include "FindDB.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 //////////////////////////////////////////////////////////////////////
 // \’z/Á–Å
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +23,7 @@ CFindDB::~CFindDB()
 
 BOOL CFindDB::Open(BOOL bCreate)
 {
-	static constexpr DBF_I field[] = {
+	static constexpr DBF_I field[]{
 		{"FINDID",	    'C', LEN_ID,       0},	// ŒŸõƒtƒHƒ‹ƒ_‚h‚c
 		{"LIBRARYID",	'C', LEN_ID,       0},	// ŒŸõ‘ÎÛƒ‰ƒCƒuƒ‰ƒŠ‚h‚c
 		{"FINDTYPE",	'C', LEN_FINDTYPE, 0},	// ŒŸõŽí•Ê
@@ -107,8 +103,8 @@ BOOL CFindDB::Open(BOOL bCreate)
 	int err;
 
 	const CString sDirName = g_pMMLibDB->m_sCacheDir;
-open:
 	CString sPathName = sDirName + FN_FIND_DBF;
+open:
 	if ((err = m_oFindDB.DBOpen(m_oPcserve, sPathName)) != 0) {
 		bCreateIndex = TRUE;
 		if (err == ERROR_DB_NOFILE && bCreate)

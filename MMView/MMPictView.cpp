@@ -7,10 +7,6 @@
 #include "MMViewDoc.h"
 #include "MMPictView.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMMPictView
 
@@ -92,7 +88,7 @@ void CMMPictView::OnInitialUpdate()
 {
 //	CScrollView::OnInitialUpdate();
 
-	CSize sizeTotal;
+	SIZE sizeTotal;
 	// TODO: ‚±‚Ìƒrƒ…[‚ÌƒTƒCƒY‚Ì‡Œv‚ðŒvŽZ‚µ‚Ü‚·B
 	sizeTotal.cx = sizeTotal.cy = 100;
 	SetScrollSizes(MM_TEXT, sizeTotal);
@@ -143,19 +139,18 @@ CMMViewDoc* CMMPictView::GetDocument() // ”ñƒfƒoƒbƒO ƒo[ƒWƒ‡ƒ“‚ÍƒCƒ“ƒ‰ƒCƒ“‚Å‚·
 
 void CMMPictView::DrawPicture(CDC *pDC)
 {
-	CMMViewDoc *pDoc = (CMMViewDoc *)GetDocument();
-	CItem *pItem = pDoc->GetCurrentItem();
-
 	if (m_bIgnoreUpdate) {
 		m_bIgnoreUpdate = FALSE;
 		return;
 	}
 
+	CMMViewDoc *pDoc = (CMMViewDoc *)GetDocument();
+	CItem *pItem = pDoc->GetCurrentItem();
 	if (pItem == NULL || pItem->m_hDIB1 == NULL)
 		return;
 
-	CRect rcView;
-	GetClientRect(rcView);
+	RECT rcView;
+	GetClientRect(&rcView);
 
 	short nWidth, nHeight, nColor;
 	MMPictureGetInfo(pItem->m_hDIB1, &nWidth, &nHeight, &nColor);
@@ -206,8 +201,8 @@ void CMMPictView::DrawPicture(CDC *pDC)
 		m_sizeDraw.cy = nHeightDst;
 		SetScrollSizes(MM_TEXT, m_sizeDraw);
 
-		CRect rcView2;
-		GetClientRect(rcView2);
+		RECT rcView2;
+		GetClientRect(&rcView2);
 
 		if (m_nAutoSize == AUTOSIZE_WIDTH && rcView.right > rcView2.right) {
 			m_sizeDraw.cx = rcView2.right;
@@ -227,12 +222,12 @@ void CMMPictView::DrawPicture(CDC *pDC)
 void CMMPictView::DrawIcon(CDC *pDC)
 {
 	CMMViewDoc *pDoc = (CMMViewDoc *)GetDocument();
-	CRect rcDest;
+	RECT rcDest;
 	int	nCount = 0;
 	int	x, y, nMod, nRow;
 	short nWidth, nHeight,nColor;
-	CRect rcVisible;
-	CRect rcText;
+	RECT rcVisible;
+	RECT rcText;
 	CSize sizeScroll(0, 0);
 	CItem *pItem;
 
@@ -241,7 +236,7 @@ void CMMPictView::DrawIcon(CDC *pDC)
 
 	pDC->SetBkMode(TRANSPARENT);
 
-	CRect rect;
+	RECT rect;
 	GetClientRect(&rect);
 
 	const int nColumn = max((rect.right - PICT_MARGIN) / (PICT_WIDTH + PICT_MARGIN), 1);
@@ -272,7 +267,7 @@ void CMMPictView::DrawIcon(CDC *pDC)
 
 		nCount++;
 
-		if (!pDC->RectVisible(rcVisible))
+		if (!pDC->RectVisible(&rcVisible))
 			continue;
 
 		pItem = &pDoc->m_pItem[i];
@@ -288,7 +283,7 @@ void CMMPictView::DrawIcon(CDC *pDC)
 		rcDest.top -= PICT_FRAME;
 		rcDest.right += PICT_FRAME;
 		rcDest.bottom += PICT_FRAME;
-		pDC->DrawEdge(rcDest, BDR_RAISEDINNER, BF_RECT);
+		pDC->DrawEdge(&rcDest, BDR_RAISEDINNER, BF_RECT);
 
 		pItem->m_rcIcon = rcDest;
 
@@ -296,7 +291,7 @@ void CMMPictView::DrawIcon(CDC *pDC)
 		rcText.top = y + PICT_HEIGHT + PICT_FRAME + 1;
 		rcText.right = rcText.left + PICT_WIDTH;
 		rcText.bottom = rcText.top + PICT_TEXT;
-		pDC->DrawText(pItem->m_sTitle, rcText, DT_WORDBREAK);
+		pDC->DrawText(pItem->m_sTitle, &rcText, DT_WORDBREAK);
 	}
 
 	SetScrollSizes(MM_TEXT, sizeScroll);
@@ -312,9 +307,9 @@ BOOL CMMPictView::OnEraseBkgnd(CDC* pDC)
 		return TRUE;
 
 	CMMViewDoc *pDoc = (CMMViewDoc *)GetDocument();
-	CRect rect;
-	pDC->GetClipBox(rect);
-	pDC->FillRect(rect, pDoc->m_nViewMode == VIEWMODE_PICT ? &m_oBrushBkgndPict : &m_oBrushBkgndIcon);
+	RECT rect;
+	pDC->GetClipBox(&rect);
+	pDC->FillRect(&rect, pDoc->m_nViewMode == VIEWMODE_PICT ? &m_oBrushBkgndPict : &m_oBrushBkgndIcon);
 	return TRUE;
 }
 
@@ -519,8 +514,8 @@ void CMMPictView::OnMouseMove(UINT /*nFlags*/, CPoint point)
 		if (m_bScrollPicture) {
 			CPoint scrollPos = m_posPicture - point;
 
-			CRect rectView;
-			GetClientRect(rectView);
+			RECT rectView;
+			GetClientRect(&rectView);
 			if (rectView.right >= m_sizeDraw.cx)
 				scrollPos.x = 0;
 			if (rectView.bottom >= m_sizeDraw.cy)

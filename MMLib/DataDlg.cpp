@@ -7,10 +7,6 @@
 #include "AutoNumDlg.h"
 #include "TextDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CDataDlg ダイアログ
 

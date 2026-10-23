@@ -2,10 +2,6 @@
 #include "MMLib.h"
 #include "DbArchive.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 #define ARCHIVE_VERSION	1
 
 BOOL CDbArchive::Export(const CString &sFilePath, CMMPcsDB *pPcsDB, const FOLDERREC &oFolderRec)
@@ -130,7 +126,7 @@ void CDbArchive::WriteBinary(CPSDB &oPsDb, LPCSTR pFieldName)
 		oPsDb.DBReadBinary(pFieldName, pBuf, nSize, &nSize);
 		m_oFile.Write(&nSize, sizeof(UINT32));
 		m_oFile.Write(pBuf, nSize);
-		delete [] pBuf;
+		delete[] pBuf;
 	} else {
 		nSize = 0;
 		m_oFile.Write(&nSize, sizeof(UINT32));
@@ -254,12 +250,14 @@ BOOL CDbArchive::ReadBinary(CPSDB &oPsDb, LPCSTR pFieldName)
 
 	if (len != 0) {
 		char *pBuf = new char[len];
-		if (m_oFile.Read(pBuf, len) != len)
+		if (m_oFile.Read(pBuf, len) != len) {
+			delete[] pBuf;
 			return FALSE;
+		}
 
 		oPsDb.DBWriteBinary(pFieldName, pBuf, len);
 
-		delete [] pBuf;
+		delete[] pBuf;
 	}
 
 	return TRUE;

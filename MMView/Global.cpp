@@ -49,11 +49,10 @@ HANDLE CopyHandle(HANDLE h)
 
 void PrintPicture(CDC *pDC, HDIB hDIB, CRect rcMargin)
 {
-	short nSrcWidth, nSrcHeight, nColor;
-
 	if (hDIB == NULL)
 		return;
 
+	short nSrcWidth, nSrcHeight, nColor;
 	MMPictureGetInfo(hDIB, &nSrcWidth, &nSrcHeight, &nColor);
 
 	const int nMapMode = pDC->SetMapMode(MM_HIMETRIC);
@@ -75,9 +74,7 @@ void PrintPicture(CDC *pDC, HDIB hDIB, CRect rcMargin)
 
 HDIB MakeSmallPicture(HDIB hDIB1, int nWidth, int nHeight)
 {
-	HDIB hDIB2;
 	short nWidth1, nHeight1, nColor;
-
 	if (MMPictureGetInfo(hDIB1, &nWidth1, &nHeight1, &nColor) != 0)
 		return NULL;
 
@@ -86,6 +83,7 @@ HDIB MakeSmallPicture(HDIB hDIB1, int nWidth, int nHeight)
 	else
 		nWidth = nWidth1 * nHeight / nHeight1;
 
+	HDIB hDIB2;
 	if (MMPictureCopy(hDIB1, &hDIB2, (SHORT)nWidth, (SHORT)nHeight) != 0)
 		return NULL;
 
@@ -94,12 +92,11 @@ HDIB MakeSmallPicture(HDIB hDIB1, int nWidth, int nHeight)
 
 int CompareTitle(const CString &sStr1, const CString &sStr2)
 {
-	int n1, n2;
 	int n;
 	static constexpr char num[] = "0123456789";
 
-	n1 = sStr1.FindOneOf(num);
-	n2 = sStr2.FindOneOf(num);
+	int n1 = sStr1.FindOneOf(num);
+	int n2 = sStr2.FindOneOf(num);
 
 	if (n1 != -1 && n1 == n2) {
 		n = sStr1.Left(n1).CompareNoCase(sStr2.Left(n2));

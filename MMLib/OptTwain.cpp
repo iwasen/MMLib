@@ -6,10 +6,6 @@
 #include "OptTwain.h"
 #include "LocalDll.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // COptTwain プロパティ ページ
 

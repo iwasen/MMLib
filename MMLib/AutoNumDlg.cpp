@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "AutoNumDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CAutoNumDlg ダイアログ
 

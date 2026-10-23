@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "RestoreDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CRestoreDlg ダイアログ
 
@@ -53,10 +49,6 @@ BOOL CRestoreDlg::OnInitDialog()
 void CRestoreDlg::OnOK()
 {
 	POSITION pos;
-	int nIndex;
-	CMMPcsDB *pPcsDB;
-	CString *pBackupPath;
-
 	if ((pos = m_cBackupList.GetFirstSelectedItemPosition()) == NULL) {
 		::AfxMessageBox(IDS_SELECT_RECTORE_LIBRARY);
 		return;
@@ -65,13 +57,14 @@ void CRestoreDlg::OnOK()
 	if (::AfxMessageBox(IDS_RESTORE_LIBRARY, MB_OKCANCEL | MB_ICONQUESTION) != IDOK)
 		return;
 
+	CMMPcsDB *pPcsDB;
 	if ((pPcsDB = CreateRestoreLibrary()) == NULL) {
 		::AfxMessageBox(IDS_RESTORE_FAIL);
 		return;
 	}
 
-	nIndex = m_cBackupList.GetNextSelectedItem(pos);
-	pBackupPath = (CString *)m_cBackupList.GetItemData(nIndex);
+	int nIndex = m_cBackupList.GetNextSelectedItem(pos);
+	CString *pBackupPath = (CString *)m_cBackupList.GetItemData(nIndex);
 
 	if (pPcsDB->RestoreEx(*pBackupPath, &m_cProgress)) {
 		g_pMMLibDB->CloseMMLibrary(pPcsDB);
@@ -104,19 +97,18 @@ int CALLBACK CRestoreDlg::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lP
 {
 	CRestoreDlg *pDlg = (CRestoreDlg *)lParamSort;
 	CListCtrl &dataList = pDlg->m_cBackupList;
-	int index1, index2;
 
 	LV_FINDINFO findInfo1{
 		.flags = LVFI_PARAM,
 		.lParam = lParam1
 	};
-	index1 = dataList.FindItem(&findInfo1);
+	int index1 = dataList.FindItem(&findInfo1);
 
 	LV_FINDINFO findInfo2{
 		.flags = LVFI_PARAM,
 		.lParam = lParam2
 	};
-	index2 = dataList.FindItem(&findInfo2);
+	int index2 = dataList.FindItem(&findInfo2);
 
 	return dataList.GetItemText(index1, pDlg->m_nSortItem).Compare(dataList.GetItemText(index2, pDlg->m_nSortItem)) * pDlg->m_nSortDir;
 }
@@ -143,18 +135,16 @@ void CRestoreDlg::OnDelete()
 void CRestoreDlg::SetBackupList()
 {
 	CString dir;
-	WIN32_FIND_DATA	oFindBuf;
-	int	nIndex = 0;
-	CString sLibraryName;
-	CString sBackupPath;
-	CString *pBackupPath;
-
 	::GetBackupDir(dir);
 
 	RemoveBackupItem();
 
+	int	nIndex = 0;
+	WIN32_FIND_DATA	oFindBuf;
 	HANDLE hdir = FindFirstFile(dir + "\\*", &oFindBuf);
 	if (hdir != INVALID_HANDLE_VALUE) {
+		CString sLibraryName;
+		CString sBackupPath;
 		do {
 			if (oFindBuf.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
 				 sBackupPath = dir + "\\" + oFindBuf.cFileName;
@@ -164,7 +154,7 @@ void CRestoreDlg::SetBackupList()
 					CTime time(oFindBuf.ftCreationTime);
 					m_cBackupList.SetItemText(nIndex, 1, time.Format("%Y/%m/%d %X"));
 
-					pBackupPath = new CString;
+					CString *pBackupPath = new CString;
 					*pBackupPath = sBackupPath;
 					m_cBackupList.SetItemData(nIndex, (DWORD_PTR)pBackupPath);
 					nIndex++;
@@ -182,15 +172,14 @@ void CRestoreDlg::SetBackupList()
 
 CMMPcsDB *CRestoreDlg::CreateRestoreLibrary()
 {
-	CMMPcsDB *pPcsDB;
-	FOLDERREC oFolderRec;
 	CString sLibraryDir;
-	CString sLibraryPath;
-
 	::GetLibraryDir(sLibraryDir);
+	CString sLibraryPath;
 	::GetNewFolder(sLibraryDir, "MMLIB", sLibraryPath);
 	CreateDirectoryAll(sLibraryPath);
 
+	CMMPcsDB *pPcsDB;
+	FOLDERREC oFolderRec;
 	if ((pPcsDB = g_pMMLibDB->CreateMMLibrary(CHT_LOCAL, "", sLibraryPath, CACHEMODE_DIRECT, &oFolderRec)) == NULL)
 		return NULL;
 

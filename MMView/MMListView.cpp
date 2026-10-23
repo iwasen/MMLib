@@ -6,10 +6,6 @@
 #include "MMListView.h"
 #include "MMViewDoc.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMMListView
 
@@ -17,10 +13,10 @@ IMPLEMENT_DYNCREATE(CMMListView, CListView)
 
 CMMListView::CMMListView()
 {
-	static constexpr int defaultFlag[DETAIL_NUM] = {
+	static constexpr int defaultFlag[DETAIL_NUM]{
 		1, 1, 1, 0, 1, 1, 0
 	};
-	static constexpr int defaultWidth[DETAIL_NUM] = {
+	static constexpr int defaultWidth[DETAIL_NUM]{
 		200, 100, 110, 110, 100, 150, 150
 	};
 	CMMViewApp *pApp = (CMMViewApp *)AfxGetApp();
@@ -167,7 +163,7 @@ void CMMListView::DrawItems()
 
 void CMMListView::InsertColumns()
 {
-	static constexpr UINT header[] = {
+	static constexpr UINT header[]{
 		IDS_NAME, IDS_CODE, IDS_CREATE_DATE, IDS_UPDATE_DATE, IDS_CREATOR, IDS_REMARK, IDS_KEYWORD
 	};
 	int i;
@@ -212,19 +208,18 @@ int CALLBACK CMMListView::CompareItems(LPARAM lParam1, LPARAM lParam2, LPARAM lP
 {
 	CMMListView *pView = (CMMListView *)lParamSort;
 	CListCtrl &lvc = pView->GetListCtrl();
-	int index1, index2;
 
 	LV_FINDINFO findInfo1{
 		.flags = LVFI_PARAM,
 		.lParam = lParam1
 	};
-	index1 = lvc.FindItem(&findInfo1);
+	int index1 = lvc.FindItem(&findInfo1);
 
 	LV_FINDINFO findInfo2{
 		.flags = LVFI_PARAM,
 		.lParam = lParam2
 	};
-	index2 = lvc.FindItem(&findInfo2);
+	int index2 = lvc.FindItem(&findInfo2);
 
 	if (pView->m_bDetailFlag[0] && pView->m_nSortItem == 0)
 		return CompareTitle(lvc.GetItemText(index1, pView->m_nSortItem), lvc.GetItemText(index2, pView->m_nSortItem)) * pView->m_nSortDir;

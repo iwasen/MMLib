@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "RefNetDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CRefNetDlg ダイアログ
 
@@ -63,11 +59,28 @@ void CRefNetDlg::OnOK()
 BOOL CRefNetDlg::SetLibList()
 {
 	CWaitCursor wait;
+
 	CPcserve oPcserve;
+	if (oPcserve.Connect(m_nChType, m_sServerName, ".MMLIB") != 0) {
+		::AfxMessageBox(IDS_CONNECT_SERVER_FAIL);
+		return FALSE;
+	}
+
 	CPSDB dir;
+	if (dir.DBOpen(oPcserve, "_DIR.DBF") != 0)
+		return TRUE;
+
 	int nIndexNo;
+	if (dir.DBIndex("_DIR.NDX", &nIndexNo) != 0)
+		return TRUE;
+
 	int nFind;
-	int nRead;
+	if (dir.DBSearch2("MMLIB", 5, &nFind) != 0)
+		return TRUE;
+
+	if (nFind == 0)
+		return TRUE;
+
 	struct {
 		char dirName[8];
 		char directory[128];
@@ -76,25 +89,8 @@ BOOL CRefNetDlg::SetLibList()
 		CString dirName;
 		CString directory;
 	} dirRec;
-
-	if (oPcserve.Connect(m_nChType, m_sServerName, ".MMLIB") != 0) {
-		::AfxMessageBox(IDS_CONNECT_SERVER_FAIL);
-		return FALSE;
-	}
-
-	if (dir.DBOpen(oPcserve, "_DIR.DBF") != 0)
-		return TRUE;
-
-	if (dir.DBIndex("_DIR.NDX", &nIndexNo) != 0)
-		return TRUE;
-
-	if (dir.DBSearch2("MMLIB", 5, &nFind) != 0)
-		return TRUE;
-
-	if (nFind == 0)
-		return TRUE;
-
 	for (;;) {
+		int nRead;
 		if (dir.DBReadNext(1, &dirBuf, &nRead) != 0)
 			break;
 
@@ -116,32 +112,31 @@ BOOL CRefNetDlg::SetLibList()
 void CRefNetDlg::AddRefList(CPcserve &oPcserve, CString &sDirName)
 {
 	CWaitCursor wait;
-	CString pathName;
-	CPSDB oFolderDB;
-	char folderName[LEN_FOLDERNAME + 1];
-	CString libName;
-	int nLength;
-	int find;
-	int nIndexNo;
 
+	CString pathName;
 	pathName.Format("%%%s\\%s", (LPCSTR)sDirName, FN_FOLDER_DBF);
+	CPSDB oFolderDB;
 	if (oFolderDB.DBOpen(oPcserve, pathName) != 0)
 		return;
 
 	::AfxGetApp()->DoWaitCursor(0);
 
+	int nIndexNo;
 	pathName.Format("%%%s\\%s", (LPCSTR)sDirName, FN_FOLDER_NDX1);
 	if (oFolderDB.DBIndex(pathName, &nIndexNo) != 0)
 		return;
 
+	int nLength;
 	if (oFolderDB.DBSetReadField("FNAME", &nLength) != 0)
 		return;
 
+	int find;
+	char folderName[LEN_FOLDERNAME + 1];
 	if (oFolderDB.DBReadKey(FID_LIBRARY, LEN_ID, folderName, 0, &find) != 0)
 		return;
 
 	folderName[LEN_FOLDERNAME] = '\0';
-	libName = folderName;
+	CString libName = folderName;
 	libName.TrimRight();
 
 	m_cLibList.InsertString(m_nItem, libName);

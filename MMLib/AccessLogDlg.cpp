@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "AccessLogDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 // CAccessLogDlg ダイアログ
 
 CAccessLogDlg::CAccessLogDlg(CWnd* pParent /*=NULL*/)
@@ -61,7 +57,7 @@ void CAccessLogDlg::InsertColumns()
 		int fmt;
 		int width;
 	};
-	static constexpr LISTCOLUMN tColumn[] = {
+	static constexpr LISTCOLUMN tColumn[]{
 		{IDS_ACCESS_TIME, LVCFMT_LEFT, 125},
 		{IDS_NAME, LVCFMT_LEFT, 130},
 		{IDS_FOLDER, LVCFMT_LEFT, 200},

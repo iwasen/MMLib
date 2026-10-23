@@ -10,10 +10,6 @@
 #include "VerRes.h"
 #include "HyperLink.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // アプリケーションのバージョン情報で使われる CAboutDlg ダイアログ
 

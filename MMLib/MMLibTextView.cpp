@@ -8,10 +8,6 @@
 #include "MainFrm.h"
 #include "TextSearchDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMMLibTextView
 
@@ -122,9 +118,7 @@ void CMMLibTextView::SaveData(CItem *pItem)
 
 void CMMLibTextView::DrawItems()
 {
-	HTREEITEM hItem = g_pTreeCtrl->GetSelectedItem();
-
-	if (hItem != NULL) {
+	if (HTREEITEM hItem = g_pTreeCtrl->GetSelectedItem(); hItem != NULL) {
 		m_pCurrentItem = (CItem *)g_pTreeCtrl->GetItemData(hItem);
 		switch (m_pCurrentItem->m_nItemType) {
 		case ITEM_FOLDER:
@@ -214,7 +208,6 @@ BOOL CMMLibTextView::OnDrop(COleDataObject* pDataObject, DROPEFFECT dropEffect, 
 BOOL CMMLibTextView::DropFile(COleDataObject* pDataObject, DROPEFFECT /*dropEffect*/, CPoint /*point*/)
 {
 	HDROP hDrop;
-
 	if ((hDrop = (HDROP)pDataObject->GetGlobalData(CF_HDROP, NULL)) == NULL)
 		return FALSE;
 
@@ -346,11 +339,10 @@ int CMMLibTextView::GetSearchCount(const CString &sSearchText)
 	CStringWList lSearchTextW;
 	SplitSearchText(sSearchText, lSearchTextW);
 
-	int nPosMin;
 	int nCount = 0;
 	int nPosText = -1;
 	while (TRUE) {
-		nPosMin = INT_MAX;
+		int nPosMin = INT_MAX;
 		POSITION nPosSearch = lSearchTextW.GetHeadPosition();
 		while (nPosSearch != NULL) {
 			const int nPos = sTextW.Find(lSearchTextW.GetNext(nPosSearch), nPosText + 1);
@@ -390,11 +382,10 @@ void CMMLibTextView::SetSel(const CString &sSearchText, int nCount)
 	CStringWList lSearchTextW;
 	SplitSearchText(sSearchText, lSearchTextW);
 
-	int nPosMin;
 	int nCount2 = 0;
 	int nPosText = -1;
 	while (TRUE) {
-		nPosMin = INT_MAX;
+		int nPosMin = INT_MAX;
 		POSITION nPosSearch = lSearchTextW.GetHeadPosition();
 		while (nPosSearch != NULL) {
 			CStringW &sSearchTextW = lSearchTextW.GetNext(nPosSearch);

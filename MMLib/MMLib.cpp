@@ -18,10 +18,6 @@
 #include "HyperLink.h"
 #include "Regist.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 #define DDE_TEXT	1
 #define DDE_DATA	2
 

@@ -5,10 +5,6 @@
 #include "stdafx.h"
 #include "Mml.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 #define FILE_TYPE	"MML1"
 
 //////////////////////////////////////////////////////////////////////
@@ -76,18 +72,17 @@ void CMmlWrite::NextPage()
 
 void CMmlWrite::Close()
 {
-	FILE_HEADER oFileHeader;
-	PageList *pPageList, *pPageListNext;
-	ItemNameList *pItemNameList, *pItemNameListNext;
 	int n;
 	char aItemName[10];
 
 	if (m_oFile.m_hFile == CFile::hFileNull)
 		return;
 
+	FILE_HEADER oFileHeader;
 	memcpy(oFileHeader.fileType, FILE_TYPE, 4);
 	oFileHeader.nPageTableOffset = (long)m_oFile.Seek(0, CFile::current);
 
+	PageList *pPageList, *pPageListNext;
 	for (pPageList = m_pPageListTop, n = 0; pPageList != NULL; pPageList = pPageListNext, n++) {
 		pPageListNext = pPageList->pChain;
 		PAGE_TABLE oPageTable{
@@ -101,6 +96,7 @@ void CMmlWrite::Close()
 	oFileHeader.nPageTableNum = n;
 	oFileHeader.nItemTableOffset = (long)m_oFile.Seek(0, CFile::current);
 
+	ItemNameList *pItemNameList, *pItemNameListNext;
 	for (pItemNameList = m_pItemNameListTop, n = 0; pItemNameList != NULL; pItemNameList = pItemNameListNext, n++) {
 		pItemNameListNext = pItemNameList->pChain;
 		memset(aItemName, ' ', sizeof(aItemName));
@@ -120,7 +116,6 @@ void CMmlWrite::Close()
 void CMmlWrite::NewPage()
 {
 	PageList *pPageList = new PageList;
-
 	pPageList->pChain = NULL;
 	pPageList->nOffset = (long)m_oFile.Seek(0, CFile::current);
 	pPageList->nItem = 0;
@@ -135,9 +130,9 @@ void CMmlWrite::NewPage()
 
 int CMmlWrite::GetItemNo(LPCSTR pItemName)
 {
-	ItemNameList *pItemNameList;
 	int n;
 
+	ItemNameList *pItemNameList;
 	for (pItemNameList = m_pItemNameListTop, n = 0; pItemNameList != NULL; pItemNameList = pItemNameList->pChain, n++) {
 		if (pItemNameList->sItemName == pItemName)
 			return pItemNameList->nItemNo;
@@ -207,7 +202,7 @@ BOOL CMmlRead::Open(LPCSTR pFileName)
 		m_pItemTable[i].TrimRight();
 	}
 
-	delete [] pItemTable;
+	delete[] pItemTable;
 
 	SetPage(0);
 
@@ -257,12 +252,12 @@ void CMmlRead::Close()
 		m_oFile.Close();
 
 	if (m_pPageTable != NULL) {
-		delete [] m_pPageTable;
+		delete[] m_pPageTable;
 		m_pPageTable = NULL;
 	}
 
 	if (m_pItemTable != NULL) {
-		delete [] m_pItemTable;
+		delete[] m_pItemTable;
 		m_pItemTable = NULL;
 	}
 }

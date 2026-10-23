@@ -6,10 +6,6 @@
 #include "MMView.h"
 #include "Item.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 //////////////////////////////////////////////////////////////////////
 // \’z/Á–Å
 //////////////////////////////////////////////////////////////////////
@@ -32,16 +28,15 @@ CItem::~CItem()
 
 void CItem::ReadItem(CMmlRead *pMmlRead, int nPage)
 {
-	char aItemName[11];
-	LPVOID pItemData;
-	long nItemLen;
-
 	if (m_bRead)
 		return;
 
 	if (!pMmlRead->SetPage(nPage))
 		return;
 
+	long nItemLen;
+	LPVOID pItemData;
+	char aItemName[11];
 	while (pMmlRead->ReadItem(aItemName, &pItemData, &nItemLen)) {
 		if (strcmp(aItemName, "CDATE") == 0)
 			m_sCreateDate = CString((LPCSTR)pItemData, nItemLen);

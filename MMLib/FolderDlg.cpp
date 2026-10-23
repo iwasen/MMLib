@@ -6,10 +6,6 @@
 #include "FolderDlg.h"
 #include "TextDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CFolderDlg ダイアログ
 

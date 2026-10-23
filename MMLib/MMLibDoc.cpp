@@ -28,10 +28,6 @@
 #include "Shlwapi.h"
 #include "OutputImagesDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMMLibDoc
 
@@ -163,12 +159,12 @@ BEGIN_MESSAGE_MAP(CMMLibDoc, CDocument)
 
 CMMLibDoc::CMMLibDoc()
 {
-	static constexpr int defaultFlag[3][DETAIL_NUM] = {
+	static constexpr int defaultFlag[3][DETAIL_NUM]{
 		{1, 0, 1, 0, 1, 0, 0, 1, 1, 0},
 		{1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
 		{1, 1, 1, 0, 1, 0, 0, 0, 0, 0}
 	};
-	static constexpr int defaultWidth[DETAIL_NUM] = {
+	static constexpr int defaultWidth[DETAIL_NUM]{
 		200, 100, 110, 110, 100, 100, 100, 100, 200, 200
 	};
 	char entry[16];
@@ -248,7 +244,6 @@ void CMMLibDoc::OpenCurrentLibrary()
 		libraryID = pWinApp->GetProfileString(g_sSectionLibrary, sEntry);
 
 		CAddItemPending oAddItem;
-
 		oAddItem.m_sTitle = title;
 		oAddItem.m_sServerName = server;
 		oAddItem.m_nChType = chType;
@@ -262,13 +257,10 @@ void CMMLibDoc::OpenCurrentLibrary()
 void CMMLibDoc::OpenFind(CItem *pItemParent)
 {
 	CFindDB oFindDB;
-	FINDREC findRec;
-	CAddItemFind oAddItem;
-	LPCSTR pFindID;
-
 	if (!oFindDB.Open(FALSE))
 		return;
 
+	LPCSTR pFindID;
 	if (pItemParent->m_nItemType == ITEM_FOLDER)
 		pFindID = ((CItemFolder *)pItemParent)->m_oFolderRec.sParentFolderID;
 	else if (pItemParent->m_nItemType == ITEM_ROOT)
@@ -276,6 +268,8 @@ void CMMLibDoc::OpenFind(CItem *pItemParent)
 	else
 		return;
 
+	CAddItemFind oAddItem;
+	FINDREC findRec;
 	while (oFindDB.ReadFind(pFindID, &findRec)) {
 		oAddItem.m_pItemParent = pItemParent;
 		oAddItem.m_pFindRec = &findRec;
@@ -323,7 +317,6 @@ void CMMLibDoc::OnUpdateFileNew(CCmdUI* pCmdUI)
 void CMMLibDoc::CreateLibrary()
 {
 	CLibNewDlg dlg;
-
 	if (dlg.DoModal() != IDOK)
 		return;
 
@@ -332,15 +325,15 @@ void CMMLibDoc::CreateLibrary()
 	if (dlg.m_iChType == CHT_LOCAL)
 		CreateDirectoryAll(dlg.m_sDirectory);
 
-	FOLDERREC oFolderRec;
+	FOLDERREC oFolderRec{
+		.sFolderType = FTYPE_LIBRARY,
+		.sFolderName = dlg.m_sLibName,
+		.sCreator = dlg.m_sCreator,
+		.sRemark = dlg.m_sRemark,
+		.sKeyword = dlg.m_sKeyword
+	};
+
 	CMMPcsDB *pPcsDB;
-
-	oFolderRec.sFolderType =  FTYPE_LIBRARY;
-	oFolderRec.sFolderName = dlg.m_sLibName;
-	oFolderRec.sCreator = dlg.m_sCreator;
-	oFolderRec.sRemark = dlg.m_sRemark;
-	oFolderRec.sKeyword = dlg.m_sKeyword;
-
 	if ((pPcsDB = g_pMMLibDB->CreateMMLibrary(dlg.m_iChType, dlg.m_sServerName, dlg.m_sDirectory, dlg.m_bCache, &oFolderRec)) == NULL)
 		return;
 
@@ -354,10 +347,9 @@ void CMMLibDoc::CreateFolder(CItemFolder *pItemFolder)
 	if (!OfflineCheck(pItemFolder))
 		return;
 
-	CFolderNewDlg dlg;
-
 	DWORD userNameSize = MAXUSERNAME;
 
+	CFolderNewDlg dlg;
 	GetUserName(dlg.m_sCreator.GetBuffer(MAXUSERNAME), &userNameSize);
 	dlg.m_sCreator.ReleaseBuffer();
 	dlg.m_oFolderRec = m_oFolderRec;
@@ -365,14 +357,14 @@ void CMMLibDoc::CreateFolder(CItemFolder *pItemFolder)
 	if (dlg.DoModal() != IDOK)
 		return;
 
-	FOLDERREC oFolderRec;
-
-	oFolderRec.sParentFolderID = pItemFolder->m_oFolderRec.sFolderID;
-	oFolderRec.sFolderType = (dlg.m_iFolderType == 0) ? FTYPE_GFOLDER : FTYPE_DFOLDER;
-	oFolderRec.sFolderName = dlg.m_sFolderName;
-	oFolderRec.sCreator = dlg.m_sCreator;
-	oFolderRec.sRemark = dlg.m_sRemark;
-	oFolderRec.sKeyword = dlg.m_sKeyword;
+	FOLDERREC oFolderRec{
+		.sParentFolderID = pItemFolder->m_oFolderRec.sFolderID,
+		.sFolderType = (dlg.m_iFolderType == 0) ? FTYPE_GFOLDER : FTYPE_DFOLDER,
+		.sFolderName = dlg.m_sFolderName,
+		.sCreator = dlg.m_sCreator,
+		.sRemark = dlg.m_sRemark,
+		.sKeyword = dlg.m_sKeyword
+	};
 
 	if (pItemFolder->m_pPcsDB->AddFolderEx(&oFolderRec)) {
 		pItemFolder->m_pPcsDB->WriteTextFolderEx(oFolderRec.sFolderID, &dlg.m_sTextData);
@@ -391,8 +383,7 @@ void CMMLibDoc::CreateData(CItemFolder *pItemFolder)
 	if (!OfflineCheck(pItemFolder))
 		return;
 
-	CDataDlg	dlg;
-
+	CDataDlg dlg;
 	dlg.m_pItemFolder = pItemFolder;
 	dlg.m_pDocument = this;
 	dlg.m_sCaption.LoadString(IDS_NEW_DATA2);
@@ -552,8 +543,8 @@ void CMMLibDoc::UpdateFolder(CItemFolder *pItemFolder)
 		return;
 
 	FOLDERREC &oFolderRec = pItemFolder->m_oFolderRec;
-	CFolderDlg dlg;
 
+	CFolderDlg dlg;
 	dlg.m_sFolderName = oFolderRec.sFolderName;
 	dlg.m_sCreator = oFolderRec.sCreator;
 	dlg.m_sRemark = oFolderRec.sRemark;
@@ -583,8 +574,7 @@ void CMMLibDoc::UpdateData(CItemData *pItemData)
 	if (!OfflineCheck(pItemData))
 		return;
 
-	CDataDlg	dlg;
-
+	CDataDlg dlg;
 	dlg.m_pItemFolder = (CItemFolder *)pItemData->GetParent();
 	dlg.m_pItemData = pItemData;
 	dlg.m_pDocument = this;
@@ -607,15 +597,12 @@ void CMMLibDoc::UpdateFind(CItemFind *pItemFind)
 void CMMLibDoc::UpdateFindSimple(CItemFind *pItemFind)
 {
 	CFindSimpleDlg dlg;
-
 	dlg.m_pDocument = this;
 	dlg.m_bUpdateMode = TRUE;
 	dlg.m_pItemParent = pItemFind->GetParent();
 	dlg.m_sFindFolder = pItemFind->m_oFindRec.sFolderName;
 	dlg.m_bSave = pItemFind->m_bSave;
-
 	dlg.m_sSearchText = pItemFind->m_oFindRec.conditions[0].sKeyword;
-
 	if (dlg.DoModal() == IDCANCEL)
 		return;
 
@@ -648,8 +635,8 @@ void CMMLibDoc::UpdateFindSimple(CItemFind *pItemFind)
 void CMMLibDoc::UpdateFindExpert(CItemFind *pItemFind)
 {
 	int i;
-	CFindDlg dlg;
 
+	CFindDlg dlg;
 	dlg.m_pDocument = this;
 	dlg.m_bUpdateMode = TRUE;
 	dlg.m_pItemParent = pItemFind->GetParent();
@@ -736,8 +723,8 @@ void CMMLibDoc::NameChange(CItem *pItem, LPCSTR pName)
 
 void CMMLibDoc::OnFileDelete()
 {
-	CItem *pItem, *pNextSelected;
 
+	CItem *pItem;
 	if ((pItem = GetSelectedItem()) == NULL)
 		return;
 
@@ -745,7 +732,6 @@ void CMMLibDoc::OnFileDelete()
 		return;
 
 	LPCSTR text;
-
 	switch (pItem->m_nItemType) {
 	case ITEM_FOLDER:
 		switch (((CItemFolder *)pItem)->m_nFolderType) {
@@ -772,6 +758,7 @@ void CMMLibDoc::OnFileDelete()
 
 	CWaitCursor wait;
 
+	CItem *pNextSelected;
 	for ( ; pItem != NULL; pItem = pNextSelected) {
 		pNextSelected = pItem->m_pNextSelected;
 
@@ -851,7 +838,6 @@ void CMMLibDoc::CopyFolder(CItemFolder *pItemSrc, CItemFolder *pItemDst)
 		return;
 
 	FOLDERREC oFolderRec;
-
 	if (CMMPcsDB::CopyFolderEx(pItemSrc->m_pPcsDB, pItemSrc->m_oFolderRec.sFolderID, pItemDst->m_pPcsDB, pItemDst->m_oFolderRec.sFolderID, &oFolderRec)) {
 		CAddItemFolder oAddItem;
 		oAddItem.m_pItemFolder = pItemDst;
@@ -866,7 +852,6 @@ void CMMLibDoc::CopyData(CItemData *pItemSrc, CItemFolder *pItemDst)
 		return;
 
 	DATAREC oDataRec;
-
 	if (CMMPcsDB::CopyDataEx(pItemSrc->m_pPcsDB, pItemSrc->m_oDataRec.sDataID, pItemDst->m_pPcsDB, pItemDst->m_oFolderRec.sFolderID, &oDataRec)) {
 		CAddItemData oAddItem;
 		oAddItem.m_pItemFolder = pItemDst;
@@ -884,8 +869,8 @@ void CMMLibDoc::MoveItem(CItem *pItemSrc, CItem *pItemDst)
 		return;
 
 	CWaitCursor wait;
-	CItem *pNextSelected;
 
+	CItem *pNextSelected;
 	while (pItemSrc != NULL) {
 		pNextSelected = pItemSrc->m_pNextSelected;
 
@@ -911,8 +896,8 @@ void CMMLibDoc::MoveFolder(CItemFolder *pItemSrc, CItemFolder *pItemDst)
 		return;
 
 	BOOL rc;
-	FOLDERREC oFolderRec;
 
+	FOLDERREC oFolderRec;
 	if (pItemSrc->m_pPcsDB == pItemDst->m_pPcsDB)
 		rc = pItemSrc->m_pPcsDB->MoveFolderEx(pItemSrc->m_oFolderRec.sFolderID, pItemDst->m_oFolderRec.sFolderID, &oFolderRec);
 	else {
@@ -2057,7 +2042,7 @@ void CMMLibDoc::ImportFile(LPCSTR pFilter)
 	CFileDialog dlg(TRUE, NULL, NULL, OFN_HIDEREADONLY | OFN_ALLOWMULTISELECT, pFilter, ::AfxGetMainWnd());
 
 	dlg.m_ofn.lpstrTitle = GetString(IDS_IMPORT_FILE);
-	char szFileNameBuffer[10000] = {0};
+	char szFileNameBuffer[10000]{};
 	dlg.m_ofn.lpstrFile = szFileNameBuffer;
 	dlg.m_ofn.nMaxFile = 10000;
 	if (dlg.DoModal() == IDOK) {
@@ -2115,21 +2100,13 @@ void CMMLibDoc::ImportPictFile(const CString *pFileName, int nFileName, CItemFol
 		return;
 
 	if (bDataDlg) {
-		CDataDlg	dlg;
-
-	//	if (MMPictureReadFile(&dlg.m_hDIB, (LPSTR)pFileName) != 0)
-	//		return;
+		CDataDlg dlg;
 
 		((CFrameWnd *)::AfxGetMainWnd())->ActivateFrame();
-
-	//	CString sTitle = pFileName;
-	//	sTitle = RemoveDir(sTitle);
-	//	sTitle = RemoveExt(sTitle);
 
 		dlg.m_pItemFolder = pItemFolder;
 		dlg.m_pDocument = this;
 		dlg.m_sCaption.LoadString(IDS_NEW_DATA2);
-	//	dlg.m_sTitle = sTitle;
 		dlg.m_pReadFileName = pFileName;
 		dlg.m_nReadFileName = nFileName;
 
@@ -2142,9 +2119,6 @@ void CMMLibDoc::ImportPictFile(const CString *pFileName, int nFileName, CItemFol
 		hDIB2 = MakeSmallPicture(hDIB, PICT_WIDTH, PICT_HEIGHT);
 
 		CString name = ::RemoveExt(::RemoveDir(*pFileName));
-//		CFileStatus fileStatus;
-//		CFile::GetStatus(*pFileName, fileStatus);
-//		CString date = ConvFileTime((FILETIME *)fileStatus.m_mtime.GetTime());
 
 		CString creator;
 		DWORD userNameSize = MAXUSERNAME;
@@ -2176,19 +2150,20 @@ void CMMLibDoc::ImportPictFile(const CString *pFileName, int nFileName, CItemFol
 
 void CMMLibDoc::ImportMmlFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 {
-	CMmlRead mml;
-	FOLDERREC oFolderRec;
-	DATAREC oDataRec;
-	CString sText;
-	CAddItemFolder oAddItemFolder;
-	CAddItemData oAddItemData;
-	CWaitCursor wait;
-
 	if (!OfflineCheck(pItemFolder))
 		return;
 
+	CMmlRead mml;
 	if (!mml.Open(pFileName))
 		return;
+
+	FOLDERREC oFolderRec;
+	DATAREC oDataRec;
+	CString sText;
+//	CAddItemFolder oAddItemFolder;
+	CAddItemData oAddItemData;
+	CWaitCursor wait;
+
 /*
 	switch (pItemFolder->m_nFolderType) {
 	case FTYPE_LIBRARY:
@@ -2261,33 +2236,32 @@ void CMMLibDoc::ImportMmdbFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 
 void CMMLibDoc::ImportPpmFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 {
-	HDIB hDIB;
-	HDIB hDIB2;
-	DATAREC oDataRec;
-	CAddItemData oAddItemData;
-	CString creator;
-	CWaitCursor wait;
-	HANDLE	hdir1, hdir2;
-	WIN32_FIND_DATA	oFindBuf;
-	CString dir;
-	CString path;
-	CString name, date;
-	CString sFolderID;
-	int n;
-
 	if (!OfflineCheck(pItemFolder))
 		return;
 
+	CString creator;
 	DWORD userNameSize = MAXUSERNAME;
 	GetUserName(creator.GetBuffer(MAXUSERNAME), &userNameSize);
 	creator.ReleaseBuffer();
 
-	dir = pFileName;
+	int n;
+	CString dir = pFileName;
 	if ((n = dir.ReverseFind('\\')) != -1)
 		dir = dir.Left(n);
 
-	hdir1 = FindFirstFile(pFileName, &oFindBuf);
+	WIN32_FIND_DATA	oFindBuf;
+	HANDLE hdir1 = FindFirstFile(pFileName, &oFindBuf);
 	if (hdir1 != INVALID_HANDLE_VALUE) {
+		HDIB hDIB;
+		HDIB hDIB2;
+		DATAREC oDataRec;
+		CAddItemData oAddItemData;
+		CWaitCursor wait;
+		HANDLE	hdir2;
+		CString path;
+		CString name, date;
+		CString sFolderID;
+
 		do {
 			if (oFindBuf.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
 				if (strcmp(oFindBuf.cFileName, ".") != 0 && strcmp(oFindBuf.cFileName, "..") != 0) {
@@ -2400,15 +2374,16 @@ void CMMLibDoc::ImportPpmFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 
 CString CMMLibDoc::CreateDFolder(CItemFolder *pItemFolder, LPCSTR pName, LPCSTR pCreator, LPCSTR pDate)
 {
-	FOLDERREC oFolderRec;
 	CString sFolderID;
 
-	oFolderRec.sParentFolderID = pItemFolder->m_oFolderRec.sFolderID;
-	oFolderRec.sFolderType = FTYPE_DFOLDER;
-	oFolderRec.sFolderName = pName;
-	oFolderRec.sCreateDate = pDate;
-	oFolderRec.sUpdateDate = pDate;
-	oFolderRec.sCreator = pCreator;
+	FOLDERREC oFolderRec{
+		.sParentFolderID = pItemFolder->m_oFolderRec.sFolderID,
+		.sFolderType = FTYPE_DFOLDER,
+		.sFolderName = pName,
+		.sCreateDate = pDate,
+		.sUpdateDate = pDate,
+		.sCreator = pCreator
+	};
 	if (pItemFolder->m_pPcsDB->AddFolderEx(&oFolderRec)) {
 		CAddItemFolder oAddItemFolder;
 		oAddItemFolder.m_pItemFolder = pItemFolder;
@@ -2742,8 +2717,7 @@ void CMMLibDoc::OnUpdateEditPaste(CCmdUI* pCmdUI)
 		HANDLE hMem;
 		if ((hMem = ::GetClipboardData(g_nCFMMLibrary)) != NULL) {
 			CItem *pItemClip = *(CItem **)::GlobalLock(hMem);
-			CItem *pItemSelect;
-			if ((pItemSelect = GetSelectedItem()) != NULL) {
+			if (CItem *pItemSelect = GetSelectedItem(); pItemSelect != NULL) {
 				if (pItemClip != pItemSelect && pItemClip->GetParent() != pItemSelect && !CheckParent(pItemClip, pItemSelect)) {
 					if (pItemSelect->m_nItemType == ITEM_FOLDER || pItemSelect->m_nItemType == ITEM_INBOX) {
 						switch (((CItemFolder *)pItemSelect)->m_nFolderType) {
@@ -2805,13 +2779,16 @@ void CMMLibDoc::OnNewData()
 	CMMPcsDB *pPcsDB = g_pItemInbox->m_pPcsDB;
 	pPcsDB->m_pPcserve->m_oPcserve.GetTime(&stime);
 
-	FOLDERREC oFolderRec;
-	oFolderRec.sParentFolderID = g_pItemInbox->m_oFolderRec.sFolderID;
-	oFolderRec.sFolderType = FTYPE_DFOLDER;
-	oFolderRec.sFolderName.Format("Inbox%04d%02d%02d%02d%02d%02d", stime.year, stime.month, stime.day, stime.hour, stime.minute, stime.second);
-	oFolderRec.sCreator = GetDefaultUserName();
-	oFolderRec.sCodeDef = "00000010";
-	oFolderRec.nCodeStep = 10;
+	CString sFolderName;
+	sFolderName.Format("Inbox%04d%02d%02d%02d%02d%02d", stime.year, stime.month, stime.day, stime.hour, stime.minute, stime.second);
+	FOLDERREC oFolderRec{
+		.sParentFolderID = g_pItemInbox->m_oFolderRec.sFolderID,
+		.sFolderType = FTYPE_DFOLDER,
+		.sFolderName = sFolderName,
+		.sCreator = GetDefaultUserName(),
+		.sCodeDef = "00000010",
+		.nCodeStep = 10
+	};
 
 	UpdateAllViews(NULL, VIEWHINT_OPENITEM, g_pItemInbox);
 	if (pPcsDB->AddFolderEx(&oFolderRec)) {
@@ -2880,14 +2857,15 @@ void CMMLibDoc::InsertData(LPCSTR pFolderTitle, LPCSTR pFolderComment, LPCSTR pD
 	}
 
 	if (!bFind) {
-		FOLDERREC oFolderRec;
-		oFolderRec.sParentFolderID = g_pItemInbox->m_oFolderRec.sFolderID;
-		oFolderRec.sFolderType = FTYPE_DFOLDER;
-		oFolderRec.sFolderName = pFolderTitle;
-		oFolderRec.sRemark = pFolderComment;
-		oFolderRec.sCreator = GetDefaultUserName();
-		oFolderRec.sCodeDef = "00000010";
-		oFolderRec.nCodeStep = 10;
+		FOLDERREC oFolderRec{
+			.sParentFolderID = g_pItemInbox->m_oFolderRec.sFolderID,
+			.sFolderType = FTYPE_DFOLDER,
+			.sFolderName = pFolderTitle,
+			.sCreator = GetDefaultUserName(),
+			.sRemark = pFolderComment,
+			.sCodeDef = "00000010",
+			.nCodeStep = 10
+		};
 
 		if (pPcsDB->AddFolderEx(&oFolderRec)) {
 			CAddItemFolder oAddItem;
@@ -2901,12 +2879,13 @@ void CMMLibDoc::InsertData(LPCSTR pFolderTitle, LPCSTR pFolderComment, LPCSTR pD
 
 	UpdateAllViews(NULL, VIEWHINT_OPENITEM, pItemFolder);
 
-	DATAREC oDataRec;
-	oDataRec.sFolderID = pItemFolder->m_oFolderRec.sFolderID;
-	oDataRec.sTitle = pDataTitle;
-	oDataRec.sCode = pItemFolder->m_oFolderRec.sCodeDef;
-	oDataRec.sCreator = GetDefaultUserName();
-	oDataRec.sRemark = pDataComment;
+	DATAREC oDataRec{
+		.sFolderID = pItemFolder->m_oFolderRec.sFolderID,
+		.sCreator = GetDefaultUserName(),
+		.sCode = pItemFolder->m_oFolderRec.sCodeDef,
+		.sTitle = pDataTitle,
+		.sRemark = pDataComment
+	};
 	if (!pItemFolder->m_pPcsDB->AddDataEx(&oDataRec))
 		return;
 
@@ -3134,20 +3113,18 @@ void CMMLibDoc::ImportPdfFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 	::DeleteDirectory(sTempFolder);
 	::CreateDirectory(sTempFolder, NULL);
 
-	PROCESS_INFORMATION pi;
-	STARTUPINFO si;
-
-	ZeroMemory(&si, sizeof(si));
-	si.cb = sizeof(si);
-	si.dwFlags = STARTF_USESHOWWINDOW;
-	si.wShowWindow = SW_HIDE;
-
 	CString sCommand;
 	sCommand.Format("\"%s\" -dBATCH -dNOPAUSE -sDEVICE=bmp16m -r200 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -sOutputFile=\"%s\" \"%s\"",
 		(LPCSTR)GetGsCommand(),
 		(LPCSTR)(sTempFolder + "\\" + ::RemoveExt(::RemoveDir(pFileName)) + "_%02d.bmp"),
 			pFileName);
 
+	STARTUPINFO si{
+		.cb = sizeof(si),
+		.dwFlags = STARTF_USESHOWWINDOW,
+		.wShowWindow = SW_HIDE
+	};
+	PROCESS_INFORMATION pi;
 	CreateProcess(NULL, (LPSTR)(LPCSTR)sCommand, NULL, NULL, FALSE, NORMAL_PRIORITY_CLASS, NULL, NULL, &si, &pi);
 	CloseHandle(pi.hThread);
 	WaitForSingleObject(pi.hProcess,INFINITE);
@@ -3192,7 +3169,6 @@ void CMMLibDoc::ImportPdfFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 		HDIB hDIB, hDIB2;
 		CString name, date;
 		CString sFolderID;
-		DATAREC oDataRec;
 		CString creator;
 		CAddItemData oAddItemData;
 		CString sFileName;
@@ -3223,11 +3199,12 @@ void CMMLibDoc::ImportPdfFile(LPCSTR pFileName, CItemFolder *pItemFolder)
 			date = ConvFileTime(&oFileTime);
 
 			sFolderID = pItemFolder->GetID();
-			oDataRec.sTitle = name;
-			oDataRec.sCreateDate = date;
-			oDataRec.sUpdateDate = date;
-			oDataRec.sCreator = creator;
-			oDataRec.sFolderID = sFolderID;
+			DATAREC oDataRec{
+				.sFolderID = sFolderID,
+				.sCreateDate = date,
+				.sCreator = creator,
+				.sTitle = name
+			};
 			if (pItemFolder->m_pPcsDB->AddDataEx(&oDataRec))
 				pItemFolder->m_pPcsDB->WritePictureDataEx(oDataRec.sDataID, hDIB, hDIB2, GetMMType(hDIB));
 

@@ -7,10 +7,6 @@
 #include "PictDoc.h"
 #include "PrintDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CPictView
 
@@ -40,7 +36,7 @@ void CPictView::OnInitialUpdate()
 {
 	CScrollView::OnInitialUpdate();
 
-	CSize sizeTotal;
+	SIZE sizeTotal;
 	// TODO: このビュー全体のサイズを計算してください。
 	sizeTotal.cx = sizeTotal.cy = 100;
 	SetScrollSizes(MM_TEXT, sizeTotal);
@@ -56,12 +52,7 @@ void CPictView::OnDraw(CDC* pDC)
 
 void CPictView::DrawPicture(CDC *pDC)
 {
-	int nWidthSrc, nHeightSrc;
-	int nWidthDst, nHeightDst;
-	int nXDst, nYDst;
-	CRect rcView;
 	CPictDoc *pDoc = (CPictDoc *)GetDocument();
-
 	if (pDoc->m_hDIB == NULL)
 		return;
 
@@ -70,13 +61,15 @@ void CPictView::DrawPicture(CDC *pDC)
 		return;
 	}
 
-	GetClientRect(rcView);
+	RECT rcView;
+	GetClientRect(&rcView);
 
 	short nWidth, nHeight, nColor;
 	MMPictureGetInfo(pDoc->m_hDIB, &nWidth, &nHeight, &nColor);
-	nWidthSrc = nWidth;
-	nHeightSrc = nHeight;
+	int nWidthSrc = nWidth;
+	int nHeightSrc = nHeight;
 
+	int nWidthDst, nHeightDst;
 	switch (pDoc->m_nAutoSize) {
 	case AUTOSIZE_NONE:
 		nWidthDst = (int)(nWidthSrc * pDoc->m_fPictRatio + 0.5);
@@ -107,11 +100,11 @@ void CPictView::DrawPicture(CDC *pDC)
 	comboBox.SetWindowText(sStr);
 	comboBox.SetEditSel(0, -1);
 
-	nXDst = (rcView.right - nWidthDst) / 2;
+	int nXDst = (rcView.right - nWidthDst) / 2;
 	if (nXDst < 0)
 		nXDst = 0;
 
-	nYDst = (rcView.bottom - nHeightDst) / 2;
+	int nYDst = (rcView.bottom - nHeightDst) / 2;
 	if (nYDst < 0)
 		nYDst = 0;
 
@@ -120,8 +113,8 @@ void CPictView::DrawPicture(CDC *pDC)
 		m_sizeDraw.cy = nHeightDst;
 		SetScrollSizes(MM_TEXT, m_sizeDraw);
 
-		CRect rcView2;
-		GetClientRect(rcView2);
+		RECT rcView2;
+		GetClientRect(&rcView2);
 		if (pDoc->m_nAutoSize == AUTOSIZE_WIDTH && rcView.right > rcView2.right) {
 			m_sizeDraw.cx = rcView2.right;
 			m_sizeDraw.cy = nHeightDst;
@@ -145,9 +138,9 @@ BOOL CPictView::OnEraseBkgnd(CDC* pDC)
 	if (m_bIgnoreUpdate)
 		return TRUE;
 
-	CRect rect;
-	pDC->GetClipBox(rect);
-	pDC->FillRect(rect, &m_hBrushBkgnd);
+	RECT rect;
+	pDC->GetClipBox(&rect);
+	pDC->FillRect(&rect, &m_hBrushBkgnd);
 	return TRUE;
 }
 
@@ -176,8 +169,8 @@ void CPictView::OnMouseMove(UINT /*nFlags*/, CPoint point)
 	if (m_bScrollPicture) {
 		CPoint scrollPos = m_posPicture - point;
 
-		CRect rectView;
-		GetClientRect(rectView);
+		RECT rectView;
+		GetClientRect(&rectView);
 		if (rectView.right >= m_sizeDraw.cx)
 			scrollPos.x = 0;
 		if (rectView.bottom >= m_sizeDraw.cy)

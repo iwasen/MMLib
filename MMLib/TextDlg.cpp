@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "TextDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CTextDlg ダイアログ
 

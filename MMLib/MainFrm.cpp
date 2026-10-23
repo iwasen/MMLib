@@ -12,10 +12,6 @@
 #include "Regist.h"
 #include "VerRes.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMainFrame
 
@@ -73,7 +69,7 @@ CMainFrame::CMainFrame()
 CMainFrame::~CMainFrame()
 {
 	if (m_pTransMenu != NULL)
-		delete [] m_pTransMenu;
+		delete[] m_pTransMenu;
 }
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -597,7 +593,7 @@ void CMainFrame::RefreshTransMenu()
 	const int nMenuIcon = pWinApp->GetProfileInt(g_sSectionTransfer, "MenuIcon", 1);
 
 	if (m_pTransMenu != NULL)
-		delete [] m_pTransMenu;
+		delete[] m_pTransMenu;
 	m_pTransMenu = new TransMenu[m_nTransMenu];
 
 	for (int i = 0; i < m_nTransMenu; i++) {
@@ -688,8 +684,8 @@ LRESULT CMainFrame::OnEnterSizeMove(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_wndSplitter2.GetRowInfo(0, cyCur, cyMin);
 	m_nFixedHeight = cyCur;
 
-	CRect rect;
-	GetClientRect(rect);
+	RECT rect;
+	GetClientRect(&rect);
 	m_nClientHeight = rect.bottom;
 
 	return 0;

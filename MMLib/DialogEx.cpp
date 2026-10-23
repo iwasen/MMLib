@@ -4,10 +4,6 @@
 #include "stdafx.h"
 #include "DialogEx.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 // CDialogEx2 ダイアログ
 
 CDialogEx2::CDialogEx2(UINT nID, CWnd* pParent)
@@ -36,12 +32,13 @@ void CDialogEx2::SetCtlPosition(CWnd *pWnd, double fLeft, double fTop, double fR
 		return;
 
 	// 設定情報を構造体に設定
-	SDlgCtlPosition cDlgCtlPosition;
-	cDlgCtlPosition.hWnd = hWnd;
-	cDlgCtlPosition.fLeft = fLeft;
-	cDlgCtlPosition.fTop = fTop;
-	cDlgCtlPosition.fRight = fRight;
-	cDlgCtlPosition.fBottom = fBottom;
+	SDlgCtlPosition cDlgCtlPosition{
+		.hWnd = hWnd,
+		.fLeft = fLeft,
+		.fTop = fTop,
+		.fRight = fRight,
+		.fBottom = fBottom
+	};
 
 	// 現在のウィンドウ位置を取得
 	WINDOWPLACEMENT wp;
@@ -139,8 +136,8 @@ void CDialogEx2::SetMaximunControl(HWND hMaximunCtrl)
 {
 	m_hMaximunCtrl = hMaximunCtrl;
 
-	CRect rect;
-	GetClientRect(rect);
+	RECT rect;
+	GetClientRect(&rect);
 	RepositionControls(rect.right, rect.bottom);
 }
 

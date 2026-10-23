@@ -189,6 +189,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;AFX_RESOURCE_DLL;AFX_TARG_NEU;AFX_TARG_ENU;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -236,6 +237,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;AFX_RESOURCE_DLL;AFX_TARG_NEU;AFX_TARG_ENU;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -284,6 +286,7 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_NEU;AFX_TARG_ENU;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -333,6 +336,7 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_NEU;AFX_TARG_ENU;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -381,6 +385,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;_AFXDLL;AFX_RESOURCE_DLL;AFX_TARG_NEU;AFX_TARG_JPN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -428,6 +433,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;_AFXDLL;AFX_RESOURCE_DLL;AFX_TARG_NEU;AFX_TARG_JPN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -476,6 +482,7 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_AFXDLL;AFX_RESOURCE_DLL;AFX_TARG_NEU;AFX_TARG_JPN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -525,6 +532,7 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_AFXDLL;AFX_RESOURCE_DLL;AFX_TARG_NEU;AFX_TARG_JPN;%(PreprocessorDefinitions)</PreprocessorDefinitions>

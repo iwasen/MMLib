@@ -5,10 +5,6 @@
 #include "MMLib.h"
 #include "PictureWnd.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CPictureWnd
 
@@ -50,8 +46,8 @@ void CPictureWnd::DrawDIB(HDIB hDIB)
 	}
 
 	if (hDIB != NULL) {
-		CRect rect;
-		GetClientRect(rect);
+		RECT rect;
+		GetClientRect(&rect);
 
 		if ((m_hDIB = MakeSmallPicture(hDIB, rect.right, rect.bottom)) != NULL) {
 			short nColor;
@@ -66,8 +62,8 @@ void CPictureWnd::DrawDIB(HDIB hDIB)
 
 BOOL CPictureWnd::OnEraseBkgnd(CDC* pDC)
 {
-	CRect rect;
-	GetClientRect(rect);
-	pDC->FillRect(rect, &m_oBrushBkgnd);
+	RECT rect;
+	GetClientRect(&rect);
+	pDC->FillRect(&rect, &m_oBrushBkgnd);
 	return TRUE;
 }

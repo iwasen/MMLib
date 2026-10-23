@@ -9,10 +9,6 @@
 #include "MyOleData.h"
 #include "PrintDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 /////////////////////////////////////////////////////////////////////////////
 // CMMLibListView
 
@@ -164,20 +160,19 @@ void CMMLibListView::DrawLibrary(CItemRoot *pItem)
 	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
 	CListCtrl &listCtrl = GetListCtrl();
 	HTREEITEM hItem;
-	CItem *pItemChild;
 	CItemFolder *pItemFolder;
 	CItemPending *pItemPending;
 	CItemFind *pItemFind;
 	int i, j;
-	int nRow, column;
+	int column;
 	CString sStr;
 	LPCSTR p;
 
 	InsertColumns(DETAIL_LIBRARY);
 
-	nRow = 0;
+	int nRow = 0;
 	for (i = 0, hItem = g_pTreeCtrl->GetChildItem(pItem->m_hItem); hItem != NULL; i++, hItem = g_pTreeCtrl->GetNextSiblingItem(hItem)) {
-		pItemChild = (CItem *)g_pTreeCtrl->GetItemData(hItem);
+		CItem *pItemChild = (CItem *)g_pTreeCtrl->GetItemData(hItem);
 
 		switch (pItemChild->m_nItemType) {
 		case ITEM_FOLDER:
@@ -291,20 +286,19 @@ void CMMLibListView::DrawGroupFolder(CItem *pItem)
 	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
 	CListCtrl &listCtrl = GetListCtrl();
 	HTREEITEM hItem;
-	CItem *pItemChild;
 	CItemFolder *pItemFolder;
 	CItemFind *pItemFind;
 	int i, j;
-	int nRow, column;
+	int column;
 	CString sStr;
 	LPCSTR p;
 	int nDetailNo;
 
 	InsertColumns(DETAIL_FOLDER);
 
-	nRow = 0;
+	int nRow = 0;
 	for (i = 0, hItem = g_pTreeCtrl->GetChildItem(pItem->m_hItem); hItem != NULL; i++, hItem = g_pTreeCtrl->GetNextSiblingItem(hItem)) {
-		pItemChild = (CItem *)g_pTreeCtrl->GetItemData(hItem);
+		CItem *pItemChild = (CItem *)g_pTreeCtrl->GetItemData(hItem);
 		switch (pItemChild->m_nItemType) {
 		case ITEM_FOLDER:
 			pItemFolder = (CItemFolder *)pItemChild;
@@ -372,19 +366,18 @@ void CMMLibListView::DrawDataFolder(CItem *pItem)
 	CMMLibDoc *pDoc = (CMMLibDoc *)GetDocument();
 	CListCtrl &listCtrl = GetListCtrl();
 	HTREEITEM hItem;
-	CItem *pItemChild;
 	CItemFolder *pItemFolder;
 	CItemData *pItemData;
 	int i, j;
-	int nRow, column;
+	int column;
 	CString sStr;
 	LPCSTR p;
 
 	InsertColumns(DETAIL_DATA);
 
-	nRow = 0;
+	int nRow = 0;
 	for (i = 0, hItem = g_pTreeCtrl->GetChildItem(pItem->m_hItem); hItem != NULL; i++, hItem = g_pTreeCtrl->GetNextSiblingItem(hItem)) {
-		pItemChild = (CItem *)g_pTreeCtrl->GetItemData(hItem);
+		CItem *pItemChild = (CItem *)g_pTreeCtrl->GetItemData(hItem);
 
 		switch (pItemChild->m_nItemType) {
 		case ITEM_FOLDER:
@@ -487,7 +480,7 @@ void CMMLibListView::DrawDataFolder(CItem *pItem)
 
 void CMMLibListView::InsertColumns(int nDetailDisp)
 {
-	static constexpr UINT header[] = {
+	static constexpr UINT header[]{
 		IDS_NAME, IDS_CODE, IDS_CREATE_DATE, IDS_UPDATE_DATE, IDS_CREATOR,
 		IDS_REMARK, IDS_KEYWORD, IDS_SERVER_NAME, IDS_DIRECTORY, IDS_FIRST_DATA
 	};

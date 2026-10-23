@@ -6,10 +6,6 @@
 #include "MMLib.h"
 #include "PictFile.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 //////////////////////////////////////////////////////////////////////
 // \’z/Á–Å
 //////////////////////////////////////////////////////////////////////
@@ -46,7 +42,7 @@ void CPictFile::ReadIniFile()
 void CPictFile::FreeMem()
 {
 	if (m_pPict != NULL) {
-		delete [] m_pPict;
+		delete[] m_pPict;
 		m_pPict = NULL;
 	}
 
@@ -161,17 +157,13 @@ SHORT CPictFile::ConvertMMType1(LPCSTR pPict, int nSupportFile, long *pSize)
 
 SHORT CPictFile::ConvertMMType2(LPCSTR pPict, int nSupportFile, long *pSize)
 {
-	HDIB hDIB, hDIB2;
-	SHORT nWidth, nHeight, nColor;
-	SHORT nWidth2, nHeight2;
-	SHORT nMmType;
-	long nSize1, nSize2;
-
+	HDIB hDIB;
 	MMPictureReadMem(&hDIB, pPict, *pSize);
 
+	SHORT nWidth, nHeight, nColor;
 	MMPictureGetInfo(hDIB, &nWidth, &nHeight, &nColor);
-	nWidth2 = (SHORT)(nWidth * m_nScale / 100);
-	nHeight2 = (SHORT)(nHeight * m_nScale / 100);
+	SHORT nWidth2 = (SHORT)(nWidth * m_nScale / 100);
+	SHORT nHeight2 = (SHORT)(nHeight * m_nScale / 100);
 
 	if (m_nHLimit && nWidth2 > m_nHPixel) {
 		nHeight2 = (SHORT)(nHeight2 * m_nHPixel / nWidth2);
@@ -182,12 +174,15 @@ SHORT CPictFile::ConvertMMType2(LPCSTR pPict, int nSupportFile, long *pSize)
 		nHeight2 = (SHORT)m_nVPixel;
 	}
 
+	HDIB hDIB2;
 	if (nWidth != nWidth2 || nHeight != nHeight2) {
 		MMPictureCopy(hDIB, &hDIB2, nWidth2, nHeight2);
 		MMPictureFree(hDIB);
 		hDIB = hDIB2;
 	}
 
+	SHORT nMmType;
+	long nSize1, nSize2;
 	switch (nColor) {
 	case 1:
 		if ((nSupportFile & PICTFILE_FAX) && (nSupportFile & PICTFILE_PNG)) {
