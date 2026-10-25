@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="EngDeb" />
+    <BuildType Name="EngRel" />
+    <BuildType Name="JpnDeb" />
+    <BuildType Name="JpnRel" />
+    <Platform Name="Win32" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="CapDll/CapDll.vcxproj" Id="c1dc8eb7-d881-4a82-a0a9-8bae90ae2423" />
+  <Project Path="MMLib/MMLib.vcxproj" Id="6d9dadba-4a55-41e7-82be-a379f6d74e30" />
+  <Project Path="MMView/MMView.vcxproj" Id="c976135d-0f6f-44d5-98ec-20ef2e36c9c6" />
+  <Project Path="TwainDll/TWainDll.vcxproj" Id="785aa591-c27f-45b7-9f5c-947b37c87c30" />
+</Solution>
