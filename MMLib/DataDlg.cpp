@@ -378,7 +378,7 @@ void CDataDlg::GetPicture(int nMode)
 				hDIB = GetDIBFromBmp((HBITMAP)hMem);
 
 			if ((hMem = GetClipboardData(CF_TEXT)) != NULL) {
-				char *pText = (char *)::GlobalLock(hMem);
+				LPCSTR pText = (LPCSTR)::GlobalLock(hMem);
 				m_sTextData = pText;
 				m_bUpdateText = TRUE;
 				SetUpdateData();

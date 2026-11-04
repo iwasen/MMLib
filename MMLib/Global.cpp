@@ -97,7 +97,7 @@ BOOL CreateDirectoryAll(LPCSTR pDirPath)
 		else if (err == ERROR_PATH_NOT_FOUND) {
 			char buf[_MAX_PATH];
 			strcpy(buf, pDirPath);
-			char *p;
+			LPSTR p;
 			if ((p = strrchr(buf, '\\')) != NULL) {
 				*p = '\0';
 				if (CreateDirectoryAll(buf))
@@ -248,7 +248,7 @@ void MakeFilterString2(LPCSTR pKeyword, CString &sFolderFilter, CString &sDataFi
 	sDataFilter.Empty();
 
 	strcpy(buf, pKeyword);
-	char *token = strtok(buf, " ");
+	LPSTR token = strtok(buf, " ");
 	while(token != NULL) {
 		sStr.Empty();
 		MakeFilterSub(sStr, sOption, "FNAME", "=", token, FALSE);
@@ -709,7 +709,7 @@ void GetDefaultAccessLogDir(CString &sDir)
 	GetMmlibDir(sDir, "LOG");
 }
 
-static void GetFolder(int nFolder, TCHAR *pPath)
+static void GetFolder(int nFolder, LPSTR pPath)
 {
 	HRESULT	(CALLBACK* pfnSHGetFolderPath)(HWND, int, HANDLE, DWORD, LPSTR) = NULL;
 
@@ -1116,7 +1116,7 @@ CString IntToCommaSeparateString(int n)
 {
 	int i = 0;		// èëÇ´çûÇÒÇæåÖêî
 	CString sStr;
-	char *p = sStr.GetBuffer(100);
+	LPSTR p = sStr.GetBuffer(100);
 	unsigned int  u = abs(n);
 
 	do // while( 0 != u );

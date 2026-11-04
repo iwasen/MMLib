@@ -8,7 +8,6 @@
 
 BOOL CMyOleDataSource::OnRenderGlobalData(LPFORMATETC lpFormatEtc, HGLOBAL* phGlobal)
 {
-	DROPFILES *pDropFiles;
 	int nLength;
 	LPSTR pFileName;
 
@@ -24,12 +23,11 @@ BOOL CMyOleDataSource::OnRenderGlobalData(LPFORMATETC lpFormatEtc, HGLOBAL* phGl
 				return FALSE;
 
 			nLength = m_sTempFileName.GetLength();
-			if ((*phGlobal = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_DDESHARE,
-						sizeof(DROPFILES) + nLength + 1)) != NULL) {
-				pDropFiles = (DROPFILES *)::GlobalLock(*phGlobal);
+			if ((*phGlobal = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_DDESHARE, sizeof(DROPFILES) + nLength + 1)) != NULL) {
+				DROPFILES *pDropFiles = (DROPFILES *)::GlobalLock(*phGlobal);
 				pDropFiles->pFiles = sizeof(DROPFILES);
 				pDropFiles->fWide = FALSE;
-				pFileName = (char *)pDropFiles + sizeof(DROPFILES);
+				pFileName = (LPSTR)pDropFiles + sizeof(DROPFILES);
 				strcpy(pFileName, m_sTempFileName);
 				for (int i = 0; i < nLength; i++) {
 					if (pFileName[i] == ';')

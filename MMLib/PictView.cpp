@@ -36,9 +36,11 @@ void CPictView::OnInitialUpdate()
 {
 	CScrollView::OnInitialUpdate();
 
-	SIZE sizeTotal;
 	// TODO: このビュー全体のサイズを計算してください。
-	sizeTotal.cx = sizeTotal.cy = 100;
+	SIZE sizeTotal{
+		.cx = 100,
+		.cy = 100
+	};
 	SetScrollSizes(MM_TEXT, sizeTotal);
 }
 

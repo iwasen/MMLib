@@ -78,7 +78,6 @@ void CAccessLogDlg::InsertColumns()
 void CAccessLogDlg::SetListData()
 {
 	CPSDB &oAccessLog = g_pMMLibDB->m_oAccessLog;
-	BOOL bBof;
 	ACCESSLOGBUF oAccessLogBuf;
 	ACCESSLOGREC oAccessLogRec;
 	CString sCreateDate;
@@ -88,6 +87,7 @@ void CAccessLogDlg::SetListData()
 
 	int nItem = 0;
 	while (true) {
+		BOOL bBof;
 		oAccessLog.DBBof(&bBof);
 		if (bBof)
 			break;

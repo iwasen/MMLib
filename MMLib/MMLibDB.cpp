@@ -2111,7 +2111,7 @@ int CMMPcsDB::CacheBinary(LPCSTR pFieldName, CPSDB &oDB, CPSDB &oDB2)
 	if ((err = oDB.DBGetBinarySize(pFieldName, &nSize)) != 0)
 		return err;
 
-	char *pBuf = new char[nSize];
+	LPVOID pBuf = new char[nSize];
 
 	if ((err = oDB.DBReadBinary(pFieldName, pBuf, nSize, &nReadNum)) != 0) {
 		delete[] pBuf;
@@ -2382,7 +2382,7 @@ void CMMPcsDB::WriteCacheBinary(CPSDB &oDB, CPSDB &oDB2, LPCSTR pFieldName)
 	if (oDB2.DBGetBinarySize(pFieldName, &nSize) == 0) {
 		if (nSize != 0) {
 			long nReadNum;
-			char *pBuf = new char [nSize];
+			LPVOID pBuf = new char [nSize];
 			if (oDB2.DBReadBinary(pFieldName, pBuf, nSize, &nReadNum) == 0)
 				oDB.DBWriteBinary(pFieldName, pBuf, nReadNum);
 			delete[] pBuf;
@@ -2581,7 +2581,7 @@ int CMMPcsDB::CopyBinary(CPSDB &oSrcDB, CPSDB &oDstDB, LPCSTR pFieldName)
 	if ((err = oSrcDB.DBGetBinarySize(pFieldName, &nSize)) != 0)
 		return err;
 
-	char *pBuf = new char [nSize];
+	LPVOID pBuf = new char [nSize];
 	long readNum;
 
 	if ((err = oSrcDB.DBReadBinary(pFieldName, pBuf, nSize, &readNum)) != 0) {
@@ -3396,7 +3396,7 @@ static int CopyBinaryDB(CPSDB *pSrcDB, CPSDB *pDstDB, LPCSTR pFieldName)
 	if (nSize == 0)
 		return 0;
 
-	char *pBuf = new char[nSize];
+	LPVOID pBuf = new char[nSize];
 	long readNum;
 
 	if ((err = pSrcDB->DBReadBinary(pFieldName, pBuf, nSize, &readNum)) != 0) {

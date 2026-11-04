@@ -414,10 +414,10 @@ void CMMLibApp::CopyInifileToRegistory()
 	char sEntries[1024];
 
 	GetPrivateProfileSectionNames(sSections, sizeof(sSections), sIniFile);
-	for (char *pSection = sSections; *pSection != '\0'; pSection += strlen(pSection) + 1) {
+	for (LPSTR pSection = sSections; *pSection != '\0'; pSection += strlen(pSection) + 1) {
 		GetPrivateProfileSection(pSection, sEntries, sizeof(sEntries), sIniFile);
-		for (char *pEntry = sEntries; *pEntry != '\0'; pEntry += strlen(pEntry) + 1) {
-			char *pValue;
+		for (LPSTR pEntry = sEntries; *pEntry != '\0'; pEntry += strlen(pEntry) + 1) {
+			LPSTR pValue;
 			if ((pValue = strchr(pEntry, '=')) != NULL) {
 				*pValue++ = '\0';
 				if (strspn(pValue, "0123456789-") == strlen(pValue))

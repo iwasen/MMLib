@@ -122,7 +122,7 @@ void CDbArchive::WriteBinary(CPSDB &oPsDb, LPCSTR pFieldName)
 	long nSize;
 
 	if (oPsDb.DBGetBinarySize(pFieldName, &nSize) == 0 && nSize != 0) {
-		char *pBuf = new char[nSize];
+		LPVOID pBuf = new char[nSize];
 		oPsDb.DBReadBinary(pFieldName, pBuf, nSize, &nSize);
 		m_oFile.Write(&nSize, sizeof(UINT32));
 		m_oFile.Write(pBuf, nSize);
@@ -249,7 +249,7 @@ BOOL CDbArchive::ReadBinary(CPSDB &oPsDb, LPCSTR pFieldName)
 	m_oFile.Read(&len, sizeof(UINT32));
 
 	if (len != 0) {
-		char *pBuf = new char[len];
+		LPVOID pBuf = new char[len];
 		if (m_oFile.Read(pBuf, len) != len) {
 			delete[] pBuf;
 			return FALSE;

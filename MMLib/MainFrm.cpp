@@ -707,7 +707,7 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 LRESULT CMainFrame::OnMyCommand(WPARAM /*wParam*/, LPARAM lParam)
 {
 	HANDLE hMem = (HANDLE)lParam;
-	char *pMem = (char *)::GlobalLock(hMem);
+	LPCSTR pMem = (LPCSTR)::GlobalLock(hMem);
 	if (pMem != NULL) {
 		::AfxMessageBox(pMem);
 		::GlobalUnlock(hMem);

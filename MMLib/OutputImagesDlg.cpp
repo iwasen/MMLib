@@ -198,8 +198,8 @@ void COutputImagesDlg::OutputImage(const CString &sParentFolder, const DATAREC &
 	CheckFileName(sFileName);
 	CString sFilePath = sParentFolder + "\\" + sFileName;
 
-	SHORT	mmType;
-	PSDBReadBinary(m_pPcsDB->m_oDataDB.GetFCB(), PICT1_FIELD, (char *)&mmType, 2);
+	SHORT mmType;
+	PSDBReadBinary(m_pPcsDB->m_oDataDB.GetFCB(), PICT1_FIELD, (LPSTR)&mmType, 2);
 	if (mmType == MMTYPE_JPG || mmType == MMTYPE_PNG) {
 		MMDownloadFile(m_pPcsDB->m_oDataDB.GetFCB(), PICT1_FIELD, (LPSTR)(LPCSTR)sFilePath);
 	} else {
